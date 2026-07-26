@@ -1,0 +1,17 @@
+# OS junk
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+node_modules/
+.vscode/
+.idea/
+
+# Local working duplicates — index.html is the canonical, deployable app
+ipados-simulator.html
+osimulator.html
+
+# Superseded modular prototype (kept locally, not part of the shipped app)
+/js/
+/css/
+/assets/
