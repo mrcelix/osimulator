@@ -621,6 +621,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 @keyframes glowPulse{0%,100%{opacity:.7;transform:translateX(-50%) scale(1)}50%{opacity:1;transform:translateX(-50%) scale(1.09)}}
 .hero>*:not(.hero-glow){position:relative;z-index:1}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 15px;border-radius:100px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);color:#cfd0da;font-size:12.5px;font-weight:600;margin-bottom:26px}
+@media(max-width:480px){.hero-badge{flex-wrap:wrap;justify-content:center;text-align:center;max-width:88vw;gap:3px 7px;line-height:1.4;border-radius:16px}}
 .hero-badge .dot{width:7px;height:7px;border-radius:50%;background:#30d158;box-shadow:0 0 10px #30d158}
 .hero-badge b{color:#fff;font-weight:800}
 .hero .brand{font-size:clamp(48px,9vw,80px);line-height:.98}
@@ -646,7 +647,28 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .how-step p{margin:0;font-size:14px;line-height:1.5;color:#9c9caa}
 .features-sec{scroll-margin-top:74px;padding-top:62px;width:100%}
 .features-sec .sel-features{margin-top:26px}
-@media(max-width:760px){.nav-links{display:none}.nav-cta{display:none}.how-grid{grid-template-columns:1fr;max-width:420px}.nav-inner{gap:10px}}
+@media(max-width:760px){.nav-links{display:none}.nav-cta{display:none}.how-grid{grid-template-columns:1fr;max-width:420px}.nav-inner{gap:8px;padding:0 14px}.nav-burger{display:inline-flex}.nav-right{gap:8px}.nav-right .os-picker,.nav-right .lang-select,.nav-right .nav-share,.nav-right>.user-wrap,.nav-right>.nav-auth{display:none}}
+@media(max-width:430px){.nav-word{display:none}}
+/* mobile nav sheet */
+.nav-burger{display:inline-flex;width:40px;height:40px;border-radius:11px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);color:#e6e6ea;align-items:center;justify-content:center;flex:none}
+@media(min-width:761px){.nav-burger{display:none}}
+.nav-burger:hover{background:rgba(255,255,255,.14)}
+.nav-burger svg{width:22px;height:22px;fill:currentColor}
+body.light .nav-burger{background:rgba(0,0,0,.05);border-color:rgba(0,0,0,.12);color:#33333a}
+.mnav .sh-ic{font-weight:800;font-size:14px;color:#fff}
+.mnav-list,.mnav-foot{display:flex;flex-direction:column;gap:2px}
+.mnav-foot{margin-top:2px}
+.mnav-item{display:flex;align-items:center;gap:13px;width:100%;text-align:left;padding:13px 12px;border-radius:12px;color:#e9e9ee;font-size:16px;font-weight:600;background:transparent;border:none;cursor:pointer}
+.mnav-item svg{width:20px;height:20px;fill:currentColor;opacity:.85;flex:none}
+.mnav-item:hover,.mnav-item:active{background:rgba(255,255,255,.08)}
+.mnav-item.alt{font-weight:500;color:#c2c2cc}
+.mnav-foot .lang-select{width:100%;justify-content:flex-start;gap:13px;padding:12px;border-radius:12px;background:transparent;border:none;color:#c2c2cc}
+.mnav-foot .lang-select svg{width:20px;height:20px;opacity:.85}
+.mnav-foot .lang-select select{font-size:16px;flex:1;color:#c2c2cc}
+body.light .mnav-item{color:#26262c}
+body.light .mnav-item.alt,body.light .mnav-foot .lang-select,body.light .mnav-foot .lang-select select{color:#55555c}
+body.light .mnav-item:hover{background:rgba(0,0,0,.05)}
+.select-screen[dir="rtl"] .mnav-item,.guides-screen[dir="rtl"] .mnav-item{text-align:right}
 
 .sel-footer{max-width:1140px;margin:66px auto 0;padding:26px 22px 0;border-top:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column;align-items:center;gap:9px;text-align:center}
 .sel-footer .fbrand{font-weight:800;color:#e6e6ea;font-size:15px;letter-spacing:-.01em}
@@ -1002,9 +1024,9 @@ body.light .guides-hero p{color:#55555f}
 body.light .guide-tile{background:#fff;border-color:rgba(0,0,0,.09)}
 .guide-tile .gti{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;flex:none}
 .guide-tile .gti svg{width:22px;height:22px;fill:#fff}
-.guide-tile .gtx{flex:1;min-width:0}
-.guide-tile .gtt{font-size:15.5px;font-weight:700;margin:0 0 3px}
-.guide-tile .gtd{font-size:13px;color:#9a9aa6;line-height:1.4}
+.guide-tile .gtx{flex:1;min-width:0;display:flex;flex-direction:column}
+.guide-tile .gtt{display:block;font-size:15.5px;font-weight:700;margin:0 0 3px}
+.guide-tile .gtd{display:block;font-size:13px;color:#9a9aa6;line-height:1.4}
 body.light .guide-tile .gtd{color:#6a6a74}
 .select-screen[dir="rtl"] .guide-tile,.guides-screen[dir="rtl"] .guide-tile{text-align:right}
 
@@ -1287,6 +1309,7 @@ body.light .adm-menu-item input.ai{background:#fff;border-color:rgba(0,0,0,.14);
 body.light .adm-actions .ghost{background:#fff;border-color:rgba(0,0,0,.12);color:#26262c}
 .adm-gate{max-width:360px}
 @media(max-width:760px){.adm-tabs{width:56px}.adm-tab span{display:none}.adm-body{flex-direction:row}}
+@media(max-width:560px){.adm-top{gap:8px;padding:12px 14px}.adm-top .abrand .abw{display:none}.adm-top .atag{display:none}.adm-top .lang-select{padding:4px 7px}.adm-top .lang-select select{font-size:12px;max-width:74px}.adm-top .abtn{padding:0 10px;font-size:12px}.adm-cards{grid-template-columns:1fr}}
 
 /* ===== new frames: Linux / ChromeOS / Watch ===== */
 .stage.frame-linux{background:linear-gradient(160deg,#2c0b1e 0%,#5b2333 45%,#c0603a 100%)}
@@ -3746,6 +3769,7 @@ V;
   nr.appendChild(langSelect(renderSelect));
   nr.appendChild(el(`<button class="nav-cta" data-scroll="systems">${esc(t('navExplore'))}</button>`));
   nr.appendChild(buildAuthNav());
+  nr.appendChild(navBurger(()=>getNavMenu().filter(it=>it.vis!==false).filter(it=>{const p=it.act.split(':');return !(p[0]==='route'&&!featOn(p[1]));}).map(it=>({label:it.label||t(it.key||''),run:()=>doNav(it.act,go)})),renderSelect));
   updateThemeIcons();
   w.appendChild(nav);
   /* ---- hero ---- */
@@ -4554,6 +4578,22 @@ V;
  function txt(k){const m=UISTR[state.lang]||UISTR.en;return m[k]||UISTR.en[k]||k;}
 
  function closePanels(){document.querySelectorAll('.ovl').forEach(o=>o.remove());}
+ function openMobileMenu(links,reRender){
+  closePanels();
+  const o=el('<div class="ovl show"><div class="ovl-bg"></div></div>');document.body.appendChild(o);
+  o.querySelector('.ovl-bg').addEventListener('click',closePanels);
+  const sheet=el(`<div class="sheet mnav"><div class="sheet-hd"><span class="sh-ic" style="background:linear-gradient(135deg,#0a84ff,#5e5ce6)">os</span><div style="flex:1"><h3>osimulator</h3><div class="sub">${esc(t('browseAll'))}</div></div><button class="sheet-x" aria-label="Close">✕</button></div><div class="sheet-body"><div class="mnav-list"></div><div class="um-sep"></div><div class="mnav-foot"></div></div></div>`);
+  o.appendChild(sheet);
+  sheet.querySelector('.sheet-x').addEventListener('click',closePanels);
+  const list=sheet.querySelector('.mnav-list');
+  (links||[]).forEach(l=>{const b=el(`<button class="mnav-item">${l.icon?`<svg viewBox="0 0 24 24">${l.icon}</svg>`:''}<span>${esc(l.label)}</span></button>`);b.addEventListener('click',()=>{closePanels();l.run();});list.appendChild(b);});
+  const foot=sheet.querySelector('.mnav-foot');
+  const acc=el(`<button class="mnav-item alt"><svg viewBox="0 0 24 24">${ICN2.user}</svg><span>${USER?esc(t('account')):esc(t('signIn'))}</span></button>`);acc.addEventListener('click',()=>{closePanels();openAuth();});foot.appendChild(acc);
+  const th=el(`<button class="mnav-item alt"><svg viewBox="0 0 24 24">${ICN2.moon}</svg><span>${esc(t('toolTheme'))}</span></button>`);th.addEventListener('click',()=>{toggleTheme();});foot.appendChild(th);
+  const sh=el(`<button class="mnav-item alt"><svg viewBox="0 0 24 24">${SHARE_SVG}</svg><span>${esc(t('shareTitle'))}</span></button>`);sh.addEventListener('click',()=>{closePanels();shareSite();});foot.appendChild(sh);
+  const lg=langSelect(()=>{closePanels();if(reRender)reRender();});foot.appendChild(lg);
+ }
+ function navBurger(getLinks,reRender){const b=el(`<button class="nav-burger" aria-label="Menu"><svg viewBox="0 0 24 24"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg></button>`);b.addEventListener('click',e=>{e.stopPropagation();openMobileMenu(getLinks(),reRender);});return b;}
  function openPanel(kind){closePanels();const o=el(`<div class="ovl show"><div class="ovl-bg"></div></div>`);document.body.appendChild(o);o.querySelector('.ovl-bg').addEventListener('click',closePanels);
   let sheet;
   if(kind==='ai')sheet=aiSheet();else if(kind==='feedback')sheet=feedbackSheet();else if(kind==='tools')sheet=toolsSheet();else sheet=accountSheet();
@@ -5111,8 +5151,10 @@ V;
   const nr=nav.querySelector('.nav-right');
   const gsr=el(`<button class="nav-search" title="${esc(t('searchSettings'))}"><svg viewBox="0 0 24 24">${I.search}</svg></button>`);gsr.addEventListener('click',openSettingsSearch);nr.appendChild(gsr);
   const tb=el('<button class="nav-theme"></button>');tb.addEventListener('click',toggleTheme);nr.appendChild(tb);
-  nr.appendChild(langSelect(()=>{if(state.view==='guide')renderGuideArticle(state.guideSlug);else if(state.view==='comparison')renderComparison(state.cmpSlug);else if(state.view==='compare')renderComparePage();else renderGuidesPage();}));
+  const greRender=()=>{if(state.view==='guide')renderGuideArticle(state.guideSlug);else if(state.view==='comparison')renderComparison(state.cmpSlug);else if(state.view==='compare')renderComparePage();else if(state.view==='vs')renderVsPage('ios','android');else if(state.view==='quiz')renderQuizPage();else if(state.view==='embed')renderEmbedPage();else renderGuidesPage();};
+  nr.appendChild(langSelect(greRender));
   nr.appendChild(buildAuthNav());
+  nr.appendChild(navBurger(()=>{const gl=[{label:t('homeNav'),run:()=>{try{history.replaceState(null,'',guideBaseUrl());}catch(e){}renderSelect();}}];if(featOn('guides'))gl.push({label:t('guidesNav'),run:renderGuidesPage});if(featOn('compare'))gl.push({label:t('compareNav'),run:renderComparePage});if(featOn('vs'))gl.push({label:t('vsNav'),run:()=>renderVsPage('ios','android')});if(featOn('quiz'))gl.push({label:t('quizNav'),run:renderQuizPage});if(featOn('embed'))gl.push({label:t('embedNav'),run:()=>renderEmbedPage()});return gl;},greRender));
   nav.querySelectorAll('[data-ghome]').forEach(b=>b.addEventListener('click',()=>{try{history.replaceState(null,'',guideBaseUrl());}catch(e){}renderSelect();}));
   nav.querySelectorAll('[data-gall]').forEach(b=>b.addEventListener('click',renderGuidesPage));
   nav.querySelectorAll('[data-call]').forEach(b=>b.addEventListener('click',renderComparePage));
@@ -5537,14 +5579,15 @@ V;
   state.view='admin';root.innerHTML='';
   try{history.replaceState(null,'','#/admin');document.documentElement.lang=state.lang;}catch(e){}
   const tab=state.adminTab||'overview';
-  const w=el(`<div class="admin-screen" dir="${isRTL()?'rtl':'ltr'}"><div class="adm-top"><span class="abrand"><span class="mk">os</span>osimulator</span><span class="atag">Admin</span><span class="aspacer"></span></div><div class="adm-body"><nav class="adm-tabs"></nav><div class="adm-main"></div></div></div>`);
+  const w=el(`<div class="admin-screen" dir="${isRTL()?'rtl':'ltr'}"><div class="adm-top"><span class="abrand"><span class="mk">os</span><span class="abw">osimulator</span></span><span class="atag">Admin</span><span class="aspacer"></span></div><div class="adm-body"><nav class="adm-tabs"></nav><div class="adm-main"></div></div></div>`);
   const top=w.querySelector('.adm-top');
   const themeBtn=el('<button class="nav-theme"></button>');themeBtn.addEventListener('click',toggleTheme);top.appendChild(themeBtn);
   top.appendChild(langSelect(renderAdminPage));
   const vb=el(`<button class="abtn">${esc(AL('View site','Siteyi gör'))}</button>`);vb.addEventListener('click',()=>{try{history.replaceState(null,'',guideBaseUrl());}catch(e){}renderSelect();});top.appendChild(vb);
   const TABS=[['overview',AL('Overview','Genel bakış')],['analytics',AL('Analytics','Analitik')],['members',AL('Members','Üyeler')],['os',AL('Operating systems','İşletim sistemleri')],['features',AL('Site features','Site özellikleri')],['menu',AL('Header menu','Menü yönetimi')]];
+  const ADMICON={overview:'<path d="M3 3h8v8H3V3zm10 0h8v5h-8V3zM3 13h8v8H3v-8zm10 3h8v5h-8v-5z"/>',analytics:'<path d="M4 20V10h3v10H4zm6.5 0V4h3v16h-3zM17 20v-7h3v7h-3z"/>',members:'<path d="M8 11a3.5 3.5 0 100-7 3.5 3.5 0 000 7zm8 0a3 3 0 100-6 3 3 0 000 6zM2 19c0-2.7 3-4.3 6-4.3s6 1.6 6 4.3v1H2v-1zm14.2-3.9c2 .5 3.8 1.7 3.8 3.9v1h-4v-1c0-1.5-.7-2.7-1.8-3.6.7-.2 1.4-.3 2-.2z"/>',os:'<path d="M4 5h16a1 1 0 011 1v9a1 1 0 01-1 1h-6l1 3h2v2H7v-2h2l1-3H4a1 1 0 01-1-1V6a1 1 0 011-1zm1 2v7h14V7H5z"/>',features:'<path d="M12 2l2.1 5.3L20 8l-4 3.7 1.1 5.8L12 14.8 6.9 17.5 8 11.7 4 8l5.9-.7L12 2z"/>',menu:'<path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>'};
   const tabs=w.querySelector('.adm-tabs');
-  TABS.forEach(([k,lab])=>{const b=el(`<button class="adm-tab ${k===tab?'on':''}"><svg viewBox="0 0 24 24">${ICN2.tools}</svg><span>${esc(lab)}</span></button>`);b.addEventListener('click',()=>{state.adminTab=k;renderAdminPage();});tabs.appendChild(b);});
+  TABS.forEach(([k,lab])=>{const b=el(`<button class="adm-tab ${k===tab?'on':''}" title="${esc(lab)}"><svg viewBox="0 0 24 24">${ADMICON[k]||ICN2.tools}</svg><span>${esc(lab)}</span></button>`);b.addEventListener('click',()=>{state.adminTab=k;renderAdminPage();});tabs.appendChild(b);});
   root.appendChild(w);setTimeout(updateThemeIcons,0);
   const main=w.querySelector('.adm-main');
   ({overview:admOverview,analytics:admAnalytics,members:admMembers,os:admOS,features:admFeatures,menu:admMenu}[tab]||admOverview)(main);
