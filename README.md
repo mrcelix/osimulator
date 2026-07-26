@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  <a href="https://mrcelix.github.io/osimulator/">Live demo</a> ·
+  <a href="https://osimulator.com/">Live demo</a> ·
   <a href="#operating-systems">Operating systems</a> ·
   <a href="#features">Features</a> ·
   <a href="#running-locally">Run locally</a>
@@ -61,7 +61,7 @@ This repo is Pages-ready (`index.html` at the root, `.nojekyll` included):
 
 1. Repository **Settings → Pages**.
 2. **Source:** *Deploy from a branch* → **main** → **/ (root)**.
-3. Your site goes live at `https://mrcelix.github.io/osimulator/`.
+3. Your site goes live at `https://osimulator.com/`.
 
 ## Tech
 
