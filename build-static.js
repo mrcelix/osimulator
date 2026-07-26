@@ -111,10 +111,15 @@ function guidePage(g) {
   }).join('\n');
   const related = GUIDES.filter(x => x.group === g.group && x.slug !== g.slug).slice(0, 4)
     .map(x => `<a href="${SITE}/guides/${x.slug}.html">${esc(x.title.en)}</a>`).join('');
-  const jsonld = JSON.stringify({
-    '@context':'https://schema.org','@type':'HowTo','name':g.title.en,'description':g.intro.en,
-    'step': g.os.map(o => ({ '@type':'HowToStep','name':(OSN[o.os]||o.os),'text':(o.en||[]).join('. ') }))
-  });
+  const jsonld = JSON.stringify({ '@context':'https://schema.org','@graph':[
+    { '@type':'HowTo','name':g.title.en,'description':g.intro.en,
+      'step': g.os.map(o => ({ '@type':'HowToStep','name':(OSN[o.os]||o.os),'text':(o.en||[]).join('. ') })) },
+    { '@type':'Article','headline':g.title.en,'description':g.intro.en,'inLanguage':'en','author':{'@type':'Organization','name':'osimulator'},'publisher':{'@type':'Organization','name':'osimulator','logo':{'@type':'ImageObject','url':SITE+'/icon-512.png'}},'mainEntityOfPage':canonical },
+    { '@type':'BreadcrumbList','itemListElement':[
+      {'@type':'ListItem','position':1,'name':'Home','item':SITE+'/'},
+      {'@type':'ListItem','position':2,'name':'Guides','item':SITE+'/guides/'},
+      {'@type':'ListItem','position':3,'name':g.title.en,'item':canonical} ] }
+  ]});
   const body = `<div class="crumb"><a href="${SITE}/">Home</a> › <a href="${SITE}/#/guides">Guides</a> › ${esc(g.title.en)}</div>
 <h1>${esc(g.title.en)}</h1>
 <p class="intro">${esc(g.intro.en)}</p>
@@ -147,7 +152,13 @@ function comparePage(c) {
   const rows = c.rows.map(r => `<tr><td>${esc(r.topic.en)}</td><td>${esc(r.a.en)}</td><td>${esc(r.b.en)}</td></tr>`).join('');
   const related = COMPARES.filter(x => x.slug !== c.slug).slice(0, 4)
     .map(x => `<a href="${SITE}/compare/${x.slug}.html">${esc((OSN[x.a]||x.a))} vs ${esc((OSN[x.b]||x.b))}</a>`).join('');
-  const jsonld = JSON.stringify({ '@context':'https://schema.org','@type':'Article','headline':c.title.en,'description':c.intro.en,'author':{'@type':'Organization','name':'osimulator'},'publisher':{'@type':'Organization','name':'osimulator'} });
+  const jsonld = JSON.stringify({ '@context':'https://schema.org','@graph':[
+    { '@type':'Article','headline':c.title.en,'description':c.intro.en,'inLanguage':'en','author':{'@type':'Organization','name':'osimulator'},'publisher':{'@type':'Organization','name':'osimulator','logo':{'@type':'ImageObject','url':SITE+'/icon-512.png'}},'mainEntityOfPage':canonical },
+    { '@type':'BreadcrumbList','itemListElement':[
+      {'@type':'ListItem','position':1,'name':'Home','item':SITE+'/'},
+      {'@type':'ListItem','position':2,'name':'Compare','item':SITE+'/compare/'},
+      {'@type':'ListItem','position':3,'name':`${A} vs ${B}`,'item':canonical} ] }
+  ]});
   const body = `<div class="crumb"><a href="${SITE}/">Home</a> › <a href="${SITE}/#/compare">Compare</a> › ${esc(A)} vs ${esc(B)}</div>
 <h1>${esc(c.title.en)}</h1>
 <p class="intro">${esc(c.intro.en)}</p>
