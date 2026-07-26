@@ -908,6 +908,83 @@ body.light .msg.ai{background:#eceef3;color:#1c1c22}
 body.light .chat-input input,body.light .chat-sug{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.12);color:#111}
 body.light .saved-toast{background:#141418}
 
+
+/* ===== Record & Play (guides) ===== */
+.tb-btn.rec{color:#ff6b6b;font-weight:700}
+.tb-btn.rec.on{background:#ff3b30;color:#fff}
+.rec-bar{position:fixed;left:50%;bottom:20px;transform:translateX(-50%) translateY(140%);z-index:150;display:flex;align-items:center;gap:14px;background:rgba(20,20,26,.98);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:12px 16px;box-shadow:0 20px 50px rgba(0,0,0,.6);transition:transform .35s cubic-bezier(.2,.7,.2,1);max-width:92vw}
+.rec-bar.show{transform:translateX(-50%)}
+.rec-dot{width:11px;height:11px;border-radius:50%;background:#ff3b30;animation:recPulse 1.1s ease-in-out infinite;flex:none}
+@keyframes recPulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(255,59,48,.5)}50%{opacity:.6;box-shadow:0 0 0 6px rgba(255,59,48,0)}}
+.rec-info{font-size:13px;color:#e6e6ea;font-weight:600;white-space:nowrap}
+.rec-info b{color:#fff}
+.rec-info .hint{display:block;font-size:11px;color:#9a9aa6;font-weight:500;margin-top:1px;max-width:230px;white-space:normal}
+.rec-bar button{height:36px;padding:0 15px;border-radius:10px;font-size:13px;font-weight:700}
+.rec-fin{background:linear-gradient(135deg,#0a84ff,#5e5ce6);color:#fff}
+.rec-can{background:rgba(255,255,255,.08);color:#d0d0d8;border:1px solid rgba(255,255,255,.14)}
+.row.rec-pulse{animation:rowPulse .5s ease}
+@keyframes rowPulse{0%{background:rgba(10,132,255,.28)}100%{background:transparent}}
+
+/* highlight during playback */
+.row.guide-hl{position:relative;box-shadow:inset 0 0 0 2px #0a84ff, 0 0 0 3px rgba(10,132,255,.35);border-radius:10px;animation:hlPulse 1.4s ease-in-out infinite}
+@keyframes hlPulse{0%,100%{box-shadow:inset 0 0 0 2px #0a84ff,0 0 0 3px rgba(10,132,255,.28)}50%{box-shadow:inset 0 0 0 2px #4aa8ff,0 0 0 7px rgba(10,132,255,0)}}
+.side-row.guide-hl{box-shadow:inset 0 0 0 2px #0a84ff;border-radius:10px}
+
+/* coach bar (playback) */
+.coach{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:150;width:min(440px,92vw);background:rgba(18,18,24,.98);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.14);border-radius:18px;box-shadow:0 24px 60px rgba(0,0,0,.6);padding:16px 18px;color:#fff;animation:coachIn .3s cubic-bezier(.2,.7,.2,1)}
+@keyframes coachIn{from{opacity:0;transform:translateX(-50%) translateY(14px)}to{opacity:1;transform:translateX(-50%)}}
+.coach-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.coach-step{font-size:11.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#8b8bff}
+.coach-x{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.1);color:#c8c8d0;display:flex;align-items:center;justify-content:center;font-size:13px}
+.coach-note{font-size:15px;line-height:1.45;color:#f2f2f5;min-height:22px}
+.coach-target{font-size:12.5px;color:#9a9aa6;margin-top:5px}
+.coach-target b{color:#5cadff}
+.coach-prog{display:flex;gap:5px;margin:12px 0}
+.coach-prog span{flex:1;height:4px;border-radius:3px;background:rgba(255,255,255,.14)}
+.coach-prog span.done{background:#0a84ff}
+.coach-prog span.cur{background:#5e5ce6}
+.coach-btns{display:flex;gap:9px}
+.coach-btns button{flex:1;height:42px;border-radius:11px;font-size:14px;font-weight:700}
+.coach-next{background:linear-gradient(135deg,#0a84ff,#5e5ce6);color:#fff}
+.coach-prev{background:rgba(255,255,255,.08);color:#e6e6ea;border:1px solid rgba(255,255,255,.14);flex:0 0 92px}
+
+/* guide start / done / list cards reuse .auth-modal; extra bits */
+.guide-hero{text-align:center}
+.guide-hero .gmk{width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,#0a84ff,#5e5ce6);display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+.guide-hero .gmk svg{width:30px;height:30px;fill:#fff}
+.guide-meta{font-size:13px;color:#9a9aa6;margin:4px 0 2px}
+.guide-list{display:flex;flex-direction:column;gap:9px;margin-top:4px}
+.guide-card{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:13px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);text-align:left}
+.guide-card .gi{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,#0a84ff,#5e5ce6);display:flex;align-items:center;justify-content:center;flex:none}
+.guide-card .gi svg{width:19px;height:19px;fill:#fff}
+.guide-card .gt{flex:1;min-width:0}
+.guide-card .gt .n{font-size:14px;font-weight:700;color:#f2f2f5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.guide-card .gt .m{font-size:12px;color:#9a9aa6}
+.guide-card .ga{display:flex;gap:6px}
+.guide-card .ga button{width:32px;height:32px;border-radius:9px;background:rgba(255,255,255,.08);color:#d0d0d8;display:flex;align-items:center;justify-content:center}
+.guide-card .ga button svg{width:16px;height:16px;fill:currentColor}
+.guide-card .ga button.play{background:#0a84ff;color:#fff}
+.step-edit{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.step-edit .sn{width:24px;height:24px;border-radius:50%;background:rgba(10,132,255,.2);color:#5cadff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none;margin-top:6px}
+.step-edit .se-body{flex:1;min-width:0}
+.step-edit .se-tap{font-size:12.5px;color:#9a9aa6;margin-bottom:5px}.step-edit .se-tap b{color:#e6e6ea}
+.step-edit input{width:100%;height:38px;border-radius:9px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);color:#fff;padding:0 12px;font-size:13px;outline:none;font-family:inherit}
+.share-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:6px}
+.share-grid.full{grid-template-columns:1fr}
+.share-btn{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#e6e6ea;font-size:13.5px;font-weight:600;text-align:left}
+.share-btn:hover{background:rgba(255,255,255,.11)}
+.share-btn svg{width:18px;height:18px;fill:currentColor;flex:none}
+.share-link{display:flex;gap:8px;margin:2px 0 10px}
+.share-link input{flex:1;height:42px;border-radius:11px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);color:#c9c9d2;padding:0 12px;font-size:12.5px;outline:none;font-family:inherit}
+.share-link button{height:42px;padding:0 16px;border-radius:11px;background:linear-gradient(135deg,#0a84ff,#5e5ce6);color:#fff;font-weight:700;font-size:13px}
+.embed-box{width:100%;height:70px;border-radius:11px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);color:#c9c9d2;padding:10px 12px;font-size:11.5px;font-family:ui-monospace,monospace;outline:none;resize:none;margin-top:4px}
+/* light theme bits */
+body.light .rec-bar,body.light .coach,body.light .guide-card,body.light .step-edit input,body.light .share-btn,body.light .share-link input,body.light .embed-box{background:#fff;border-color:rgba(0,0,0,.1);color:#1c1c22}
+body.light .rec-info,body.light .coach-note{color:#1c1c22}
+body.light .guide-card .gt .n{color:#141418}
+body.light .share-btn{color:#33333a}
+body.light .step-edit input{color:#111}
+
 /* ===== new frames: Linux / ChromeOS / Watch ===== */
 .stage.frame-linux{background:linear-gradient(160deg,#2c0b1e 0%,#5b2333 45%,#c0603a 100%)}
 .stage.frame-chromeos{background:linear-gradient(160deg,#0a2a5a 0%,#1a63d0 55%,#8ab4f8 100%)}
@@ -1335,7 +1412,7 @@ const LANGS=[
  {code:'tr',label:'Türkçe',locale:'tr-TR'}
 ];
 const LANG={
- en:{stOS:"operating systems",stVer:"versions",stScreens:"settings screens",stLang:"languages",stOffline:"Offline",continueLast:"Continue where you left off",searchOS:"Search operating systems…",filAll:"All",filPhone:"Phone",filTablet:"Tablet",filDesktop:"Desktop",typ_phone:"Phone",typ_tablet:"Tablet",typ_desktop:"Desktop",typ_watch:"Watch",filWatch:"Watch",typ_tv:"TV",filTV:"TV",typ_car:"Car",filCar:"Car",typ_xr:"XR",filXR:"XR",typ_console:"Console",filConsole:"Console",latest:"latest",open:"Open",noResults:"No operating systems match your search.",featMenus:"Real menus you can navigate",featVersions:"Version-accurate differences",featTools:"Zoom · rotate · auto-fit",featAI:"Built-in OS AI assistant",featLang:"12 languages · RTL",featOffline:"100% offline single file",title:"OS Simulator",intro:"Pick an operating system, choose a version, and explore its menus as if you were on a real device. Apps don't run — the goal is to discover the interface and its settings.",footer:"For simulation only — not the real iOS, macOS, Windows or Android.",soon:"Coming soon",back:"Choose device",ttHome:"Home screen",ttRotate:"Rotate",ttZoomOut:"Zoom out",ttZoomIn:"Zoom in",fit:"Fit",auto:"Auto",autoFit:"Auto‑fit to screen size",reset:"Reset",toast:"Only Settings can be explored in this simulation.",langLabel:"Language",navSystems:"Systems",navHow:"How it works",navFeatures:"Features",navExplore:"Explore",tryRandom:"Surprise me",systemsTitle:"Choose an operating system",howTitle:"How it works",how1t:"Pick a device",how1d:"Phone, tablet, desktop, watch, TV, car, console or XR — 19 systems in all.",how2t:"Choose a version",how2d:"Each release renders its own menus, layout and wallpaper.",how3t:"Explore the menus",how3d:"Navigate the Settings app exactly like the real device.",featTitle:"What's inside",footRights:"Independent educational project. Not affiliated with Apple, Google, Microsoft or any OS vendor. All trademarks belong to their owners.",pickOS:"Open an OS",shareTitle:"Share osimulator",trending:"Trending",linkCopied:"Link copied to clipboard",browseAll:"Browse all systems",signIn:"Sign in",signUp:"Sign up",createAccount:"Create account",account:"Account",signOut:"Sign out",welcome:"Welcome",authSubtitle:"Sync your preferences across devices.",emailLabel:"Email",passwordLabel:"Password",nameLabel:"Full name",forgotPass:"Forgot password?",resetSent:"If that email exists, a reset link is on its way.",rememberMe:"Keep me signed in",orContinue:"or continue with email",googleContinue:"Continue with Google",appleContinue:"Continue with Apple",authTerms:"By continuing you agree to our Terms of Use and Privacy Policy.",noAccount:"Don’t have an account?",haveAccount:"Already have an account?",toolTheme:"Theme",toolShare:"Share",toolRandom:"Random OS",toolFullscreen:"Fullscreen",toolTop:"Back to top",toolShortcuts:"Shortcuts",toolsTitle:"Site tools",tools:"Tools",themeToggle:"Toggle light / dark",nlTitle:"Stay in the loop",nlDesc:"Get notified about new operating systems, versions and features. No spam, unsubscribe anytime.",nlPlaceholder:"Your email address",nlButton:"Subscribe",nlSuccess:"You’re subscribed! Thanks for joining.",nlInvalid:"Please enter a valid email address.",footProduct:"Product",footSystems:"Systems",footResources:"Resources",footFollow:"Follow",saveChanges:"Save changes",cookieText:"We only use local storage to remember your preferences — no tracking cookies.",cookieAccept:"Got it",shortcutsTitle:"Keyboard shortcuts",prefsSaved:"Preferences saved",defaultOsLabel:"Open this OS on start",askEach:"Ask each time"},
+ en:{stOS:"operating systems",stVer:"versions",stScreens:"settings screens",stLang:"languages",stOffline:"Offline",continueLast:"Continue where you left off",searchOS:"Search operating systems…",filAll:"All",filPhone:"Phone",filTablet:"Tablet",filDesktop:"Desktop",typ_phone:"Phone",typ_tablet:"Tablet",typ_desktop:"Desktop",typ_watch:"Watch",filWatch:"Watch",typ_tv:"TV",filTV:"TV",typ_car:"Car",filCar:"Car",typ_xr:"XR",filXR:"XR",typ_console:"Console",filConsole:"Console",latest:"latest",open:"Open",noResults:"No operating systems match your search.",featMenus:"Real menus you can navigate",featVersions:"Version-accurate differences",featTools:"Zoom · rotate · auto-fit",featAI:"Built-in OS AI assistant",featLang:"12 languages · RTL",featOffline:"100% offline single file",title:"OS Simulator",intro:"Pick an operating system, choose a version, and explore its menus as if you were on a real device. Apps don't run — the goal is to discover the interface and its settings.",footer:"For simulation only — not the real iOS, macOS, Windows or Android.",soon:"Coming soon",back:"Choose device",ttHome:"Home screen",ttRotate:"Rotate",ttZoomOut:"Zoom out",ttZoomIn:"Zoom in",fit:"Fit",auto:"Auto",autoFit:"Auto‑fit to screen size",reset:"Reset",toast:"Only Settings can be explored in this simulation.",langLabel:"Language",navSystems:"Systems",navHow:"How it works",navFeatures:"Features",navExplore:"Explore",tryRandom:"Surprise me",systemsTitle:"Choose an operating system",howTitle:"How it works",how1t:"Pick a device",how1d:"Phone, tablet, desktop, watch, TV, car, console or XR — 19 systems in all.",how2t:"Choose a version",how2d:"Each release renders its own menus, layout and wallpaper.",how3t:"Explore the menus",how3d:"Navigate the Settings app exactly like the real device.",featTitle:"What's inside",footRights:"Independent educational project. Not affiliated with Apple, Google, Microsoft or any OS vendor. All trademarks belong to their owners.",pickOS:"Open an OS",shareTitle:"Share osimulator",trending:"Trending",linkCopied:"Link copied to clipboard",browseAll:"Browse all systems",signIn:"Sign in",signUp:"Sign up",createAccount:"Create account",account:"Account",signOut:"Sign out",welcome:"Welcome",authSubtitle:"Sync your preferences across devices.",emailLabel:"Email",passwordLabel:"Password",nameLabel:"Full name",forgotPass:"Forgot password?",resetSent:"If that email exists, a reset link is on its way.",rememberMe:"Keep me signed in",orContinue:"or continue with email",googleContinue:"Continue with Google",appleContinue:"Continue with Apple",authTerms:"By continuing you agree to our Terms of Use and Privacy Policy.",noAccount:"Don’t have an account?",haveAccount:"Already have an account?",toolTheme:"Theme",toolShare:"Share",toolRandom:"Random OS",toolFullscreen:"Fullscreen",toolTop:"Back to top",toolShortcuts:"Shortcuts",toolsTitle:"Site tools",tools:"Tools",themeToggle:"Toggle light / dark",nlTitle:"Stay in the loop",nlDesc:"Get notified about new operating systems, versions and features. No spam, unsubscribe anytime.",nlPlaceholder:"Your email address",nlButton:"Subscribe",nlSuccess:"You’re subscribed! Thanks for joining.",nlInvalid:"Please enter a valid email address.",footProduct:"Product",footSystems:"Systems",footResources:"Resources",footFollow:"Follow",saveChanges:"Save changes",cookieText:"We only use local storage to remember your preferences — no tracking cookies.",cookieAccept:"Got it",shortcutsTitle:"Keyboard shortcuts",prefsSaved:"Preferences saved",defaultOsLabel:"Open this OS on start",askEach:"Ask each time",recTool:"Record & Play",recStart:"Record a guide",recRequiresLogin:"Sign in to record guides.",recBar:"Recording",recStepWord:"step",recSteps:"steps",recFinish:"Finish",recCancel:"Cancel",recEmpty:"Tap the settings rows to add steps.",guideSaveTitle:"Save your guide",guideTitleLabel:"Guide title",guideTitlePh:"e.g. How to add an eSIM",stepNotePh:"Describe this step (optional)",saveShare:"Save & share",guidePrev:"Back",guideNext:"Next",guideExit:"Exit",guideStartBtn:"Start guide",guideDoneTitle:"Guide complete!",guideDoneSub:"That is the whole walkthrough.",guideReplay:"Replay",myGuides:"My guides",noGuides:"You have no saved guides yet. Open any OS, tap Record and describe a task.",guideDelete:"Delete",guidePlayBtn:"Play",shareGuideTitle:"Share this guide",copyLink:"Copy link",embedCode:"Embed on a site",downloadGuide:"Download",tapHere:"Tap here",toggleHere:"Toggle this",openHere:"Open this",recTitleDefault:"My guide",guideSaved:"Guide saved",guideNavFail:"This step is not available in this version.",stepLabel:"Step",ofLabel:"of",guideIntro:"Follow along step by step. No account needed.",recStartedHint:"Now tap through the settings — each tap becomes a step."},
  tr:{title:"OS Simülatörü",intro:"Bir işletim sistemi seç, sürümünü belirle ve sanki gerçek bir cihazdaymış gibi menülerde gez. Uygulamalar çalışmaz — amaç arayüzü ve ayarları keşfetmek.",footer:"Yalnızca simülasyon amaçlıdır — gerçek iOS, macOS, Windows veya Android değildir.",soon:"Yakında",back:"Cihaz seç",ttHome:"Ana ekran",ttRotate:"Döndür",ttZoomOut:"Uzaklaştır",ttZoomIn:"Yakınlaştır",fit:"Sığdır",reset:"Sıfırla",toast:"Bu simülasyonda yalnızca Ayarlar gezilebilir.",langLabel:"Dil"},
  es:{title:"Simulador de SO",intro:"Elige un sistema operativo, selecciona una versión y explora sus menús como si estuvieras en un dispositivo real. Las apps no funcionan: el objetivo es descubrir la interfaz y sus ajustes.",footer:"Solo para simulación: no es el iOS, macOS, Windows o Android real.",soon:"Próximamente",back:"Elegir dispositivo",ttHome:"Pantalla de inicio",ttRotate:"Girar",ttZoomOut:"Alejar",ttZoomIn:"Acercar",fit:"Ajustar",reset:"Restablecer",toast:"En esta simulación solo se pueden explorar los Ajustes.",langLabel:"Idioma"},
  fr:{title:"Simulateur d'OS",intro:"Choisissez un système d'exploitation, une version et explorez ses menus comme sur un vrai appareil. Les apps ne fonctionnent pas : le but est de découvrir l'interface et ses réglages.",footer:"Simulation uniquement — ce n'est pas le vrai iOS, macOS, Windows ou Android.",soon:"Bientôt disponible",back:"Choisir l'appareil",ttHome:"Écran d'accueil",ttRotate:"Pivoter",ttZoomOut:"Dézoomer",ttZoomIn:"Zoomer",fit:"Ajuster",reset:"Réinitialiser",toast:"Dans cette simulation, seuls les Réglages sont navigables.",langLabel:"Langue"},
@@ -1352,7 +1429,7 @@ const LANG={
 const DEVLBL={en:'Device language',tr:'Cihaz dili',es:'Idioma del dispositivo',fr:"Langue de l'appareil",de:'Gerätesprache',pt:'Idioma do dispositivo',it:'Lingua del dispositivo',ru:'Язык устройства',ar:'لغة الجهاز',zh:'设备语言',ja:'デバイスの言語',hi:'डिवाइस भाषा'};
 /* DEVICE UI dictionary — translates common OS strings; unknown strings fall back to English (the device's default). */
 const DSTR={
- tr:{stOS:'işletim sistemi',stVer:'sürüm',stScreens:'ayar ekranı',stLang:'dil',stOffline:'Çevrimdışı',continueLast:'Kaldığın yerden devam et',searchOS:'İşletim sistemi ara…',filAll:'Tümü',filPhone:'Telefon',filTablet:'Tablet',filDesktop:'Masaüstü',typ_phone:'Telefon',typ_tablet:'Tablet',typ_desktop:'Masaüstü',typ_watch:'Saat',filWatch:'Saat',typ_tv:'TV',filTV:'TV',typ_car:'Araç',filCar:'Araç',typ_xr:'XR',filXR:'XR',typ_console:'Konsol',filConsole:'Konsol',latest:'en yeni',open:'Aç',noResults:'Aramanla eşleşen işletim sistemi yok.',featMenus:'Gezilebilir gerçek menüler',featVersions:'Sürüme özgü farklar',featTools:'Yakınlaştır · döndür · otomatik sığdır',featAI:'Dahili OS AI asistanı',featLang:'12 dil · RTL',featOffline:'%100 çevrimdışı tek dosya',Settings:'Ayarlar',Search:'Ara','Find a setting':'Ayar ara',On:'Açık',Off:'Kapalı',Connected:'Bağlı','Not Connected':'Bağlı değil',Photos:'Fotoğraflar',Messages:'Mesajlar',Calendar:'Takvim',Notes:'Notlar',Maps:'Harita',Music:'Müzik',Files:'Dosyalar',Health:'Sağlık',Mail:'Mail',Clock:'Saat','Airplane Mode':'Uçak Modu',Notifications:'Bildirimler',Sounds:'Sesler',Focus:'Odak','Screen Time':'Ekran Süresi',General:'Genel','Control Center':'Denetim Merkezi','Display & Brightness':'Ekran ve Parlaklık',Accessibility:'Erişilebilirlik',Wallpaper:'Duvar Kâğıdı','Privacy & Security':'Gizlilik ve Güvenlik',Contacts:'Kişiler',Reminders:'Anımsatıcılar',About:'Hakkında','Software Update':'Yazılım Güncelleme',Storage:'Depolama',Network:'Ağ',Battery:'Pil',Appearance:'Görünüm',Displays:'Ekranlar',Keyboard:'Klavye',System:'Sistem',Apps:'Uygulamalar',Accounts:'Hesaplar',Gaming:'Oyun',Personalization:'Kişiselleştirme',Display:'Ekran',navSystems:'Sistemler',navHow:'Nasıl çalışır',navFeatures:'Özellikler',navExplore:'Keşfet',tryRandom:'Rastgele dene',systemsTitle:'Bir işletim sistemi seç',howTitle:'Nasıl çalışır',how1t:'Cihazını seç',how1d:'Telefon, tablet, masaüstü, saat, TV, araç, konsol veya XR — toplam 19 sistem.',how2t:'Sürümü belirle',how2d:'Her sürüm kendi menülerini, düzenini ve duvar kâğıdını gösterir.',how3t:'Menülerde gez',how3d:'Ayarlar uygulamasında tıpkı gerçek cihazdaki gibi dolaş.',featTitle:'Neler var',footRights:'Bağımsız bir eğitim projesidir. Apple, Google, Microsoft veya herhangi bir OS üreticisiyle bağlantılı değildir. Tüm ticari markalar sahiplerine aittir.',pickOS:'Bir OS aç',shareTitle:'osimulator’ı paylaş',trending:'Popüler',linkCopied:'Bağlantı panoya kopyalandı',browseAll:'Tüm sistemlere göz at',signIn:'Giriş Yap',signUp:'Üye Ol',createAccount:'Hesap oluştur',account:'Hesap',signOut:'Çıkış yap',welcome:'Hoş geldin',authSubtitle:'Tercihlerini tüm cihazlarında eşitle.',emailLabel:'E-posta',passwordLabel:'Parola',nameLabel:'Ad Soyad',forgotPass:'Parolanı mı unuttun?',resetSent:'E-posta kayıtlıysa sıfırlama bağlantısı yolda.',rememberMe:'Oturumumu açık tut',orContinue:'veya e-posta ile devam et',googleContinue:'Google ile devam et',appleContinue:'Apple ile devam et',authTerms:'Devam ederek Kullanım Şartları ve Gizlilik Politikası’nı kabul edersin.',noAccount:'Hesabın yok mu?',haveAccount:'Zaten hesabın var mı?',toolTheme:'Tema',toolShare:'Paylaş',toolRandom:'Rastgele OS',toolFullscreen:'Tam ekran',toolTop:'Başa dön',toolShortcuts:'Kısayollar',toolsTitle:'Site araçları',tools:'Araçlar',themeToggle:'Açık / Koyu tema',nlTitle:'Gelişmelerden haberdar ol',nlDesc:'Yeni işletim sistemleri, sürümler ve özelliklerden ilk sen haberdar ol. Spam yok, istediğin an çıkabilirsin.',nlPlaceholder:'E-posta adresin',nlButton:'Kayıt ol',nlSuccess:'Kaydın alındı! Katıldığın için teşekkürler.',nlInvalid:'Lütfen geçerli bir e-posta adresi gir.',footProduct:'Ürün',footSystems:'Sistemler',footResources:'Kaynaklar',footFollow:'Takip et',saveChanges:'Değişiklikleri kaydet',cookieText:'Yalnızca tercihlerini hatırlamak için yerel depolama kullanıyoruz — takip çerezi yok.',cookieAccept:'Anladım',shortcutsTitle:'Klavye kısayolları',prefsSaved:'Tercihler kaydedildi',defaultOsLabel:'Açılışta bu OS açılsın',askEach:'Her seferinde sor'},
+ tr:{stOS:'işletim sistemi',stVer:'sürüm',stScreens:'ayar ekranı',stLang:'dil',stOffline:'Çevrimdışı',continueLast:'Kaldığın yerden devam et',searchOS:'İşletim sistemi ara…',filAll:'Tümü',filPhone:'Telefon',filTablet:'Tablet',filDesktop:'Masaüstü',typ_phone:'Telefon',typ_tablet:'Tablet',typ_desktop:'Masaüstü',typ_watch:'Saat',filWatch:'Saat',typ_tv:'TV',filTV:'TV',typ_car:'Araç',filCar:'Araç',typ_xr:'XR',filXR:'XR',typ_console:'Konsol',filConsole:'Konsol',latest:'en yeni',open:'Aç',noResults:'Aramanla eşleşen işletim sistemi yok.',featMenus:'Gezilebilir gerçek menüler',featVersions:'Sürüme özgü farklar',featTools:'Yakınlaştır · döndür · otomatik sığdır',featAI:'Dahili OS AI asistanı',featLang:'12 dil · RTL',featOffline:'%100 çevrimdışı tek dosya',Settings:'Ayarlar',Search:'Ara','Find a setting':'Ayar ara',On:'Açık',Off:'Kapalı',Connected:'Bağlı','Not Connected':'Bağlı değil',Photos:'Fotoğraflar',Messages:'Mesajlar',Calendar:'Takvim',Notes:'Notlar',Maps:'Harita',Music:'Müzik',Files:'Dosyalar',Health:'Sağlık',Mail:'Mail',Clock:'Saat','Airplane Mode':'Uçak Modu',Notifications:'Bildirimler',Sounds:'Sesler',Focus:'Odak','Screen Time':'Ekran Süresi',General:'Genel','Control Center':'Denetim Merkezi','Display & Brightness':'Ekran ve Parlaklık',Accessibility:'Erişilebilirlik',Wallpaper:'Duvar Kâğıdı','Privacy & Security':'Gizlilik ve Güvenlik',Contacts:'Kişiler',Reminders:'Anımsatıcılar',About:'Hakkında','Software Update':'Yazılım Güncelleme',Storage:'Depolama',Network:'Ağ',Battery:'Pil',Appearance:'Görünüm',Displays:'Ekranlar',Keyboard:'Klavye',System:'Sistem',Apps:'Uygulamalar',Accounts:'Hesaplar',Gaming:'Oyun',Personalization:'Kişiselleştirme',Display:'Ekran',navSystems:'Sistemler',navHow:'Nasıl çalışır',navFeatures:'Özellikler',navExplore:'Keşfet',tryRandom:'Rastgele dene',systemsTitle:'Bir işletim sistemi seç',howTitle:'Nasıl çalışır',how1t:'Cihazını seç',how1d:'Telefon, tablet, masaüstü, saat, TV, araç, konsol veya XR — toplam 19 sistem.',how2t:'Sürümü belirle',how2d:'Her sürüm kendi menülerini, düzenini ve duvar kâğıdını gösterir.',how3t:'Menülerde gez',how3d:'Ayarlar uygulamasında tıpkı gerçek cihazdaki gibi dolaş.',featTitle:'Neler var',footRights:'Bağımsız bir eğitim projesidir. Apple, Google, Microsoft veya herhangi bir OS üreticisiyle bağlantılı değildir. Tüm ticari markalar sahiplerine aittir.',pickOS:'Bir OS aç',shareTitle:'osimulator’ı paylaş',trending:'Popüler',linkCopied:'Bağlantı panoya kopyalandı',browseAll:'Tüm sistemlere göz at',signIn:'Giriş Yap',signUp:'Üye Ol',createAccount:'Hesap oluştur',account:'Hesap',signOut:'Çıkış yap',welcome:'Hoş geldin',authSubtitle:'Tercihlerini tüm cihazlarında eşitle.',emailLabel:'E-posta',passwordLabel:'Parola',nameLabel:'Ad Soyad',forgotPass:'Parolanı mı unuttun?',resetSent:'E-posta kayıtlıysa sıfırlama bağlantısı yolda.',rememberMe:'Oturumumu açık tut',orContinue:'veya e-posta ile devam et',googleContinue:'Google ile devam et',appleContinue:'Apple ile devam et',authTerms:'Devam ederek Kullanım Şartları ve Gizlilik Politikası’nı kabul edersin.',noAccount:'Hesabın yok mu?',haveAccount:'Zaten hesabın var mı?',toolTheme:'Tema',toolShare:'Paylaş',toolRandom:'Rastgele OS',toolFullscreen:'Tam ekran',toolTop:'Başa dön',toolShortcuts:'Kısayollar',toolsTitle:'Site araçları',tools:'Araçlar',themeToggle:'Açık / Koyu tema',nlTitle:'Gelişmelerden haberdar ol',nlDesc:'Yeni işletim sistemleri, sürümler ve özelliklerden ilk sen haberdar ol. Spam yok, istediğin an çıkabilirsin.',nlPlaceholder:'E-posta adresin',nlButton:'Kayıt ol',nlSuccess:'Kaydın alındı! Katıldığın için teşekkürler.',nlInvalid:'Lütfen geçerli bir e-posta adresi gir.',footProduct:'Ürün',footSystems:'Sistemler',footResources:'Kaynaklar',footFollow:'Takip et',saveChanges:'Değişiklikleri kaydet',cookieText:'Yalnızca tercihlerini hatırlamak için yerel depolama kullanıyoruz — takip çerezi yok.',cookieAccept:'Anladım',shortcutsTitle:'Klavye kısayolları',prefsSaved:'Tercihler kaydedildi',defaultOsLabel:'Açılışta bu OS açılsın',askEach:'Her seferinde sor',recTool:'Kaydet & Oynat',recStart:'Rehber kaydet',recRequiresLogin:'Rehber kaydetmek için giriş yapmalısın.',recBar:'Kaydediliyor',recStepWord:'adım',recSteps:'adım',recFinish:'Bitir',recCancel:'İptal',recEmpty:'Adım eklemek için ayar satırlarına dokun.',guideSaveTitle:'Rehberini kaydet',guideTitleLabel:'Rehber başlığı',guideTitlePh:'örn. eSIM nasıl eklenir',stepNotePh:'Bu adımı açıkla (isteğe bağlı)',saveShare:'Kaydet ve paylaş',guidePrev:'Geri',guideNext:'İleri',guideExit:'Çık',guideStartBtn:'Rehberi başlat',guideDoneTitle:'Rehber tamamlandı!',guideDoneSub:'Anlatımın tamamı bu kadar.',guideReplay:'Tekrar oynat',myGuides:'Rehberlerim',noGuides:'Henüz kayıtlı rehberin yok. Bir OS aç, Kaydet’e dokun ve bir işi anlat.',guideDelete:'Sil',guidePlayBtn:'Oynat',shareGuideTitle:'Bu rehberi paylaş',copyLink:'Bağlantıyı kopyala',embedCode:'Siteye göm',downloadGuide:'İndir',tapHere:'Buraya dokun',toggleHere:'Bunu aç/kapat',openHere:'Bunu aç',recTitleDefault:'Rehberim',guideSaved:'Rehber kaydedildi',guideNavFail:'Bu adım bu sürümde bulunmuyor.',stepLabel:'Adım',ofLabel:'/',guideIntro:'Adım adım takip et. Hesap gerekmez.',recStartedHint:'Şimdi ayarlarda gez — her dokunuş bir adım olur.'},
  es:{Settings:'Ajustes',Search:'Buscar','Find a setting':'Buscar un ajuste',On:'Activado',Off:'Desactivado',Connected:'Conectado','Not Connected':'No conectado',Photos:'Fotos',Messages:'Mensajes',Calendar:'Calendario',Notes:'Notas',Maps:'Mapas',Music:'Música',Files:'Archivos',Health:'Salud',Mail:'Mail',Clock:'Reloj','Airplane Mode':'Modo Avión',Notifications:'Notificaciones',Sounds:'Sonidos',Focus:'Concentración','Screen Time':'Tiempo de uso',General:'General','Control Center':'Centro de control','Display & Brightness':'Pantalla y brillo',Accessibility:'Accesibilidad',Wallpaper:'Fondo de pantalla','Privacy & Security':'Privacidad y seguridad',Contacts:'Contactos',Reminders:'Recordatorios',About:'Información','Software Update':'Actualización de software',Storage:'Almacenamiento',Network:'Red',Battery:'Batería',Appearance:'Apariencia',Displays:'Pantallas',Keyboard:'Teclado',System:'Sistema',Apps:'Aplicaciones',Accounts:'Cuentas',Gaming:'Juegos',Personalization:'Personalización',Display:'Pantalla'},
  fr:{Settings:'Réglages',Search:'Rechercher','Find a setting':'Rechercher un réglage',On:'Activé',Off:'Désactivé',Connected:'Connecté','Not Connected':'Non connecté',Photos:'Photos',Messages:'Messages',Calendar:'Calendrier',Notes:'Notes',Maps:'Plans',Music:'Musique',Files:'Fichiers',Health:'Santé',Mail:'Mail',Clock:'Horloge','Airplane Mode':'Mode Avion',Notifications:'Notifications',Sounds:'Sons',Focus:'Concentration','Screen Time':"Temps d'écran",General:'Général','Control Center':'Centre de contrôle','Display & Brightness':'Luminosité et affichage',Accessibility:'Accessibilité',Wallpaper:"Fond d'écran",'Privacy & Security':'Confidentialité et sécurité',Contacts:'Contacts',Reminders:'Rappels',About:'Informations','Software Update':'Mise à jour logicielle',Storage:'Stockage',Network:'Réseau',Battery:'Batterie',Appearance:'Apparence',Displays:'Moniteurs',Keyboard:'Clavier',System:'Système',Apps:'Applications',Accounts:'Comptes',Gaming:'Jeux',Personalization:'Personnalisation',Display:'Affichage'},
  de:{Settings:'Einstellungen',Search:'Suchen','Find a setting':'Einstellung suchen',On:'Ein',Off:'Aus',Connected:'Verbunden','Not Connected':'Nicht verbunden',Photos:'Fotos',Messages:'Nachrichten',Calendar:'Kalender',Notes:'Notizen',Maps:'Karten',Music:'Musik',Files:'Dateien',Health:'Health',Mail:'Mail',Clock:'Uhr','Airplane Mode':'Flugmodus',Notifications:'Mitteilungen',Sounds:'Töne',Focus:'Fokus','Screen Time':'Bildschirmzeit',General:'Allgemein','Control Center':'Kontrollzentrum','Display & Brightness':'Anzeige & Helligkeit',Accessibility:'Bedienungshilfen',Wallpaper:'Hintergrundbild','Privacy & Security':'Datenschutz & Sicherheit',Contacts:'Kontakte',Reminders:'Erinnerungen',About:'Info','Software Update':'Softwareupdate',Storage:'Speicher',Network:'Netzwerk',Battery:'Batterie',Appearance:'Darstellung',Displays:'Displays',Keyboard:'Tastatur',System:'System',Apps:'Apps',Accounts:'Konten',Gaming:'Spiele',Personalization:'Personalisierung',Display:'Anzeige'},
@@ -3453,7 +3530,7 @@ V;
   w.addEventListener('click',()=>{document.querySelectorAll('.os-picker.open').forEach(o=>o.classList.remove('open'));document.querySelectorAll('.user-wrap.open').forEach(o=>o.classList.remove('open'));});
  }
 
- function boot(pid,v){try{store.set('lastOpened',{pid,ver:v});}catch(e){}state.platform=PLATFORMS.find(p=>p.id===pid);state.version=v;state.view=(['mac','win','linux','chromeos','winclassic','macclassic'].includes(state.platform.frame))?'desktop':'home';state.selectedId=null;state.stack=[];state.zoom=1;state.rotated=false;state.prefs={};state.filter='';state.winOpen=false;state.startOpen=false;state.deviceLang=state.lang;renderDevice();}
+ function boot(pid,v){try{store.set('lastOpened',{pid,ver:v});}catch(e){}state.platform=PLATFORMS.find(p=>p.id===pid);state.version=v;state.view=(['mac','win','linux','chromeos','winclassic','macclassic'].includes(state.platform.frame))?'desktop':'home';state.selectedId=null;state.stack=[];state.zoom=1;state.rotated=false;state.prefs={};state.filter='';state.winOpen=false;state.startOpen=false;state.deviceLang=state.lang;renderDevice();syncHash();}
  /* ---------- version-aware layer ---------- */
  function verMajor(){const m=(state.version||'').match(/\d+/);return m?+m[0]:0;}
  const WALLS={
@@ -3496,6 +3573,7 @@ V;
     <button class="tb-btn wide back-to-select">‹ ${esc(t('back'))}</button>
     <span class="tb-title">${esc(state.platform.name)} ${esc(state.version)}</span>
     <span class="tb-spacer"></span>
+    <div class="tb-group"><button class="tb-btn rec" data-act="record" title="${esc(t('recTool'))}">● ${esc(t('recStart'))}</button></div>
     ${navGroup}
     <div class="tb-group">
       <button class="tb-btn" data-act="zoomout" title="${esc(t('ttZoomOut'))}">−</button>
@@ -3509,11 +3587,12 @@ V;
     </div>
   </div>`);
   tb.appendChild(deviceLangSelect());
-  tb.querySelector('.back-to-select').addEventListener('click',renderSelect);
+  tb.querySelector('.back-to-select').addEventListener('click',()=>{try{history.replaceState(null,'',guideBaseUrl());}catch(e){}clearPlay();renderSelect();});
   tb.querySelectorAll('[data-act]').forEach(b=>b.addEventListener('click',()=>action(b.dataset.act)));
   return tb;
  }
  function action(a){
+  if(a==='record'){startRecording();return;}
   if(a==='home'){state.view='home';renderDevice();return;}
   if(a==='rotate'){state.rotated=!state.rotated;renderDevice();return;}
   if(a==='zoomin'){state.autoFit=false;state.zoom=Math.min(2,state.zoom+0.1);applyZoom();syncTbAuto();return;}
@@ -4034,7 +4113,7 @@ V;
   applyFilter(side);
   const cur=list.querySelector(`.side-row[data-id="${state.selectedId}"]`);if(cur)cur.classList.add('active');
  }
- function selectSidebar(id,detail,list,row){state.selectedId=id;state.stack=[detail];list.querySelectorAll('.side-row').forEach(r=>r.classList.remove('active'));row.classList.add('active');renderDetailPane(document.querySelector('.detail'));}
+ function selectSidebar(id,detail,list,row){state.selectedId=id;state.stack=[detail];list.querySelectorAll('.side-row').forEach(r=>r.classList.remove('active'));row.classList.add('active');renderDetailPane(document.querySelector('.detail'));syncHash();}
  function applyFilter(side){const f=state.filter.trim().toLowerCase();side.querySelectorAll('.side-row[data-label]').forEach(r=>{const m=r.dataset.label.toLowerCase().includes(f);r.classList.toggle('hide',!!f&&!m);});}
 
  function prefKey(k){return k;}
@@ -4296,11 +4375,12 @@ V;
  function buildAuthNav(){
   if(USER){
    const first=(USER.name||'').split(' ')[0];
-   const wrap=el(`<div class="user-wrap"><button class="nav-auth" aria-haspopup="true"><span class="av">${esc(initials(USER.name))}</span><span class="uname">${esc(first)}</span></button><div class="user-menu"><div class="um-head"><span class="av">${esc(initials(USER.name))}</span><div><div class="um-nm">${esc(USER.name)}</div><div class="um-em">${esc(USER.email)}</div></div></div><button class="um-item" data-um="account"><svg viewBox="0 0 24 24">${I.personcircle}</svg>${esc(t('account'))}</button><button class="um-item" data-um="theme"><svg viewBox="0 0 24 24">${ICN2.moon}</svg>${esc(t('toolTheme'))}</button><div class="um-sep"></div><button class="um-item" data-um="out"><svg viewBox="0 0 24 24">${ICN2.logout}</svg>${esc(t('signOut'))}</button></div></div>`);
+   const wrap=el(`<div class="user-wrap"><button class="nav-auth" aria-haspopup="true"><span class="av">${esc(initials(USER.name))}</span><span class="uname">${esc(first)}</span></button><div class="user-menu"><div class="um-head"><span class="av">${esc(initials(USER.name))}</span><div><div class="um-nm">${esc(USER.name)}</div><div class="um-em">${esc(USER.email)}</div></div></div><button class="um-item" data-um="account"><svg viewBox="0 0 24 24">${I.personcircle}</svg>${esc(t('account'))}</button><button class="um-item" data-um="guides"><svg viewBox="0 0 24 24">${GICON.guide}</svg>${esc(t('myGuides'))}</button><button class="um-item" data-um="theme"><svg viewBox="0 0 24 24">${ICN2.moon}</svg>${esc(t('toolTheme'))}</button><div class="um-sep"></div><button class="um-item" data-um="out"><svg viewBox="0 0 24 24">${ICN2.logout}</svg>${esc(t('signOut'))}</button></div></div>`);
    const btn=wrap.querySelector('.nav-auth');
    btn.addEventListener('click',e=>{e.stopPropagation();document.querySelectorAll('.os-picker.open').forEach(o=>o.classList.remove('open'));wrap.classList.toggle('open');});
    wrap.querySelector('.user-menu').addEventListener('click',e=>e.stopPropagation());
    wrap.querySelector('[data-um="account"]').addEventListener('click',()=>{wrap.classList.remove('open');openAuth();});
+   wrap.querySelector('[data-um="guides"]').addEventListener('click',()=>{wrap.classList.remove('open');myGuidesModal();});
    wrap.querySelector('[data-um="theme"]').addEventListener('click',()=>{toggleTheme();});
    wrap.querySelector('[data-um="out"]').addEventListener('click',()=>{wrap.classList.remove('open');signOut();});
    return wrap;
@@ -4408,12 +4488,227 @@ V;
   else if(e.key==='r'||e.key==='R'){const a=PLATFORMS.filter(p=>p.available);if(a.length){const p=a[Math.floor(Math.random()*a.length)];boot(p.id,p.versions[0]);}}
  });}
 
+
+ /* ===================== RECORD & PLAY (shareable Settings guides) ===================== */
+ const GICON={
+  rec:'<circle cx="12" cy="12" r="7"/>',
+  play:'<path d="M8 5v14l11-7z"/>',
+  check:'<path d="M9 16.2l-3.5-3.5L4 14.2l5 5 11-11-1.5-1.5z"/>',
+  trash:'<path d="M6 7h12l-1 14H7L6 7zm9-3l1 2H8l1-2h6z"/>',
+  wa:'<path d="M12 2a10 10 0 00-8.5 15.2L2 22l4.9-1.4A10 10 0 1012 2zm5.6 14.1c-.2.6-1.2 1.1-1.7 1.2-.5.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.4-3.9-4.6-4.1-.1-.2-1-1.4-1-2.6s.6-1.8.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .6l-.3.4-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.7-.9c.2-.2.4-.2.6-.1l1.8.9c.3.1.5.2.5.4.1.2.1.7-.1 1.3z"/>',
+  tg:'<path d="M21.9 4.3l-3 14.2c-.2 1-.8 1.2-1.7.8l-4.6-3.4-2.2 2.1c-.2.2-.4.4-.9.4l.3-4.7L18.2 6c.4-.3-.1-.5-.6-.2L7.5 12.1l-4.5-1.4c-1-.3-1-1 .2-1.4l17.6-6.8c.8-.3 1.5.2 1.1 1.8z"/>',
+  mail:'<path d="M3 5h18a1 1 0 011 1v12a1 1 0 01-1 1H3a1 1 0 01-1-1V6a1 1 0 011-1zm9 7L4.5 7h15L12 12zM4 9.3V17h16V9.3l-8 5.3-8-5.3z"/>',
+  dl:'<path d="M12 3v10l4-4 1.4 1.4L12 16.8 6.6 11.4 8 10l4 4V3zM4 19h16v2H4z"/>',
+  guide:'<path d="M4 4h11l5 5v11a1 1 0 01-1 1H4a1 1 0 01-1-1V5a1 1 0 011-1zm9 1.5V9h3.5L13 5.5zM7 12h10v1.6H7V12zm0 3.4h7V17H7v-1.6z"/>'
+ };
+ const REC={active:false,steps:[],os:null,ver:null,lang:null};
+ let PLAY=null;
+ function b64e(str){return btoa(unescape(encodeURIComponent(str)));}
+ function b64d(b){return decodeURIComponent(escape(atob(b)));}
+ function stackTitles(){return state.stack.map(d=>dt(d&&d.title||''));}
+ function guideBaseUrl(){return location.href.split('#')[0];}
+ function guideLink(g){return guideBaseUrl()+'#g='+encodeURIComponent(b64e(JSON.stringify(g)));}
+ function syncHash(){try{if(PLAY||!state.platform)return;history.replaceState(null,'','#/'+state.platform.id+'/'+encodeURIComponent(state.version)+(state.selectedId&&state.view!=='home'?'/'+state.selectedId:''));}catch(e){}}
+
+ /* --- recording --- */
+ function startRecording(){
+  if(!USER){savedToast(t('recRequiresLogin'));openAuth();return;}
+  if(!state.platform){return;}
+  REC.active=true;REC.steps=[];REC.os=state.platform.id;REC.ver=state.version;REC.lang=state.deviceLang;
+  document.addEventListener('click',recCapture,true);
+  showRecBar();
+  const rb=document.querySelector('.tb-btn.rec');if(rb)rb.classList.add('on');
+ }
+ function recCapture(e){
+  if(!REC.active)return;
+  const side=e.target.closest('.side-row');
+  if(side){if(side.dataset.id==='account')return;const l=side.querySelector('.row-label');if(!l)return;const lab=l.textContent.trim();if(!lab)return;const isT=!!side.querySelector('.tgl');REC.steps.push({path:[],label:lab,kind:isT?'toggle':'nav',note:''});side.classList.add('rec-pulse');setTimeout(()=>side.classList.remove('rec-pulse'),500);updateRecBar();return;}
+  const row=e.target.closest('.settings .row');
+  if(!row||row.classList.contains('note')||row.classList.contains('storage')||row.classList.contains('wp-row'))return;
+  const lblEl=row.querySelector('.row-label');if(!lblEl)return;
+  const label=lblEl.textContent.trim();if(!label)return;
+  let kind='tap';
+  if(row.querySelector('.tgl'))kind='toggle';
+  else if(row.classList.contains('check-row'))kind='check';
+  else if(row.classList.contains('btn-row'))kind='button';
+  else if(row.classList.contains('tappable')&&!row.classList.contains('dead')&&row.querySelector('.chev'))kind='nav';
+  REC.steps.push({path:stackTitles(),label,kind,note:''});
+  row.classList.add('rec-pulse');setTimeout(()=>row.classList.remove('rec-pulse'),500);
+  updateRecBar();
+ }
+ function showRecBar(){
+  hideRecBar();
+  const bar=el(`<div class="rec-bar"><span class="rec-dot"></span><span class="rec-info"><b>${esc(t('recBar'))}</b> · <span class="rec-n">0</span> ${esc(t('recStepWord'))}<span class="hint">${esc(t('recStartedHint'))}</span></span><button class="rec-can">${esc(t('recCancel'))}</button><button class="rec-fin">${esc(t('recFinish'))}</button></div>`);
+  document.body.appendChild(bar);requestAnimationFrame(()=>bar.classList.add('show'));
+  bar.querySelector('.rec-fin').addEventListener('click',()=>stopRecording(true));
+  bar.querySelector('.rec-can').addEventListener('click',()=>stopRecording(false));
+ }
+ function updateRecBar(){const n=document.querySelector('.rec-bar .rec-n');if(n)n.textContent=REC.steps.length;}
+ function hideRecBar(){document.querySelectorAll('.rec-bar').forEach(b=>{b.classList.remove('show');setTimeout(()=>b.remove(),350);});}
+ function stopRecording(save){
+  REC.active=false;document.removeEventListener('click',recCapture,true);hideRecBar();
+  const rb=document.querySelector('.tb-btn.rec');if(rb)rb.classList.remove('on');
+  if(save&&REC.steps.length)openSaveDialog();else REC.steps=[];
+ }
+ function openSaveDialog(){
+  closePanels();
+  const o=el('<div class="ovl show auth-ovl"><div class="ovl-bg"></div></div>');document.body.appendChild(o);
+  const stepsHtml=REC.steps.map((st,i)=>`<div class="step-edit"><span class="sn">${i+1}</span><div class="se-body"><div class="se-tap">${esc(kindWord(st.kind))}: <b>${esc(st.label)}</b></div><input data-si="${i}" placeholder="${esc(t('stepNotePh'))}" value="${esc(st.note||'')}"></div></div>`).join('');
+  const m=el(`<div class="auth-modal"><button class="auth-x">✕</button><div class="auth-h" style="margin-top:2px">${esc(t('guideSaveTitle'))}</div><div class="fld2" style="margin-top:14px"><label>${esc(t('guideTitleLabel'))}</label><div class="inp"><input id="g-title" placeholder="${esc(t('guideTitlePh'))}"></div></div><div style="max-height:38vh;overflow:auto;margin:2px 0 14px">${stepsHtml}</div><button class="auth-submit" id="g-save">${esc(t('saveShare'))}</button></div>`);
+  o.appendChild(m);
+  o.querySelector('.ovl-bg').addEventListener('click',closePanels);
+  m.querySelector('.auth-x').addEventListener('click',closePanels);
+  setTimeout(()=>m.querySelector('#g-title').focus(),60);
+  m.querySelector('#g-save').addEventListener('click',()=>{
+   m.querySelectorAll('input[data-si]').forEach(inp=>{REC.steps[+inp.dataset.si].note=inp.value.trim();});
+   const g={v:1,id:'g'+Date.now(),os:REC.os,ver:REC.ver,lang:REC.lang,by:USER?USER.name:'',title:(m.querySelector('#g-title').value.trim()||t('recTitleDefault')),steps:REC.steps.slice(),ts:Date.now()};
+   saveGuide(g);REC.steps=[];closePanels();savedToast(t('guideSaved'));shareGuideModal(g);
+  });
+ }
+ function kindWord(k){return k==='toggle'?t('toggleHere'):k==='nav'?t('openHere'):t('tapHere');}
+ /* --- guide storage --- */
+ function loadGuides(){return store.get('guides',[]);}
+ function saveGuide(g){const gs=loadGuides();gs.unshift(g);store.set('guides',gs.slice(0,60));}
+ function deleteGuide(id){store.set('guides',loadGuides().filter(x=>x.id!==id));}
+ /* --- advanced share --- */
+ function shareGuideModal(g){
+  closePanels();
+  const link=guideLink(g),title=(g.title||t('recTitleDefault'));
+  const enc=encodeURIComponent(title+' · osimulator'),elink=encodeURIComponent(link);
+  const embed='<iframe src="'+link+'" width="400" height="740" style="border:0;border-radius:16px" title="'+title.replace(/"/g,'&quot;')+'" loading="lazy"></iframe>';
+  const o=el('<div class="ovl show auth-ovl"><div class="ovl-bg"></div></div>');document.body.appendChild(o);
+  const m=el(`<div class="auth-modal"><button class="auth-x">✕</button><div class="auth-h" style="margin-top:2px">${esc(t('shareGuideTitle'))}</div><div class="guide-meta" style="text-align:center;margin-bottom:14px">${esc(title)}</div>
+   <div class="share-link"><input readonly value="${esc(link)}"><button class="cpy">${esc(t('copyLink'))}</button></div>
+   <div class="share-grid">
+    <button class="share-btn" data-sh="native"><svg viewBox="0 0 24 24">${SHARE_SVG}</svg>${esc(t('shareTitle'))}</button>
+    <button class="share-btn" data-sh="x"><svg viewBox="0 0 24 24">${ICN2.x}</svg>X</button>
+    <button class="share-btn" data-sh="wa"><svg viewBox="0 0 24 24">${GICON.wa}</svg>WhatsApp</button>
+    <button class="share-btn" data-sh="tg"><svg viewBox="0 0 24 24">${GICON.tg}</svg>Telegram</button>
+    <button class="share-btn" data-sh="mail"><svg viewBox="0 0 24 24">${GICON.mail}</svg>Email</button>
+    <button class="share-btn" data-sh="dl"><svg viewBox="0 0 24 24">${GICON.dl}</svg>${esc(t('downloadGuide'))}</button>
+   </div>
+   <div style="margin:16px 0 3px;font-weight:700;font-size:12.5px;color:#c9c9d2">${esc(t('embedCode'))}</div>
+   <textarea class="embed-box" readonly>${esc(embed)}</textarea></div>`);
+  o.appendChild(m);
+  o.querySelector('.ovl-bg').addEventListener('click',closePanels);
+  m.querySelector('.auth-x').addEventListener('click',closePanels);
+  m.querySelector('.cpy').addEventListener('click',()=>{try{navigator.clipboard.writeText(link);}catch(e){}savedToast(t('linkCopied'));});
+  m.querySelector('.embed-box').addEventListener('click',function(){this.select();});
+  m.querySelectorAll('[data-sh]').forEach(b=>b.addEventListener('click',()=>{
+   const k=b.dataset.sh;
+   if(k==='native'){if(navigator.share)navigator.share({title,text:title,url:link}).catch(()=>{});else{try{navigator.clipboard.writeText(link);}catch(e){}savedToast(t('linkCopied'));}return;}
+   if(k==='dl'){downloadGuide(g);return;}
+   let u='';
+   if(k==='x')u='https://twitter.com/intent/tweet?text='+enc+'&url='+elink;
+   else if(k==='wa')u='https://wa.me/?text='+enc+'%20'+elink;
+   else if(k==='tg')u='https://t.me/share/url?url='+elink+'&text='+enc;
+   else if(k==='mail')u='mailto:?subject='+enc+'&body='+elink;
+   if(u)window.open(u,'_blank','noopener');
+  }));
+ }
+ function downloadGuide(g){try{const blob=new Blob([JSON.stringify(g,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=(g.title||'guide').replace(/[^\w\-]+/g,'_').slice(0,40)+'.osguide.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),2000);}catch(e){}}
+ /* --- my guides --- */
+ function myGuidesModal(){
+  closePanels();
+  const gs=loadGuides();
+  const o=el('<div class="ovl show auth-ovl"><div class="ovl-bg"></div></div>');document.body.appendChild(o);
+  const body=gs.length?`<div class="guide-list">${gs.map(g=>{const pf=PLATFORMS.find(p=>p.id===g.os);return `<div class="guide-card" data-id="${g.id}"><span class="gi"><svg viewBox="0 0 24 24">${GICON.guide}</svg></span><span class="gt"><span class="n">${esc(g.title||t('recTitleDefault'))}</span><span class="m">${esc(pf?pf.name:g.os)} ${esc(g.ver)} · ${g.steps.length} ${esc(t('recSteps'))}</span></span><span class="ga"><button class="play" data-ga="play" title="${esc(t('guidePlayBtn'))}"><svg viewBox="0 0 24 24">${GICON.play}</svg></button><button data-ga="share" title="${esc(t('shareGuideTitle'))}"><svg viewBox="0 0 24 24">${SHARE_SVG}</svg></button><button data-ga="del" title="${esc(t('guideDelete'))}"><svg viewBox="0 0 24 24">${GICON.trash}</svg></button></span></div>`;}).join('')}</div>`:`<div class="auth-sub" style="margin:14px 0">${esc(t('noGuides'))}</div>`;
+  const m=el(`<div class="auth-modal"><button class="auth-x">✕</button><div class="auth-h" style="margin-top:2px">${esc(t('myGuides'))}</div><div style="max-height:60vh;overflow:auto;margin-top:12px">${body}</div></div>`);
+  o.appendChild(m);
+  o.querySelector('.ovl-bg').addEventListener('click',closePanels);
+  m.querySelector('.auth-x').addEventListener('click',closePanels);
+  m.querySelectorAll('.guide-card').forEach(card=>{
+   const id=card.dataset.id;const g=gs.find(x=>x.id===id);
+   card.querySelector('[data-ga="play"]').addEventListener('click',()=>{closePanels();playGuide(g);});
+   card.querySelector('[data-ga="share"]').addEventListener('click',()=>shareGuideModal(g));
+   card.querySelector('[data-ga="del"]').addEventListener('click',()=>{deleteGuide(id);myGuidesModal();});
+  });
+ }
+ /* --- playback engine --- */
+ function findRowByChildTitle(detail,title){for(const sec of (detail.sections||[]))for(const r of (sec.rows||[])){if(r.detail&&dt(r.detail.title)===title)return r;}return null;}
+ function navGuideTo(path){
+  path=path||[];
+  const s=SETTINGS[state.platform.id];const f=state.platform.frame;
+  state.selectedId=null;state.stack=[];state.filter='';
+  if(['mac','win','linux','chromeos','winclassic','macclassic'].includes(f))state.winOpen=true;else state.view='settings';
+  let ok=true;
+  if(path.length){
+   const cat=osSidebar(s).find(i=>i.detail&&dt(i.title)===path[0]);
+   if(!cat){ok=false;}
+   else{state.selectedId=cat.id;state.stack=[cat.detail];
+    for(let k=1;k<path.length&&ok;k++){const top=state.stack[state.stack.length-1];const r=findRowByChildTitle(top,path[k]);if(!r||!r.detail){ok=false;}else state.stack.push(r.detail);}
+   }
+  }
+  renderDevice();
+  return ok;
+ }
+ function highlightRow(label){
+  document.querySelectorAll('.guide-hl').forEach(x=>x.classList.remove('guide-hl'));
+  const root=document.querySelector('.settings')||document.body;
+  const row=[...root.querySelectorAll('.row, .side-row')].find(r=>{const l=r.querySelector('.row-label');return l&&l.textContent.trim()===label;});
+  if(row){row.classList.add('guide-hl');try{row.scrollIntoView({behavior:'smooth',block:'center'});}catch(e){}}
+  return row;
+ }
+ function playGuide(g){
+  if(!g||!g.os||!Array.isArray(g.steps)||!g.steps.length)return;
+  const pf=PLATFORMS.find(p=>p.id===g.os&&p.available);if(!pf)return;
+  PLAY={guide:g,i:-1};
+  boot(g.os,pf.versions.indexOf(g.ver)>=0?g.ver:pf.versions[0]);
+  state.deviceLang=g.lang||state.lang;
+  playStartCard(g);
+ }
+ function playStartCard(g){
+  closePanels();
+  const pf=PLATFORMS.find(p=>p.id===g.os);
+  const o=el('<div class="ovl show auth-ovl"><div class="ovl-bg"></div></div>');document.body.appendChild(o);
+  o.appendChild(el(`<div class="auth-modal guide-hero"><div class="gmk"><svg viewBox="0 0 24 24">${GICON.play}</svg></div><div class="auth-h">${esc(g.title||t('recTitleDefault'))}</div><div class="guide-meta">${esc(pf?pf.name:g.os)} ${esc(g.ver)} · ${g.steps.length} ${esc(t('recSteps'))}${g.by?' · '+esc(g.by):''}</div><div class="auth-sub" style="margin-top:8px">${esc(t('guideIntro'))}</div><button class="auth-submit gstart" style="margin-top:6px">${esc(t('guideStartBtn'))}</button><div class="auth-switch"><b class="gexit">${esc(t('guideExit'))}</b></div></div>`));
+  o.querySelector('.ovl-bg').addEventListener('click',()=>{closePanels();clearPlay();});
+  o.querySelector('.gstart').addEventListener('click',()=>{closePanels();gotoStep(0);});
+  o.querySelector('.gexit').addEventListener('click',()=>{closePanels();clearPlay();});
+ }
+ function gotoStep(i){
+  if(!PLAY)return;const g=PLAY.guide;
+  if(i<0)i=0;if(i>=g.steps.length){guideDoneCard();return;}
+  PLAY.i=i;const st=g.steps[i];
+  const ok=navGuideTo(st.path);
+  requestAnimationFrame(()=>{const row=ok?highlightRow(st.label):null;renderCoach(st,i,g.steps.length,ok&&!!row);});
+ }
+ function renderCoach(st,i,total,found){
+  document.querySelectorAll('.coach').forEach(c=>c.remove());
+  const kw=kindWord(st.kind);
+  const note=(st.note&&st.note.trim())?st.note:(kw+' — '+st.label);
+  const prog=Array.from({length:total},(_,k)=>`<span class="${k<i?'done':(k===i?'cur':'')}"></span>`).join('');
+  const c=el(`<div class="coach"><div class="coach-top"><span class="coach-step">${esc(t('stepLabel'))} ${i+1} ${esc(t('ofLabel'))} ${total}</span><button class="coach-x">✕</button></div><div class="coach-note">${esc(note)}</div><div class="coach-target">${found?esc(kw)+': <b>'+esc(st.label)+'</b>':'<b style=color:#ff8a80>'+esc(t('guideNavFail'))+'</b>'}</div><div class="coach-prog">${prog}</div><div class="coach-btns"><button class="coach-prev"${i===0?' disabled style="opacity:.4"':''}>${esc(t('guidePrev'))}</button><button class="coach-next">${i===total-1?esc(t('recFinish')):esc(t('guideNext'))}</button></div></div>`);
+  document.body.appendChild(c);
+  c.querySelector('.coach-x').addEventListener('click',clearPlay);
+  c.querySelector('.coach-prev').addEventListener('click',()=>{if(i>0)gotoStep(i-1);});
+  c.querySelector('.coach-next').addEventListener('click',()=>{if(i===total-1)guideDoneCard();else gotoStep(i+1);});
+ }
+ function guideDoneCard(){
+  const g=PLAY?PLAY.guide:null;
+  document.querySelectorAll('.coach').forEach(c=>c.remove());document.querySelectorAll('.guide-hl').forEach(x=>x.classList.remove('guide-hl'));
+  const o=el('<div class="ovl show auth-ovl"><div class="ovl-bg"></div></div>');document.body.appendChild(o);
+  o.appendChild(el(`<div class="auth-modal guide-hero"><div class="gmk"><svg viewBox="0 0 24 24">${GICON.check}</svg></div><div class="auth-h">${esc(t('guideDoneTitle'))}</div><div class="auth-sub" style="margin-top:6px">${esc(t('guideDoneSub'))}</div><button class="auth-submit greplay" style="margin-top:4px">${esc(t('guideReplay'))}</button><button class="soc-btn gshare" style="margin-top:10px"><svg viewBox="0 0 24 24">${SHARE_SVG}</svg>${esc(t('shareGuideTitle'))}</button><div class="auth-switch"><b class="gclose">${esc(t('guideExit'))}</b></div></div>`));
+  o.querySelector('.ovl-bg').addEventListener('click',()=>{closePanels();PLAY=null;});
+  o.querySelector('.greplay').addEventListener('click',()=>{closePanels();if(g)playGuide(g);});
+  o.querySelector('.gshare').addEventListener('click',()=>{if(g)shareGuideModal(g);});
+  o.querySelector('.gclose').addEventListener('click',()=>{closePanels();PLAY=null;});
+ }
+ function clearPlay(){document.querySelectorAll('.coach').forEach(c=>c.remove());document.querySelectorAll('.guide-hl').forEach(x=>x.classList.remove('guide-hl'));PLAY=null;}
+ function parseHash(h){
+  h=h||location.hash||'';
+  if(h.indexOf('#g=')===0){try{const g=JSON.parse(b64d(decodeURIComponent(h.slice(3))));playGuide(g);return true;}catch(e){return false;}}
+  if(h.indexOf('#/')===0){const seg=h.slice(2).split('/').map(x=>{try{return decodeURIComponent(x);}catch(e){return x;}}).filter(Boolean);if(seg.length>=2){const pf=PLATFORMS.find(p=>p.id===seg[0]&&p.available);if(pf){boot(pf.id,pf.versions.indexOf(seg[1])>=0?seg[1]:pf.versions[0]);if(seg[2])setTimeout(()=>openCategory(seg[2]),80);return true;}}}
+  return false;
+ }
+
  window.addEventListener('resize',()=>{if(state.view!=='select'){if(state.autoFit)fit();else applyZoom();}});
  if(USER&&USER.prefs&&USER.prefs.lang)state.lang=USER.prefs.lang;
  initTheme();
  renderSelect();
  buildFAB();
  maybeCookie();
+ parseHash();
 })();
 </script>
 </body>

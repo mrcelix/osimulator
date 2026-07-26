@@ -33,6 +33,8 @@ Each system renders version-accurate menus, layout and wallpaper — 100+ settin
 
 ## Features
 
+- **Record & Play guides** — sign in, hit Record, tap through Settings to describe a task, then share a link. Anyone can replay the step-by-step walkthrough (no account needed) with on-screen highlights.
+- **Deep links** — every OS, version and settings screen has its own shareable URL (e.g. `/#/ios/17.5/general`).
 - **Real, navigable menus** — drill into Settings exactly like the real device, down to deep sub-pages.
 - **Version-accurate differences** — the same OS shows different menus and styling per release.
 - **19 systems · 38 versions · 100+ settings screens.**
