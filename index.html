@@ -86,8 +86,18 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .tb-btn:hover{background:rgba(255,255,255,.12)}
 .tb-btn.active{background:#0a84ff;color:#fff}
 .tb-btn.wide{font-weight:600;font-size:14px}
+.tb-btn svg{width:18px;height:18px;fill:currentColor;flex:none}
 .tb-title{font-size:14px;color:#9a9aa2;font-weight:600}
 .tb-spacer{flex:1}
+@media(max-width:600px){
+ .toolbar{gap:5px;padding:7px 9px}
+ .toolbar .tb-btn .tbl{display:none}
+ .toolbar .tb-title{display:none}
+ .tb-btn{min-width:32px;padding:0 8px}
+ .tb-btn.wide{padding:0 8px}
+ .toolbar .lang-select{padding:4px 7px;gap:0}
+ .toolbar .lang-select select{width:0;min-width:0;padding:0;color:transparent}
+}
 .tb-zoom{min-width:54px;text-align:center;font-size:13px;color:#b9b9c2;font-variant-numeric:tabular-nums}
 .tb-hint{font-size:12px;color:#6b6b73}
 
@@ -3709,7 +3719,7 @@ V;
   return wrap;
  }
  function deviceLangSelect(){
-  const wrap=el(`<label class="lang-select" title="${esc(DEVLBL[state.lang]||DEVLBL.en)}"><svg viewBox="0 0 24 24">${I.general}</svg><select>${LANGS.map(l=>`<option value="${l.code}" ${l.code===state.deviceLang?'selected':''}>${esc(l.label)}</option>`).join('')}</select></label>`);
+  const wrap=el(`<label class="lang-select" title="${esc(DEVLBL[state.lang]||DEVLBL.en)}"><svg viewBox="0 0 24 24">${I.language}</svg><select>${LANGS.map(l=>`<option value="${l.code}" ${l.code===state.deviceLang?'selected':''}>${esc(l.label)}</option>`).join('')}</select></label>`);
   wrap.querySelector('select').addEventListener('change',e=>{state.deviceLang=e.target.value;renderDevice();});
   return wrap;
  }
@@ -3922,27 +3932,28 @@ V;
  }
 
  /* ---- viewer toolbar ---- */
+ const TBIC={back:'<path d="M14 6l-6 6 6 6 1.4-1.4L10.8 12l4.6-4.6z"/>',home:'<path d="M12 3.2L3 11h2.4v8.8h5.1v-5.4h3v5.4h5.1V11H21z"/>',rotate:'<path d="M12 6V3L8 7l4 4V8a4 4 0 11-4 4H6a6 6 0 106-6z"/>',zoomout:'<path d="M5 11h14v2H5z"/>',zoomin:'<path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6z"/>',auto:'<path d="M4 9V4h5V2H2v7h2zm11-5v2h5v5h2V2h-7zM4 15H2v7h7v-2H4v-5zm16 0h-2v5h-5v2h7v-7z"/>',fit:'<path d="M9 4H4v5h2V6h3V4zm11 0h-5v2h3v3h2V4zM6 15H4v5h5v-2H6v-3zm14 0h-2v3h-3v2h5v-5z"/>',reset:'<path d="M12 5V2L8 6l4 4V7a5 5 0 11-5 5H5a7 7 0 107-7z"/>'};
  function toolbar(){
   const frame=state.platform.frame;
   const isDesktop=['mac','win','linux','chromeos','winclassic','macclassic'].includes(frame);
-  const homeBtn=!isDesktop?`<button class="tb-btn" data-act="home" title="${esc(t('ttHome'))}">⌂</button>`:'';
-  const rotateBtn=frame==='tablet'?`<button class="tb-btn" data-act="rotate" title="${esc(t('ttRotate'))}">⟳</button>`:'';
+  const homeBtn=!isDesktop?`<button class="tb-btn ico" data-act="home" title="${esc(t('ttHome'))}"><svg viewBox="0 0 24 24">${TBIC.home}</svg></button>`:'';
+  const rotateBtn=frame==='tablet'?`<button class="tb-btn ico" data-act="rotate" title="${esc(t('ttRotate'))}"><svg viewBox="0 0 24 24">${TBIC.rotate}</svg></button>`:'';
   const navGroup=(homeBtn||rotateBtn)?`<div class="tb-group">${homeBtn}${rotateBtn}</div>`:'';
   const tb=el(`<div class="toolbar">
-    <button class="tb-btn wide back-to-select">‹ ${esc(t('back'))}</button>
+    <button class="tb-btn wide back-to-select" title="${esc(t('back'))}"><svg viewBox="0 0 24 24">${TBIC.back}</svg><span class="tbl">${esc(t('back'))}</span></button>
     <span class="tb-title">${esc(state.platform.name)} ${esc(state.version)}</span>
     <span class="tb-spacer"></span>
-    <div class="tb-group"><button class="tb-btn rec" data-act="record" title="${esc(t('recTool'))}">● ${esc(t('recStart'))}</button><button class="tb-btn card" data-act="card" title="${esc(t('shareCard'))}"><svg viewBox="0 0 24 24">${GICON.cam}</svg></button><button class="tb-btn card" data-act="embed" title="${esc(t('embedTitle'))}"><svg viewBox="0 0 24 24">${GICON.link}</svg></button></div>
+    <div class="tb-group"><button class="tb-btn rec" data-act="record" title="${esc(t('recTool'))}"><svg viewBox="0 0 24 24">${GICON.rec}</svg><span class="tbl">${esc(t('recStart'))}</span></button><button class="tb-btn card ico" data-act="card" title="${esc(t('shareCard'))}"><svg viewBox="0 0 24 24">${GICON.cam}</svg></button><button class="tb-btn card ico" data-act="embed" title="${esc(t('embedTitle'))}"><svg viewBox="0 0 24 24">${GICON.link}</svg></button></div>
     ${navGroup}
     <div class="tb-group">
-      <button class="tb-btn" data-act="zoomout" title="${esc(t('ttZoomOut'))}">−</button>
+      <button class="tb-btn ico" data-act="zoomout" title="${esc(t('ttZoomOut'))}"><svg viewBox="0 0 24 24">${TBIC.zoomout}</svg></button>
       <span class="tb-zoom">${Math.round(state.zoom*100)}%</span>
-      <button class="tb-btn" data-act="zoomin" title="${esc(t('ttZoomIn'))}">+</button>
+      <button class="tb-btn ico" data-act="zoomin" title="${esc(t('ttZoomIn'))}"><svg viewBox="0 0 24 24">${TBIC.zoomin}</svg></button>
     </div>
     <div class="tb-group">
-      <button class="tb-btn ${state.autoFit?'active':''}" data-act="auto" title="${esc(t('autoFit'))}">${esc(t('auto'))}</button>
-      <button class="tb-btn" data-act="fit" title="${esc(t('fit'))}">${esc(t('fit'))}</button>
-      <button class="tb-btn" data-act="reset" title="${esc(t('reset'))}">${esc(t('reset'))} ↺</button>
+      <button class="tb-btn ${state.autoFit?'active':''}" data-act="auto" title="${esc(t('autoFit'))}"><svg viewBox="0 0 24 24">${TBIC.auto}</svg><span class="tbl">${esc(t('auto'))}</span></button>
+      <button class="tb-btn" data-act="fit" title="${esc(t('fit'))}"><svg viewBox="0 0 24 24">${TBIC.fit}</svg><span class="tbl">${esc(t('fit'))}</span></button>
+      <button class="tb-btn" data-act="reset" title="${esc(t('reset'))}"><svg viewBox="0 0 24 24">${TBIC.reset}</svg><span class="tbl">${esc(t('reset'))}</span></button>
     </div>
   </div>`);
   tb.appendChild(deviceLangSelect());
@@ -4533,16 +4544,22 @@ V;
   Admin panel → Backend), osimulator syncs analytics, real auth, shared
   guides and admin site-config to Supabase. When unset or offline, it
   falls back to this browser's local storage (the original behaviour). */
- const SUPA={url:'',anon:''}; /* ← bake your Supabase project URL + anon key here for production */
+ const SUPA={url:'https://yhickjzfwlwoljnnlrqp.supabase.co',anon:'sb_publishable_wZflVkM6pi92A2NQOU0dfQ_XFQF-bPC'}; /* Supabase project URL + anon (publishable) key */
  function supaCfg(){const o=store.get('supaCfg',null);const url=((o&&o.url)||SUPA.url||'').trim().replace(/\/$/,'');const anon=((o&&o.anon)||SUPA.anon||'').trim();return (url&&anon)?{url,anon}:null;}
  function supaOn(){return !!supaCfg();}
- let SB=null,_sbPromise=null,SBREADY=false;
+ let SB=null,_sbPromise=null,SBREADY=false,_libPromise=null;
+ const SUPA_CDNS=['https://esm.sh/@supabase/supabase-js@2','https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm','https://cdn.skypack.dev/@supabase/supabase-js@2'];
+ async function loadSupaLib(){
+  if(_libPromise)return _libPromise;
+  _libPromise=(async()=>{let err;for(const u of SUPA_CDNS){try{const m=await import(u);if(m&&m.createClient)return m;}catch(e){err=e;}}throw err||new Error('Could not load the Supabase client (network blocked?).');})();
+  return _libPromise;
+ }
  async function initSupa(){
   const cfg=supaCfg();if(!cfg){SB=null;return null;}
   if(SB)return SB;if(_sbPromise)return _sbPromise;
   _sbPromise=(async()=>{
    try{
-    const mod=await import('https://esm.sh/@supabase/supabase-js@2');
+    const mod=await loadSupaLib();
     SB=mod.createClient(cfg.url,cfg.anon,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true,storageKey:'osim_sb_auth'}});
     document.body.classList.add('has-backend');SBREADY=true;
     return SB;
@@ -5732,7 +5749,7 @@ V;
   const msg=main.querySelector('#be-msg');
   const readVals=()=>({url:(main.querySelector('#be-url').value||'').trim().replace(/\/$/,''),anon:(main.querySelector('#be-anon').value||'').trim()});
   main.querySelector('#be-save').addEventListener('click',()=>{const v=readVals();if(!v.url||!v.anon){msg.textContent=AL('Enter both URL and anon key.','URL ve anon key gir.');msg.className='adm-be-msg err';return;}store.set('supaCfg',v);msg.textContent=AL('Saved. Reconnecting…','Kaydedildi. Yeniden bağlanılıyor…');msg.className='adm-be-msg ok';setTimeout(()=>location.reload(),500);});
-  main.querySelector('#be-test').addEventListener('click',async()=>{const v=readVals();if(!v.url||!v.anon){msg.textContent=AL('Enter both URL and anon key.','URL ve anon key gir.');msg.className='adm-be-msg err';return;}msg.textContent='…';msg.className='adm-be-msg';try{const mod=await import('https://esm.sh/@supabase/supabase-js@2');const c=mod.createClient(v.url,v.anon);const {error}=await c.from('site_config').select('id').limit(1);if(error)throw error;msg.textContent=AL('Connection OK — schema found. ✓','Bağlantı başarılı — şema bulundu. ✓');msg.className='adm-be-msg ok';}catch(e){msg.textContent=(AL('Failed: ','Başarısız: '))+(e&&e.message||e);msg.className='adm-be-msg err';}});
+  main.querySelector('#be-test').addEventListener('click',async()=>{const v=readVals();if(!v.url||!v.anon){msg.textContent=AL('Enter both URL and anon key.','URL ve anon key gir.');msg.className='adm-be-msg err';return;}msg.textContent='…';msg.className='adm-be-msg';try{const mod=await loadSupaLib();const c=mod.createClient(v.url,v.anon);const {error}=await c.from('site_config').select('id').limit(1);if(error)throw error;msg.textContent=AL('Connection OK — schema found. ✓','Bağlantı başarılı — şema bulundu. ✓');msg.className='adm-be-msg ok';}catch(e){msg.textContent=(AL('Failed: ','Başarısız: '))+(e&&e.message||e);msg.className='adm-be-msg err';}});
   const clr=main.querySelector('#be-clear');if(clr)clr.addEventListener('click',()=>{store.set('supaCfg',null);msg.textContent=AL('Disconnected. Reloading…','Bağlantı kesildi. Yeniden yükleniyor…');msg.className='adm-be-msg';setTimeout(()=>location.reload(),400);});
  }
 
