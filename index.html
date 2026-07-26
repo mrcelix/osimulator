@@ -735,6 +735,177 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
   .os-marquee{-webkit-mask-image:none;mask-image:none}
 }
 
+
+/* ===== pro components: theme btn, auth, user menu, tools, newsletter, footer, cookie ===== */
+.nav-theme,.nav-auth{height:38px;border-radius:10px;border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.07);color:#e6e6ea;font-weight:600;transition:.15s;display:inline-flex;align-items:center;justify-content:center}
+.nav-theme{width:38px}
+.nav-theme:hover,.nav-auth:hover{background:rgba(255,255,255,.12)}
+.nav-theme svg{width:17px;height:17px;fill:currentColor}
+.nav-auth{gap:8px;padding:0 15px;font-size:14px}
+.nav-auth.primary{background:linear-gradient(135deg,#0a84ff,#5e5ce6);color:#fff;border-color:transparent;box-shadow:0 6px 18px -8px rgba(10,132,255,.8)}
+.nav-auth.primary:hover{transform:translateY(-1px)}
+.nav-auth svg{width:16px;height:16px;fill:currentColor}
+.nav-auth .av{width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#0a84ff,#5e5ce6);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.user-wrap{position:relative}
+.user-menu{position:absolute;top:48px;right:0;width:236px;background:rgba(18,18,24,.98);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.12);border-radius:14px;box-shadow:0 24px 60px -18px rgba(0,0,0,.85);padding:8px;z-index:95;opacity:0;transform:translateY(-8px);pointer-events:none;transition:.16s}
+.user-wrap.open .user-menu{opacity:1;transform:none;pointer-events:auto}
+.select-screen[dir="rtl"] .user-menu{right:auto;left:0}
+.um-head{display:flex;gap:10px;align-items:center;padding:8px 8px 12px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:6px}
+.um-head .av{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#0a84ff,#5e5ce6);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none}
+.um-nm{font-size:14px;font-weight:700;color:#f2f2f5}.um-em{font-size:12px;color:#9a9aa6}
+.um-item{display:flex;align-items:center;gap:10px;width:100%;padding:9px 10px;border-radius:9px;color:#e6e6ea;font-size:13.5px;font-weight:600;text-align:left}
+.um-item:hover{background:rgba(255,255,255,.08)}
+.um-item svg{width:16px;height:16px;fill:#9a9aa6;flex:none}
+.um-sep{height:1px;background:rgba(255,255,255,.08);margin:6px 4px}
+
+.auth-ovl{align-items:center;justify-content:center;padding:20px}
+.auth-modal{position:relative;width:min(424px,94vw);max-height:92vh;overflow:auto;background:#16161d;border:1px solid rgba(255,255,255,.1);border-radius:22px;box-shadow:0 40px 100px rgba(0,0,0,.7);padding:30px 28px;color:#ececf0;animation:authIn .28s cubic-bezier(.2,.7,.2,1)}
+@keyframes authIn{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:none}}
+.auth-x{position:absolute;top:15px;right:15px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.08);color:#c8c8d0;display:flex;align-items:center;justify-content:center;font-size:15px}
+.auth-x:hover{background:rgba(255,255,255,.16)}
+.auth-logo{display:flex;align-items:center;gap:9px;justify-content:center}
+.auth-logo .mk{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,#0a84ff,#5e5ce6);color:#fff;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center}
+.auth-logo b{font-size:18px;letter-spacing:-.01em}
+.auth-h{text-align:center;font-size:21px;font-weight:800;margin:14px 0 4px}
+.auth-sub{text-align:center;font-size:13.5px;color:#9a9aa6;margin-bottom:20px;line-height:1.45}
+.soc-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;height:46px;border-radius:12px;background:#fff;color:#1a1a1a;font-size:14px;font-weight:700;margin-bottom:10px;transition:.15s}
+.soc-btn:hover{filter:brightness(.95);transform:translateY(-1px)}
+.soc-btn svg{width:19px;height:19px}
+.soc-btn.dark{background:#000;color:#fff}.soc-btn.dark svg{fill:#fff}
+.auth-or{display:flex;align-items:center;gap:12px;color:#7a7a86;font-size:12px;margin:15px 0}
+.auth-or::before,.auth-or::after{content:"";flex:1;height:1px;background:rgba(255,255,255,.12)}
+.fld2{margin-bottom:13px}
+.fld2 label{display:block;font-size:12.5px;font-weight:600;color:#b6b6c2;margin-bottom:6px}
+.fld2 .inp{position:relative}
+.fld2 input,.fld2 select{width:100%;height:46px;border-radius:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);color:#fff;padding:0 14px;font-size:14px;outline:none;font-family:inherit;transition:.15s}
+.fld2 select option{color:#111}
+.fld2 input:focus,.fld2 select:focus{border-color:#0a84ff;background:rgba(255,255,255,.09)}
+.fld2 .eye{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:32px;height:32px;display:flex;align-items:center;justify-content:center;color:#8a8a94;background:none}
+.fld2 .eye svg{width:18px;height:18px;fill:currentColor}
+.auth-row{display:flex;align-items:center;justify-content:space-between;margin:3px 0 16px;font-size:12.5px}
+.auth-check{display:flex;align-items:center;gap:7px;color:#b6b6c2;cursor:pointer}
+.auth-check input{width:15px;height:15px;accent-color:#0a84ff}
+.auth-forgot{color:#5cadff;font-weight:600}.auth-forgot:hover{text-decoration:underline}
+.auth-submit{width:100%;height:48px;border-radius:12px;background:linear-gradient(135deg,#0a84ff,#5e5ce6);color:#fff;font-size:15px;font-weight:700;box-shadow:0 14px 32px -12px rgba(10,132,255,.8);transition:.15s}
+.auth-submit:hover{transform:translateY(-1px)}
+.auth-switch{text-align:center;font-size:13px;color:#9a9aa6;margin-top:16px}
+.auth-switch b{color:#5cadff;cursor:pointer;font-weight:700}
+.auth-fine{font-size:11.5px;color:#71717e;text-align:center;margin-top:14px;line-height:1.5}
+.acc-card{display:flex;align-items:center;gap:14px;padding:14px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);margin-bottom:16px}
+.acc-card .av{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#0a84ff,#5e5ce6);color:#fff;font-weight:800;font-size:20px;display:flex;align-items:center;justify-content:center;flex:none}
+.acc-card .nm{font-size:16px;font-weight:700}.acc-card .em{font-size:13px;color:#9a9aa6}
+.acc-badge{display:inline-block;margin-top:4px;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:100px;background:rgba(10,132,255,.18);color:#5cadff}
+
+.tools-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:4px}
+.tool-btn{display:flex;flex-direction:column;align-items:center;gap:9px;padding:16px 10px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);color:#e6e6ea;font-size:12.5px;font-weight:600;transition:.15s}
+.tool-btn:hover{background:rgba(255,255,255,.1);transform:translateY(-2px);border-color:rgba(255,255,255,.2)}
+.tool-btn .ti{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0a84ff,#5e5ce6)}
+.tool-btn .ti svg{width:20px;height:20px;fill:#fff}
+.sc-list{display:flex;flex-direction:column;gap:8px;padding:4px}
+.sc-row{display:flex;align-items:center;justify-content:space-between;padding:9px 12px;border-radius:10px;background:rgba(255,255,255,.05);font-size:13.5px}
+.sc-row kbd{font-family:var(--sf);font-size:12px;font-weight:700;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.16);border-radius:6px;padding:2px 8px}
+
+.newsletter{width:100%;max-width:680px;margin:0 auto 6px;background:linear-gradient(135deg,rgba(10,132,255,.13),rgba(94,92,230,.13));border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:28px 26px;text-align:center}
+.newsletter h3{font-size:20px;font-weight:800;margin:0 0 6px;color:#f5f5f7}
+.newsletter p{font-size:13.5px;color:#a6a6b4;margin:0 auto 16px;max-width:450px;line-height:1.5}
+.nl-form{display:flex;gap:9px;max-width:450px;margin:0 auto}
+.nl-form input{flex:1;height:46px;border-radius:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:#fff;padding:0 15px;font-size:14px;outline:none;font-family:inherit}
+.nl-form input:focus{border-color:#0a84ff}
+.nl-form button{height:46px;padding:0 22px;border-radius:12px;background:linear-gradient(135deg,#0a84ff,#5e5ce6);color:#fff;font-weight:700;font-size:14px;white-space:nowrap;transition:.15s}
+.nl-form button:hover{transform:translateY(-1px)}
+.nl-ok{color:#30d158;font-weight:700;font-size:14.5px;padding:12px}
+@media(max-width:520px){.nl-form{flex-direction:column}}
+.footer-cols{display:flex;flex-wrap:wrap;gap:28px 58px;justify-content:center;max-width:900px;margin:36px auto 6px;text-align:left}
+.select-screen[dir="rtl"] .footer-cols{text-align:right}
+.fcol h4{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#8b8b96;margin:0 0 13px}
+.fcol a{display:block;color:#b0b0ba;font-size:13.5px;margin-bottom:9px;transition:color .12s;cursor:pointer}
+.fcol a:hover{color:#fff}
+.fsoc{display:flex;gap:10px}
+.fsoc a{width:34px;height:34px;border-radius:9px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;margin:0}
+.fsoc a:hover{background:rgba(255,255,255,.14)}
+.fsoc svg{width:17px;height:17px;fill:#c8c8d2}
+.foot-bottom{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;justify-content:center;padding-top:18px;border-top:1px solid rgba(255,255,255,.08);width:100%;max-width:1000px;margin:24px auto 0}
+
+.cookie-bar{position:fixed;right:16px;left:auto;bottom:16px;z-index:130;max-width:400px;background:rgba(18,18,24,.97);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:15px 17px;box-shadow:0 20px 50px rgba(0,0,0,.6);display:flex;gap:14px;align-items:center;transform:translateY(180%);transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.cookie-bar.show{transform:none}
+.cookie-bar p{margin:0;font-size:12.5px;color:#c0c0ca;line-height:1.5}
+.cookie-bar a{color:#5cadff}
+.cookie-ok{flex:none;height:38px;padding:0 16px;border-radius:10px;background:#fff;color:#111;font-weight:700;font-size:13px}
+.cookie-ok:hover{filter:brightness(.94)}
+@media(max-width:520px){.cookie-bar{left:12px;right:12px;bottom:84px;max-width:none}}
+@media(max-width:860px){.nav-auth .uname{display:none}.nav-auth{padding:0 10px}}
+
+/* ===== LIGHT THEME (site chrome only — device screens stay native) ===== */
+body.light{background:#e7eaf2}
+body.light .select-screen{background:radial-gradient(120% 90% at 50% 0%,#eef1f8 0%,#e7eaf2 60%);color:#1c1c1e}
+body.light .site-nav{background:rgba(255,255,255,.72);border-bottom-color:rgba(0,0,0,.08)}
+body.light .site-nav.scrolled{background:rgba(255,255,255,.92);box-shadow:0 10px 30px -14px rgba(0,0,0,.18)}
+body.light .nav-brand{color:#141418}
+body.light .nav-word{background:linear-gradient(90deg,#141418,#4a3bd0);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+body.light .nav-link{color:#55555f}
+body.light .nav-link:hover{color:#111;background:rgba(0,0,0,.05)}
+body.light .nav-cta{background:#141418;color:#fff;box-shadow:0 6px 16px -8px rgba(0,0,0,.4)}
+body.light .nav-cta:hover{background:#000}
+body.light .nav-theme,body.light .nav-share,body.light .os-pick-btn,body.light .nav-auth,body.light .lang-select{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.12);color:#33333a}
+body.light .nav-theme:hover,body.light .nav-share:hover,body.light .os-pick-btn:hover,body.light .nav-auth:hover{background:rgba(0,0,0,.08)}
+body.light .nav-auth.primary{background:linear-gradient(135deg,#0a84ff,#5e5ce6);color:#fff;border-color:transparent}
+body.light .lang-select,body.light .lang-select select{color:#26262c}
+body.light .os-pick-menu,body.light .user-menu{background:rgba(255,255,255,.99);border-color:rgba(0,0,0,.1);box-shadow:0 26px 64px -18px rgba(0,0,0,.28)}
+body.light .os-pick-row,body.light .um-item{color:#26262c}
+body.light .os-pick-row:hover,body.light .um-item:hover{background:rgba(0,0,0,.05)}
+body.light .os-pick-row .ov{background:rgba(0,0,0,.06);color:#666}
+body.light .um-nm{color:#141418}body.light .um-item svg{fill:#888}body.light .um-head,body.light .um-sep{border-color:rgba(0,0,0,.08);background:rgba(0,0,0,.08)}
+body.light .um-head{background:transparent}
+body.light .os-pick-search{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.12);color:#111}
+body.light .hero-badge{background:#fff;border-color:rgba(0,0,0,.08);color:#55555f}
+body.light .hero-badge b{color:#141418}
+body.light .brand{color:#16161a}
+body.light .brand-sub{color:#9a9aa2}
+body.light .hero-lead{color:#55555f}
+body.light .sel-stats{color:#6a6a72}body.light .sel-stats b{color:#141418}
+body.light .continue-card,body.light .sel-card,body.light .how-step,body.light .feat-pill,body.light .trend-chip,body.light .mq-item,body.light .filter-chip,body.light .sel-search{background:#fff;border-color:rgba(0,0,0,.09)}
+body.light .sel-card:not(.disabled):hover{box-shadow:0 26px 54px -24px rgba(10,132,255,.4)}
+body.light .sel-name,body.light .sec-title,body.light .how-step h3,body.light .cc-os{color:#16161a}
+body.light .sel-tag,body.light .how-step p,body.light .feat-pill,body.light .cc-lbl{color:#6a6a74}
+body.light .sel-badge{background:rgba(0,0,0,.05);border-color:rgba(0,0,0,.08);color:#70707a}
+body.light .sel-search input{color:#111}body.light .sel-search svg{fill:#999}
+body.light .sel-search input::placeholder{color:#9a9aa2}
+body.light .filter-chip{color:#55555f}
+body.light .filter-chip.on{background:#141418;color:#fff;border-color:#141418}
+body.light .ver-chip:not(.latest){background:rgba(0,0,0,.06);color:#33333a}
+body.light .trend-chip,body.light .mq-item{color:#33333a}
+body.light .trend-chip:hover,body.light .mq-item:hover{background:#fff;border-color:rgba(0,0,0,.22)}
+body.light .sel-footer,body.light .foot-bottom{border-top-color:rgba(0,0,0,.1)}
+body.light .fbrand{color:#26262c}body.light .fnote{color:#8a8a92}
+body.light .foot-oslinks a{color:#8a8a92}body.light .foot-oslinks a:hover{color:#333}
+body.light .fcol a{color:#55555f}body.light .fcol a:hover{color:#111}body.light .fcol h4{color:#8a8a92}
+body.light .fsoc a{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.1)}body.light .fsoc svg{fill:#55555f}
+body.light .newsletter{background:linear-gradient(135deg,rgba(10,132,255,.1),rgba(94,92,230,.1));border-color:rgba(0,0,0,.08)}
+body.light .newsletter h3{color:#16161a}body.light .newsletter p{color:#55555f}
+body.light .nl-form input{background:#fff;border-color:rgba(0,0,0,.14);color:#111}
+body.light .cookie-bar{background:rgba(255,255,255,.98);border-color:rgba(0,0,0,.1)}
+body.light .cookie-bar p{color:#44444c}body.light .cookie-ok{background:#141418;color:#fff}
+body.light .sheet,body.light .auth-modal{background:#fff;border-color:rgba(0,0,0,.1);color:#1c1c1e}
+body.light .sheet-hd{border-bottom-color:rgba(0,0,0,.08)}
+body.light .sheet-hd h3{color:#141418}body.light .sheet-hd .sub{color:#77777f}
+body.light .sheet-x,body.light .auth-x{background:rgba(0,0,0,.06);color:#555}
+body.light .auth-h{color:#141418}body.light .auth-logo b{color:#141418}
+body.light .auth-sub,body.light .auth-switch{color:#77777f}
+body.light .fld2 label{color:#55555f}
+body.light .fld2 input,body.light .fld2 select{background:rgba(0,0,0,.03);border-color:rgba(0,0,0,.14);color:#111}
+body.light .fld2 input:focus,body.light .fld2 select:focus{background:#fff}
+body.light .auth-check{color:#55555f}
+body.light .auth-or{color:#9a9aa2}body.light .auth-or::before,body.light .auth-or::after{background:rgba(0,0,0,.12)}
+body.light .tool-btn{background:#fff;border-color:rgba(0,0,0,.09);color:#33333a}
+body.light .tool-btn:hover{background:#fff;border-color:rgba(0,0,0,.22)}
+body.light .sc-row{background:rgba(0,0,0,.04)}body.light .sc-row kbd{background:rgba(0,0,0,.08);border-color:rgba(0,0,0,.14);color:#333}
+body.light .fab-item{background:rgba(255,255,255,.98);color:#26262c;border-color:rgba(0,0,0,.1)}
+body.light .acc-card{background:rgba(0,0,0,.03);border-color:rgba(0,0,0,.08)}
+body.light .um-em,body.light .acc-card .em{color:#77777f}
+body.light .msg.ai{background:#eceef3;color:#1c1c22}
+body.light .chat-input input,body.light .chat-sug{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.12);color:#111}
+body.light .saved-toast{background:#141418}
+
 /* ===== new frames: Linux / ChromeOS / Watch ===== */
 .stage.frame-linux{background:linear-gradient(160deg,#2c0b1e 0%,#5b2333 45%,#c0603a 100%)}
 .stage.frame-chromeos{background:linear-gradient(160deg,#0a2a5a 0%,#1a63d0 55%,#8ab4f8 100%)}
@@ -1162,7 +1333,7 @@ const LANGS=[
  {code:'tr',label:'Türkçe',locale:'tr-TR'}
 ];
 const LANG={
- en:{stOS:"operating systems",stVer:"versions",stScreens:"settings screens",stLang:"languages",stOffline:"Offline",continueLast:"Continue where you left off",searchOS:"Search operating systems…",filAll:"All",filPhone:"Phone",filTablet:"Tablet",filDesktop:"Desktop",typ_phone:"Phone",typ_tablet:"Tablet",typ_desktop:"Desktop",typ_watch:"Watch",filWatch:"Watch",typ_tv:"TV",filTV:"TV",typ_car:"Car",filCar:"Car",typ_xr:"XR",filXR:"XR",typ_console:"Console",filConsole:"Console",latest:"latest",open:"Open",noResults:"No operating systems match your search.",featMenus:"Real menus you can navigate",featVersions:"Version-accurate differences",featTools:"Zoom · rotate · auto-fit",featAI:"Built-in OS AI assistant",featLang:"12 languages · RTL",featOffline:"100% offline single file",title:"OS Simulator",intro:"Pick an operating system, choose a version, and explore its menus as if you were on a real device. Apps don't run — the goal is to discover the interface and its settings.",footer:"For simulation only — not the real iOS, macOS, Windows or Android.",soon:"Coming soon",back:"Choose device",ttHome:"Home screen",ttRotate:"Rotate",ttZoomOut:"Zoom out",ttZoomIn:"Zoom in",fit:"Fit",auto:"Auto",autoFit:"Auto‑fit to screen size",reset:"Reset",toast:"Only Settings can be explored in this simulation.",langLabel:"Language",navSystems:"Systems",navHow:"How it works",navFeatures:"Features",navExplore:"Explore",tryRandom:"Surprise me",systemsTitle:"Choose an operating system",howTitle:"How it works",how1t:"Pick a device",how1d:"Phone, tablet, desktop, watch, TV, car, console or XR — 19 systems in all.",how2t:"Choose a version",how2d:"Each release renders its own menus, layout and wallpaper.",how3t:"Explore the menus",how3d:"Navigate the Settings app exactly like the real device.",featTitle:"What's inside",footRights:"Independent educational project. Not affiliated with Apple, Google, Microsoft or any OS vendor. All trademarks belong to their owners.",pickOS:"Open an OS",shareTitle:"Share osimulator",trending:"Trending",linkCopied:"Link copied to clipboard",browseAll:"Browse all systems"},
+ en:{stOS:"operating systems",stVer:"versions",stScreens:"settings screens",stLang:"languages",stOffline:"Offline",continueLast:"Continue where you left off",searchOS:"Search operating systems…",filAll:"All",filPhone:"Phone",filTablet:"Tablet",filDesktop:"Desktop",typ_phone:"Phone",typ_tablet:"Tablet",typ_desktop:"Desktop",typ_watch:"Watch",filWatch:"Watch",typ_tv:"TV",filTV:"TV",typ_car:"Car",filCar:"Car",typ_xr:"XR",filXR:"XR",typ_console:"Console",filConsole:"Console",latest:"latest",open:"Open",noResults:"No operating systems match your search.",featMenus:"Real menus you can navigate",featVersions:"Version-accurate differences",featTools:"Zoom · rotate · auto-fit",featAI:"Built-in OS AI assistant",featLang:"12 languages · RTL",featOffline:"100% offline single file",title:"OS Simulator",intro:"Pick an operating system, choose a version, and explore its menus as if you were on a real device. Apps don't run — the goal is to discover the interface and its settings.",footer:"For simulation only — not the real iOS, macOS, Windows or Android.",soon:"Coming soon",back:"Choose device",ttHome:"Home screen",ttRotate:"Rotate",ttZoomOut:"Zoom out",ttZoomIn:"Zoom in",fit:"Fit",auto:"Auto",autoFit:"Auto‑fit to screen size",reset:"Reset",toast:"Only Settings can be explored in this simulation.",langLabel:"Language",navSystems:"Systems",navHow:"How it works",navFeatures:"Features",navExplore:"Explore",tryRandom:"Surprise me",systemsTitle:"Choose an operating system",howTitle:"How it works",how1t:"Pick a device",how1d:"Phone, tablet, desktop, watch, TV, car, console or XR — 19 systems in all.",how2t:"Choose a version",how2d:"Each release renders its own menus, layout and wallpaper.",how3t:"Explore the menus",how3d:"Navigate the Settings app exactly like the real device.",featTitle:"What's inside",footRights:"Independent educational project. Not affiliated with Apple, Google, Microsoft or any OS vendor. All trademarks belong to their owners.",pickOS:"Open an OS",shareTitle:"Share osimulator",trending:"Trending",linkCopied:"Link copied to clipboard",browseAll:"Browse all systems",signIn:"Sign in",signUp:"Sign up",createAccount:"Create account",account:"Account",signOut:"Sign out",welcome:"Welcome",authSubtitle:"Sign in to sync your preferences across devices.",emailLabel:"Email",passwordLabel:"Password",nameLabel:"Full name",forgotPass:"Forgot password?",resetSent:"If that email exists, a reset link is on its way.",rememberMe:"Keep me signed in",orContinue:"or continue with email",googleContinue:"Continue with Google",appleContinue:"Continue with Apple",authTerms:"By continuing you agree to our Terms of Use and Privacy Policy.",noAccount:"Don’t have an account?",haveAccount:"Already have an account?",toolTheme:"Theme",toolShare:"Share",toolRandom:"Random OS",toolFullscreen:"Fullscreen",toolTop:"Back to top",toolShortcuts:"Shortcuts",toolsTitle:"Site tools",tools:"Tools",themeToggle:"Toggle light / dark",nlTitle:"Stay in the loop",nlDesc:"Get notified about new operating systems, versions and features. No spam, unsubscribe anytime.",nlPlaceholder:"Your email address",nlButton:"Subscribe",nlSuccess:"You’re subscribed! Thanks for joining.",nlInvalid:"Please enter a valid email address.",footProduct:"Product",footSystems:"Systems",footResources:"Resources",footFollow:"Follow",saveChanges:"Save changes",cookieText:"We only use local storage to remember your preferences — no tracking cookies.",cookieAccept:"Got it",shortcutsTitle:"Keyboard shortcuts",prefsSaved:"Preferences saved",defaultOsLabel:"Open this OS on start",askEach:"Ask each time"},
  tr:{title:"OS Simülatörü",intro:"Bir işletim sistemi seç, sürümünü belirle ve sanki gerçek bir cihazdaymış gibi menülerde gez. Uygulamalar çalışmaz — amaç arayüzü ve ayarları keşfetmek.",footer:"Yalnızca simülasyon amaçlıdır — gerçek iOS, macOS, Windows veya Android değildir.",soon:"Yakında",back:"Cihaz seç",ttHome:"Ana ekran",ttRotate:"Döndür",ttZoomOut:"Uzaklaştır",ttZoomIn:"Yakınlaştır",fit:"Sığdır",reset:"Sıfırla",toast:"Bu simülasyonda yalnızca Ayarlar gezilebilir.",langLabel:"Dil"},
  es:{title:"Simulador de SO",intro:"Elige un sistema operativo, selecciona una versión y explora sus menús como si estuvieras en un dispositivo real. Las apps no funcionan: el objetivo es descubrir la interfaz y sus ajustes.",footer:"Solo para simulación: no es el iOS, macOS, Windows o Android real.",soon:"Próximamente",back:"Elegir dispositivo",ttHome:"Pantalla de inicio",ttRotate:"Girar",ttZoomOut:"Alejar",ttZoomIn:"Acercar",fit:"Ajustar",reset:"Restablecer",toast:"En esta simulación solo se pueden explorar los Ajustes.",langLabel:"Idioma"},
  fr:{title:"Simulateur d'OS",intro:"Choisissez un système d'exploitation, une version et explorez ses menus comme sur un vrai appareil. Les apps ne fonctionnent pas : le but est de découvrir l'interface et ses réglages.",footer:"Simulation uniquement — ce n'est pas le vrai iOS, macOS, Windows ou Android.",soon:"Bientôt disponible",back:"Choisir l'appareil",ttHome:"Écran d'accueil",ttRotate:"Pivoter",ttZoomOut:"Dézoomer",ttZoomIn:"Zoomer",fit:"Ajuster",reset:"Réinitialiser",toast:"Dans cette simulation, seuls les Réglages sont navigables.",langLabel:"Langue"},
@@ -1179,7 +1350,7 @@ const LANG={
 const DEVLBL={en:'Device language',tr:'Cihaz dili',es:'Idioma del dispositivo',fr:"Langue de l'appareil",de:'Gerätesprache',pt:'Idioma do dispositivo',it:'Lingua del dispositivo',ru:'Язык устройства',ar:'لغة الجهاز',zh:'设备语言',ja:'デバイスの言語',hi:'डिवाइस भाषा'};
 /* DEVICE UI dictionary — translates common OS strings; unknown strings fall back to English (the device's default). */
 const DSTR={
- tr:{stOS:'işletim sistemi',stVer:'sürüm',stScreens:'ayar ekranı',stLang:'dil',stOffline:'Çevrimdışı',continueLast:'Kaldığın yerden devam et',searchOS:'İşletim sistemi ara…',filAll:'Tümü',filPhone:'Telefon',filTablet:'Tablet',filDesktop:'Masaüstü',typ_phone:'Telefon',typ_tablet:'Tablet',typ_desktop:'Masaüstü',typ_watch:'Saat',filWatch:'Saat',typ_tv:'TV',filTV:'TV',typ_car:'Araç',filCar:'Araç',typ_xr:'XR',filXR:'XR',typ_console:'Konsol',filConsole:'Konsol',latest:'en yeni',open:'Aç',noResults:'Aramanla eşleşen işletim sistemi yok.',featMenus:'Gezilebilir gerçek menüler',featVersions:'Sürüme özgü farklar',featTools:'Yakınlaştır · döndür · otomatik sığdır',featAI:'Dahili OS AI asistanı',featLang:'12 dil · RTL',featOffline:'%100 çevrimdışı tek dosya',Settings:'Ayarlar',Search:'Ara','Find a setting':'Ayar ara',On:'Açık',Off:'Kapalı',Connected:'Bağlı','Not Connected':'Bağlı değil',Photos:'Fotoğraflar',Messages:'Mesajlar',Calendar:'Takvim',Notes:'Notlar',Maps:'Harita',Music:'Müzik',Files:'Dosyalar',Health:'Sağlık',Mail:'Mail',Clock:'Saat','Airplane Mode':'Uçak Modu',Notifications:'Bildirimler',Sounds:'Sesler',Focus:'Odak','Screen Time':'Ekran Süresi',General:'Genel','Control Center':'Denetim Merkezi','Display & Brightness':'Ekran ve Parlaklık',Accessibility:'Erişilebilirlik',Wallpaper:'Duvar Kâğıdı','Privacy & Security':'Gizlilik ve Güvenlik',Contacts:'Kişiler',Reminders:'Anımsatıcılar',About:'Hakkında','Software Update':'Yazılım Güncelleme',Storage:'Depolama',Network:'Ağ',Battery:'Pil',Appearance:'Görünüm',Displays:'Ekranlar',Keyboard:'Klavye',System:'Sistem',Apps:'Uygulamalar',Accounts:'Hesaplar',Gaming:'Oyun',Personalization:'Kişiselleştirme',Display:'Ekran',navSystems:'Sistemler',navHow:'Nasıl çalışır',navFeatures:'Özellikler',navExplore:'Keşfet',tryRandom:'Rastgele dene',systemsTitle:'Bir işletim sistemi seç',howTitle:'Nasıl çalışır',how1t:'Cihazını seç',how1d:'Telefon, tablet, masaüstü, saat, TV, araç, konsol veya XR — toplam 19 sistem.',how2t:'Sürümü belirle',how2d:'Her sürüm kendi menülerini, düzenini ve duvar kâğıdını gösterir.',how3t:'Menülerde gez',how3d:'Ayarlar uygulamasında tıpkı gerçek cihazdaki gibi dolaş.',featTitle:'Neler var',footRights:'Bağımsız bir eğitim projesidir. Apple, Google, Microsoft veya herhangi bir OS üreticisiyle bağlantılı değildir. Tüm ticari markalar sahiplerine aittir.',pickOS:'Bir OS aç',shareTitle:'osimulator’ı paylaş',trending:'Popüler',linkCopied:'Bağlantı panoya kopyalandı',browseAll:'Tüm sistemlere göz at'},
+ tr:{stOS:'işletim sistemi',stVer:'sürüm',stScreens:'ayar ekranı',stLang:'dil',stOffline:'Çevrimdışı',continueLast:'Kaldığın yerden devam et',searchOS:'İşletim sistemi ara…',filAll:'Tümü',filPhone:'Telefon',filTablet:'Tablet',filDesktop:'Masaüstü',typ_phone:'Telefon',typ_tablet:'Tablet',typ_desktop:'Masaüstü',typ_watch:'Saat',filWatch:'Saat',typ_tv:'TV',filTV:'TV',typ_car:'Araç',filCar:'Araç',typ_xr:'XR',filXR:'XR',typ_console:'Konsol',filConsole:'Konsol',latest:'en yeni',open:'Aç',noResults:'Aramanla eşleşen işletim sistemi yok.',featMenus:'Gezilebilir gerçek menüler',featVersions:'Sürüme özgü farklar',featTools:'Yakınlaştır · döndür · otomatik sığdır',featAI:'Dahili OS AI asistanı',featLang:'12 dil · RTL',featOffline:'%100 çevrimdışı tek dosya',Settings:'Ayarlar',Search:'Ara','Find a setting':'Ayar ara',On:'Açık',Off:'Kapalı',Connected:'Bağlı','Not Connected':'Bağlı değil',Photos:'Fotoğraflar',Messages:'Mesajlar',Calendar:'Takvim',Notes:'Notlar',Maps:'Harita',Music:'Müzik',Files:'Dosyalar',Health:'Sağlık',Mail:'Mail',Clock:'Saat','Airplane Mode':'Uçak Modu',Notifications:'Bildirimler',Sounds:'Sesler',Focus:'Odak','Screen Time':'Ekran Süresi',General:'Genel','Control Center':'Denetim Merkezi','Display & Brightness':'Ekran ve Parlaklık',Accessibility:'Erişilebilirlik',Wallpaper:'Duvar Kâğıdı','Privacy & Security':'Gizlilik ve Güvenlik',Contacts:'Kişiler',Reminders:'Anımsatıcılar',About:'Hakkında','Software Update':'Yazılım Güncelleme',Storage:'Depolama',Network:'Ağ',Battery:'Pil',Appearance:'Görünüm',Displays:'Ekranlar',Keyboard:'Klavye',System:'Sistem',Apps:'Uygulamalar',Accounts:'Hesaplar',Gaming:'Oyun',Personalization:'Kişiselleştirme',Display:'Ekran',navSystems:'Sistemler',navHow:'Nasıl çalışır',navFeatures:'Özellikler',navExplore:'Keşfet',tryRandom:'Rastgele dene',systemsTitle:'Bir işletim sistemi seç',howTitle:'Nasıl çalışır',how1t:'Cihazını seç',how1d:'Telefon, tablet, masaüstü, saat, TV, araç, konsol veya XR — toplam 19 sistem.',how2t:'Sürümü belirle',how2d:'Her sürüm kendi menülerini, düzenini ve duvar kâğıdını gösterir.',how3t:'Menülerde gez',how3d:'Ayarlar uygulamasında tıpkı gerçek cihazdaki gibi dolaş.',featTitle:'Neler var',footRights:'Bağımsız bir eğitim projesidir. Apple, Google, Microsoft veya herhangi bir OS üreticisiyle bağlantılı değildir. Tüm ticari markalar sahiplerine aittir.',pickOS:'Bir OS aç',shareTitle:'osimulator’ı paylaş',trending:'Popüler',linkCopied:'Bağlantı panoya kopyalandı',browseAll:'Tüm sistemlere göz at',signIn:'Giriş Yap',signUp:'Üye Ol',createAccount:'Hesap oluştur',account:'Hesap',signOut:'Çıkış yap',welcome:'Hoş geldin',authSubtitle:'Tercihlerini cihazların arasında eşitlemek için giriş yap.',emailLabel:'E-posta',passwordLabel:'Parola',nameLabel:'Ad Soyad',forgotPass:'Parolanı mı unuttun?',resetSent:'E-posta kayıtlıysa sıfırlama bağlantısı yolda.',rememberMe:'Oturumumu açık tut',orContinue:'veya e-posta ile devam et',googleContinue:'Google ile devam et',appleContinue:'Apple ile devam et',authTerms:'Devam ederek Kullanım Şartları ve Gizlilik Politikası’nı kabul edersin.',noAccount:'Hesabın yok mu?',haveAccount:'Zaten hesabın var mı?',toolTheme:'Tema',toolShare:'Paylaş',toolRandom:'Rastgele OS',toolFullscreen:'Tam ekran',toolTop:'Başa dön',toolShortcuts:'Kısayollar',toolsTitle:'Site araçları',tools:'Araçlar',themeToggle:'Açık / Koyu tema',nlTitle:'Gelişmelerden haberdar ol',nlDesc:'Yeni işletim sistemleri, sürümler ve özelliklerden ilk sen haberdar ol. Spam yok, istediğin an çıkabilirsin.',nlPlaceholder:'E-posta adresin',nlButton:'Kayıt ol',nlSuccess:'Kaydın alındı! Katıldığın için teşekkürler.',nlInvalid:'Lütfen geçerli bir e-posta adresi gir.',footProduct:'Ürün',footSystems:'Sistemler',footResources:'Kaynaklar',footFollow:'Takip et',saveChanges:'Değişiklikleri kaydet',cookieText:'Yalnızca tercihlerini hatırlamak için yerel depolama kullanıyoruz — takip çerezi yok.',cookieAccept:'Anladım',shortcutsTitle:'Klavye kısayolları',prefsSaved:'Tercihler kaydedildi',defaultOsLabel:'Açılışta bu OS açılsın',askEach:'Her seferinde sor'},
  es:{Settings:'Ajustes',Search:'Buscar','Find a setting':'Buscar un ajuste',On:'Activado',Off:'Desactivado',Connected:'Conectado','Not Connected':'No conectado',Photos:'Fotos',Messages:'Mensajes',Calendar:'Calendario',Notes:'Notas',Maps:'Mapas',Music:'Música',Files:'Archivos',Health:'Salud',Mail:'Mail',Clock:'Reloj','Airplane Mode':'Modo Avión',Notifications:'Notificaciones',Sounds:'Sonidos',Focus:'Concentración','Screen Time':'Tiempo de uso',General:'General','Control Center':'Centro de control','Display & Brightness':'Pantalla y brillo',Accessibility:'Accesibilidad',Wallpaper:'Fondo de pantalla','Privacy & Security':'Privacidad y seguridad',Contacts:'Contactos',Reminders:'Recordatorios',About:'Información','Software Update':'Actualización de software',Storage:'Almacenamiento',Network:'Red',Battery:'Batería',Appearance:'Apariencia',Displays:'Pantallas',Keyboard:'Teclado',System:'Sistema',Apps:'Aplicaciones',Accounts:'Cuentas',Gaming:'Juegos',Personalization:'Personalización',Display:'Pantalla'},
  fr:{Settings:'Réglages',Search:'Rechercher','Find a setting':'Rechercher un réglage',On:'Activé',Off:'Désactivé',Connected:'Connecté','Not Connected':'Non connecté',Photos:'Photos',Messages:'Messages',Calendar:'Calendrier',Notes:'Notes',Maps:'Plans',Music:'Musique',Files:'Fichiers',Health:'Santé',Mail:'Mail',Clock:'Horloge','Airplane Mode':'Mode Avion',Notifications:'Notifications',Sounds:'Sons',Focus:'Concentration','Screen Time':"Temps d'écran",General:'Général','Control Center':'Centre de contrôle','Display & Brightness':'Luminosité et affichage',Accessibility:'Accessibilité',Wallpaper:"Fond d'écran",'Privacy & Security':'Confidentialité et sécurité',Contacts:'Contacts',Reminders:'Rappels',About:'Informations','Software Update':'Mise à jour logicielle',Storage:'Stockage',Network:'Réseau',Battery:'Batterie',Appearance:'Apparence',Displays:'Moniteurs',Keyboard:'Clavier',System:'Système',Apps:'Applications',Accounts:'Comptes',Gaming:'Jeux',Personalization:'Personnalisation',Display:'Affichage'},
  de:{Settings:'Einstellungen',Search:'Suchen','Find a setting':'Einstellung suchen',On:'Ein',Off:'Aus',Connected:'Verbunden','Not Connected':'Nicht verbunden',Photos:'Fotos',Messages:'Nachrichten',Calendar:'Kalender',Notes:'Notizen',Maps:'Karten',Music:'Musik',Files:'Dateien',Health:'Health',Mail:'Mail',Clock:'Uhr','Airplane Mode':'Flugmodus',Notifications:'Mitteilungen',Sounds:'Töne',Focus:'Fokus','Screen Time':'Bildschirmzeit',General:'Allgemein','Control Center':'Kontrollzentrum','Display & Brightness':'Anzeige & Helligkeit',Accessibility:'Bedienungshilfen',Wallpaper:'Hintergrundbild','Privacy & Security':'Datenschutz & Sicherheit',Contacts:'Kontakte',Reminders:'Erinnerungen',About:'Info','Software Update':'Softwareupdate',Storage:'Speicher',Network:'Netzwerk',Battery:'Batterie',Appearance:'Darstellung',Displays:'Displays',Keyboard:'Tastatur',System:'System',Apps:'Apps',Accounts:'Konten',Gaming:'Spiele',Personalization:'Personalisierung',Display:'Anzeige'},
@@ -3173,8 +3344,13 @@ V;
   const shareBtn=el(`<button class="nav-share" title="${esc(t('shareTitle'))}" aria-label="${esc(t('shareTitle'))}"><svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg></button>`);
   shareBtn.addEventListener('click',shareSite);
   nr.appendChild(shareBtn);
+  const themeBtn=el(`<button class="nav-theme" title="${esc(t('themeToggle'))}" aria-label="${esc(t('themeToggle'))}"></button>`);
+  themeBtn.addEventListener('click',toggleTheme);
+  nr.appendChild(themeBtn);
   nr.appendChild(langSelect(renderSelect));
   nr.appendChild(el(`<button class="nav-cta" data-scroll="systems">${esc(t('navExplore'))}</button>`));
+  nr.appendChild(buildAuthNav());
+  updateThemeIcons();
   w.appendChild(nav);
   /* ---- hero ---- */
   const trend=['ios','windows','macos','android','watchos','visionos'].map(id=>PLATFORMS.find(p=>p.id===id&&p.available)).filter(Boolean);
@@ -3236,9 +3412,26 @@ V;
   const featSec=el(`<section class="features-sec"><div class="section-head"><div class="sec-eyebrow">${esc(t('navFeatures'))}</div><h2 class="sec-title">${esc(t('featTitle'))}</h2></div>
     <div class="sel-features">${['featMenus','featVersions','featTools','featAI','featLang','featOffline'].map(k=>`<span class="feat-pill">${esc(t(k))}</span>`).join('')}</div></section>`);
   w.appendChild(featSec);
-  /* ---- footer (with crawlable OS links) ---- */
+  /* ---- footer: newsletter + columns + social + crawlable OS links ---- */
   const osLinks=avail.map(p=>`<a data-pid="${p.id}" data-ver="${esc(p.versions[0])}" role="button" tabindex="0">${esc(p.name)} ${esc(p.versions[0])}</a>`).join('');
-  w.appendChild(el(`<footer class="sel-footer"><div class="fbrand">osimulator</div><div class="foot-oslinks" aria-label="${esc(t('browseAll'))}">${osLinks}</div><div class="fnote">${esc(t('footer'))}</div><div class="fnote">${esc(t('footRights'))}</div></footer>`));
+  const sysCol=['ios','ipados','macos','windows','android','visionos'].map(id=>PLATFORMS.find(x=>x.id===id&&x.available)).filter(Boolean).map(p=>`<a data-pid="${p.id}" data-ver="${esc(p.versions[0])}">${esc(p.name)}</a>`).join('');
+  const footer=el(`<footer class="sel-footer">
+    <div class="newsletter"><h3>${esc(t('nlTitle'))}</h3><p>${esc(t('nlDesc'))}</p><div class="nl-box"><div class="nl-form"><input type="email" placeholder="${esc(t('nlPlaceholder'))}" aria-label="${esc(t('nlPlaceholder'))}"><button type="button">${esc(t('nlButton'))}</button></div></div></div>
+    <div class="footer-cols">
+      <div class="fcol"><h4>${esc(t('footProduct'))}</h4><a data-scroll="systems">${esc(t('navSystems'))}</a><a data-scroll="how">${esc(t('navHow'))}</a><a data-scroll="features">${esc(t('navFeatures'))}</a></div>
+      <div class="fcol"><h4>${esc(t('footSystems'))}</h4>${sysCol}</div>
+      <div class="fcol"><h4>${esc(t('footResources'))}</h4><a data-fab2="ai">OS AI</a><a data-fab2="tools">${esc(t('toolsTitle'))}</a><a href="https://github.com/mrcelix/osimulator" target="_blank" rel="noopener">GitHub</a></div>
+      <div class="fcol"><h4>${esc(t('footFollow'))}</h4><div class="fsoc"><a href="https://github.com/mrcelix/osimulator" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24">${ICN2.github}</svg></a><a href="https://x.com/" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24">${ICN2.x}</svg></a></div></div>
+    </div>
+    <div class="foot-oslinks" aria-label="${esc(t('browseAll'))}">${osLinks}</div>
+    <div class="foot-bottom"><div class="fbrand">osimulator</div><div class="fnote">© 2026 · ${esc(t('footer'))}</div><div class="fnote">${esc(t('footRights'))}</div></div>
+  </footer>`);
+  const nlForm=footer.querySelector('.nl-form');const nlBox=footer.querySelector('.nl-box');
+  nlForm.querySelector('button').addEventListener('click',()=>subscribeNewsletter(nlForm.querySelector('input'),nlBox));
+  nlForm.querySelector('input').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();subscribeNewsletter(nlForm.querySelector('input'),nlBox);}});
+  footer.querySelectorAll('.fcol a[data-pid]').forEach(a=>a.addEventListener('click',()=>boot(a.dataset.pid,a.dataset.ver)));
+  footer.querySelectorAll('[data-fab2]').forEach(a=>a.addEventListener('click',()=>openPanel(a.dataset.fab2)));
+  w.appendChild(footer);
   root.appendChild(w);
   /* ---- handlers ---- */
   w.querySelectorAll('.ver-chip').forEach(b=>b.addEventListener('click',(e)=>{e.stopPropagation();boot(b.dataset.pid,b.dataset.ver);}));
@@ -3255,7 +3448,7 @@ V;
   hero.querySelectorAll('.trend-chip').forEach(b=>b.addEventListener('click',()=>boot(b.dataset.pid,b.dataset.ver)));
   w.querySelectorAll('.foot-oslinks a').forEach(a=>{const go2=()=>boot(a.dataset.pid,a.dataset.ver);a.addEventListener('click',go2);a.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go2();}});});
   w.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',w.scrollTop>8);},{passive:true});
-  w.addEventListener('click',()=>document.querySelectorAll('.os-picker.open').forEach(o=>o.classList.remove('open')));
+  w.addEventListener('click',()=>{document.querySelectorAll('.os-picker.open').forEach(o=>o.classList.remove('open'));document.querySelectorAll('.user-wrap.open').forEach(o=>o.classList.remove('open'));});
  }
 
  function boot(pid,v){try{store.set('lastOpened',{pid,ver:v});}catch(e){}state.platform=PLATFORMS.find(p=>p.id===pid);state.version=v;state.view=(['mac','win','linux','chromeos','winclassic','macclassic'].includes(state.platform.frame))?'desktop':'home';state.selectedId=null;state.stack=[];state.zoom=1;state.rotated=false;state.prefs={};state.filter='';state.winOpen=false;state.startOpen=false;state.deviceLang=state.lang;renderDevice();}
@@ -3902,6 +4095,7 @@ V;
   f=el(`<div id="fab">
     <div class="fab-menu">
       <button class="fab-item" data-fab="magic"><span class="fi magic"><svg viewBox="0 0 24 24">${ICN.magic}</svg></span>${esc(txt('magic'))}</button>
+      <button class="fab-item" data-fab="tools"><span class="fi" style="background:#8e8e93"><svg viewBox="0 0 24 24">${ICN2.tools}</svg></span>${esc(t('tools'))}</button>
       <button class="fab-item" data-fab="ai"><span class="fi" style="background:linear-gradient(150deg,#0a84ff,#5e5ce6)"><svg viewBox="0 0 24 24">${ICN.ai}</svg></span>OS AI</button>
       <button class="fab-item" data-fab="feedback"><span class="fi" style="background:#ff9500"><svg viewBox="0 0 24 24">${ICN.fb}</svg></span>${esc(txt('feedback'))}</button>
       <button class="fab-item" data-fab="account"><span class="fi" style="background:#34c759"><svg viewBox="0 0 24 24">${ICN.acc}</svg></span><span class="acc-lbl">${esc(USER?USER.name:txt('signin'))}</span></button>
@@ -3910,7 +4104,7 @@ V;
   </div>`);
   document.body.appendChild(f);
   f.querySelector('.fab-main').addEventListener('click',()=>f.classList.toggle('open'));
-  f.querySelectorAll('[data-fab]').forEach(b=>b.addEventListener('click',()=>{f.classList.remove('open');const k=b.dataset.fab;if(k==='magic')magicSurprise();else openPanel(k);}));
+  f.querySelectorAll('[data-fab]').forEach(b=>b.addEventListener('click',()=>{f.classList.remove('open');const k=b.dataset.fab;if(k==='magic')magicSurprise();else if(k==='account')openAuth();else openPanel(k);}));
  }
  /* ---------- ✨ Magic: teleport to a random OS + version ---------- */
  function magicSurprise(){
@@ -3953,7 +4147,7 @@ V;
  function closePanels(){document.querySelectorAll('.ovl').forEach(o=>o.remove());}
  function openPanel(kind){closePanels();const o=el(`<div class="ovl show"><div class="ovl-bg"></div></div>`);document.body.appendChild(o);o.querySelector('.ovl-bg').addEventListener('click',closePanels);
   let sheet;
-  if(kind==='ai')sheet=aiSheet();else if(kind==='feedback')sheet=feedbackSheet();else sheet=accountSheet();
+  if(kind==='ai')sheet=aiSheet();else if(kind==='feedback')sheet=feedbackSheet();else if(kind==='tools')sheet=toolsSheet();else sheet=accountSheet();
   o.appendChild(sheet.node);o._init&&o._init();sheet.init&&sheet.init();
  }
 
@@ -4072,10 +4266,153 @@ V;
  let savedT;
  function savedToast(msg){let t=document.querySelector('.saved-toast');if(!t){t=el('<div class="saved-toast"></div>');document.body.appendChild(t);}t.textContent=msg;t.classList.add('show');clearTimeout(savedT);savedT=setTimeout(()=>t.classList.remove('show'),1800);}
 
+
+ /* ===================== THEME · AUTH · TOOLS · NEWSLETTER · COOKIE ===================== */
+ const SHARE_SVG='<path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/>';
+ const ICN2={
+  sun:'<path d="M12 7a5 5 0 100 10 5 5 0 000-10zm0-6a1 1 0 011 1v1.5a1 1 0 11-2 0V2a1 1 0 011-1zm0 18.5a1 1 0 011 1V22a1 1 0 11-2 0v-1.5a1 1 0 011-1zM3.5 11a1 1 0 110 2H2a1 1 0 110-2h1.5zm18.5 0a1 1 0 110 2h-1.5a1 1 0 110-2H22zM5.05 5.05a1 1 0 011.41 0l1.06 1.06A1 1 0 016.11 7.53L5.05 6.46a1 1 0 010-1.41zM16.42 16.42a1 1 0 011.41 0l1.06 1.06a1 1 0 01-1.41 1.41l-1.06-1.06a1 1 0 010-1.41zM18.95 5.05a1 1 0 010 1.41l-1.06 1.06a1 1 0 11-1.41-1.41l1.06-1.06a1 1 0 011.41 0zM7.53 16.42a1 1 0 010 1.41L6.46 18.9a1 1 0 01-1.41-1.41l1.06-1.06a1 1 0 011.42 0z"/>',
+  moon:'<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>',
+  user:'<path d="M12 12a5 5 0 100-10 5 5 0 000 10zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5z"/>',
+  logout:'<path d="M16 17v-2h-6v-6h6V7l4 5-4 5zM4 4h8v2H6v12h6v2H4z"/>',
+  tools:'<path d="M22 6.5a5.5 5.5 0 01-7.1 5.3l-8 8a2 2 0 01-2.8-2.8l8-8A5.5 5.5 0 0114.5 2l-2.6 2.6 1.8 3.7 3.7 1.8L20 7.5a5.6 5.6 0 002-1z"/>',
+  fs:'<path d="M4 9V4h5V2H2v7h2zm11-5v2h5v5h2V2h-7zM4 15H2v7h7v-2H4v-5zm16 5h-5v2h7v-7h-2v5z"/>',
+  up:'<path d="M12 4l8 8h-5v8h-6v-8H4z"/>',
+  kbd:'<path d="M3 5h18a1 1 0 011 1v11a1 1 0 01-1 1H3a1 1 0 01-1-1V6a1 1 0 011-1zm3 3v2h2V8H6zm4 0v2h2V8h-2zm4 0v2h2V8h-2zm4 0v2h2V8h-2zM6 12v2h2v-2H6zm4 0v2h6v-2h-6zm8 0v2h2v-2h-2z"/>',
+  eye:'<path d="M12 5c-5 0-9 4.5-10 7 1 2.5 5 7 10 7s9-4.5 10-7c-1-2.5-5-7-10-7zm0 11a4 4 0 110-8 4 4 0 010 8z"/>',
+  github:'<path d="M12 2a10 10 0 00-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0012 2z"/>',
+  x:'<path d="M18.9 2h3.3l-7.2 8.3L23.5 22h-6.6l-5.2-6.8L5.8 22H2.5l7.7-8.8L2 2h6.8l4.7 6.2L18.9 2zm-1.2 18h1.8L7.3 3.9H5.4L17.7 20z"/>'
+ };
+ /* theme */
+ function currentTheme(){return document.body.classList.contains('light')?'light':'dark';}
+ function updateThemeIcons(){const light=currentTheme()==='light';const ico='<svg viewBox="0 0 24 24">'+(light?ICN2.moon:ICN2.sun)+'</svg>';document.querySelectorAll('.nav-theme').forEach(b=>b.innerHTML=ico);}
+ function applyTheme(mode,save){document.body.classList.toggle('light',mode==='light');if(save!==false)store.set('theme',mode);const m=document.querySelector('meta[name=theme-color]');if(m)m.setAttribute('content',mode==='light'?'#e7eaf2':'#0a84ff');updateThemeIcons();}
+ function toggleTheme(){applyTheme(currentTheme()==='light'?'dark':'light');}
+ function initTheme(){let mode=store.get('theme',null);if(mode!=='light'&&mode!=='dark'){mode=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark';}applyTheme(mode,false);}
+ /* auth header + refresh */
+ function refreshAuth(){if(state.view==='select')renderSelect();else buildFAB();}
+ function signOut(){USER=null;store.set('user',null);buildFAB();refreshAuth();savedToast(t('signOut'));}
+ function buildAuthNav(){
+  if(USER){
+   const first=(USER.name||'').split(' ')[0];
+   const wrap=el(`<div class="user-wrap"><button class="nav-auth" aria-haspopup="true"><span class="av">${esc(initials(USER.name))}</span><span class="uname">${esc(first)}</span></button><div class="user-menu"><div class="um-head"><span class="av">${esc(initials(USER.name))}</span><div><div class="um-nm">${esc(USER.name)}</div><div class="um-em">${esc(USER.email)}</div></div></div><button class="um-item" data-um="account"><svg viewBox="0 0 24 24">${I.personcircle}</svg>${esc(t('account'))}</button><button class="um-item" data-um="theme"><svg viewBox="0 0 24 24">${ICN2.moon}</svg>${esc(t('toolTheme'))}</button><div class="um-sep"></div><button class="um-item" data-um="out"><svg viewBox="0 0 24 24">${ICN2.logout}</svg>${esc(t('signOut'))}</button></div></div>`);
+   const btn=wrap.querySelector('.nav-auth');
+   btn.addEventListener('click',e=>{e.stopPropagation();document.querySelectorAll('.os-picker.open').forEach(o=>o.classList.remove('open'));wrap.classList.toggle('open');});
+   wrap.querySelector('.user-menu').addEventListener('click',e=>e.stopPropagation());
+   wrap.querySelector('[data-um="account"]').addEventListener('click',()=>{wrap.classList.remove('open');openAuth();});
+   wrap.querySelector('[data-um="theme"]').addEventListener('click',()=>{toggleTheme();});
+   wrap.querySelector('[data-um="out"]').addEventListener('click',()=>{wrap.classList.remove('open');signOut();});
+   return wrap;
+  }
+  const b=el(`<button class="nav-auth primary"><svg viewBox="0 0 24 24">${ICN2.user}</svg>${esc(t('signIn'))}</button>`);
+  b.addEventListener('click',()=>openAuth());
+  return b;
+ }
+ /* advanced centered auth / account modal */
+ function openAuth(){
+  closePanels();
+  const o=el('<div class="ovl show auth-ovl"><div class="ovl-bg"></div></div>');
+  document.body.appendChild(o);
+  o.querySelector('.ovl-bg').addEventListener('click',closePanels);
+  const modal=el('<div class="auth-modal"></div>');o.appendChild(modal);
+  let mode='in';
+  const done=(name,email,provider)=>{USER={name,email,provider,prefs:USER&&USER.prefs?USER.prefs:{lang:state.lang,deviceLang:state.lang,defaultOS:''}};store.set('user',USER);buildFAB();closePanels();refreshAuth();savedToast(t('welcome')+', '+(name.split(' ')[0]));};
+  const account=()=>{
+   const p=USER.prefs||{};
+   modal.innerHTML=`<button class="auth-x">✕</button>
+    <div class="acc-card"><span class="av">${esc(initials(USER.name))}</span><div><div class="nm">${esc(USER.name)}</div><div class="em">${esc(USER.email)}</div><span class="acc-badge">${USER.provider==='google'?'Google':USER.provider==='apple'?'Apple':'Email'}</span></div></div>
+    <div class="fld2"><label>${esc(t('nameLabel'))}</label><div class="inp"><input id="pf2-name" value="${esc(USER.name)}"></div></div>
+    <div class="fld2"><label>${esc(t('langLabel'))}</label><div class="inp"><select id="pf2-lang">${LANGS.map(l=>`<option value="${l.code}" ${(p.lang||state.lang)===l.code?'selected':''}>${esc(l.label)}</option>`).join('')}</select></div></div>
+    <div class="fld2"><label>${esc(t('defaultOsLabel'))}</label><div class="inp"><select id="pf2-os"><option value="">${esc(t('askEach'))}</option>${PLATFORMS.filter(x=>x.available).map(x=>`<option value="${x.id}" ${p.defaultOS===x.id?'selected':''}>${esc(x.name)}</option>`).join('')}</select></div></div>
+    <button class="auth-submit" data-save>${esc(t('saveChanges'))}</button>
+    <div class="auth-switch"><b data-out>${esc(t('signOut'))}</b></div>`;
+   modal.querySelector('.auth-x').addEventListener('click',closePanels);
+   modal.querySelector('[data-save]').addEventListener('click',()=>{
+    USER.name=modal.querySelector('#pf2-name').value.trim()||USER.name;
+    USER.prefs={lang:modal.querySelector('#pf2-lang').value,deviceLang:(USER.prefs&&USER.prefs.deviceLang)||state.lang,defaultOS:modal.querySelector('#pf2-os').value};
+    store.set('user',USER);state.lang=USER.prefs.lang;buildFAB();closePanels();refreshAuth();savedToast(t('prefsSaved'));
+   });
+   modal.querySelector('[data-out]').addEventListener('click',()=>{closePanels();signOut();});
+  };
+  const auth=()=>{
+   modal.innerHTML=`<button class="auth-x">✕</button>
+    <div class="auth-logo"><span class="mk">os</span><b>osimulator</b></div>
+    <div class="auth-h">${mode==='in'?esc(t('signIn')):esc(t('createAccount'))}</div>
+    <div class="auth-sub">${esc(t('authSubtitle'))}</div>
+    <button class="soc-btn" data-soc="google">${GLOGO}${esc(t('googleContinue'))}</button>
+    <button class="soc-btn dark" data-soc="apple"><svg viewBox="0 0 24 24"><path d="M16.4 12.8c0-2.2 1.8-3.3 1.9-3.4-1-1.5-2.6-1.7-3.2-1.7-1.4-.1-2.6.8-3.3.8-.7 0-1.7-.8-2.9-.8-1.5 0-2.9.9-3.6 2.2-1.6 2.7-.4 6.7 1.1 8.9.7 1.1 1.6 2.3 2.7 2.2 1.1 0 1.5-.7 2.8-.7 1.3 0 1.7.7 2.9.7 1.2 0 2-1.1 2.7-2.1.5-.8.8-1.5 1-2.3-.1 0-2.8-1-2.8-4zM14.5 5.6c.6-.7 1-1.7.9-2.7-.9 0-1.9.6-2.5 1.3-.5.6-1 1.6-.9 2.6 1 .1 2-.5 2.5-1.2z"/></svg>${esc(t('appleContinue'))}</button>
+    <div class="auth-or">${esc(t('orContinue'))}</div>
+    ${mode==='up'?`<div class="fld2"><label>${esc(t('nameLabel'))}</label><div class="inp"><input id="a2-name" placeholder="${esc(t('nameLabel'))}"></div></div>`:''}
+    <div class="fld2"><label>${esc(t('emailLabel'))}</label><div class="inp"><input id="a2-email" type="email" placeholder="you@example.com" autocomplete="email"></div></div>
+    <div class="fld2"><label>${esc(t('passwordLabel'))}</label><div class="inp"><input id="a2-pass" type="password" placeholder="••••••••"><button class="eye" type="button" aria-label="show"><svg viewBox="0 0 24 24">${ICN2.eye}</svg></button></div></div>
+    <div class="auth-row"><label class="auth-check"><input type="checkbox" id="a2-rem" checked>${esc(t('rememberMe'))}</label>${mode==='in'?`<a class="auth-forgot" data-forgot>${esc(t('forgotPass'))}</a>`:'<span></span>'}</div>
+    <button class="auth-submit" data-go>${mode==='in'?esc(t('signIn')):esc(t('createAccount'))}</button>
+    <div class="auth-switch">${mode==='in'?esc(t('noAccount'))+' <b data-sw="up">'+esc(t('signUp'))+'</b>':esc(t('haveAccount'))+' <b data-sw="in">'+esc(t('signIn'))+'</b>'}</div>
+    <div class="auth-fine">${esc(t('authTerms'))}</div>`;
+   modal.querySelector('.auth-x').addEventListener('click',closePanels);
+   modal.querySelectorAll('[data-soc]').forEach(sb=>sb.addEventListener('click',()=>{const g=sb.dataset.soc==='google';done(g?'John Wick':'John Appleseed',g?'johnwick@gmail.com':'john.appleseed@icloud.com',sb.dataset.soc);}));
+   const eye=modal.querySelector('.eye');if(eye)eye.addEventListener('click',()=>{const pw=modal.querySelector('#a2-pass');pw.type=pw.type==='password'?'text':'password';});
+   modal.querySelectorAll('[data-sw]').forEach(x=>x.addEventListener('click',()=>{mode=x.dataset.sw;auth();}));
+   const fg=modal.querySelector('[data-forgot]');if(fg)fg.addEventListener('click',()=>savedToast(t('resetSent')));
+   const go=()=>{const em=(modal.querySelector('#a2-email').value||'').trim();if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){modal.querySelector('#a2-email').focus();savedToast(t('nlInvalid'));return;}const nm=mode==='up'?((modal.querySelector('#a2-name').value||'').trim()||em.split('@')[0]):em.split('@')[0].replace(/[._-]/g,' ').replace(/\b\w/g,c=>c.toUpperCase());done(nm,em,'email');};
+   modal.querySelector('[data-go]').addEventListener('click',go);
+   modal.querySelectorAll('input').forEach(i=>i.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();go();}}));
+   const fEl=modal.querySelector('#a2-email');if(fEl)setTimeout(()=>fEl.focus(),60);
+  };
+  if(USER)account();else auth();
+ }
+ /* site tools sheet */
+ function toolsSheet(){
+  const items=[{k:'theme',ic:ICN2.moon,lbl:t('toolTheme')},{k:'share',ic:SHARE_SVG,lbl:t('toolShare')},{k:'random',ic:ICN.magic,lbl:t('toolRandom')},{k:'fullscreen',ic:ICN2.fs,lbl:t('toolFullscreen')},{k:'top',ic:ICN2.up,lbl:t('toolTop')},{k:'shortcuts',ic:ICN2.kbd,lbl:t('toolShortcuts')}];
+  const node=el(`<div class="sheet"><div class="sheet-hd"><span class="sh-ic" style="background:linear-gradient(135deg,#0a84ff,#5e5ce6)"><svg viewBox="0 0 24 24">${ICN2.tools}</svg></span><div style="flex:1"><h3>${esc(t('toolsTitle'))}</h3><div class="sub">osimulator</div></div><button class="sheet-x">✕</button></div><div class="sheet-body"><div class="tools-grid">${items.map(i=>`<button class="tool-btn" data-tool="${i.k}"><span class="ti"><svg viewBox="0 0 24 24">${i.ic}</svg></span>${esc(i.lbl)}</button>`).join('')}</div></div></div>`);
+  node.querySelector('.sheet-x').addEventListener('click',closePanels);
+  node.querySelectorAll('[data-tool]').forEach(b=>b.addEventListener('click',()=>runTool(b.dataset.tool)));
+  return {node};
+ }
+ function runTool(k){
+  if(k==='theme'){toggleTheme();return;}
+  if(k==='share'){closePanels();shareSite();return;}
+  if(k==='random'){closePanels();const a=PLATFORMS.filter(p=>p.available);const p=a[Math.floor(Math.random()*a.length)];boot(p.id,p.versions[0]);return;}
+  if(k==='fullscreen'){try{if(document.fullscreenElement)document.exitFullscreen();else document.documentElement.requestFullscreen();}catch(e){}closePanels();return;}
+  if(k==='top'){closePanels();const sc=document.querySelector('.select-screen');if(sc)sc.scrollTo({top:0,behavior:'smooth'});return;}
+  if(k==='shortcuts'){shortcutsSheet();return;}
+ }
+ function shortcutsSheet(){
+  closePanels();const o=el('<div class="ovl show auth-ovl"><div class="ovl-bg"></div></div>');document.body.appendChild(o);o.querySelector('.ovl-bg').addEventListener('click',closePanels);
+  const rows=[['/','Search'],['T','Light / dark theme'],['R','Random OS'],['G','GitHub repository'],['Esc','Close dialog']];
+  const modal=el(`<div class="auth-modal" style="max-width:380px"><button class="auth-x">✕</button><div class="auth-h" style="margin-top:2px">${esc(t('shortcutsTitle'))}</div><div class="sc-list" style="margin-top:14px">${rows.map(r=>`<div class="sc-row"><span>${esc(r[1])}</span><kbd>${esc(r[0])}</kbd></div>`).join('')}</div></div>`);
+  o.appendChild(modal);modal.querySelector('.auth-x').addEventListener('click',closePanels);
+ }
+ /* newsletter */
+ function subscribeNewsletter(inp,box){
+  const em=(inp.value||'').trim();
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){inp.focus();savedToast(t('nlInvalid'));return;}
+  const subs=store.get('newsletter',[]);if(subs.indexOf(em)<0){subs.push(em);store.set('newsletter',subs);}
+  box.innerHTML='<div class="nl-ok">'+esc(t('nlSuccess'))+'</div>';
+ }
+ /* cookie consent */
+ function maybeCookie(){
+  if(store.get('cookieOk',false))return;
+  const bar=el(`<div class="cookie-bar"><p>${esc(t('cookieText'))}</p><button class="cookie-ok">${esc(t('cookieAccept'))}</button></div>`);
+  document.body.appendChild(bar);requestAnimationFrame(()=>bar.classList.add('show'));
+  bar.querySelector('.cookie-ok').addEventListener('click',()=>{store.set('cookieOk',true);bar.classList.remove('show');setTimeout(()=>bar.remove(),500);});
+ }
+ /* global keyboard shortcuts */
+ if(!window.__osKeys){window.__osKeys=1;document.addEventListener('keydown',e=>{
+  if(e.metaKey||e.ctrlKey||e.altKey)return;
+  const tag=(e.target&&e.target.tagName||'').toLowerCase();const typing=tag==='input'||tag==='select'||tag==='textarea';
+  if(e.key==='Escape'){closePanels();return;}
+  if(typing)return;
+  if(e.key==='/'){const s=document.querySelector('.select-screen .sel-search input');if(s){e.preventDefault();s.focus();}}
+  else if(e.key==='t'||e.key==='T'){toggleTheme();}
+  else if(e.key==='r'||e.key==='R'){const a=PLATFORMS.filter(p=>p.available);if(a.length){const p=a[Math.floor(Math.random()*a.length)];boot(p.id,p.versions[0]);}}
+ });}
+
  window.addEventListener('resize',()=>{if(state.view!=='select'){if(state.autoFit)fit();else applyZoom();}});
  if(USER&&USER.prefs&&USER.prefs.lang)state.lang=USER.prefs.lang;
+ initTheme();
  renderSelect();
  buildFAB();
+ maybeCookie();
 })();
 </script>
 </body>
