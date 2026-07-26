@@ -1214,6 +1214,80 @@ body.light .quiz-share{background:#fff;border-color:rgba(0,0,0,.1);color:#33333a
 .quiz-share:hover{background:rgba(255,255,255,.12)}
 .quiz-share svg{width:15px;height:15px;fill:currentColor}
 
+
+/* ===== Admin panel ===== */
+.admin-screen{min-height:100vh;background:#0b0b0f;color:#e8e8ee;display:flex;flex-direction:column}
+body.light .admin-screen{background:#eef1f7;color:#1c1c1e}
+.adm-top{display:flex;align-items:center;gap:14px;padding:12px 20px;border-bottom:1px solid rgba(255,255,255,.09);position:sticky;top:0;background:rgba(11,11,15,.9);backdrop-filter:blur(16px);z-index:10}
+body.light .adm-top{background:rgba(238,241,247,.9);border-bottom-color:rgba(0,0,0,.08)}
+.adm-top .abrand{display:inline-flex;align-items:center;gap:9px;font-weight:800;font-size:16px}
+.adm-top .abrand .mk{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#0a84ff,#5e5ce6);color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
+.adm-top .atag{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#8b8bff;padding:3px 9px;border:1px solid rgba(139,139,255,.4);border-radius:100px}
+.adm-top .aspacer{flex:1}
+.adm-top .abtn{height:36px;padding:0 14px;border-radius:10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);color:#e6e6ea;font-weight:700;font-size:13px}
+body.light .adm-top .abtn{background:#fff;border-color:rgba(0,0,0,.12);color:#26262c}
+.adm-body{display:flex;flex:1;max-width:1200px;width:100%;margin:0 auto}
+.adm-tabs{width:210px;flex:none;padding:18px 10px;border-right:1px solid rgba(255,255,255,.08)}
+body.light .adm-tabs{border-right-color:rgba(0,0,0,.08)}
+.adm-tab{display:flex;align-items:center;gap:10px;width:100%;padding:11px 13px;border-radius:10px;color:#b6b6c2;font-size:14px;font-weight:600;text-align:left;margin-bottom:3px}
+.adm-tab:hover{background:rgba(255,255,255,.06)}
+.adm-tab.on{background:rgba(10,132,255,.16);color:#fff}
+body.light .adm-tab.on{background:rgba(10,132,255,.12);color:#0a3d80}
+.adm-tab svg{width:18px;height:18px;fill:currentColor;flex:none}
+.adm-main{flex:1;min-width:0;padding:24px 26px 60px}
+.adm-h{font-size:22px;font-weight:800;margin:0 0 4px}
+.adm-sub{color:#9a9aa6;font-size:13.5px;margin:0 0 20px}
+.adm-note{font-size:12.5px;color:#8b8b96;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:10px 13px;margin:0 0 18px}
+body.light .adm-note{background:rgba(0,0,0,.03);border-color:rgba(0,0,0,.07)}
+.adm-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-bottom:24px}
+.adm-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:16px}
+body.light .adm-card{background:#fff;border-color:rgba(0,0,0,.08)}
+.adm-card b{display:block;font-size:26px;font-weight:800;line-height:1.1}
+.adm-card span{font-size:12px;color:#9a9aa6;font-weight:600}
+.adm-sec{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:18px 18px;margin-bottom:18px}
+body.light .adm-sec{background:#fff;border-color:rgba(0,0,0,.08)}
+.adm-sec h3{font-size:14px;font-weight:800;letter-spacing:.03em;margin:0 0 14px;color:#cfcfd6}
+body.light .adm-sec h3{color:#33333a}
+.ab-row{display:grid;grid-template-columns:150px 1fr 46px;align-items:center;gap:10px;margin-bottom:9px;font-size:13px}
+.ab-l{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#c7c7cf}
+body.light .ab-l{color:#44444c}
+.ab-bar{height:10px;border-radius:6px;background:rgba(255,255,255,.08);overflow:hidden}
+body.light .ab-bar{background:rgba(0,0,0,.06)}
+.ab-bar i{display:block;height:100%;border-radius:6px;background:linear-gradient(90deg,#0a84ff,#5e5ce6)}
+.ab-v{text-align:right;font-weight:700;color:#e6e6ea}
+body.light .ab-v{color:#141418}
+.adm-tbl{width:100%;border-collapse:collapse;font-size:13.5px}
+.adm-tbl th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:#8b8b96;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.1)}
+.adm-tbl td{padding:10px;border-bottom:1px solid rgba(255,255,255,.06);color:#dcdce4}
+body.light .adm-tbl td{color:#33333a;border-bottom-color:rgba(0,0,0,.06)}
+.adm-tbl .adel{color:#ff6b6b;font-weight:700;cursor:pointer;font-size:12.5px}
+.adm-row{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:11px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);margin-bottom:9px}
+body.light .adm-row{background:#fff;border-color:rgba(0,0,0,.08)}
+.adm-row .arl{flex:1;min-width:0}
+.adm-row .arl .nm{font-size:14px;font-weight:700}
+.adm-row .arl .mt{font-size:12px;color:#9a9aa6}
+.adm-row .aic{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex:none}
+.adm-row .aic svg{width:18px;height:18px;fill:#fff}
+.aswitch{position:relative;width:44px;height:26px;border-radius:13px;background:rgba(255,255,255,.16);cursor:pointer;flex:none;transition:.15s}
+.aswitch.on{background:#34c759}
+.aswitch i{position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:.15s}
+.aswitch.on i{left:21px}
+.adm-menu-item{display:flex;align-items:center;gap:9px;padding:9px 11px;border-radius:11px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);margin-bottom:8px}
+body.light .adm-menu-item{background:#fff;border-color:rgba(0,0,0,.08)}
+.adm-menu-item input.ai{flex:1;min-width:0;height:34px;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);color:#fff;padding:0 10px;font-size:13px;outline:none;font-family:inherit}
+body.light .adm-menu-item input.ai{background:#fff;border-color:rgba(0,0,0,.14);color:#111}
+.adm-menu-item .atgt{font-size:11px;color:#8b8b96;white-space:nowrap;max-width:110px;overflow:hidden;text-overflow:ellipsis}
+.adm-menu-item .amv{width:28px;height:28px;border-radius:7px;background:rgba(255,255,255,.08);color:#c7c7cf;display:flex;align-items:center;justify-content:center;font-size:14px}
+.adm-menu-item .amv:disabled{opacity:.3}
+.adm-menu-item .amv.del{color:#ff6b6b}
+.adm-actions{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.adm-actions button{height:40px;padding:0 18px;border-radius:11px;font-weight:700;font-size:13.5px}
+.adm-actions .prim{background:linear-gradient(135deg,#0a84ff,#5e5ce6);color:#fff}
+.adm-actions .ghost{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:#e6e6ea}
+body.light .adm-actions .ghost{background:#fff;border-color:rgba(0,0,0,.12);color:#26262c}
+.adm-gate{max-width:360px}
+@media(max-width:760px){.adm-tabs{width:56px}.adm-tab span{display:none}.adm-body{flex-direction:row}}
+
 /* ===== new frames: Linux / ChromeOS / Watch ===== */
 .stage.frame-linux{background:linear-gradient(160deg,#2c0b1e 0%,#5b2333 45%,#c0603a 100%)}
 .stage.frame-chromeos{background:linear-gradient(160deg,#0a2a5a 0%,#1a63d0 55%,#8ab4f8 100%)}
@@ -3649,7 +3723,7 @@ V;
  }
  /* ---- selection ---- */
  function renderSelect(){
-  state.view='select';root.innerHTML='';
+  state.view='select';root.innerHTML='';track('view','home');
   try{document.documentElement.lang=state.lang;document.documentElement.dir=isRTL()?'rtl':'ltr';}catch(e){}
   const w=el(`<div class="select-screen" dir="${isRTL()?'rtl':'ltr'}"></div>`);
   const avail=PLATFORMS.filter(p=>p.available);
@@ -3657,16 +3731,11 @@ V;
   /* ---- sticky top nav ---- */
   const nav=el(`<header class="site-nav"><div class="nav-inner">
     <button class="nav-brand" data-scroll="top" aria-label="osimulator"><span class="nav-mark">o<i>s</i></span><span class="nav-word">osimulator</span></button>
-    <nav class="nav-links">
-      <button class="nav-link" data-scroll="systems">${esc(t('navSystems'))}</button>
-      <button class="nav-link" data-scroll="how">${esc(t('navHow'))}</button>
-      <button class="nav-link" data-guides-link>${esc(t('guidesNav'))}</button><button class="nav-link" data-compare-link>${esc(t('compareNav'))}</button><button class="nav-link" data-vs-link>${esc(t('vsNav'))}</button><button class="nav-link" data-quiz-link>${esc(t('quizNav'))}</button>
-      <button class="nav-link" data-scroll="features">${esc(t('navFeatures'))}</button>
-    </nav>
+    <nav class="nav-links">${getNavMenu().filter(it=>it.vis!==false).filter(it=>{const p=it.act.split(':');return !(p[0]==='route'&&!featOn(p[1]));}).map(it=>`<button class="nav-link" data-act="${esc(it.act)}">${esc(it.label||t(it.key||''))}</button>`).join('')}</nav>
     <div class="nav-right"></div>
   </div></header>`);
   const nr=nav.querySelector('.nav-right');
-  const nsearch=el(`<button class="nav-search" title="${esc(t('searchSettings'))}" aria-label="${esc(t('searchSettings'))}"><svg viewBox="0 0 24 24">${I.search}</svg></button>`);nsearch.addEventListener('click',openSettingsSearch);nr.appendChild(nsearch);
+  if(featOn('search')){const nsearch=el(`<button class="nav-search" title="${esc(t('searchSettings'))}" aria-label="${esc(t('searchSettings'))}"><svg viewBox="0 0 24 24">${I.search}</svg></button>`);nsearch.addEventListener('click',openSettingsSearch);nr.appendChild(nsearch);}
   nr.appendChild(buildOsPicker(avail));
   const shareBtn=el(`<button class="nav-share" title="${esc(t('shareTitle'))}" aria-label="${esc(t('shareTitle'))}"><svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg></button>`);
   shareBtn.addEventListener('click',shareSite);
@@ -3680,8 +3749,6 @@ V;
   updateThemeIcons();
   w.appendChild(nav);
   /* ---- hero ---- */
-  const trend=['ios','windows','macos','android','watchos','visionos'].map(id=>PLATFORMS.find(p=>p.id===id&&p.available)).filter(Boolean);
-  const trendHtml=trend.length?`<div class="hero-trend"><span class="trend-lbl">${esc(t('trending'))}</span>${trend.map(p=>`<button class="trend-chip" data-pid="${p.id}" data-ver="${esc(p.versions[0])}"><span class="td" style="background:${p.logoBg}"><svg viewBox="0 0 24 24" fill="#fff">${LOGOS[p.logo]||''}</svg></span>${esc(p.name)}</button>`).join('')}</div>`:'';
   const hero=el(`<section class="hero enter"><div class="hero-glow"></div>
     <div class="hero-badge"><span class="dot"></span><b>${avail.length}</b>&nbsp;${esc(t('stOS'))} · <b>${verCount}</b>&nbsp;${esc(t('stVer'))} · <b>100%</b>&nbsp;${esc(t('stOffline'))}</div>
     <h1 class="brand" aria-label="osimulator"><span class="brand-s">os</span>imulator</h1>
@@ -3690,7 +3757,6 @@ V;
     <div class="hero-cta">
       <button class="btn-primary" data-scroll="systems">${esc(t('navExplore'))} <span>${isRTL()?'‹':'›'}</span></button>
     </div>
-    ${trendHtml}
     <div class="sel-stats"><span><b>${avail.length}</b> ${esc(t('stOS'))}</span><span><b>${verCount}</b> ${esc(t('stVer'))}</span><span><b>100+</b> ${esc(t('stScreens'))}</span><span><b>12</b> ${esc(t('stLang'))}</span><span class="ok">${esc(t('stOffline'))}</span></div>
   </section>`);
   w.appendChild(hero);
@@ -3739,7 +3805,7 @@ V;
   const gsec=el(`<section class="guides-sec"><div class="section-head"><div class="sec-eyebrow">${esc(t('guidesEyebrow'))}</div><h2 class="sec-title">${esc(t('guidesTitle'))}</h2></div><div class="guides-grid" style="max-width:1000px;margin:34px auto 0"></div><div style="text-align:center;margin-top:24px"><button class="btn-ghost" data-guides-link>${esc(t('guidesAll'))} ${isRTL()?'‹':'›'}</button></div></section>`);
   const ggrid=gsec.querySelector('.guides-grid');
   GUIDES.slice(0,6).forEach(g=>{const tile=el(`<button class="guide-tile"><span class="gti" style="background:${g.iconBg}"><svg viewBox="0 0 24 24">${I[g.icon]||''}</svg></span><span class="gtx"><span class="gtt">${esc(t2(g.title))}</span><span class="gtd">${esc(t2(g.intro))}</span></span></button>`);tile.addEventListener('click',()=>renderGuideArticle(g.slug));ggrid.appendChild(tile);});
-  w.appendChild(gsec);
+  if(featOn('guides'))w.appendChild(gsec);
   /* ---- features ---- */
   const featSec=el(`<section class="features-sec"><div class="section-head"><div class="sec-eyebrow">${esc(t('navFeatures'))}</div><h2 class="sec-title">${esc(t('featTitle'))}</h2></div>
     <div class="sel-features">${['featMenus','featVersions','featTools','featAI','featLang','featOffline'].map(k=>`<span class="feat-pill">${esc(t(k))}</span>`).join('')}</div></section>`);
@@ -3748,11 +3814,11 @@ V;
   const osLinks=avail.map(p=>`<a data-pid="${p.id}" data-ver="${esc(p.versions[0])}" role="button" tabindex="0">${esc(p.name)} ${esc(p.versions[0])}</a>`).join('');
   const sysCol=['ios','ipados','macos','windows','android','visionos'].map(id=>PLATFORMS.find(x=>x.id===id&&x.available)).filter(Boolean).map(p=>`<a data-pid="${p.id}" data-ver="${esc(p.versions[0])}">${esc(p.name)}</a>`).join('');
   const footer=el(`<footer class="sel-footer">
-    <div class="newsletter"><h3>${esc(t('nlTitle'))}</h3><p>${esc(t('nlDesc'))}</p><div class="nl-box"><div class="nl-form"><input type="email" placeholder="${esc(t('nlPlaceholder'))}" aria-label="${esc(t('nlPlaceholder'))}"><button type="button">${esc(t('nlButton'))}</button></div></div></div>
+    ${featOn('newsletter')?`<div class="newsletter"><h3>${esc(t('nlTitle'))}</h3><p>${esc(t('nlDesc'))}</p><div class="nl-box"><div class="nl-form"><input type="email" placeholder="${esc(t('nlPlaceholder'))}" aria-label="${esc(t('nlPlaceholder'))}"><button type="button">${esc(t('nlButton'))}</button></div></div></div>`:''}
     <div class="footer-cols">
       <div class="fcol"><h4>${esc(t('footProduct'))}</h4><a data-scroll="systems">${esc(t('navSystems'))}</a><a data-scroll="how">${esc(t('navHow'))}</a><a data-scroll="features">${esc(t('navFeatures'))}</a></div>
       <div class="fcol"><h4>${esc(t('footSystems'))}</h4>${sysCol}</div>
-      <div class="fcol"><h4>${esc(t('footResources'))}</h4><a data-guides-link>${esc(t('guidesNav'))}</a><a data-compare-link>${esc(t('compareNav'))}</a><a data-vs-link>${esc(t('vsNav'))}</a><a data-quiz-link>${esc(t('quizNav'))}</a><a data-embed-link>${esc(t('embedNav'))}</a><a data-fab2="ai">OS AI</a><a data-fab2="tools">${esc(t('toolsTitle'))}</a><a href="https://github.com/mrcelix/osimulator" target="_blank" rel="noopener">GitHub</a></div>
+      <div class="fcol"><h4>${esc(t('footResources'))}</h4>${featOn('guides')?`<a data-guides-link>${esc(t('guidesNav'))}</a>`:''}${featOn('compare')?`<a data-compare-link>${esc(t('compareNav'))}</a>`:''}${featOn('vs')?`<a data-vs-link>${esc(t('vsNav'))}</a>`:''}${featOn('quiz')?`<a data-quiz-link>${esc(t('quizNav'))}</a>`:''}${featOn('embed')?`<a data-embed-link>${esc(t('embedNav'))}</a>`:''}${featOn('ai')?'<a data-fab2="ai">OS AI</a>':''}<a data-fab2="tools">${esc(t('toolsTitle'))}</a><a href="https://github.com/mrcelix/osimulator" target="_blank" rel="noopener">GitHub</a></div>
       <div class="fcol"><h4>${esc(t('footFollow'))}</h4><div class="fsoc"><a href="https://github.com/mrcelix/osimulator" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24">${ICN2.github}</svg></a><a href="https://x.com/" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24">${ICN2.x}</svg></a></div></div>
     </div>
     <div class="foot-cta"><span class="fc-txt">${esc(t('footLove'))}</span><a class="fc-star" href="https://github.com/mrcelix/osimulator" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"/></svg>${esc(t('starGh'))}</a><div class="fc-share"><button data-fs="x" title="X"><svg viewBox="0 0 24 24">${ICN2.x}</svg></button><button data-fs="wa" title="WhatsApp"><svg viewBox="0 0 24 24">${GICON.wa}</svg></button><button data-fs="tg" title="Telegram"><svg viewBox="0 0 24 24">${GICON.tg}</svg></button><button data-fs="copy" title="${esc(t('copyLink'))}"><svg viewBox="0 0 24 24">${GICON.link}</svg></button></div></div>
@@ -3760,8 +3826,8 @@ V;
     <div class="foot-bottom"><div class="fbrand">osimulator</div><div class="fnote">© 2026 · ${esc(t('footer'))}</div><div class="fnote">${esc(t('footRights'))}</div></div>
   </footer>`);
   const nlForm=footer.querySelector('.nl-form');const nlBox=footer.querySelector('.nl-box');
-  nlForm.querySelector('button').addEventListener('click',()=>subscribeNewsletter(nlForm.querySelector('input'),nlBox));
-  nlForm.querySelector('input').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();subscribeNewsletter(nlForm.querySelector('input'),nlBox);}});
+  if(nlForm){nlForm.querySelector('button').addEventListener('click',()=>subscribeNewsletter(nlForm.querySelector('input'),nlBox));
+  nlForm.querySelector('input').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();subscribeNewsletter(nlForm.querySelector('input'),nlBox);}});}
   footer.querySelectorAll('.fcol a[data-pid]').forEach(a=>a.addEventListener('click',()=>boot(a.dataset.pid,a.dataset.ver)));
   footer.querySelectorAll('[data-fab2]').forEach(a=>a.addEventListener('click',()=>openPanel(a.dataset.fab2)));
   w.appendChild(footer);
@@ -3778,7 +3844,7 @@ V;
   const secMap={systems:sysSec,how:how,features:featSec};
   const go=key=>{if(key==='top'){w.scrollTo({top:0,behavior:'smooth'});return;}const tg=secMap[key];if(tg)tg.scrollIntoView({behavior:'smooth',block:'start'});};
   w.querySelectorAll('[data-scroll]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.scroll)));
-  hero.querySelectorAll('.trend-chip').forEach(b=>b.addEventListener('click',()=>boot(b.dataset.pid,b.dataset.ver)));
+  w.querySelectorAll('.nav-link[data-act]').forEach(b=>b.addEventListener('click',()=>doNav(b.dataset.act,go)));
   w.querySelectorAll('[data-guides-link]').forEach(b=>b.addEventListener('click',renderGuidesPage));
   w.querySelectorAll('[data-compare-link]').forEach(b=>b.addEventListener('click',renderComparePage));
   w.querySelectorAll('[data-vs-link]').forEach(b=>b.addEventListener('click',()=>renderVsPage('ios','android')));
@@ -3790,7 +3856,7 @@ V;
   w.addEventListener('click',()=>{document.querySelectorAll('.os-picker.open').forEach(o=>o.classList.remove('open'));document.querySelectorAll('.user-wrap.open').forEach(o=>o.classList.remove('open'));});
  }
 
- function boot(pid,v){try{store.set('lastOpened',{pid,ver:v});}catch(e){}state.platform=PLATFORMS.find(p=>p.id===pid);state.version=v;state.view=(['mac','win','linux','chromeos','winclassic','macclassic'].includes(state.platform.frame))?'desktop':'home';state.selectedId=null;state.stack=[];state.zoom=1;state.rotated=false;state.prefs={};state.filter='';state.winOpen=false;state.startOpen=false;state.deviceLang=state.lang;renderDevice();syncHash();}
+ function boot(pid,v){try{store.set('lastOpened',{pid,ver:v});track('launch',pid);}catch(e){}state.platform=PLATFORMS.find(p=>p.id===pid);state.version=v;state.view=(['mac','win','linux','chromeos','winclassic','macclassic'].includes(state.platform.frame))?'desktop':'home';state.selectedId=null;state.stack=[];state.zoom=1;state.rotated=false;state.prefs={};state.filter='';state.winOpen=false;state.startOpen=false;state.deviceLang=state.lang;renderDevice();syncHash();}
  /* ---------- version-aware layer ---------- */
  function verMajor(){const m=(state.version||'').match(/\d+/);return m?+m[0]:0;}
  const WALLS={
@@ -4437,9 +4503,9 @@ V;
   let f=document.getElementById('fab');if(f)f.remove();
   f=el(`<div id="fab">
     <div class="fab-menu">
-      <button class="fab-item" data-fab="magic"><span class="fi magic"><svg viewBox="0 0 24 24">${ICN.magic}</svg></span>${esc(txt('magic'))}</button>
+      ${featOn('magic')?`<button class="fab-item" data-fab="magic"><span class="fi magic"><svg viewBox="0 0 24 24">${ICN.magic}</svg></span>${esc(txt('magic'))}</button>`:''}
       <button class="fab-item" data-fab="tools"><span class="fi" style="background:#8e8e93"><svg viewBox="0 0 24 24">${ICN2.tools}</svg></span>${esc(t('tools'))}</button>
-      <button class="fab-item" data-fab="ai"><span class="fi" style="background:linear-gradient(150deg,#0a84ff,#5e5ce6)"><svg viewBox="0 0 24 24">${ICN.ai}</svg></span>OS AI</button>
+      ${featOn('ai')?`<button class="fab-item" data-fab="ai"><span class="fi" style="background:linear-gradient(150deg,#0a84ff,#5e5ce6)"><svg viewBox="0 0 24 24">${ICN.ai}</svg></span>OS AI</button>`:''}
       <button class="fab-item" data-fab="feedback"><span class="fi" style="background:#ff9500"><svg viewBox="0 0 24 24">${ICN.fb}</svg></span>${esc(txt('feedback'))}</button>
       <button class="fab-item" data-fab="account"><span class="fi" style="background:#34c759"><svg viewBox="0 0 24 24">${ICN.acc}</svg></span><span class="acc-lbl">${esc(USER?USER.name:txt('signin'))}</span></button>
     </div>
@@ -4640,13 +4706,14 @@ V;
  function buildAuthNav(){
   if(USER){
    const first=(USER.name||'').split(' ')[0];
-   const wrap=el(`<div class="user-wrap"><button class="nav-auth" aria-haspopup="true"><span class="av">${esc(initials(USER.name))}</span><span class="uname">${esc(first)}</span></button><div class="user-menu"><div class="um-head"><span class="av">${esc(initials(USER.name))}</span><div><div class="um-nm">${esc(USER.name)}</div><div class="um-em">${esc(USER.email)}</div></div></div><button class="um-item" data-um="account"><svg viewBox="0 0 24 24">${I.personcircle}</svg>${esc(t('account'))}</button><button class="um-item" data-um="guides"><svg viewBox="0 0 24 24">${GICON.guide}</svg>${esc(t('myGuides'))}</button><button class="um-item" data-um="theme"><svg viewBox="0 0 24 24">${ICN2.moon}</svg>${esc(t('toolTheme'))}</button><div class="um-sep"></div><button class="um-item" data-um="out"><svg viewBox="0 0 24 24">${ICN2.logout}</svg>${esc(t('signOut'))}</button></div></div>`);
+   const wrap=el(`<div class="user-wrap"><button class="nav-auth" aria-haspopup="true"><span class="av">${esc(initials(USER.name))}</span><span class="uname">${esc(first)}</span></button><div class="user-menu"><div class="um-head"><span class="av">${esc(initials(USER.name))}</span><div><div class="um-nm">${esc(USER.name)}</div><div class="um-em">${esc(USER.email)}</div></div></div><button class="um-item" data-um="account"><svg viewBox="0 0 24 24">${I.personcircle}</svg>${esc(t('account'))}</button><button class="um-item" data-um="guides"><svg viewBox="0 0 24 24">${GICON.guide}</svg>${esc(t('myGuides'))}</button><button class="um-item" data-um="theme"><svg viewBox="0 0 24 24">${ICN2.moon}</svg>${esc(t('toolTheme'))}</button><button class="um-item" data-um="admin"><svg viewBox="0 0 24 24">${ICN2.tools}</svg>${esc(AL('Admin panel','Admin paneli'))}</button><div class="um-sep"></div><button class="um-item" data-um="out"><svg viewBox="0 0 24 24">${ICN2.logout}</svg>${esc(t('signOut'))}</button></div></div>`);
    const btn=wrap.querySelector('.nav-auth');
    btn.addEventListener('click',e=>{e.stopPropagation();document.querySelectorAll('.os-picker.open').forEach(o=>o.classList.remove('open'));wrap.classList.toggle('open');});
    wrap.querySelector('.user-menu').addEventListener('click',e=>e.stopPropagation());
    wrap.querySelector('[data-um="account"]').addEventListener('click',()=>{wrap.classList.remove('open');openAuth();});
    wrap.querySelector('[data-um="guides"]').addEventListener('click',()=>{wrap.classList.remove('open');myGuidesModal();});
    wrap.querySelector('[data-um="theme"]').addEventListener('click',()=>{toggleTheme();});
+   wrap.querySelector('[data-um="admin"]').addEventListener('click',()=>{wrap.classList.remove('open');openAdmin();});
    wrap.querySelector('[data-um="out"]').addEventListener('click',()=>{wrap.classList.remove('open');signOut();});
    return wrap;
   }
@@ -4662,7 +4729,7 @@ V;
   o.querySelector('.ovl-bg').addEventListener('click',closePanels);
   const modal=el('<div class="auth-modal"></div>');o.appendChild(modal);
   let mode='in';
-  const done=(name,email,provider)=>{USER={name,email,provider,prefs:USER&&USER.prefs?USER.prefs:{lang:state.lang,deviceLang:state.lang,defaultOS:''}};store.set('user',USER);buildFAB();closePanels();refreshAuth();savedToast(t('welcome')+', '+(name.split(' ')[0]));};
+  const done=(name,email,provider)=>{USER={name,email,provider,prefs:USER&&USER.prefs?USER.prefs:{lang:state.lang,deviceLang:state.lang,defaultOS:''}};store.set('user',USER);recordMember(USER);buildFAB();closePanels();refreshAuth();savedToast(t('welcome')+', '+(name.split(' ')[0]));};
   const account=()=>{
    const p=USER.prefs||{};
    modal.innerHTML=`<button class="auth-x">✕</button>
@@ -4737,6 +4804,7 @@ V;
  }
  /* cookie consent */
  function maybeCookie(){
+  if(!featOn('cookie'))return;
   if(store.get('cookieOk',false))return;
   const bar=el(`<div class="cookie-bar"><p>${esc(t('cookieText'))}</p><button class="cookie-ok">${esc(t('cookieAccept'))}</button></div>`);
   document.body.appendChild(bar);requestAnimationFrame(()=>bar.classList.add('show'));
@@ -4744,7 +4812,7 @@ V;
  }
  /* global keyboard shortcuts */
  if(!window.__osKeys){window.__osKeys=1;document.addEventListener('keydown',e=>{
-  if((e.metaKey||e.ctrlKey)&&(e.key==='k'||e.key==='K')){e.preventDefault();openSettingsSearch();return;}
+  if((e.metaKey||e.ctrlKey)&&(e.key==='k'||e.key==='K')){e.preventDefault();if(featOn('search'))openSettingsSearch();return;}
   if(e.metaKey||e.ctrlKey||e.altKey)return;
   const tag=(e.target&&e.target.tagName||'').toLowerCase();const typing=tag==='input'||tag==='select'||tag==='textarea';
   if(e.key==='Escape'){closePanels();return;}
@@ -4964,14 +5032,15 @@ V;
  function parseHash(h){
   h=h||location.hash||'';
   if(h.indexOf('#g=')===0){try{const g=JSON.parse(b64d(decodeURIComponent(h.slice(3))));playGuide(g);return true;}catch(e){return false;}}
-  if(h==='#/quiz'||h==='#/quiz/'){renderQuizPage();return true;}
-  if(h==='#/embed'||h==='#/embed/'){renderEmbedPage();return true;}
-  if(h.indexOf('#/vs/')===0){const sg=h.slice(5).split('/').map(x=>{try{return decodeURIComponent(x);}catch(e){return x;}}).filter(Boolean);renderVsPage(sg[0]||'ios',sg[1]||'android');return true;}
-  if(h==='#/vs'||h==='#/vs/'){renderVsPage('ios','android');return true;}
-  if(h.indexOf('#/compare/')===0){renderComparison(decodeURIComponent(h.slice(10)));return true;}
-  if(h==='#/compare'||h==='#/compare/'){renderComparePage();return true;}
-  if(h.indexOf('#/guides/')===0){renderGuideArticle(decodeURIComponent(h.slice(9)));return true;}
-  if(h==='#/guides'||h==='#/guides/'){renderGuidesPage();return true;}
+  if(h==='#/admin'||h==='#/admin/'){openAdmin();return true;}
+  if(h==='#/quiz'||h==='#/quiz/'){if(!featOn('quiz')){renderSelect();return true;}renderQuizPage();return true;}
+  if(h==='#/embed'||h==='#/embed/'){if(!featOn('embed')){renderSelect();return true;}renderEmbedPage();return true;}
+  if(h.indexOf('#/vs/')===0){if(!featOn('vs')){renderSelect();return true;}const sg=h.slice(5).split('/').map(x=>{try{return decodeURIComponent(x);}catch(e){return x;}}).filter(Boolean);renderVsPage(sg[0]||'ios',sg[1]||'android');return true;}
+  if(h==='#/vs'||h==='#/vs/'){if(!featOn('vs')){renderSelect();return true;}renderVsPage('ios','android');return true;}
+  if(h.indexOf('#/compare/')===0){if(!featOn('compare')){renderSelect();return true;}renderComparison(decodeURIComponent(h.slice(10)));return true;}
+  if(h==='#/compare'||h==='#/compare/'){if(!featOn('compare')){renderSelect();return true;}renderComparePage();return true;}
+  if(h.indexOf('#/guides/')===0){if(!featOn('guides')){renderSelect();return true;}renderGuideArticle(decodeURIComponent(h.slice(9)));return true;}
+  if(h==='#/guides'||h==='#/guides/'){if(!featOn('guides')){renderSelect();return true;}renderGuidesPage();return true;}
   if(h.indexOf('#/')===0){const seg=h.slice(2).split('/').map(x=>{try{return decodeURIComponent(x);}catch(e){return x;}}).filter(Boolean);if(seg.length>=2){const pf=PLATFORMS.find(p=>p.id===seg[0]&&p.available);if(pf){boot(pf.id,pf.versions.indexOf(seg[1])>=0?seg[1]:pf.versions[0]);if(seg[2])setTimeout(()=>openCategory(seg[2]),80);return true;}}}
   return false;
  }
@@ -5054,7 +5123,7 @@ V;
   return nav;
  }
  function renderGuidesPage(){
-  state.view='guides';root.innerHTML='';
+  state.view='guides';root.innerHTML='';track('view','guides');
   try{history.replaceState(null,'','#/guides');document.documentElement.lang=state.lang;}catch(e){}
   const w=el(`<div class="guides-screen" dir="${isRTL()?'rtl':'ltr'}"></div>`);
   w.appendChild(guideNav());
@@ -5065,7 +5134,7 @@ V;
  }
  function renderGuideArticle(slug){
   const g=GUIDES.find(x=>x.slug===slug);if(!g){renderGuidesPage();return;}
-  state.view='guide';state.guideSlug=slug;root.innerHTML='';
+  state.view='guide';state.guideSlug=slug;root.innerHTML='';track('view','guide:'+slug);
   try{history.replaceState(null,'','#/guides/'+slug);document.documentElement.lang=state.lang;}catch(e){}
   const w=el(`<div class="guides-screen" dir="${isRTL()?'rtl':'ltr'}"></div>`);
   w.appendChild(guideNav());
@@ -5123,7 +5192,7 @@ V;
  ];
  function cmpOpen(osid,cat){const pf=PLATFORMS.find(p=>p.id===osid&&p.available);if(!pf)return;boot(osid,pf.versions[0]);if(cat)setTimeout(()=>openCategory(cat),90);}
  function renderComparePage(){
-  state.view='compare';root.innerHTML='';
+  state.view='compare';root.innerHTML='';track('view','compare');
   try{history.replaceState(null,'','#/compare');document.documentElement.lang=state.lang;}catch(e){}
   const w=el(`<div class="guides-screen" dir="${isRTL()?'rtl':'ltr'}"></div>`);
   w.appendChild(guideNav());
@@ -5135,7 +5204,7 @@ V;
  function renderComparison(slug){
   const c=COMPARES.find(x=>x.slug===slug);if(!c){renderComparePage();return;}
   const pa=PLATFORMS.find(p=>p.id===c.a),pb=PLATFORMS.find(p=>p.id===c.b);if(!pa||!pb){renderComparePage();return;}
-  state.view='comparison';state.cmpSlug=slug;root.innerHTML='';
+  state.view='comparison';state.cmpSlug=slug;root.innerHTML='';track('view','comparison:'+slug);
   try{history.replaceState(null,'','#/compare/'+slug);document.documentElement.lang=state.lang;}catch(e){}
   const w=el(`<div class="guides-screen" dir="${isRTL()?'rtl':'ltr'}"></div>`);
   w.appendChild(guideNav());
@@ -5169,7 +5238,7 @@ V;
   const avail=PLATFORMS.filter(p=>p.available);
   if(!avail.find(p=>p.id===a))a='ios';if(!avail.find(p=>p.id===b))b='android';
   const pfa0=PLATFORMS.find(p=>p.id===a),pfb0=PLATFORMS.find(p=>p.id===b);
-  state.view='vs';root.innerHTML='';
+  state.view='vs';root.innerHTML='';track('view','vs');
   try{history.replaceState(null,'','#/vs/'+a+'/'+b);document.documentElement.lang=state.lang;}catch(e){}
   const w=el(`<div class="guides-screen" dir="${isRTL()?'rtl':'ltr'}"></div>`);w.appendChild(guideNav());
   const wrap=el(`<div class="guides-wrap"><div class="guides-hero"><div class="sec-eyebrow">${esc(t('vsNav'))}</div><h1>${esc(t('vsTitle'))}</h1><p>${esc(t('vsSub'))}</p></div></div>`);
@@ -5358,7 +5427,7 @@ V;
   updateQuizScore();wrap.querySelector('.quiz-next').style.visibility='visible';
  }
  function renderQuizPage(){
-  state.view='quiz';root.innerHTML='';QUIZ.score=0;QUIZ.streak=0;
+  state.view='quiz';root.innerHTML='';QUIZ.score=0;QUIZ.streak=0;track('view','quiz');
   try{history.replaceState(null,'','#/quiz');document.documentElement.lang=state.lang;}catch(e){}
   const w=el(`<div class="guides-screen" dir="${isRTL()?'rtl':'ltr'}"></div>`);w.appendChild(guideNav());
   const wrap=el(`<div class="quiz-wrap"><div class="sec-eyebrow">${esc(t('quizEyebrow'))}</div><h1 style="font-size:clamp(26px,4.5vw,34px);font-weight:800;letter-spacing:-.02em;margin:8px 0 6px">${esc(t('quizTitle'))}</h1><p class="art-intro" style="max-width:440px;margin:0 auto 4px;font-size:15px">${esc(t('quizSub'))}</p><div class="quiz-score"><div class="qs"><b data-q="score">0</b><span>${esc(t('quizScore'))}</span></div><div class="qs"><b data-q="streak">0</b><span>${esc(t('quizStreak'))}</span></div><div class="qs"><b data-q="best">0</b><span>${esc(t('quizBest'))}</span></div></div><button class="quiz-share"><svg viewBox="0 0 24 24">${SHARE_SVG}</svg>${esc(t('quizShare'))}</button><div class="quiz-card"><canvas></canvas></div><div class="quiz-result"></div><div class="quiz-opts"></div><button class="quiz-next">${esc(t('quizNext'))} ›</button></div>`);
@@ -5405,7 +5474,7 @@ V;
   fillVer();fillCat();update();
  }
  function renderEmbedPage(def){
-  state.view='embed';root.innerHTML='';
+  state.view='embed';root.innerHTML='';track('view','embed');
   try{history.replaceState(null,'','#/embed');document.documentElement.lang=state.lang;}catch(e){}
   const w=el(`<div class="guides-screen" dir="${isRTL()?'rtl':'ltr'}"></div>`);w.appendChild(guideNav());
   const wrap=el(`<div class="guides-wrap"><div class="guides-hero"><div class="sec-eyebrow">${esc(t('embedNav'))}</div><h1>${esc(t('embedTitle'))}</h1><p>${esc(t('embedSub'))}</p></div><div class="emb-host"></div></div>`);
@@ -5421,12 +5490,133 @@ V;
   embedUI(m.querySelector('.emb-host'),def);
  }
 
+
+ /* ===================== ADMIN PANEL + config + analytics ===================== */
+ const AL=(en,tr)=>state.lang==='tr'?tr:en;
+ /* analytics (client-side, localStorage) */
+ function track(type,label){try{const a=store.get('analytics',[]);a.push({t:type,l:label||'',ts:Date.now()});store.set('analytics',a.slice(-3000));}catch(e){}}
+ function viewsByDay(n){const ev=store.get('analytics',[]).filter(e=>e.t==='view');const out=[];const now=new Date();for(let i=n-1;i>=0;i--){const d=new Date(now.getFullYear(),now.getMonth(),now.getDate()-i);const k=('0'+(d.getMonth()+1)).slice(-2)+'/'+('0'+d.getDate()).slice(-2);const c=ev.filter(e=>{const ed=new Date(e.ts);return ed.getFullYear()===d.getFullYear()&&ed.getMonth()===d.getMonth()&&ed.getDate()===d.getDate();}).length;out.push([k,c]);}return out;}
+ function topLaunch(n){const m={};store.get('analytics',[]).filter(e=>e.t==='launch').forEach(e=>m[e.l]=(m[e.l]||0)+1);const a=Object.keys(m).map(k=>{const p=PLATFORMS.find(x=>x.id===k);return[p?p.name:k,m[k]];});a.sort((x,y)=>y[1]-x[1]);return a.slice(0,n);}
+ function topView(n){const m={};store.get('analytics',[]).filter(e=>e.t==='view').forEach(e=>m[e.l]=(m[e.l]||0)+1);const a=Object.keys(m).map(k=>[k,m[k]]);a.sort((x,y)=>y[1]-x[1]);return a.slice(0,n);}
+ function typeCounts(){const m={};store.get('analytics',[]).forEach(e=>m[e.t]=(m[e.t]||0)+1);return Object.keys(m).map(k=>[k,m[k]]).sort((x,y)=>y[1]-x[1]);}
+ /* header menu config */
+ const DEFAULT_NAV=[{id:'systems',key:'navSystems',act:'scroll:systems',vis:true},{id:'how',key:'navHow',act:'scroll:how',vis:true},{id:'guides',key:'guidesNav',act:'route:guides',vis:true},{id:'compare',key:'compareNav',act:'route:compare',vis:true},{id:'vs',key:'vsNav',act:'route:vs',vis:true},{id:'quiz',key:'quizNav',act:'route:quiz',vis:true},{id:'embed',key:'embedNav',act:'route:embed',vis:true},{id:'features',key:'navFeatures',act:'scroll:features',vis:true}];
+ function getNavMenu(){const m=store.get('navMenu',null);return (m&&m.length)?m:JSON.parse(JSON.stringify(DEFAULT_NAV));}
+ function setNavMenu(m){store.set('navMenu',m);}
+ function doNav(act,go){const p=String(act||'').split(':');const kind=p[0],val=p.slice(1).join(':');
+  if(kind==='scroll'){if(go)go(val);}
+  else if(kind==='route'){if(val==='guides')renderGuidesPage();else if(val==='compare')renderComparePage();else if(val==='vs')renderVsPage('ios','android');else if(val==='quiz')renderQuizPage();else if(val==='embed')renderEmbedPage();}
+  else if(kind==='url'){try{window.open(val,'_blank','noopener');}catch(e){}}
+ }
+ /* features */
+ const FEATS=[{k:'guides',en:'Guides',tr:'Rehberler'},{k:'compare',en:'Comparisons',tr:'Karşılaştırmalar'},{k:'vs',en:'Side-by-side',tr:'Yan yana'},{k:'quiz',en:'Which OS? quiz',tr:'Hangi OS? quiz'},{k:'embed',en:'Embed builder',tr:'Gömme aracı'},{k:'search',en:'Global search',tr:'Global arama'},{k:'ai',en:'OS AI assistant',tr:'OS AI asistanı'},{k:'magic',en:'Magic teleport',tr:'Sihir ışınlama'},{k:'newsletter',en:'Newsletter',tr:'E-Bülten'},{k:'cookie',en:'Cookie banner',tr:'Çerez bildirimi'}];
+ function featOn(k){const f=store.get('features',{});return f[k]!==false;}
+ function setFeat(k,v){const f=store.get('features',{});f[k]=v;store.set('features',f);}
+ /* OS overrides */
+ function getOsOv(){return store.get('osOverrides',{});}
+ function setOsOv(id,turnOff){const o=getOsOv();if(turnOff)o[id]='off';else delete o[id];store.set('osOverrides',o);}
+ function applyOsOverrides(){const o=getOsOv();PLATFORMS.forEach(p=>{if(SETTINGS[p.id])p.available=(o[p.id]!=='off');});}
+ /* members */
+ function getMembers(){return store.get('members',[]);}
+ function recordMember(u){if(!u||!u.email)return;const m=getMembers();if(!m.some(x=>x.email===u.email)){m.push({name:u.name,email:u.email,provider:u.provider||'email',ts:Date.now()});store.set('members',m);}}
+ function delMember(email){store.set('members',getMembers().filter(x=>x.email!==email));}
+ function exportMembersCSV(){const m=getMembers();const rows=[['name','email','provider','joined']].concat(m.map(x=>[x.name,x.email,x.provider||'',x.ts?new Date(x.ts).toISOString():'']));const csv=rows.map(r=>r.map(c=>'"'+String(c).replace(/"/g,'""')+'"').join(',')).join('\n');try{const b=new Blob([csv],{type:'text/csv'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='osimulator-members.csv';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000);}catch(e){}}
+ /* gate + open */
+ function openAdmin(){if(state.adminOK){renderAdminPage();return;}adminGate(()=>{state.adminOK=true;renderAdminPage();});}
+ function adminGate(onOk){
+  closePanels();const has=store.get('adminPin',null);
+  const o=el('<div class="ovl show auth-ovl"><div class="ovl-bg"></div></div>');document.body.appendChild(o);
+  const m=el(`<div class="auth-modal adm-gate"><button class="auth-x">✕</button><div class="auth-logo"><span class="mk">os</span><b>${esc(AL('Admin panel','Admin paneli'))}</b></div><div class="auth-sub" style="margin-top:14px">${esc(has?AL('Enter your admin PIN.','Admin PIN’ini gir.'):AL('Set an admin PIN to protect this panel.','Bu paneli korumak için bir PIN belirle.'))}</div><div class="fld2"><div class="inp"><input id="apin" type="password" inputmode="numeric" placeholder="PIN" autocomplete="off"></div></div><button class="auth-submit" id="ago">${esc(has?AL('Unlock','Kilidi aç'):AL('Set PIN','PIN belirle'))}</button><div class="auth-fine">${esc(AL('Client-side gate only — not real security.','Yalnızca istemci tarafı — gerçek güvenlik değildir.'))}</div></div>`);
+  o.appendChild(m);o.querySelector('.ovl-bg').addEventListener('click',closePanels);m.querySelector('.auth-x').addEventListener('click',closePanels);
+  const inp=m.querySelector('#apin');setTimeout(()=>inp.focus(),50);
+  const go=()=>{const v=inp.value.trim();if(!v){inp.focus();return;}if(!has){store.set('adminPin',v);closePanels();onOk();}else if(v===has){closePanels();onOk();}else{savedToast(AL('Wrong PIN','Yanlış PIN'));inp.value='';inp.focus();}};
+  m.querySelector('#ago').addEventListener('click',go);inp.addEventListener('keydown',e=>{if(e.key==='Enter')go();});
+ }
+ function abars(data){const max=Math.max(1,...data.map(d=>d[1]));return data.map(d=>`<div class="ab-row"><span class="ab-l">${esc(d[0])}</span><span class="ab-bar"><i style="width:${Math.round(d[1]/max*100)}%"></i></span><span class="ab-v">${d[1]}</span></div>`).join('')||'<div class="adm-sub">—</div>';}
+ function renderAdminPage(){
+  state.view='admin';root.innerHTML='';
+  try{history.replaceState(null,'','#/admin');document.documentElement.lang=state.lang;}catch(e){}
+  const tab=state.adminTab||'overview';
+  const w=el(`<div class="admin-screen" dir="${isRTL()?'rtl':'ltr'}"><div class="adm-top"><span class="abrand"><span class="mk">os</span>osimulator</span><span class="atag">Admin</span><span class="aspacer"></span></div><div class="adm-body"><nav class="adm-tabs"></nav><div class="adm-main"></div></div></div>`);
+  const top=w.querySelector('.adm-top');
+  const themeBtn=el('<button class="nav-theme"></button>');themeBtn.addEventListener('click',toggleTheme);top.appendChild(themeBtn);
+  top.appendChild(langSelect(renderAdminPage));
+  const vb=el(`<button class="abtn">${esc(AL('View site','Siteyi gör'))}</button>`);vb.addEventListener('click',()=>{try{history.replaceState(null,'',guideBaseUrl());}catch(e){}renderSelect();});top.appendChild(vb);
+  const TABS=[['overview',AL('Overview','Genel bakış')],['analytics',AL('Analytics','Analitik')],['members',AL('Members','Üyeler')],['os',AL('Operating systems','İşletim sistemleri')],['features',AL('Site features','Site özellikleri')],['menu',AL('Header menu','Menü yönetimi')]];
+  const tabs=w.querySelector('.adm-tabs');
+  TABS.forEach(([k,lab])=>{const b=el(`<button class="adm-tab ${k===tab?'on':''}"><svg viewBox="0 0 24 24">${ICN2.tools}</svg><span>${esc(lab)}</span></button>`);b.addEventListener('click',()=>{state.adminTab=k;renderAdminPage();});tabs.appendChild(b);});
+  root.appendChild(w);setTimeout(updateThemeIcons,0);
+  const main=w.querySelector('.adm-main');
+  ({overview:admOverview,analytics:admAnalytics,members:admMembers,os:admOS,features:admFeatures,menu:admMenu}[tab]||admOverview)(main);
+ }
+ function admOverview(main){
+  const ev=store.get('analytics',[]);const views=ev.filter(e=>e.t==='view').length,launches=ev.filter(e=>e.t==='launch').length;
+  const real=PLATFORMS.filter(p=>SETTINGS[p.id]);const osOn=real.filter(p=>p.available).length;const featsOn=FEATS.filter(f=>featOn(f.k)).length;
+  main.innerHTML=`<div class="adm-h">${esc(AL('Overview','Genel bakış'))}</div><div class="adm-sub">${esc(AL('A snapshot of your site. Data is stored in this browser.','Sitenin anlık durumu. Veriler bu tarayıcıda saklanır.'))}</div>
+   <div class="adm-cards">
+    <div class="adm-card"><b>${getMembers().length}</b><span>${esc(AL('Members','Üyeler'))}</span></div>
+    <div class="adm-card"><b>${views}</b><span>${esc(AL('Page views','Sayfa görüntüleme'))}</span></div>
+    <div class="adm-card"><b>${launches}</b><span>${esc(AL('OS launches','OS açılışı'))}</span></div>
+    <div class="adm-card"><b>${ev.length}</b><span>${esc(AL('Total events','Toplam olay'))}</span></div>
+    <div class="adm-card"><b>${osOn}/${real.length}</b><span>${esc(AL('OSes enabled','Etkin OS'))}</span></div>
+    <div class="adm-card"><b>${featsOn}/${FEATS.length}</b><span>${esc(AL('Features on','Açık özellik'))}</span></div>
+   </div>
+   <div class="adm-sec"><h3>${esc(AL('Views · last 14 days','Görüntüleme · son 14 gün'))}</h3>${abars(viewsByDay(14))}</div>
+   <div class="adm-sec"><h3>${esc(AL('Most opened operating systems','En çok açılan OS’ler'))}</h3>${abars(topLaunch(8))}</div>`;
+ }
+ function admAnalytics(main){
+  const ev=store.get('analytics',[]);
+  main.innerHTML=`<div class="adm-h">${esc(AL('Analytics','Analitik'))}</div><div class="adm-sub">${esc(AL('Visits and clicks tracked in this browser (no external tracking).','Bu tarayıcıda izlenen ziyaret ve tıklamalar (dış izleme yok).'))}</div>
+   <div class="adm-sec"><h3>${esc(AL('Views · last 14 days','Görüntüleme · son 14 gün'))}</h3>${abars(viewsByDay(14))}</div>
+   <div class="adm-sec"><h3>${esc(AL('Top pages','En çok görüntülenen'))}</h3>${abars(topView(10))}</div>
+   <div class="adm-sec"><h3>${esc(AL('By event type','Olay türüne göre'))}</h3>${abars(typeCounts())}</div>
+   <div class="adm-sec"><h3>${esc(AL('Recent events','Son olaylar'))}</h3><table class="adm-tbl"><thead><tr><th>${esc(AL('Time','Zaman'))}</th><th>${esc(AL('Type','Tür'))}</th><th>${esc(AL('Label','Etiket'))}</th></tr></thead><tbody>${ev.slice(-25).reverse().map(e=>`<tr><td>${esc(new Date(e.ts).toLocaleString())}</td><td>${esc(e.t)}</td><td>${esc(e.l)}</td></tr>`).join('')||'<tr><td colspan="3">—</td></tr>'}</tbody></table></div>
+   <div class="adm-actions"><button class="ghost" id="aclr">${esc(AL('Clear analytics','Analitiği temizle'))}</button></div>`;
+  main.querySelector('#aclr').addEventListener('click',()=>{store.set('analytics',[]);renderAdminPage();});
+ }
+ function admMembers(main){
+  const ms=getMembers();
+  main.innerHTML=`<div class="adm-h">${esc(AL('Members','Üyeler'))}</div><div class="adm-sub">${esc(AL('People who signed up on this device.','Bu cihazda kayıt olan kişiler.'))}</div>
+   <div class="adm-note">${esc(AL('Membership is stored locally (no backend). Connect a server for real, shared accounts.','Üyelik yerel olarak saklanır (backend yok). Gerçek/paylaşımlı hesaplar için sunucu bağla.'))}</div>
+   <table class="adm-tbl"><thead><tr><th>${esc(AL('Name','Ad'))}</th><th>Email</th><th>${esc(AL('Provider','Sağlayıcı'))}</th><th>${esc(AL('Joined','Katıldı'))}</th><th></th></tr></thead><tbody>${ms.map(m=>`<tr><td>${esc(m.name)}</td><td>${esc(m.email)}</td><td>${esc(m.provider||'email')}</td><td>${esc(m.ts?new Date(m.ts).toLocaleDateString():'—')}</td><td><span class="adel" data-em="${esc(m.email)}">${esc(AL('Delete','Sil'))}</span></td></tr>`).join('')||`<tr><td colspan="5">${esc(AL('No members yet.','Henüz üye yok.'))}</td></tr>`}</tbody></table>
+   <div class="adm-actions"><button class="prim" id="acsv">${esc(AL('Export CSV','CSV indir'))}</button></div>`;
+  main.querySelectorAll('.adel').forEach(x=>x.addEventListener('click',()=>{delMember(x.dataset.em);renderAdminPage();}));
+  main.querySelector('#acsv').addEventListener('click',exportMembersCSV);
+ }
+ function admOS(main){
+  const real=PLATFORMS.filter(p=>SETTINGS[p.id]);
+  main.innerHTML=`<div class="adm-h">${esc(AL('Operating systems','İşletim sistemleri'))}</div><div class="adm-sub">${esc(AL('Enable or hide any OS across the whole site.','Herhangi bir OS’u tüm sitede aç ya da gizle.'))}</div><div id="oslist"></div>`;
+  const list=main.querySelector('#oslist');
+  real.forEach(p=>{const on=p.available;const row=el(`<div class="adm-row"><span class="aic" style="background:${p.logoBg&&p.logoBg.charAt(0)==='#'?p.logoBg:'#333'}"><svg viewBox="0 0 24 24" fill="#fff">${LOGOS[p.logo]||''}</svg></span><div class="arl"><div class="nm">${esc(p.name)}</div><div class="mt">${p.versions.length} ${esc(AL('versions','sürüm'))}</div></div><div class="aswitch ${on?'on':''}"><i></i></div></div>`);row.querySelector('.aswitch').addEventListener('click',()=>{setOsOv(p.id,on);applyOsOverrides();renderAdminPage();});list.appendChild(row);});
+ }
+ function admFeatures(main){
+  main.innerHTML=`<div class="adm-h">${esc(AL('Site features','Site özellikleri'))}</div><div class="adm-sub">${esc(AL('Turn features on or off across the site.','Özellikleri sitede aç/kapat.'))}</div><div id="flist"></div>`;
+  const list=main.querySelector('#flist');
+  FEATS.forEach(f=>{const on=featOn(f.k);const row=el(`<div class="adm-row"><div class="arl"><div class="nm">${esc(AL(f.en,f.tr))}</div><div class="mt">${esc(f.k)}</div></div><div class="aswitch ${on?'on':''}"><i></i></div></div>`);row.querySelector('.aswitch').addEventListener('click',()=>{setFeat(f.k,!on);renderAdminPage();});list.appendChild(row);});
+ }
+ function admMenu(main){
+  const menu=getNavMenu();
+  main.innerHTML=`<div class="adm-h">${esc(AL('Header menu','Menü yönetimi'))}</div><div class="adm-sub">${esc(AL('Reorder, rename, show/hide, add or remove header links.','Sırala, yeniden adlandır, göster/gizle, ekle veya kaldır.'))}</div><div id="mlist"></div><div class="adm-actions"><button class="prim" id="madd">${esc(AL('Add link','Bağlantı ekle'))}</button><button class="ghost" id="mreset">${esc(AL('Reset to default','Varsayılana dön'))}</button></div>`;
+  const list=main.querySelector('#mlist');
+  menu.forEach((it,i)=>{const label=it.label||t(it.key||'');const row=el(`<div class="adm-menu-item"><button class="amv up" ${i===0?'disabled':''}>↑</button><button class="amv down" ${i===menu.length-1?'disabled':''}>↓</button><input class="ai" value="${esc(label)}"><span class="atgt">${esc(it.act)}</span><div class="aswitch ${it.vis!==false?'on':''}"><i></i></div><button class="amv del">✕</button></div>`);
+   row.querySelector('.ai').addEventListener('input',e=>{it.label=e.target.value;setNavMenu(menu);});
+   row.querySelector('.up').addEventListener('click',()=>{if(i>0){const tmp=menu[i-1];menu[i-1]=menu[i];menu[i]=tmp;setNavMenu(menu);renderAdminPage();}});
+   row.querySelector('.down').addEventListener('click',()=>{if(i<menu.length-1){const tmp=menu[i+1];menu[i+1]=menu[i];menu[i]=tmp;setNavMenu(menu);renderAdminPage();}});
+   row.querySelector('.aswitch').addEventListener('click',()=>{it.vis=it.vis===false;setNavMenu(menu);renderAdminPage();});
+   row.querySelector('.del').addEventListener('click',()=>{menu.splice(i,1);setNavMenu(menu);renderAdminPage();});
+   list.appendChild(row);});
+  main.querySelector('#madd').addEventListener('click',()=>{const lb=prompt(AL('Link label','Bağlantı adı'));if(!lb)return;const url=prompt(AL('URL (https://…) — leave blank to scroll to Systems','URL (https://…) — boş bırakırsan Sistemler’e kaydırır'))||'';menu.push({id:'c'+Date.now(),label:lb,act:url?('url:'+url):'scroll:systems',vis:true});setNavMenu(menu);renderAdminPage();});
+  main.querySelector('#mreset').addEventListener('click',()=>{store.set('navMenu',null);renderAdminPage();});
+ }
+
  window.addEventListener('resize',()=>{if(state.view!=='select'){if(state.autoFit)fit();else applyZoom();}});
  if(USER&&USER.prefs&&USER.prefs.lang)state.lang=USER.prefs.lang;
 const EMBED=/[?&]embed=1/.test(location.search);
  const EMBTHEME=(location.search.match(/[?&]theme=(light|dark)/)||[])[1];
  const BARE=/[?&]bare=1/.test(location.search);
  initTheme();
+ try{applyOsOverrides();}catch(e){}
+ if(USER)recordMember(USER);
  if(EMBED){document.body.classList.add('embed');if(BARE)document.body.classList.add('bare');if(EMBTHEME)applyTheme(EMBTHEME,false);}
  if(!parseHash())renderSelect();
  if(!EMBED){buildFAB();maybeCookie();}
