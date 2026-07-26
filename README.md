@@ -65,6 +65,16 @@ This repo is Pages-ready (`index.html` at the root, `.nojekyll` included):
 2. **Source:** *Deploy from a branch* → **main** → **/ (root)**.
 3. Your site goes live at `https://osimulator.com/`.
 
+## Static pages (SEO)
+
+Crawlable, per-URL pages for every guide and comparison live in `guides/` and `compare/` (e.g. `/guides/dark-mode.html`, `/compare/ios-vs-android.html`). Each has its own title, meta, canonical and JSON-LD (HowTo for guides), real text content, and a link into the interactive app. Regenerate them from the app's data with:
+
+```bash
+node build-static.js   # rebuilds guides/*.html, compare/*.html and sitemap.xml
+```
+
+After deploying, submit `sitemap.xml` in Google Search Console and Bing Webmaster Tools.
+
 ## Tech
 
 Vanilla HTML, CSS and JavaScript — no frameworks, no dependencies. The entire UI, data model, icons and logic live in `index.html`. Membership and preferences are stored client-side (`localStorage`); the Google sign-in and AI assistant are simulated and never leave your browser.
