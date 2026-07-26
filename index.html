@@ -2048,6 +2048,11 @@ const SETTINGS={ipados:{
     S([L('Video Autoplay',{value:'On'}),L('In-App Ratings & Reviews',{value:'On'}),T('Offload Unused Apps',false)]),
     S([L('App Downloads',{value:'Ask If Over 200 MB'})],{header:'Cellular Data'})
   ])},
+  {id:'wallet',title:'Wallet & Apple Pay',icon:'wallet',iconBg:'#1c1c1e',group:'apps',detail:D('Wallet & Apple Pay',[
+    S([L('Visa ••1234',{value:'Default',detail:D('Visa',[S([V('Card Number','••••  ••••  ••••  1234'),V('Expires','08/27'),L('Transaction Defaults')]),S([B('Remove This Card',{style:'destructive'})])])}),L('Add Card')],{header:'Payment Cards'}),
+    S([L('Default Card',{value:'Visa ••1234'}),L('Express Transit Card',{value:'None'})],{header:'Transaction Defaults'}),
+    S([T('Allow Payments on Mac',true)])
+  ])},
   {id:'passwords',title:'Passwords',icon:'passcode',iconBg:'#8e8e93',group:'apps',detail:D('Passwords',[
     S([L('Security Recommendations',{value:'1',badge:'dot'}),L('Password Options',{detail:D('Password Options',[S([T('AutoFill Passwords',true),T('Passkeys',true)])])})]),
     S([L('example.com',{value:'john.wick'}),L('google.com',{value:'johnwick@gmail.com'})],{header:'Passwords'})
@@ -3195,7 +3200,15 @@ SETTINGS.ubuntu={
   {id:'datetime',title:'Date & Time',icon:'datetime',iconBg:'#5f6368',group:'g4',detail:D('Date & Time',[S([T('Automatic Date & Time',true),T('Automatic Time Zone',true)]),S([L('Time Zone',{value:'Istanbul (GMT+3)'})]),CHOICE('Time Format',['24-hour','AM / PM'],0)])},
   {id:'search',title:'Search',icon:'search',iconBg:'#5f6368',group:'g2',detail:D('Search',[S([T('App Search',true)],{footer:'Search apps and settings from the Activities overview.'}),S([V('Files',''),V('Software',''),V('Characters',''),V('Calculator',''),V('Terminal','')],{header:'Search Locations'})])},
   {id:'printers',title:'Printers',icon:'files',iconBg:'#5f6368',group:'g3',detail:D('Printers',[S([L('HP LaserJet Pro',{value:'Ready',detail:D('HP LaserJet Pro',[S([V('Model','HP LaserJet Pro M404'),V('Status','Ready'),V('Jobs','0 active')]),S([B('Print Test Page',{style:'link'}),B('Remove Printer',{style:'destructive'})])])})],{header:'Printers'}),S([L('Add a Printer…')])])},
-  {id:'removable',title:'Removable Media',icon:'storage',iconBg:'#5f6368',group:'g3',detail:D('Removable Media',[S([L('CD audio',{value:'Ask what to do'}),L('DVD video',{value:'Ask what to do'}),L('Music player',{value:'Ask what to do'}),L('Photos',{value:'Ask what to do'}),L('Software',{value:'Ask what to do'})]),S([T('Never prompt or start programs on media insertion',false)])])}
+  {id:'removable',title:'Removable Media',icon:'storage',iconBg:'#5f6368',group:'g3',detail:D('Removable Media',[S([L('CD audio',{value:'Ask what to do'}),L('DVD video',{value:'Ask what to do'}),L('Music player',{value:'Ask what to do'}),L('Photos',{value:'Ask what to do'}),L('Software',{value:'Ask what to do'})]),S([T('Never prompt or start programs on media insertion',false)])])},
+  {id:'background',title:'Background',icon:'wallpaper',iconBg:'#e95420',group:'g2',detail:D('Background',[
+    S([{type:'wallpaperPreview'}]),
+    S([L('Add Picture…')]),
+    S([V('Blobs',''),V('Pixels',''),V('Canyon',''),V('Drool',''),V('Sunset','')],{header:'Backgrounds'})
+  ])},
+  {id:'defaultapps',title:'Default Applications',icon:'apps',iconBg:'#5f6368',group:'g4',detail:D('Default Applications',[
+    S([L('Web',{value:'Firefox'}),L('Mail',{value:'Thunderbird'}),L('Calendar',{value:'GNOME Calendar'}),L('Music',{value:'Rhythmbox'}),L('Video',{value:'Videos'}),L('Photos',{value:'Image Viewer'})])
+  ])}
  ]
 };
 /* ---- ChromeOS ---- */
@@ -3246,7 +3259,12 @@ SETTINGS.chromeos={
   {id:'phonehub',title:'Connected devices',icon:'bluetooth',iconBg:'#1a73e8',group:'c1',detail:D('Connected devices',[S([L('Android phone',{value:'Pixel 8 Pro',detail:D('Phone Hub',[S([T('Enable Phone Hub',true),T('Notifications',true),T('Recent Chrome tabs',true),T('Instant tethering',true)])])}),L('Nearby Share',{value:'On'})])])},
   {id:'languages',title:'Languages & inputs',icon:'language',iconBg:'#1a73e8',group:'c4',detail:D('Languages & inputs',[S([L('Device language',{value:'English (US)'}),L('Preferred languages'),L('Inputs',{value:'US keyboard'}),L('Spell check',{value:'On'})])])},
   {id:'files',title:'Files',icon:'files',iconBg:'#1a73e8',group:'c3',detail:D('Files',[S([L('Google Drive',{value:'Synced'}),L('Network file shares'),T('Offline files',true)])])},
-  {id:'crostini',title:'Developers',icon:'general',iconBg:'#5f6368',group:'c4',detail:D('Developers',[S([L('Linux development environment',{value:'Off',detail:D('Linux (Beta)',[S([NOTE('Run Linux tools, editors, and IDEs on your Chromebook.')]),S([B('Turn on',{style:'link',align:'center'})])])})])])}
+  {id:'crostini',title:'Developers',icon:'general',iconBg:'#5f6368',group:'c4',detail:D('Developers',[S([L('Linux development environment',{value:'Off',detail:D('Linux (Beta)',[S([NOTE('Run Linux tools, editors, and IDEs on your Chromebook.')]),S([B('Turn on',{style:'link',align:'center'})])])})])])},
+  {id:'people',title:'Accounts',icon:'personcircle',iconBg:'#1a73e8',group:'c2',detail:D('Accounts',[
+    S([V('johnwick@gmail.com','Primary account'),L('Add Google Account')],{header:'Google Accounts'}),
+    S([L('Sync and Google services',{value:'On',detail:D('Sync and Google services',[S([T('Sync everything',true)]),S([L('Manage what you sync'),L('Encryption options')])])}),L('School accounts',{value:'Add'}),L('Parental controls',{value:'Set up',detail:D('Parental controls',[S([NOTE('Manage this account with Family Link.')])])})]),
+    S([B('Remove this account',{style:'destructive'})])
+  ])}
  ]
 };
 /* ---- HarmonyOS (phone) ---- */
@@ -3388,7 +3406,17 @@ SETTINGS.watchos={
   {id:'privacysec',title:'Privacy & Security',icon:'privacy',iconBg:'#0a84ff',group:'w4',detail:D('Privacy & Security',[S([L('Location Services',{value:'On'}),L('Health',{value:'On'}),L('Motion & Fitness',{value:'On'}),L('Microphone',{value:'On'})]),S([T('Fraudulent Website Warning',true)])])},
   {id:'music',title:'Music',icon:'music',iconBg:'#fb5c74',group:'w3',detail:D('Music',[S([L('Add Music'),T('Automatic Playlists',true)]),S([V('Now Playing',''),V('Recently Played','')],{header:'Synced'}),S([T('Cellular Streaming',true)])])},
   {id:'crown',title:'Digital Crown',icon:'general',iconBg:'#8e8e93',group:'w4',detail:D('Digital Crown',[S([T('Haptics',true)]),CHOICE('Haptic Strength',['Light','Default','Strong'],1)])},
-  {id:'soundrec',title:'Sound Recognition',icon:'sounds',iconBg:'#ff9500',group:'w2',detail:D('Sound Recognition',[S([T('Sound Recognition',false)],{footer:'Apple Watch can listen for certain sounds and notify you when they might be recognized.'}),S([L('Sounds',{value:'Off'})])])}
+  {id:'soundrec',title:'Sound Recognition',icon:'sounds',iconBg:'#ff9500',group:'w2',detail:D('Sound Recognition',[S([T('Sound Recognition',false)],{footer:'Apple Watch can listen for certain sounds and notify you when they might be recognized.'}),S([L('Sounds',{value:'Off'})])])},
+  {id:'controlcenter',title:'Control Center',icon:'controlcenter',iconBg:'#8e8e93',group:'w2',detail:D('Control Center',[
+    S([T('Auto-Launch Audio Apps',true),T('Auto-Launch Live Activities',true)]),
+    S([V('Cellular',''),V('Wi-Fi',''),V('Battery Percentage',''),V('Silent Mode',''),V('Theater Mode',''),V('Water Lock',''),V('Flashlight',''),V('Walkie-Talkie','')],{header:'Reorder Controls',footer:'Drag to reorder the buttons in Control Center.'})
+  ])},
+  {id:'sos',title:'Emergency SOS',icon:'passcode',iconBg:'#ff3b30',group:'w4',detail:D('Emergency SOS',[
+    S([T('Hold Side Button',true),T('Call with Hold and Release',true)],{header:'Call'}),
+    S([L('Fall Detection',{value:'On',detail:D('Fall Detection',[S([T('Fall Detection',true)]),CHOICE('',['Always On','Only On During Workouts'],0)])}),L('Crash Detection',{value:'On',detail:D('Crash Detection',[S([T('Call After Severe Crash',true)])])})]),
+    S([L('Emergency Contacts',{detail:D('Emergency Contacts',[S([NOTE('Set up your emergency contacts and Medical ID in the Health app on iPhone.')])])})])
+  ])},
+  {id:'appstore',title:'App Store',icon:'appstore',iconBg:'#0a84ff',group:'w4',detail:D('App Store',[S([T('Automatic Updates',true),T('Automatic Downloads',true)],{footer:'Automatically install apps downloaded on your other devices.'}),S([T('In-App Ratings & Reviews',true)])])}
  ]
 };
 /* ---- Wear OS ---- */
@@ -3438,7 +3466,12 @@ SETTINGS.wearos={
   {id:'safety',title:'Safety & emergency',icon:'sounds',iconBg:'#ea4335',group:'e3',detail:D('Safety & emergency',[S([L('Emergency SOS',{value:'On'}),L('Fall detection',{value:'On'}),L('Medical info'),L('Emergency contacts')])])},
   {id:'security',title:'Security',icon:'privacy',iconBg:'#4285f4',group:'e3',detail:D('Security',[S([L('Screen lock',{value:'PIN',detail:D('Screen lock',[CHOICE('',['None','Pattern','PIN'],2),S([T('Require on wrist removal',true)])])}),L('Smart Lock',{value:'On'}),L('Encryption',{value:'Encrypted'})]),S([L('Trusted devices'),L('Find My Device',{value:'On'})])])},
   {id:'personalization',title:'Personalization',icon:'appearance',iconBg:'#4285f4',group:'e1',detail:D('Personalization',[S([L('Change watch face'),L('Customize hardware buttons',{detail:D('Buttons',[S([L('Crown press',{value:'Recent apps'}),L('Bottom button',{value:'Fitbit'})])])}),CHOICE('Theme',['System','Light','Dark'],0)]),S([T('Tap and hold to change watch face',true)])])},
-  {id:'health',title:'Health & fitness',icon:'health',iconBg:'#ea4335',group:'e2',detail:D('Health & fitness',[S([L('Heart rate',{value:'Continuous',detail:D('Heart rate',[CHOICE('',['Continuous','Spot check','Off'],0),S([T('High heart rate alerts',true)])])}),L('Fitbit',{value:'Connected'}),L('Auto-detect workouts',{value:'On'})]),S([L('Sleep tracking',{value:'On'}),L('Fall detection',{value:'On'}),L('Emergency SOS',{value:'On'})])])}
+  {id:'health',title:'Health & fitness',icon:'health',iconBg:'#ea4335',group:'e2',detail:D('Health & fitness',[S([L('Heart rate',{value:'Continuous',detail:D('Heart rate',[CHOICE('',['Continuous','Spot check','Off'],0),S([T('High heart rate alerts',true)])])}),L('Fitbit',{value:'Connected'}),L('Auto-detect workouts',{value:'On'})]),S([L('Sleep tracking',{value:'On'}),L('Fall detection',{value:'On'}),L('Emergency SOS',{value:'On'})])])},
+  {id:'general',title:'General',icon:'general',iconBg:'#5f6368',group:'e3',detail:D('General',[
+    S([T('Touch lock',false),T('Screen wake for notifications',true),T('Auto-launch media controls',true),T('Tilt to wake for Assistant',false)]),
+    S([CHOICE('Notifications on watch',['When phone is locked','Always','Never'],0)]),
+    S([L('Home controls',{detail:D('Home controls',[S([NOTE('Add a shortcut to your smart home controls on the watch.')])])}),L('Regulatory information')])
+  ])}
  ]
 };
 V;
@@ -3490,7 +3523,16 @@ SETTINGS.tvos={
     S([L('Switch Control',{value:'Off'}),L('Accessibility Keyboard'),L('Siri Remote',{detail:D('Siri Remote',[S([T('Touch Surface Tracking',true),V('Click Style','Standard')])])})],{header:'Physical and Motor'}),
     S([L('Accessibility Shortcut',{value:'VoiceOver',detail:D('Accessibility Shortcut',[CHOICE('Triple-click the TV button for:',['VoiceOver','Zoom','Increase Contrast','Reduce White Point'],0)])})],{header:'General'})
   ])},
-  {id:'sleep',title:'Sleep',icon:'moon',iconBg:'#5e5ce6',group:'t3',detail:D('Sleep',[CHOICE('Sleep After',['Never','15 Minutes','30 Minutes','1 Hour'],2),S([B('Sleep Now',{style:'link',align:'center'})])])},
+  {id:'system',title:'System',icon:'gear',iconBg:'#8e8e93',group:'t3',detail:D('System',[
+    S([L('Software Updates',{value:'tvOS 17.5',detail:D('Software Updates',[S([T('Update Automatically',true)]),S([L('Update Software',{value:'Up to date'})],{footer:'Your Apple TV is up to date.'})])}),L('Sleep After',{value:'30 Minutes',detail:D('Sleep After',[CHOICE('',['Never','15 Minutes','30 Minutes','1 Hour'],2)])}),B('Sleep Now',{style:'link'}),B('Restart',{style:'link'})]),
+    S([L('Date and Time',{detail:D('Date and Time',[S([T('Set Automatically',true),V('Time Zone','Cupertino'),T('24-Hour Time',false)])])}),L('Keyboard',{detail:D('Keyboard',[S([V('Keyboard Type','Grid'),T('Auto-Capitalization',true)])])}),L('Audio',{value:'On',detail:D('System Audio',[S([T('Sound Effects',true)])])})]),
+    S([L('Storage',{value:'128 GB'}),L('Legal and Regulatory'),L('Status Menu')])
+  ])},
+  {id:'screensaver',title:'Screen Savers',icon:'display',iconBg:'#5e5ce6',group:'t2',detail:D('Screen Savers',[
+    CHOICE('Start After',['2 Minutes','5 Minutes','10 Minutes','15 Minutes','Never'],1),
+    S([L('Type',{value:'Aerial',detail:D('Type',[S([CH('Aerial',true),CH('My Photos and Music',false),CH('Apple Photos',false)])])}),T('Show During Music',true),L('Download New Video',{value:'Weekly',detail:D('Download New Video',[CHOICE('',['Daily','Weekly','Monthly','Never'],1)])}),B('Preview',{style:'link'})]),
+    S([CH('Landscape',true),CH('Cityscape',true),CH('Underwater',true),CH('Space',true)],{header:'Aerial Categories'})
+  ])},
   {id:'siri',title:'Siri',icon:'siri',iconBg:'#0a84ff',group:'t3',detail:D('Siri',[S([T('Siri',true)]),CHOICE('Language',['English (US)','Türkçe'],0),S([L('Siri History',{value:'Living Room',detail:D('Siri History',[S([NOTE('Siri and Dictation history is associated with this Apple TV.')]),S([B('Delete Siri & Dictation History',{style:'destructive'})])])}),T('Dictation',true),L('Siri Responses',{value:'Automatic'})])])}
  ]
 };
@@ -3529,7 +3571,12 @@ SETTINGS.androidtv={
   {id:'channels',title:'Channels',icon:'tv',iconBg:'#4285f4',group:'v1',detail:D('Channels',[S([L('Customize Live channels'),L('Add channels'),T('Video previews',true),T('Audio previews',false)])])},
   {id:'cast',title:'Cast',icon:'network',iconBg:'#4285f4',group:'v2',detail:D('Cast',[S([T('Let others control your cast media',true)]),CHOICE('Show when someone is casting',['Always','While casting','Never'],1)])},
   {id:'ambient',title:'Screen saver',icon:'wallpaper',iconBg:'#4285f4',group:'v2',detail:D('Screen saver',[CHOICE('Screen saver',['Backdrop','Colors','Google Photos'],0),S([L('When to start',{value:'After 5 min'}),L('Curated photos')])])},
-  {id:'help',title:'Help & feedback',icon:'info',iconBg:'#5f6368',group:'v2',detail:D('Help & feedback',[S([L('Help'),L('Send feedback'),L('Legal information')])])}
+  {id:'help',title:'Help & feedback',icon:'info',iconBg:'#5f6368',group:'v2',detail:D('Help & feedback',[S([L('Help'),L('Send feedback'),L('Legal information')])])},
+  {id:'dispsound',title:'Display & Sound',icon:'display',iconBg:'#4285f4',group:'v2',detail:D('Display & Sound',[
+    S([L('Resolution',{value:'4K (2160p)',detail:D('Resolution',[CHOICE('',['Auto','4K (2160p) 60Hz','4K (2160p) 50Hz','1080p 60Hz'],0)])}),L('HDR & color format',{value:'Dolby Vision'}),L('Match content frame rate',{value:'Seamless',detail:D('Match frame rate',[CHOICE('',['Never','Seamless','Non-seamless'],1)])}),T('Match content dynamic range',true),L('Screen position')],{header:'Display'}),
+    S([L('Sound mode',{value:'Auto'}),T('System sounds',true),L('Surround sound',{value:'Auto',detail:D('Surround sound',[CHOICE('',['Auto','None','Manual'],0)])}),L('Audio output',{value:'Dolby Atmos',detail:D('Audio output',[CHOICE('',['Auto','PCM (Stereo)','Dolby Atmos','Passthrough'],2)])}),T('Dialogue enhancement',false)],{header:'Sound'}),
+    S([T('HDMI-CEC device control',true),T('HDMI-CEC TV control',true)],{header:'HDMI-CEC'})
+  ])}
  ]
 };
 V;
@@ -3562,7 +3609,16 @@ SETTINGS.carplay={
   {id:'sound',title:'Sound',icon:'sounds',iconBg:'#ff2d55',group:'p2',detail:D('Sound',[S([SL(70,'sounds','sounds')],{header:'Volume'}),S([L('Navigation Voice Volume',{value:'Normal',detail:D('Navigation Voice',[CHOICE('',['No Voice','Low Volume','Normal Volume','Loud Volume'],2)])}),T('Announce Messages with Siri',true),T('Announce Calls',true)]),S([L('Sound Recognition',{value:'Off',detail:D('Sound Recognition',[S([T('Sound Recognition',false)],{footer:'Your car will listen for certain sounds and notify you when they may be recognized.'})])})])])},
   {id:'maps',title:'Maps',icon:'maps',iconBg:'#34c759',group:'p2',detail:D('Maps',[S([T('Show Speed Limit',true),T('Show Compass',true)]),CHOICE('Map Display',['Automatic','Day','Night'],0),S([L('Driving & Navigation',{detail:D('Driving & Navigation',[S([T('Avoid Tolls',false),T('Avoid Highways',false)]),CHOICE('Distance Units',['Kilometers','Miles'],0)])})])])},
   {id:'announce',title:'Announce Messages with Siri',icon:'siri',iconBg:'#5e5ce6',group:'p2',detail:D('Announce Messages',[S([T('Announce Messages',true)]),CHOICE('Announce',['All Notifications','Favorites','Recents'],1)])},
-  {id:'suggest2',title:'Suggested Apps',icon:'apps',iconBg:'#0a84ff',group:'p2',detail:D('Suggested Apps',[S([T('Show Recently Used',true),T('Show Suggestions in Dashboard',true)])])}
+  {id:'suggest2',title:'Suggested Apps',icon:'apps',iconBg:'#0a84ff',group:'p2',detail:D('Suggested Apps',[S([T('Show Recently Used',true),T('Show Suggestions in Dashboard',true)])])},
+  {id:'locked',title:'Allow CarPlay While Locked',icon:'passcode',iconBg:'#34c759',toggle:true,group:'p2'},
+  {id:'drivefocus',title:'Driving Focus',icon:'focus',iconBg:'#5e5ce6',group:'p3',detail:D('Driving Focus',[
+    S([CHOICE('Activate',['Automatically','When Connected to Car Bluetooth','Manually'],0)]),
+    S([L('Allow Calls From',{value:'Favorites',detail:D('Allow Calls From',[CHOICE('',['Everyone','Favorites','Recents','Contacts','No One'],1)])}),L('Auto-Reply',{value:'Recents',detail:D('Auto-Reply',[CHOICE('',['No One','Recents','Favorites','All Contacts'],1)])}),T('Silence Notifications',true)])
+  ])},
+  {id:'managecar',title:'Manage Cars',icon:'gear',iconBg:'#8e8e93',group:'p3',detail:D('Manage Cars',[
+    S([L('John’s BMW',{value:'Connected',detail:D('John’s BMW',[S([CHOICE('Connect With',['Wireless','USB'],0),T('Prefer This Car',true),T('Charging',true)]),S([B('Forget This Car',{style:'destructive'})])])})],{header:'Cars'}),
+    S([L('Steering Wheel Controls',{detail:D('Steering Wheel Controls',[S([L('Voice Control',{value:'Siri'}),L('Push',{value:'Play/Pause'}),L('Rotary',{value:'Volume'})])])})])
+  ])}
  ]
 };
 SETTINGS.androidauto={
@@ -3579,7 +3635,15 @@ SETTINGS.androidauto={
   {id:'about',title:'About Android Auto',icon:'info',iconBg:'#5f6368',group:'q3',detail:D('About Android Auto',[S([V('Version','11.8.6420'),V('Connected phone','HUAWEI Mate 60 Pro'),V('Connection','Wireless')])])},
   {id:'conn',title:'Connection preferences',icon:'bluetooth',iconBg:'#4285f4',group:'q3',detail:D('Connection preferences',[S([L('Wireless Android Auto',{value:'On',detail:D('Wireless Android Auto',[S([T('Wireless Android Auto',true)],{footer:'Connect to compatible cars over Wi-Fi without a cable.'})])}),L('Add a car',{detail:D('Add a car',[S([NOTE('Plug your phone into the car with a USB cable to set up.')])])}),L('Forget all cars')]),S([T('Start music automatically',true),T('Resume video previews',false)]),S([V('HUAWEI Mate 60 Pro','Paired'),V('BMW iDrive','Wireless')],{header:'Known cars'})])},
   {id:'assist',title:'Google Assistant',icon:'siri',iconBg:'#4285f4',group:'q3',detail:D('Google Assistant',[S([T('Hey Google detection',true),T('Personal results',true)]),S([L('Continued conversation',{value:'Off'}),L('Assistant voice',{value:'Voice 1'})])])},
-  {id:'parking',title:'Rearview & parking',icon:'display',iconBg:'#4285f4',group:'q3',detail:D('Rearview & parking',[S([T('Show rearview camera',true),T('Parking sensors overlay',true)])])}
+  {id:'parking',title:'Rearview & parking',icon:'display',iconBg:'#4285f4',group:'q3',detail:D('Rearview & parking',[S([T('Show rearview camera',true),T('Parking sensors overlay',true)])])},
+  {id:'aamedia',title:'Media',icon:'music',iconBg:'#ea4335',group:'q2',detail:D('Media',[
+    S([L('Default media app',{value:'YouTube Music',detail:D('Default media app',[CHOICE('',['YouTube Music','Spotify','Google Podcasts','Radio'],0)])}),T('Show album art',true),T('Only show media notifications while driving',false)]),
+    S([L('Add a music app')])
+  ])},
+  {id:'comms',title:'Messaging',icon:'message',iconBg:'#34a853',group:'q2',detail:D('Messaging',[S([T('Read messages aloud',true),T('Reply by voice',true),T('Show conversations',true),T('Contact photos',true)])])},
+  {id:'voice',title:'Sound & voice',icon:'sounds',iconBg:'#4285f4',group:'q3',detail:D('Sound & voice',[S([T('Bluetooth for phone calls',true),T('Lower media volume for Assistant',true),T('Assistant sound feedback',true)]),S([L('Voice Match',{value:'On'})])])},
+  {id:'safety',title:'Driving safety',icon:'focus',iconBg:'#ea4335',group:'q2',detail:D('Driving safety',[S([T('Limit features while driving',true),T('Show quick controls only',false)],{footer:'Some features are limited while the car is moving to reduce distraction.'})])},
+  {id:'dev',title:'Developer settings',icon:'gear',iconBg:'#5f6368',group:'q3',detail:D('Developer settings',[S([T('Enable developer settings',false)]),S([L('Video resolution',{value:'480p'}),L('DPI',{value:'160'}),T('Show debug overlay',false)])])}
  ]
 };
 SETTINGS.visionos={
@@ -3615,7 +3679,23 @@ SETTINGS.visionos={
   {id:'sound',title:'Sounds',icon:'sounds',iconBg:'#ff2d55',group:'x4',detail:D('Sounds',[S([SL(70,'sounds','sounds')],{header:'Volume'}),S([T('Spatial Audio',true),L('Ringtone',{value:'Reflection',detail:D('Ringtone',[CHOICE('',['Reflection','Opening','Bulletin','By The Seaside','Chimes','Circuit','Constellation'],0)])}),L('Text Tone',{value:'Note'})]),S([T('Audio Passthrough',true)],{header:'Environment'})])},
   {id:'focus',title:'Focus',icon:'focus',iconBg:'#5e5ce6',group:'x4',detail:D('Focus',[S([L('Do Not Disturb',{detail:focusDetail('Do Not Disturb')}),L('Add Focus',{detail:focusCreate()})])])},
   {id:'travel',title:'Travel Mode',icon:'airplane',iconBg:'#ff9500',toggle:false,group:'x4'},
-  {id:'guest',title:'Guest User',icon:'personcircle',iconBg:'#34c759',group:'x4',detail:D('Guest User',[S([NOTE('Let someone else use your Apple Vision Pro. They will go through a quick eye and hand setup.')]),CHOICE('Allow Access To',['All Apps and Data','Only Open Apps'],0),S([L('Start Guest Session')])])}
+  {id:'guest',title:'Guest User',icon:'personcircle',iconBg:'#34c759',group:'x4',detail:D('Guest User',[S([NOTE('Let someone else use your Apple Vision Pro. They will go through a quick eye and hand setup.')]),CHOICE('Allow Access To',['All Apps and Data','Only Open Apps'],0),S([L('Start Guest Session')])])},
+  {id:'network',title:'Network',icon:'network',iconBg:'#0a84ff',group:'x1',detail:D('Network',[
+    S([L('VPN',{value:'Not Connected',detail:D('VPN',[S([T('VPN',false)]),S([L('Add VPN Configuration…')])])}),L('Wi-Fi',{value:'Home-5G'}),V('Ethernet','Not Connected')]),
+    S([L('VPN & Device Management',{detail:D('VPN & Device Management',[S([NOTE('No profiles or device management installed.')])])})]),
+    S([L('DNS',{value:'Automatic'}),L('Proxy',{value:'Off'})],{header:'Advanced'})
+  ])},
+  {id:'screentime',title:'Screen Time',icon:'screentime',iconBg:'#5e5ce6',group:'x4',detail:D('Screen Time',[
+    S([T('Screen Time',true)]),
+    S([L('App & Website Activity',{detail:D('App & Website Activity',[S([V('Today','2h 14m')])])}),L('Downtime',{value:'Off'}),L('App Limits',{value:'Off'}),L('Communication Limits'),L('Always Allowed'),T('Screen Distance',true)]),
+    S([L('Content & Privacy Restrictions',{value:'Off'})]),
+    S([L('Use Screen Time Passcode'),L('Change Screen Time Passcode')])
+  ])},
+  {id:'passwords',title:'Passwords',icon:'passcode',iconBg:'#8e8e93',group:'x4',detail:D('Passwords',[
+    S([L('AutoFill Passwords',{value:'On',detail:D('AutoFill Passwords',[S([T('AutoFill Passwords',true)]),S([CH('iCloud Passwords & Keychain',true)])])}),L('Security Recommendations',{value:'Off'}),L('Deleted Passwords')]),
+    S([L('apple.com',{value:'john.wick'}),L('google.com',{value:'johnwick'}),L('netflix.com',{value:'jwick'})],{header:'Saved Passwords'}),
+    S([L('Set Up Verification Codes…'),L('Shared Groups',{detail:D('Shared Groups',[S([L('Add New Shared Group…')])])})])
+  ])}
  ]
 };
 SETTINGS.playstation={
@@ -3719,7 +3799,7 @@ SETTINGS.macosx={
  wallpaper:'radial-gradient(120% 120% at 50% 25%,#2a4a8e 0%,#0f2447 60%,#081428 100%)',
  profile:{name:'John Wick',email:'john.wick@mac.com',sub:'Mac Account',initials:'JW'},
  sidebar:[
-  {id:'general',title:'General',icon:'appearance',iconBg:'#8e8e93',group:'m1',detail:D('General',[
+  {id:'general',title:'Appearance',icon:'appearance',iconBg:'#8e8e93',group:'m1',detail:D('Appearance',[
     CHOICE('Appearance',['Blue','Graphite'],0,'For the overall look of buttons, menus, and windows.'),
     CHOICE('Highlight Color',['Blue','Gold','Silver','Graphite'],0),
     S([CHOICE('Sidebar icon size',['Small','Medium','Large'],1)]),
@@ -3737,7 +3817,12 @@ SETTINGS.macosx={
     CHOICE('Minimize using',['Genie effect','Scale effect'],0),
     S([T('Animate opening applications',true),T('Automatically hide and show the Dock',false)])
   ])},
-  {id:'missioncontrol',title:'Mission Control',icon:'apps',iconBg:'#8e8e93',group:'m1',detail:D('Mission Control',[S([T('Show Dashboard as a space',false),T('Automatically rearrange spaces based on most recent use',true),T('When switching to an application, switch to a space with open windows',true),T('Group windows by application',false)]),S([L('Mission Control',{value:'⌃↑'}),L('Application windows',{value:'⌃↓'}),L('Show Desktop',{value:'F11'})],{header:'Keyboard and Mouse Shortcuts'})])},
+  {id:'expose',title:'Exposé & Spaces',icon:'apps',iconBg:'#8e8e93',group:'m1',detail:D('Exposé & Spaces',[
+    S([L('All windows',{value:'F9'}),L('Application windows',{value:'F10'}),L('Show Desktop',{value:'F11'}),L('Dashboard',{value:'F12'})],{header:'Exposé · Active Screen Corners & Keys'}),
+    S([T('Enable Spaces',true),T('Show Spaces in menu bar',false)]),
+    S([CHOICE('Rows',['1','2','3'],1),CHOICE('Columns',['1','2','3','4'],1)],{header:'Spaces'}),
+    S([T('When switching to an application, switch to a space with open windows',true)])
+  ])},
   {id:'langtext',title:'Language & Text',icon:'general',iconBg:'#8e8e93',group:'m1',detail:D('Language & Text',[S([V('English','Primary'),V('Türkçe',''),V('Deutsch',''),L('Edit List…')],{header:'Language'}),S([CHOICE('Region',['United States','Turkey','Germany'],0),T('Show all regions',false)],{header:'Formats'}),S([T('Correct spelling automatically',true),T('Use smart quotes and dashes',true)],{header:'Text'})])},
   {id:'displays',title:'Displays',icon:'display',iconBg:'#0a84ff',group:'m2',detail:D('Displays',[
     CHOICE('Resolution',['1920 x 1200','1680 x 1050','1440 x 900'],0),
@@ -3772,7 +3857,7 @@ SETTINGS.macosx={
     S([L('Hearing',{detail:D('Hearing',[S([T('Flash the screen when an alert sound occurs',false),T('Play stereo audio as mono',false)])])})],{header:'Hearing'}),
     S([L('Sticky Keys',{value:'Off',detail:D('Sticky Keys',[S([T('Enable Sticky Keys',false)],{footer:'Press modifier keys one at a time.'})])}),L('Slow Keys',{value:'Off'}),L('Mouse Keys',{value:'Off'})],{header:'Keyboard & Mouse'})
   ])},
-  {id:'security',title:'Security & Privacy',icon:'privacy',iconBg:'#8e8e93',group:'m1',detail:D('Security & Privacy',[S([T('Require password after sleep',true),T('Disable automatic login',false)],{header:'General'}),S([L('FileVault',{value:'Off'}),L('Firewall',{value:'On'})])])},
+  {id:'security',title:'Security',icon:'privacy',iconBg:'#8e8e93',group:'m1',detail:D('Security',[S([T('Require password after sleep',true),T('Disable automatic login',false)],{header:'General'}),S([L('FileVault',{value:'Off'}),L('Firewall',{value:'On'})])])},
   {id:'keyboard',title:'Keyboard',icon:'keyboard',iconBg:'#8e8e93',group:'m2',detail:D('Keyboard',[S([SL(60,'general','general')],{header:'Key Repeat'}),S([T('Use all F1, F2 keys as standard function keys',false),L('Modifier Keys',{detail:D('Modifier Keys',[S([L('Caps Lock Key',{value:'Caps Lock'}),L('Control Key',{value:'Control'}),L('Option Key',{value:'Option'}),L('Command Key',{value:'Command'})])])}),L('Keyboard Shortcuts',{detail:D('Keyboard Shortcuts',[S([T('Spotlight — Show search',true),T('Mission Control',true),T('Screenshots',true)])])})])])},
   {id:'trackpad',title:'Trackpad',icon:'general',iconBg:'#8e8e93',group:'m2',detail:D('Trackpad',[S([T('Tap to click',true),T('Secondary click',true),T('Three finger drag',false)]),S([SL(50,'general','general')],{header:'Tracking Speed'})])},
   {id:'printfax',title:'Print & Fax',icon:'apps',iconBg:'#8e8e93',group:'m2',detail:D('Print & Fax',[S([V('HP LaserJet','Idle, Default'),V('Microsoft XPS',''),L('Add Printer or Fax…')],{header:'Printers'}),S([L('Default printer',{value:'Last Printer Used'}),CHOICE('Default paper size',['A4','US Letter','Legal'],0)])])},
@@ -3781,7 +3866,20 @@ SETTINGS.macosx={
   {id:'sharing',title:'Sharing',icon:'network',iconBg:'#34c759',group:'m3',detail:D('Sharing',[S([V('Computer Name','John Mac')]),S([T('Screen Sharing',false),T('File Sharing',true),T('Printer Sharing',false),T('Remote Login',false),T('Bluetooth Sharing',false)])])},
   {id:'spotlight',title:'Spotlight',icon:'search',iconBg:'#8e8e93',group:'m3',detail:D('Spotlight',[S([T('Applications',true),T('Documents',true),T('Mail & Messages',true),T('Bookmarks',false)],{header:'Search Results'})])},
   {id:'startupdisk',title:'Startup Disk',icon:'storage',iconBg:'#8e8e93',group:'m3',detail:D('Startup Disk',[S([NOTE('Select the system you want to use to start up your computer.')]),S([V('Macintosh HD','Mac OS X 10.9.5'),V('Recovery HD','')]),S([B('Restart…',{style:'link',align:'center'})])])},
-  {id:'timemachine',title:'Time Machine',icon:'storage',iconBg:'#34c759',group:'m3',detail:D('Time Machine',[S([T('Time Machine',false)]),S([L('Select Backup Disk'),NOTE('Time Machine keeps hourly backups for the past 24 hours, daily backups for the past month, and weekly backups for all previous months.')])])}
+  {id:'timemachine',title:'Time Machine',icon:'storage',iconBg:'#34c759',group:'m3',detail:D('Time Machine',[S([T('Time Machine',false)]),S([L('Select Backup Disk'),NOTE('Time Machine keeps hourly backups for the past 24 hours, daily backups for the past month, and weekly backups for all previous months.')])])},
+  {id:'mouse',title:'Mouse',icon:'general',iconBg:'#8e8e93',group:'m2',detail:D('Mouse',[
+    S([SL(60,'general','general')],{header:'Tracking Speed'}),
+    S([SL(50,'general','general')],{header:'Scrolling Speed'}),
+    S([SL(45,'general','general')],{header:'Double-Click Speed'}),
+    S([CHOICE('Primary mouse button',['Left','Right'],0),T('Scroll direction: natural',true)])
+  ])},
+  {id:'cddvd',title:'CDs & DVDs',icon:'storage',iconBg:'#8e8e93',group:'m2',detail:D('CDs & DVDs',[
+    S([L('When you insert a blank CD',{value:'Ask what to do'}),L('When you insert a blank DVD',{value:'Ask what to do'}),L('When you insert a music CD',{value:'Open iTunes'}),L('When you insert a picture CD',{value:'Open iPhoto'}),L('When you insert a video DVD',{value:'Open DVD Player'})])
+  ])},
+  {id:'speech',title:'Speech',icon:'sounds',iconBg:'#8e8e93',group:'m3',detail:D('Speech',[
+    S([T('Speakable Items',false),L('Listening Key',{value:'Esc'}),T('Play sound when recognized',true)],{header:'Speech Recognition'}),
+    S([L('System Voice',{value:'Alex'}),SL(55,'sounds','sounds'),T('Announce when alerts are displayed',false),T('Speak selected text when the key is pressed',false)],{header:'Text to Speech'})
+  ])}
  ]
 };
 V;
