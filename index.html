@@ -4543,9 +4543,14 @@ V;
  /* ===================== FAB · OS AI · MEMBERSHIP · FEEDBACK ===================== */
  const store={_m:{},get(k,d){try{const v=localStorage.getItem('osim_'+k);return v==null?d:JSON.parse(v);}catch(e){return k in this._m?this._m[k]:d;}},set(k,v){try{localStorage.setItem('osim_'+k,JSON.stringify(v));}catch(e){this._m[k]=v;}}};
  let USER=store.get('user',null);
- /* build/version stamp — bumped on each deploy */
+ /* build/version stamp. version is bumped per release; deploy time is detected
+    automatically from the served file (falls back to this baked time). */
  const BUILD={version:'1.4.0',time:'2026-07-26T21:03:48Z'};
  function buildTimeStr(){try{return new Date(BUILD.time).toLocaleString(state.lang||'en',{dateStyle:'medium',timeStyle:'short'});}catch(e){return (BUILD.time||'').replace('T',' ').replace('Z',' UTC');}}
+ function updateFooterVer(){document.querySelectorAll('.foot-ver').forEach(fv=>{fv.innerHTML=`<span class="fv-badge">v${esc(BUILD.version)}</span><span>${esc(t('deployLabel'))}: ${esc(buildTimeStr())}</span>`;});}
+ /* auto deploy time: use the served file's Last-Modified (document.lastModified).
+    If the host doesn't send it, the browser returns ~now → keep the baked time. */
+ function autoStamp(){try{const s=document.lastModified;if(!s)return;const d=new Date(s);if(isNaN(d.getTime()))return;if(Math.abs(Date.now()-d.getTime())>60000){BUILD.time=d.toISOString();updateFooterVer();}}catch(e){}}
  /* ============================ SUPABASE BACKEND ============================
   Optional. When a Project URL + anon key are set (baked below or via
   Admin panel → Backend), osimulator syncs analytics, real auth, shared
@@ -5766,6 +5771,7 @@ const EMBED=/[?&]embed=1/.test(location.search);
  const EMBTHEME=(location.search.match(/[?&]theme=(light|dark)/)||[])[1];
  const BARE=/[?&]bare=1/.test(location.search);
  initTheme();
+ autoStamp();
  try{applyOsOverrides();}catch(e){}
  if(USER)recordMember(USER);
  if(EMBED){document.body.classList.add('embed');if(BARE)document.body.classList.add('bare');if(EMBTHEME)applyTheme(EMBTHEME,false);}
