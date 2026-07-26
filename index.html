@@ -617,7 +617,8 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .select-screen[dir="rtl"] .nav-links{margin-left:0;margin-right:16px}
 
 .hero{position:relative;width:100%;max-width:920px;margin:0 auto;padding:66px 22px 6px;display:flex;flex-direction:column;align-items:center}
-.hero-glow{position:absolute;top:-40px;left:50%;transform:translateX(-50%);width:min(680px,90vw);height:360px;background:radial-gradient(closest-side,rgba(94,92,230,.30),rgba(10,132,255,.12),transparent 72%);filter:blur(24px);pointer-events:none;z-index:0}
+.hero-glow{position:absolute;top:-40px;left:50%;transform:translateX(-50%);width:min(680px,90vw);height:360px;background:radial-gradient(closest-side,rgba(94,92,230,.30),rgba(10,132,255,.12),transparent 72%);filter:blur(24px);pointer-events:none;z-index:0;animation:glowPulse 6.5s ease-in-out infinite}
+@keyframes glowPulse{0%,100%{opacity:.7;transform:translateX(-50%) scale(1)}50%{opacity:1;transform:translateX(-50%) scale(1.09)}}
 .hero>*:not(.hero-glow){position:relative;z-index:1}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 15px;border-radius:100px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);color:#cfd0da;font-size:12.5px;font-weight:600;margin-bottom:26px}
 .hero-badge .dot{width:7px;height:7px;border-radius:50%;background:#30d158;box-shadow:0 0 10px #30d158}
@@ -699,6 +700,40 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .magic-toast.show{opacity:1;transform:translateX(-50%)}
 .fab-item .fi.magic{background:linear-gradient(135deg,#b14bff,#5e5ce6,#0a84ff)}
 @media(max-width:760px){.nav-share{display:none}.os-pick-btn .oplbl{display:none}.os-pick-btn{padding:0 10px}.os-pick-menu{width:min(300px,86vw)}}
+
+
+/* ===== hero entrance + welcome showcase ===== */
+@keyframes heroRise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.hero.enter>*:not(.hero-glow){opacity:0;animation:heroRise .62s cubic-bezier(.2,.7,.2,1) forwards}
+.hero.enter>.hero-badge{animation-delay:.05s}
+.hero.enter>.brand{animation-delay:.13s}
+.hero.enter>.brand-sub{animation-delay:.21s}
+.hero.enter>.hero-lead{animation-delay:.29s}
+.hero.enter>.hero-cta{animation-delay:.37s}
+.hero.enter>.hero-trend{animation-delay:.45s}
+.hero.enter>.sel-stats{animation-delay:.53s}
+.hero-badge .dot{animation:badgePulse 2.4s ease-in-out infinite}
+@keyframes badgePulse{0%,100%{box-shadow:0 0 0 0 rgba(48,209,88,.55)}50%{box-shadow:0 0 0 5px rgba(48,209,88,0)}}
+
+/* infinite OS logo marquee */
+.os-marquee-wrap{width:100%;margin:38px 0 2px}
+.os-marquee-label{text-align:center;font-size:11.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#8b8bff;margin-bottom:15px}
+.os-marquee{position:relative;width:100%;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.mq-track{display:flex;gap:14px;width:max-content;padding:4px 7px;animation:mqScroll 46s linear infinite;will-change:transform}
+.os-marquee:hover .mq-track{animation-play-state:paused}
+.mq-item{display:inline-flex;align-items:center;gap:9px;padding:10px 17px;border-radius:100px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#e6e6ec;font-size:13.5px;font-weight:600;white-space:nowrap;transition:transform .15s,background .15s,border-color .15s}
+.mq-item:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.28);transform:translateY(-3px)}
+.mq-item .mqi{width:25px;height:25px;border-radius:7px;display:flex;align-items:center;justify-content:center;flex:none}
+.mq-item .mqi svg{width:15px;height:15px;fill:#fff}
+@keyframes mqScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.select-screen[dir="rtl"] .mq-track{animation-direction:reverse}
+
+@media (prefers-reduced-motion:reduce){
+  .hero.enter>*:not(.hero-glow){opacity:1;animation:none}
+  .hero-glow,.hero-badge .dot{animation:none}
+  .mq-track{animation:none;flex-wrap:wrap;justify-content:center;width:100%}
+  .os-marquee{-webkit-mask-image:none;mask-image:none}
+}
 
 /* ===== new frames: Linux / ChromeOS / Watch ===== */
 .stage.frame-linux{background:linear-gradient(160deg,#2c0b1e 0%,#5b2333 45%,#c0603a 100%)}
@@ -3144,19 +3179,25 @@ V;
   /* ---- hero ---- */
   const trend=['ios','windows','macos','android','watchos','visionos'].map(id=>PLATFORMS.find(p=>p.id===id&&p.available)).filter(Boolean);
   const trendHtml=trend.length?`<div class="hero-trend"><span class="trend-lbl">${esc(t('trending'))}</span>${trend.map(p=>`<button class="trend-chip" data-pid="${p.id}" data-ver="${esc(p.versions[0])}"><span class="td" style="background:${p.logoBg}"><svg viewBox="0 0 24 24" fill="#fff">${LOGOS[p.logo]||''}</svg></span>${esc(p.name)}</button>`).join('')}</div>`:'';
-  const hero=el(`<section class="hero"><div class="hero-glow"></div>
+  const hero=el(`<section class="hero enter"><div class="hero-glow"></div>
     <div class="hero-badge"><span class="dot"></span><b>${avail.length}</b>&nbsp;${esc(t('stOS'))} · <b>${verCount}</b>&nbsp;${esc(t('stVer'))} · <b>100%</b>&nbsp;${esc(t('stOffline'))}</div>
     <h1 class="brand" aria-label="osimulator"><span class="brand-s">os</span>imulator</h1>
     <div class="brand-sub">OS · SIMULATOR</div>
     <p class="hero-lead">${esc(t('intro'))}</p>
     <div class="hero-cta">
       <button class="btn-primary" data-scroll="systems">${esc(t('navExplore'))} <span>${isRTL()?'‹':'›'}</span></button>
-      <button class="btn-ghost" data-random>${esc(t('tryRandom'))}</button>
     </div>
     ${trendHtml}
     <div class="sel-stats"><span><b>${avail.length}</b> ${esc(t('stOS'))}</span><span><b>${verCount}</b> ${esc(t('stVer'))}</span><span><b>100+</b> ${esc(t('stScreens'))}</span><span><b>12</b> ${esc(t('stLang'))}</span><span class="ok">${esc(t('stOffline'))}</span></div>
   </section>`);
   w.appendChild(hero);
+  /* ---- welcome: count-up numbers + infinite OS logo marquee ---- */
+  const animateCount=e=>{const raw=(e.textContent||'').trim();const m=raw.match(/^(\d+)(\D*)$/);if(!m)return;const tg=+m[1],suf=m[2],dur=900;let st=null;const step=ts=>{if(st===null)st=ts;const pr=Math.min(1,(ts-st)/dur);e.textContent=Math.floor(pr*tg)+suf;if(pr<1)requestAnimationFrame(step);else e.textContent=tg+suf;};requestAnimationFrame(step);};
+  hero.querySelectorAll('.hero-badge b, .sel-stats b').forEach(animateCount);
+  const mqItems=avail.map(p=>`<button class="mq-item" data-pid="${p.id}" data-ver="${esc(p.versions[0])}"><span class="mqi" style="background:${p.logoBg}"><svg viewBox="0 0 24 24" fill="#fff">${LOGOS[p.logo]||''}</svg></span>${esc(p.name)}</button>`).join('');
+  const marquee=el(`<section class="os-marquee-wrap"><div class="os-marquee-label">${esc(t('browseAll'))}</div><div class="os-marquee"><div class="mq-track">${mqItems}${mqItems}</div></div></section>`);
+  marquee.querySelectorAll('.mq-item').forEach(b=>b.addEventListener('click',()=>boot(b.dataset.pid,b.dataset.ver)));
+  w.appendChild(marquee);
   /* ---- continue where you left off ---- */
   const last=store.get('lastOpened',null);
   if(last){const lp=PLATFORMS.find(p=>p.id===last.pid);if(lp&&lp.available){const c=el(`<button class="continue-card"><span class="cc-logo" style="background:${lp.logoBg}"><svg viewBox="0 0 24 24" fill="#fff">${LOGOS[lp.logo]||''}</svg></span><span class="cc-text"><span class="cc-lbl">${esc(t('continueLast'))}</span><span class="cc-os">${esc(lp.name)} ${esc(last.ver)}</span></span><span class="cc-go">${isRTL()?'‹':'›'}</span></button>`);c.addEventListener('click',()=>boot(last.pid,last.ver));w.appendChild(c);}}
@@ -3211,7 +3252,6 @@ V;
   const secMap={systems:sysSec,how:how,features:featSec};
   const go=key=>{if(key==='top'){w.scrollTo({top:0,behavior:'smooth'});return;}const tg=secMap[key];if(tg)tg.scrollIntoView({behavior:'smooth',block:'start'});};
   w.querySelectorAll('[data-scroll]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.scroll)));
-  const rnd=hero.querySelector('[data-random]');if(rnd)rnd.addEventListener('click',()=>{const p=avail[Math.floor(Math.random()*avail.length)];boot(p.id,p.versions[0]);});
   hero.querySelectorAll('.trend-chip').forEach(b=>b.addEventListener('click',()=>boot(b.dataset.pid,b.dataset.ver)));
   w.querySelectorAll('.foot-oslinks a').forEach(a=>{const go2=()=>boot(a.dataset.pid,a.dataset.ver);a.addEventListener('click',go2);a.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go2();}});});
   w.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',w.scrollTop>8);},{passive:true});
