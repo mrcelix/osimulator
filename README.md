@@ -75,9 +75,28 @@ node build-static.js   # rebuilds guides/*.html, compare/*.html and sitemap.xml
 
 After deploying, submit `sitemap.xml` in Google Search Console and Bing Webmaster Tools.
 
+## Optional backend (Supabase)
+
+osimulator is offline-first: with no backend configured it stores everything in the browser (`localStorage`), exactly as before. Connect a free [Supabase](https://supabase.com) project to turn on **real, shared, multi-user data**:
+
+- **Analytics** — every visitor's page views and OS launches land in one database; the admin panel shows real aggregates.
+- **Real accounts** — Supabase Auth (email + Google) instead of the simulated login.
+- **Shared Record & Play guides** — saved guides live in the cloud and replay from any device.
+- **Admin-managed site config** — header menu, feature flags and per-OS enable/disable set in the admin panel apply to every visitor.
+
+Setup:
+
+1. Create a Supabase project.
+2. In **SQL Editor**, run [`supabase-setup.sql`](supabase-setup.sql) (creates tables + row-level security).
+3. Add your admin email: `insert into public.admins(email) values ('you@example.com');`
+4. **Auth → Providers**: enable Email and Google. **Auth → URL Configuration**: add your site + redirect URLs.
+5. In osimulator open **Admin panel → Backend**, paste your **Project URL** + **anon (public) key**, and Save. (Or bake them into the `SUPA` constant near the top of `index.html` for production.)
+
+Only the **anon** key is used client-side (it is designed to be public and is protected by row-level security). Never ship the `service_role` key.
+
 ## Tech
 
-Vanilla HTML, CSS and JavaScript — no frameworks, no dependencies. The entire UI, data model, icons and logic live in `index.html`. Membership and preferences are stored client-side (`localStorage`); the Google sign-in and AI assistant are simulated and never leave your browser.
+Vanilla HTML, CSS and JavaScript — no frameworks, no build step. The entire UI, data model, icons and logic live in `index.html`. Without a backend, membership and preferences are stored client-side (`localStorage`) and sign-in is simulated. With Supabase connected, authentication, analytics, guides and site config are real and shared; the Supabase client is loaded on demand from a CDN only when a project is configured.
 
 ---
 

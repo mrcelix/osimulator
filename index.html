@@ -1308,6 +1308,15 @@ body.light .adm-menu-item input.ai{background:#fff;border-color:rgba(0,0,0,.14);
 .adm-actions .ghost{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:#e6e6ea}
 body.light .adm-actions .ghost{background:#fff;border-color:rgba(0,0,0,.12);color:#26262c}
 .adm-gate{max-width:360px}
+.adm-live{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:800;letter-spacing:.04em;color:#34c759;padding:3px 10px;border:1px solid rgba(52,199,89,.35);border-radius:100px;background:rgba(52,199,89,.1)}
+.adm-be-status{margin:14px 0;padding:11px 14px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);font-weight:700;font-size:13.5px;color:#c8c8d2}
+.adm-be-status.ok{color:#34c759;border-color:rgba(52,199,89,.35);background:rgba(52,199,89,.09)}
+.adm-be-msg{margin-top:10px;font-size:13px;font-weight:600;color:#9a9aa6;word-break:break-word}
+.adm-be-msg.ok{color:#34c759}.adm-be-msg.err{color:#ff453a}
+.adm-steps{margin:6px 0 10px;padding-left:20px;display:flex;flex-direction:column;gap:8px;font-size:13.5px;color:#c2c2cc;line-height:1.5}
+.adm-steps code{background:rgba(255,255,255,.08);padding:2px 6px;border-radius:6px;font-size:12px;word-break:break-all}
+body.light .adm-be-status{background:#fff;border-color:rgba(0,0,0,.1);color:#44444c}
+body.light .adm-steps{color:#44444c}body.light .adm-steps code{background:rgba(0,0,0,.06)}
 @media(max-width:760px){.adm-tabs{width:56px}.adm-tab span{display:none}.adm-body{flex-direction:row}}
 @media(max-width:560px){.adm-top{gap:8px;padding:12px 14px}.adm-top .abrand .abw{display:none}.adm-top .atag{display:none}.adm-top .lang-select{padding:4px 7px}.adm-top .lang-select select{font-size:12px;max-width:74px}.adm-top .abtn{padding:0 10px;font-size:12px}.adm-cards{grid-template-columns:1fr}}
 
@@ -4519,6 +4528,31 @@ V;
  /* ===================== FAB · OS AI · MEMBERSHIP · FEEDBACK ===================== */
  const store={_m:{},get(k,d){try{const v=localStorage.getItem('osim_'+k);return v==null?d:JSON.parse(v);}catch(e){return k in this._m?this._m[k]:d;}},set(k,v){try{localStorage.setItem('osim_'+k,JSON.stringify(v));}catch(e){this._m[k]=v;}}};
  let USER=store.get('user',null);
+ /* ============================ SUPABASE BACKEND ============================
+  Optional. When a Project URL + anon key are set (baked below or via
+  Admin panel → Backend), osimulator syncs analytics, real auth, shared
+  guides and admin site-config to Supabase. When unset or offline, it
+  falls back to this browser's local storage (the original behaviour). */
+ const SUPA={url:'',anon:''}; /* ← bake your Supabase project URL + anon key here for production */
+ function supaCfg(){const o=store.get('supaCfg',null);const url=((o&&o.url)||SUPA.url||'').trim().replace(/\/$/,'');const anon=((o&&o.anon)||SUPA.anon||'').trim();return (url&&anon)?{url,anon}:null;}
+ function supaOn(){return !!supaCfg();}
+ let SB=null,_sbPromise=null,SBREADY=false;
+ async function initSupa(){
+  const cfg=supaCfg();if(!cfg){SB=null;return null;}
+  if(SB)return SB;if(_sbPromise)return _sbPromise;
+  _sbPromise=(async()=>{
+   try{
+    const mod=await import('https://esm.sh/@supabase/supabase-js@2');
+    SB=mod.createClient(cfg.url,cfg.anon,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true,storageKey:'osim_sb_auth'}});
+    document.body.classList.add('has-backend');SBREADY=true;
+    return SB;
+   }catch(e){console.warn('[osimulator] Supabase init failed',e);SB=null;return null;}
+  })();
+  return _sbPromise;
+ }
+ /* map a Supabase auth user → USER shape used across the app */
+ function userFromSession(u){if(!u)return null;const md=u.user_metadata||{};const prov=(u.app_metadata&&u.app_metadata.provider)||'email';const name=md.name||md.full_name||(u.email?u.email.split('@')[0].replace(/[._-]/g,' ').replace(/\b\w/g,c=>c.toUpperCase()):'User');const prev=store.get('user',null);return {id:u.id,name,email:u.email||'',provider:prov,prefs:(prev&&prev.prefs)?prev.prefs:{lang:state.lang,deviceLang:state.lang,defaultOS:''}};}
+ async function restoreSession(){if(!SB)return;try{const {data}=await SB.auth.getSession();if(data&&data.session&&data.session.user){USER=userFromSession(data.session.user);store.set('user',USER);}SB.auth.onAuthStateChange((_ev,sess)=>{const nu=sess&&sess.user?userFromSession(sess.user):null;const changed=(!!nu!==!!USER)||(nu&&USER&&nu.email!==USER.email);USER=nu;store.set('user',USER);if(changed){buildFAB();refreshAuth();}});}catch(e){}}
  const GLOGO='<svg viewBox="0 0 24 24"><path fill="#4285F4" d="M21.6 12.2c0-.66-.06-1.29-.17-1.9H12v3.6h5.38a4.6 4.6 0 0 1-2 3l-.02.12 2.9 2.24.2.02c1.85-1.7 2.94-4.2 2.94-7.08Z"/><path fill="#34A853" d="M12 22c2.7 0 4.96-.89 6.62-2.42l-3.15-2.44c-.84.59-1.97 1-3.47 1a6.03 6.03 0 0 1-5.7-4.16l-.12.01-3.28 2.54-.04.11A10 10 0 0 0 12 22Z"/><path fill="#FBBC05" d="M6.3 13.98A6 6 0 0 1 5.98 12c0-.69.12-1.36.31-1.98l-.006-.13L3.06 7.3l-.1.05A10 10 0 0 0 2 12c0 1.6.39 3.14 1.06 4.5l3.24-2.52Z"/><path fill="#EA4335" d="M12 5.86c1.47 0 2.46.63 3.02 1.16l2.7-2.63C16.96 2.9 14.7 2 12 2A10 10 0 0 0 2.96 7.3l3.24 2.52A6.03 6.03 0 0 1 12 5.86Z"/></svg>';
  const ICN={ai:I.siri,fb:I.notifications,acc:I.personcircle,magic:'<path d="M12 2l1.6 4.6L18 8l-4.4 1.4L12 14l-1.6-4.6L6 8l4.4-1.4L12 2zm7 9l.9 2.5L22 14l-2.1.6L19 17l-.9-2.4L16 14l2.1-.5L19 11zM6 13l.9 2.5L9 16l-2.1.6L6 19l-.9-2.4L3 16l2.1-.5L6 13z"/>'};
  function initials(n){return (n||'?').split(/\s+/).map(w=>w[0]).slice(0,2).join('').toUpperCase();}
@@ -4742,7 +4776,7 @@ V;
  function initTheme(){let mode=store.get('theme',null);if(mode!=='light'&&mode!=='dark')mode='dark';applyTheme(mode,false);}
  /* auth header + refresh */
  function refreshAuth(){if(state.view==='select')renderSelect();else buildFAB();}
- function signOut(){USER=null;store.set('user',null);buildFAB();refreshAuth();savedToast(t('signOut'));}
+ function signOut(){try{if(SB)SB.auth.signOut();}catch(e){}USER=null;store.set('user',null);buildFAB();refreshAuth();savedToast(t('signOut'));}
  function buildAuthNav(){
   if(USER){
    const first=(USER.name||'').split(' ')[0];
@@ -4802,11 +4836,16 @@ V;
     <div class="auth-switch">${mode==='in'?esc(t('noAccount'))+' <b data-sw="up">'+esc(t('signUp'))+'</b>':esc(t('haveAccount'))+' <b data-sw="in">'+esc(t('signIn'))+'</b>'}</div>
     <div class="auth-fine">${esc(t('authTerms'))}</div>`;
    modal.querySelector('.auth-x').addEventListener('click',closePanels);
-   modal.querySelectorAll('[data-soc]').forEach(sb=>sb.addEventListener('click',()=>{const g=sb.dataset.soc==='google';done(g?'John Wick':'John Appleseed',g?'johnwick@gmail.com':'john.appleseed@icloud.com',sb.dataset.soc);}));
+   modal.querySelectorAll('[data-soc]').forEach(sb=>sb.addEventListener('click',async()=>{const prov=sb.dataset.soc;if(SB){try{const {error}=await SB.auth.signInWithOAuth({provider:prov,options:{redirectTo:guideBaseUrl()}});if(error)savedToast(error.message);}catch(e){savedToast(AL('Sign-in failed','Giriş başarısız'));}return;}const g=prov==='google';done(g?'John Wick':'John Appleseed',g?'johnwick@gmail.com':'john.appleseed@icloud.com',prov);}));
    const eye=modal.querySelector('.eye');if(eye)eye.addEventListener('click',()=>{const pw=modal.querySelector('#a2-pass');pw.type=pw.type==='password'?'text':'password';});
    modal.querySelectorAll('[data-sw]').forEach(x=>x.addEventListener('click',()=>{mode=x.dataset.sw;auth();}));
-   const fg=modal.querySelector('[data-forgot]');if(fg)fg.addEventListener('click',()=>savedToast(t('resetSent')));
-   const go=()=>{const em=(modal.querySelector('#a2-email').value||'').trim();if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){modal.querySelector('#a2-email').focus();savedToast(t('nlInvalid'));return;}const nm=mode==='up'?((modal.querySelector('#a2-name').value||'').trim()||em.split('@')[0]):em.split('@')[0].replace(/[._-]/g,' ').replace(/\b\w/g,c=>c.toUpperCase());done(nm,em,'email');};
+   const fg=modal.querySelector('[data-forgot]');if(fg)fg.addEventListener('click',async()=>{const em=(modal.querySelector('#a2-email').value||'').trim();if(SB&&/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){try{await SB.auth.resetPasswordForEmail(em,{redirectTo:guideBaseUrl()});}catch(e){}}savedToast(t('resetSent'));});
+   const go=async()=>{const em=(modal.querySelector('#a2-email').value||'').trim();if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){modal.querySelector('#a2-email').focus();savedToast(t('nlInvalid'));return;}
+    if(SB){const pass=(modal.querySelector('#a2-pass').value||'');if(pass.length<6){modal.querySelector('#a2-pass').focus();savedToast(AL('Password must be at least 6 characters.','Parola en az 6 karakter olmalı.'));return;}const btn=modal.querySelector('[data-go]');const lbl=btn.textContent;btn.disabled=true;btn.textContent='…';
+     try{if(mode==='up'){const nm=(modal.querySelector('#a2-name').value||'').trim()||em.split('@')[0];const {data,error}=await SB.auth.signUp({email:em,password:pass,options:{data:{name:nm},emailRedirectTo:guideBaseUrl()}});if(error){savedToast(error.message);btn.disabled=false;btn.textContent=lbl;return;}if(data&&data.session){closePanels();savedToast(t('welcome'));}else{closePanels();savedToast(AL('Check your email to confirm your account.','Hesabını onaylamak için e-postanı kontrol et.'));}}
+      else{const {error}=await SB.auth.signInWithPassword({email:em,password:pass});if(error){savedToast(error.message);btn.disabled=false;btn.textContent=lbl;return;}closePanels();savedToast(t('welcome'));}}
+     catch(e){savedToast(AL('Sign-in failed','Giriş başarısız'));btn.disabled=false;btn.textContent=lbl;}return;}
+    const nm=mode==='up'?((modal.querySelector('#a2-name').value||'').trim()||em.split('@')[0]):em.split('@')[0].replace(/[._-]/g,' ').replace(/\b\w/g,c=>c.toUpperCase());done(nm,em,'email');};
    modal.querySelector('[data-go]').addEventListener('click',go);
    modal.querySelectorAll('input').forEach(i=>i.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();go();}}));
    const fEl=modal.querySelector('#a2-email');if(fEl)setTimeout(()=>fEl.focus(),60);
@@ -4840,6 +4879,7 @@ V;
   const em=(inp.value||'').trim();
   if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){inp.focus();savedToast(t('nlInvalid'));return;}
   const subs=store.get('newsletter',[]);if(subs.indexOf(em)<0){subs.push(em);store.set('newsletter',subs);}
+  try{if(SB)SB.from('newsletter').upsert({email:em},{onConflict:'email'}).then(()=>{},()=>{});}catch(e){}
   box.innerHTML='<div class="nl-ok">'+esc(t('nlSuccess'))+'</div>';
  }
  /* cookie consent */
@@ -4942,8 +4982,9 @@ V;
  function kindWord(k){return k==='toggle'?t('toggleHere'):k==='nav'?t('openHere'):t('tapHere');}
  /* --- guide storage --- */
  function loadGuides(){return store.get('guides',[]);}
- function saveGuide(g){const gs=loadGuides();gs.unshift(g);store.set('guides',gs.slice(0,60));}
- function deleteGuide(id){store.set('guides',loadGuides().filter(x=>x.id!==id));}
+ function saveGuide(g){const gs=loadGuides();gs.unshift(g);store.set('guides',gs.slice(0,60));try{if(SB&&USER&&USER.id)SB.from('guides').insert({id:g.id,title:g.title||'',data:g,owner:USER.id,owner_email:USER.email||'',owner_name:USER.name||''}).then(()=>{},e=>console.warn('[osimulator] guide save',e&&e.message));}catch(e){}}
+ function deleteGuide(id){store.set('guides',loadGuides().filter(x=>x.id!==id));try{if(SB)SB.from('guides').delete().eq('id',id).then(()=>{},()=>{});}catch(e){}}
+ async function fetchGuides(){if(!SB||!USER||!USER.id)return loadGuides();try{const {data,error}=await SB.from('guides').select('data').eq('owner',USER.id).order('created_at',{ascending:false});if(error||!data)return loadGuides();const gs=data.map(r=>r.data).filter(Boolean);store.set('guides',gs.slice(0,60));return gs;}catch(e){return loadGuides();}}
  /* --- advanced share --- */
  function shareGuideModal(g){
   closePanels();
@@ -4982,9 +5023,10 @@ V;
  }
  function downloadGuide(g){try{const blob=new Blob([JSON.stringify(g,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=(g.title||'guide').replace(/[^\w\-]+/g,'_').slice(0,40)+'.osguide.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),2000);}catch(e){}}
  /* --- my guides --- */
- function myGuidesModal(){
+ function myGuidesModal(skipFetch){
   closePanels();
   const gs=loadGuides();
+  if(SB&&USER&&USER.id&&!skipFetch){fetchGuides().then(()=>{if(document.querySelector('.auth-modal'))myGuidesModal(true);});}
   const o=el('<div class="ovl show auth-ovl"><div class="ovl-bg"></div></div>');document.body.appendChild(o);
   const body=gs.length?`<div class="guide-list">${gs.map(g=>{const pf=PLATFORMS.find(p=>p.id===g.os);return `<div class="guide-card" data-id="${g.id}"><span class="gi"><svg viewBox="0 0 24 24">${GICON.guide}</svg></span><span class="gt"><span class="n">${esc(g.title||t('recTitleDefault'))}</span><span class="m">${esc(pf?pf.name:g.os)} ${esc(g.ver)} · ${g.steps.length} ${esc(t('recSteps'))}</span></span><span class="ga"><button class="play" data-ga="play" title="${esc(t('guidePlayBtn'))}"><svg viewBox="0 0 24 24">${GICON.play}</svg></button><button data-ga="share" title="${esc(t('shareGuideTitle'))}"><svg viewBox="0 0 24 24">${SHARE_SVG}</svg></button><button data-ga="del" title="${esc(t('guideDelete'))}"><svg viewBox="0 0 24 24">${GICON.trash}</svg></button></span></div>`;}).join('')}</div>`:`<div class="auth-sub" style="margin:14px 0">${esc(t('noGuides'))}</div>`;
   const m=el(`<div class="auth-modal"><button class="auth-x">✕</button><div class="auth-h" style="margin-top:2px">${esc(t('myGuides'))}</div><div style="max-height:60vh;overflow:auto;margin-top:12px">${body}</div></div>`);
@@ -5536,15 +5578,23 @@ V;
  /* ===================== ADMIN PANEL + config + analytics ===================== */
  const AL=(en,tr)=>state.lang==='tr'?tr:en;
  /* analytics (client-side, localStorage) */
- function track(type,label){try{const a=store.get('analytics',[]);a.push({t:type,l:label||'',ts:Date.now()});store.set('analytics',a.slice(-3000));}catch(e){}}
- function viewsByDay(n){const ev=store.get('analytics',[]).filter(e=>e.t==='view');const out=[];const now=new Date();for(let i=n-1;i>=0;i--){const d=new Date(now.getFullYear(),now.getMonth(),now.getDate()-i);const k=('0'+(d.getMonth()+1)).slice(-2)+'/'+('0'+d.getDate()).slice(-2);const c=ev.filter(e=>{const ed=new Date(e.ts);return ed.getFullYear()===d.getFullYear()&&ed.getMonth()===d.getMonth()&&ed.getDate()===d.getDate();}).length;out.push([k,c]);}return out;}
- function topLaunch(n){const m={};store.get('analytics',[]).filter(e=>e.t==='launch').forEach(e=>m[e.l]=(m[e.l]||0)+1);const a=Object.keys(m).map(k=>{const p=PLATFORMS.find(x=>x.id===k);return[p?p.name:k,m[k]];});a.sort((x,y)=>y[1]-x[1]);return a.slice(0,n);}
- function topView(n){const m={};store.get('analytics',[]).filter(e=>e.t==='view').forEach(e=>m[e.l]=(m[e.l]||0)+1);const a=Object.keys(m).map(k=>[k,m[k]]);a.sort((x,y)=>y[1]-x[1]);return a.slice(0,n);}
- function typeCounts(){const m={};store.get('analytics',[]).forEach(e=>m[e.t]=(m[e.t]||0)+1);return Object.keys(m).map(k=>[k,m[k]]).sort((x,y)=>y[1]-x[1]);}
+ function track(type,label){try{const a=store.get('analytics',[]);a.push({t:type,l:label||'',ts:Date.now()});store.set('analytics',a.slice(-3000));}catch(e){}try{if(SB)SB.from('events').insert({type:type,label:label||''}).then(()=>{},()=>{});}catch(e){}}
+ let _admEvents=null; /* when admin loads from Supabase, holds server events {t,l,ts} */
+ function evAll(){return _admEvents||store.get('analytics',[]);}
+ async function loadAdminEvents(){if(!SB){_admEvents=null;return;}try{const {data,error}=await SB.from('events').select('type,label,ts').order('ts',{ascending:false}).limit(8000);if(error||!data){_admEvents=null;return;}_admEvents=data.map(e=>({t:e.type,l:e.label||'',ts:Date.parse(e.ts)}));}catch(e){_admEvents=null;}}
+ function viewsByDay(n){const ev=evAll().filter(e=>e.t==='view');const out=[];const now=new Date();for(let i=n-1;i>=0;i--){const d=new Date(now.getFullYear(),now.getMonth(),now.getDate()-i);const k=('0'+(d.getMonth()+1)).slice(-2)+'/'+('0'+d.getDate()).slice(-2);const c=ev.filter(e=>{const ed=new Date(e.ts);return ed.getFullYear()===d.getFullYear()&&ed.getMonth()===d.getMonth()&&ed.getDate()===d.getDate();}).length;out.push([k,c]);}return out;}
+ function topLaunch(n){const m={};evAll().filter(e=>e.t==='launch').forEach(e=>m[e.l]=(m[e.l]||0)+1);const a=Object.keys(m).map(k=>{const p=PLATFORMS.find(x=>x.id===k);return[p?p.name:k,m[k]];});a.sort((x,y)=>y[1]-x[1]);return a.slice(0,n);}
+ function topView(n){const m={};evAll().filter(e=>e.t==='view').forEach(e=>m[e.l]=(m[e.l]||0)+1);const a=Object.keys(m).map(k=>[k,m[k]]);a.sort((x,y)=>y[1]-x[1]);return a.slice(0,n);}
+ function typeCounts(){const m={};evAll().forEach(e=>m[e.t]=(m[e.t]||0)+1);return Object.keys(m).map(k=>[k,m[k]]).sort((x,y)=>y[1]-x[1]);}
  /* header menu config */
  const DEFAULT_NAV=[{id:'systems',key:'navSystems',act:'scroll:systems',vis:true},{id:'how',key:'navHow',act:'scroll:how',vis:true},{id:'guides',key:'guidesNav',act:'route:guides',vis:true},{id:'compare',key:'compareNav',act:'route:compare',vis:true},{id:'vs',key:'vsNav',act:'route:vs',vis:true},{id:'quiz',key:'quizNav',act:'route:quiz',vis:true},{id:'embed',key:'embedNav',act:'route:embed',vis:true},{id:'features',key:'navFeatures',act:'scroll:features',vis:true}];
  function getNavMenu(){const m=store.get('navMenu',null);return (m&&m.length)?m:JSON.parse(JSON.stringify(DEFAULT_NAV));}
- function setNavMenu(m){store.set('navMenu',m);}
+ function setNavMenu(m){store.set('navMenu',m);queueConfigPush();}
+ /* ---- shared site config (Supabase) ---- */
+ let _cfgTimer=null;
+ function queueConfigPush(){if(!SB)return;clearTimeout(_cfgTimer);_cfgTimer=setTimeout(pushSiteConfig,600);}
+ async function pushSiteConfig(){if(!SB)return;try{const row={id:1,nav_menu:store.get('navMenu',null),features:store.get('features',{}),os_overrides:store.get('osOverrides',{}),updated_at:new Date().toISOString()};await SB.from('site_config').upsert(row,{onConflict:'id'});}catch(e){console.warn('[osimulator] config push failed (need admin?)',e&&e.message);}}
+ async function hydrateSiteConfig(){if(!SB)return;try{const {data,error}=await SB.from('site_config').select('*').eq('id',1).maybeSingle();if(error||!data)return;if(data.nav_menu)store.set('navMenu',data.nav_menu);if(data.features)store.set('features',data.features);if(data.os_overrides)store.set('osOverrides',data.os_overrides);applyOsOverrides();if(state.view==='select')renderSelect();else if(state.view==='admin')renderAdminPage();}catch(e){}}
  function doNav(act,go){const p=String(act||'').split(':');const kind=p[0],val=p.slice(1).join(':');
   if(kind==='scroll'){if(go)go(val);}
   else if(kind==='route'){if(val==='guides')renderGuidesPage();else if(val==='compare')renderComparePage();else if(val==='vs')renderVsPage('ios','android');else if(val==='quiz')renderQuizPage();else if(val==='embed')renderEmbedPage();}
@@ -5553,18 +5603,22 @@ V;
  /* features */
  const FEATS=[{k:'guides',en:'Guides',tr:'Rehberler'},{k:'compare',en:'Comparisons',tr:'Karşılaştırmalar'},{k:'vs',en:'Side-by-side',tr:'Yan yana'},{k:'quiz',en:'Which OS? quiz',tr:'Hangi OS? quiz'},{k:'embed',en:'Embed builder',tr:'Gömme aracı'},{k:'search',en:'Global search',tr:'Global arama'},{k:'ai',en:'OS AI assistant',tr:'OS AI asistanı'},{k:'magic',en:'Magic teleport',tr:'Sihir ışınlama'},{k:'newsletter',en:'Newsletter',tr:'E-Bülten'},{k:'cookie',en:'Cookie banner',tr:'Çerez bildirimi'}];
  function featOn(k){const f=store.get('features',{});return f[k]!==false;}
- function setFeat(k,v){const f=store.get('features',{});f[k]=v;store.set('features',f);}
+ function setFeat(k,v){const f=store.get('features',{});f[k]=v;store.set('features',f);queueConfigPush();}
  /* OS overrides */
  function getOsOv(){return store.get('osOverrides',{});}
- function setOsOv(id,turnOff){const o=getOsOv();if(turnOff)o[id]='off';else delete o[id];store.set('osOverrides',o);}
+ function setOsOv(id,turnOff){const o=getOsOv();if(turnOff)o[id]='off';else delete o[id];store.set('osOverrides',o);queueConfigPush();}
  function applyOsOverrides(){const o=getOsOv();PLATFORMS.forEach(p=>{if(SETTINGS[p.id])p.available=(o[p.id]!=='off');});}
  /* members */
+ let _admMembers=null;
  function getMembers(){return store.get('members',[]);}
+ function membersList(){return _admMembers||getMembers();}
+ async function loadAdminMembers(){if(!SB){_admMembers=null;return;}try{const {data,error}=await SB.from('profiles').select('name,email,provider,created_at').order('created_at',{ascending:false}).limit(5000);if(error||!data){_admMembers=null;return;}_admMembers=data.map(m=>({name:m.name,email:m.email,provider:m.provider||'email',ts:m.created_at?Date.parse(m.created_at):null}));}catch(e){_admMembers=null;}}
  function recordMember(u){if(!u||!u.email)return;const m=getMembers();if(!m.some(x=>x.email===u.email)){m.push({name:u.name,email:u.email,provider:u.provider||'email',ts:Date.now()});store.set('members',m);}}
  function delMember(email){store.set('members',getMembers().filter(x=>x.email!==email));}
- function exportMembersCSV(){const m=getMembers();const rows=[['name','email','provider','joined']].concat(m.map(x=>[x.name,x.email,x.provider||'',x.ts?new Date(x.ts).toISOString():'']));const csv=rows.map(r=>r.map(c=>'"'+String(c).replace(/"/g,'""')+'"').join(',')).join('\n');try{const b=new Blob([csv],{type:'text/csv'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='osimulator-members.csv';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000);}catch(e){}}
+ function exportMembersCSV(){const m=membersList();const rows=[['name','email','provider','joined']].concat(m.map(x=>[x.name,x.email,x.provider||'',x.ts?new Date(x.ts).toISOString():'']));const csv=rows.map(r=>r.map(c=>'"'+String(c).replace(/"/g,'""')+'"').join(',')).join('\n');try{const b=new Blob([csv],{type:'text/csv'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='osimulator-members.csv';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000);}catch(e){}}
  /* gate + open */
- function openAdmin(){if(state.adminOK){renderAdminPage();return;}adminGate(()=>{state.adminOK=true;renderAdminPage();});}
+ let _admStale=false;
+ function openAdmin(){_admStale=true;if(state.adminOK){renderAdminPage();return;}adminGate(()=>{state.adminOK=true;renderAdminPage();});}
  function adminGate(onOk){
   closePanels();const has=store.get('adminPin',null);
   const o=el('<div class="ovl show auth-ovl"><div class="ovl-bg"></div></div>');document.body.appendChild(o);
@@ -5584,20 +5638,23 @@ V;
   const themeBtn=el('<button class="nav-theme"></button>');themeBtn.addEventListener('click',toggleTheme);top.appendChild(themeBtn);
   top.appendChild(langSelect(renderAdminPage));
   const vb=el(`<button class="abtn">${esc(AL('View site','Siteyi gör'))}</button>`);vb.addEventListener('click',()=>{try{history.replaceState(null,'',guideBaseUrl());}catch(e){}renderSelect();});top.appendChild(vb);
-  const TABS=[['overview',AL('Overview','Genel bakış')],['analytics',AL('Analytics','Analitik')],['members',AL('Members','Üyeler')],['os',AL('Operating systems','İşletim sistemleri')],['features',AL('Site features','Site özellikleri')],['menu',AL('Header menu','Menü yönetimi')]];
-  const ADMICON={overview:'<path d="M3 3h8v8H3V3zm10 0h8v5h-8V3zM3 13h8v8H3v-8zm10 3h8v5h-8v-5z"/>',analytics:'<path d="M4 20V10h3v10H4zm6.5 0V4h3v16h-3zM17 20v-7h3v7h-3z"/>',members:'<path d="M8 11a3.5 3.5 0 100-7 3.5 3.5 0 000 7zm8 0a3 3 0 100-6 3 3 0 000 6zM2 19c0-2.7 3-4.3 6-4.3s6 1.6 6 4.3v1H2v-1zm14.2-3.9c2 .5 3.8 1.7 3.8 3.9v1h-4v-1c0-1.5-.7-2.7-1.8-3.6.7-.2 1.4-.3 2-.2z"/>',os:'<path d="M4 5h16a1 1 0 011 1v9a1 1 0 01-1 1h-6l1 3h2v2H7v-2h2l1-3H4a1 1 0 01-1-1V6a1 1 0 011-1zm1 2v7h14V7H5z"/>',features:'<path d="M12 2l2.1 5.3L20 8l-4 3.7 1.1 5.8L12 14.8 6.9 17.5 8 11.7 4 8l5.9-.7L12 2z"/>',menu:'<path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>'};
+  const TABS=[['overview',AL('Overview','Genel bakış')],['analytics',AL('Analytics','Analitik')],['members',AL('Members','Üyeler')],['os',AL('Operating systems','İşletim sistemleri')],['features',AL('Site features','Site özellikleri')],['menu',AL('Header menu','Menü yönetimi')],['backend',AL('Backend','Backend')]];
+  const ADMICON={overview:'<path d="M3 3h8v8H3V3zm10 0h8v5h-8V3zM3 13h8v8H3v-8zm10 3h8v5h-8v-5z"/>',analytics:'<path d="M4 20V10h3v10H4zm6.5 0V4h3v16h-3zM17 20v-7h3v7h-3z"/>',members:'<path d="M8 11a3.5 3.5 0 100-7 3.5 3.5 0 000 7zm8 0a3 3 0 100-6 3 3 0 000 6zM2 19c0-2.7 3-4.3 6-4.3s6 1.6 6 4.3v1H2v-1zm14.2-3.9c2 .5 3.8 1.7 3.8 3.9v1h-4v-1c0-1.5-.7-2.7-1.8-3.6.7-.2 1.4-.3 2-.2z"/>',os:'<path d="M4 5h16a1 1 0 011 1v9a1 1 0 01-1 1h-6l1 3h2v2H7v-2h2l1-3H4a1 1 0 01-1-1V6a1 1 0 011-1zm1 2v7h14V7H5z"/>',features:'<path d="M12 2l2.1 5.3L20 8l-4 3.7 1.1 5.8L12 14.8 6.9 17.5 8 11.7 4 8l5.9-.7L12 2z"/>',menu:'<path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>',backend:'<path d="M4 4h16a1 1 0 011 1v5a1 1 0 01-1 1H4a1 1 0 01-1-1V5a1 1 0 011-1zm3 3v1h2V7H7zm-3 6h16a1 1 0 011 1v5a1 1 0 01-1 1H4a1 1 0 01-1-1v-5a1 1 0 011-1zm3 3v1h2v-1H7z"/>'};
   const tabs=w.querySelector('.adm-tabs');
   TABS.forEach(([k,lab])=>{const b=el(`<button class="adm-tab ${k===tab?'on':''}" title="${esc(lab)}"><svg viewBox="0 0 24 24">${ADMICON[k]||ICN2.tools}</svg><span>${esc(lab)}</span></button>`);b.addEventListener('click',()=>{state.adminTab=k;renderAdminPage();});tabs.appendChild(b);});
+  if(SB){const badge=el(`<span class="adm-live" title="${esc(cfgHost())}">● ${esc(AL('Live backend','Canlı backend'))}</span>`);top.insertBefore(badge,top.firstChild.nextSibling);}
   root.appendChild(w);setTimeout(updateThemeIcons,0);
   const main=w.querySelector('.adm-main');
-  ({overview:admOverview,analytics:admAnalytics,members:admMembers,os:admOS,features:admFeatures,menu:admMenu}[tab]||admOverview)(main);
+  ({overview:admOverview,analytics:admAnalytics,members:admMembers,os:admOS,features:admFeatures,menu:admMenu,backend:admBackend}[tab]||admOverview)(main);
+  if(SB&&_admStale&&(tab==='overview'||tab==='analytics'||tab==='members')){_admStale=false;Promise.all([loadAdminEvents(),loadAdminMembers()]).then(()=>{if(state.view==='admin')renderAdminPage();});}
  }
+ function cfgHost(){try{const c=supaCfg();return c?c.url.replace(/^https?:\/\//,''):'';}catch(e){return '';}}
  function admOverview(main){
-  const ev=store.get('analytics',[]);const views=ev.filter(e=>e.t==='view').length,launches=ev.filter(e=>e.t==='launch').length;
+  const ev=evAll();const views=ev.filter(e=>e.t==='view').length,launches=ev.filter(e=>e.t==='launch').length;
   const real=PLATFORMS.filter(p=>SETTINGS[p.id]);const osOn=real.filter(p=>p.available).length;const featsOn=FEATS.filter(f=>featOn(f.k)).length;
-  main.innerHTML=`<div class="adm-h">${esc(AL('Overview','Genel bakış'))}</div><div class="adm-sub">${esc(AL('A snapshot of your site. Data is stored in this browser.','Sitenin anlık durumu. Veriler bu tarayıcıda saklanır.'))}</div>
+  main.innerHTML=`<div class="adm-h">${esc(AL('Overview','Genel bakış'))}</div><div class="adm-sub">${esc(SB?AL('Live snapshot from your Supabase backend.','Supabase backend’inden canlı anlık durum.'):AL('A snapshot of your site. Data is stored in this browser.','Sitenin anlık durumu. Veriler bu tarayıcıda saklanır.'))}</div>
    <div class="adm-cards">
-    <div class="adm-card"><b>${getMembers().length}</b><span>${esc(AL('Members','Üyeler'))}</span></div>
+    <div class="adm-card"><b>${membersList().length}</b><span>${esc(AL('Members','Üyeler'))}</span></div>
     <div class="adm-card"><b>${views}</b><span>${esc(AL('Page views','Sayfa görüntüleme'))}</span></div>
     <div class="adm-card"><b>${launches}</b><span>${esc(AL('OS launches','OS açılışı'))}</span></div>
     <div class="adm-card"><b>${ev.length}</b><span>${esc(AL('Total events','Toplam olay'))}</span></div>
@@ -5608,20 +5665,21 @@ V;
    <div class="adm-sec"><h3>${esc(AL('Most opened operating systems','En çok açılan OS’ler'))}</h3>${abars(topLaunch(8))}</div>`;
  }
  function admAnalytics(main){
-  const ev=store.get('analytics',[]);
-  main.innerHTML=`<div class="adm-h">${esc(AL('Analytics','Analitik'))}</div><div class="adm-sub">${esc(AL('Visits and clicks tracked in this browser (no external tracking).','Bu tarayıcıda izlenen ziyaret ve tıklamalar (dış izleme yok).'))}</div>
+  const ev=evAll();
+  main.innerHTML=`<div class="adm-h">${esc(AL('Analytics','Analitik'))}</div><div class="adm-sub">${esc(SB?AL('Visits and clicks from all visitors (via Supabase).','Tüm ziyaretçilerin ziyaret ve tıklamaları (Supabase).'):AL('Visits and clicks tracked in this browser (no external tracking).','Bu tarayıcıda izlenen ziyaret ve tıklamalar (dış izleme yok).'))}</div>
    <div class="adm-sec"><h3>${esc(AL('Views · last 14 days','Görüntüleme · son 14 gün'))}</h3>${abars(viewsByDay(14))}</div>
    <div class="adm-sec"><h3>${esc(AL('Top pages','En çok görüntülenen'))}</h3>${abars(topView(10))}</div>
    <div class="adm-sec"><h3>${esc(AL('By event type','Olay türüne göre'))}</h3>${abars(typeCounts())}</div>
-   <div class="adm-sec"><h3>${esc(AL('Recent events','Son olaylar'))}</h3><table class="adm-tbl"><thead><tr><th>${esc(AL('Time','Zaman'))}</th><th>${esc(AL('Type','Tür'))}</th><th>${esc(AL('Label','Etiket'))}</th></tr></thead><tbody>${ev.slice(-25).reverse().map(e=>`<tr><td>${esc(new Date(e.ts).toLocaleString())}</td><td>${esc(e.t)}</td><td>${esc(e.l)}</td></tr>`).join('')||'<tr><td colspan="3">—</td></tr>'}</tbody></table></div>
+   <div class="adm-sec"><h3>${esc(AL('Recent events','Son olaylar'))}</h3><table class="adm-tbl"><thead><tr><th>${esc(AL('Time','Zaman'))}</th><th>${esc(AL('Type','Tür'))}</th><th>${esc(AL('Label','Etiket'))}</th></tr></thead><tbody>${ev.slice().sort((a,b)=>b.ts-a.ts).slice(0,25).map(e=>`<tr><td>${esc(new Date(e.ts).toLocaleString())}</td><td>${esc(e.t)}</td><td>${esc(e.l)}</td></tr>`).join('')||'<tr><td colspan="3">—</td></tr>'}</tbody></table></div>
+   ${SB?`<div class="adm-note">${esc(AL('Server analytics are managed in Supabase; “Clear” only clears this browser’s local cache.','Sunucu analitiği Supabase’de yönetilir; “Temizle” yalnızca bu tarayıcının yerel önbelleğini temizler.'))}</div>`:''}
    <div class="adm-actions"><button class="ghost" id="aclr">${esc(AL('Clear analytics','Analitiği temizle'))}</button></div>`;
-  main.querySelector('#aclr').addEventListener('click',()=>{store.set('analytics',[]);renderAdminPage();});
+  main.querySelector('#aclr').addEventListener('click',()=>{store.set('analytics',[]);_admStale=true;renderAdminPage();});
  }
  function admMembers(main){
-  const ms=getMembers();
-  main.innerHTML=`<div class="adm-h">${esc(AL('Members','Üyeler'))}</div><div class="adm-sub">${esc(AL('People who signed up on this device.','Bu cihazda kayıt olan kişiler.'))}</div>
-   <div class="adm-note">${esc(AL('Membership is stored locally (no backend). Connect a server for real, shared accounts.','Üyelik yerel olarak saklanır (backend yok). Gerçek/paylaşımlı hesaplar için sunucu bağla.'))}</div>
-   <table class="adm-tbl"><thead><tr><th>${esc(AL('Name','Ad'))}</th><th>Email</th><th>${esc(AL('Provider','Sağlayıcı'))}</th><th>${esc(AL('Joined','Katıldı'))}</th><th></th></tr></thead><tbody>${ms.map(m=>`<tr><td>${esc(m.name)}</td><td>${esc(m.email)}</td><td>${esc(m.provider||'email')}</td><td>${esc(m.ts?new Date(m.ts).toLocaleDateString():'—')}</td><td><span class="adel" data-em="${esc(m.email)}">${esc(AL('Delete','Sil'))}</span></td></tr>`).join('')||`<tr><td colspan="5">${esc(AL('No members yet.','Henüz üye yok.'))}</td></tr>`}</tbody></table>
+  const ms=membersList();
+  main.innerHTML=`<div class="adm-h">${esc(AL('Members','Üyeler'))}</div><div class="adm-sub">${esc(SB?AL('Everyone who has signed up.','Kayıt olan herkes.'):AL('People who signed up on this device.','Bu cihazda kayıt olan kişiler.'))}</div>
+   ${SB?'':`<div class="adm-note">${esc(AL('Membership is stored locally (no backend). Connect a server for real, shared accounts.','Üyelik yerel olarak saklanır (backend yok). Gerçek/paylaşımlı hesaplar için sunucu bağla.'))}</div>`}
+   <table class="adm-tbl"><thead><tr><th>${esc(AL('Name','Ad'))}</th><th>Email</th><th>${esc(AL('Provider','Sağlayıcı'))}</th><th>${esc(AL('Joined','Katıldı'))}</th>${SB?'':'<th></th>'}</tr></thead><tbody>${ms.map(m=>`<tr><td>${esc(m.name)}</td><td>${esc(m.email)}</td><td>${esc(m.provider||'email')}</td><td>${esc(m.ts?new Date(m.ts).toLocaleDateString():'—')}</td>${SB?'':`<td><span class="adel" data-em="${esc(m.email)}">${esc(AL('Delete','Sil'))}</span></td>`}</tr>`).join('')||`<tr><td colspan="${SB?4:5}">${esc(AL('No members yet.','Henüz üye yok.'))}</td></tr>`}</tbody></table>
    <div class="adm-actions"><button class="prim" id="acsv">${esc(AL('Export CSV','CSV indir'))}</button></div>`;
   main.querySelectorAll('.adel').forEach(x=>x.addEventListener('click',()=>{delMember(x.dataset.em);renderAdminPage();}));
   main.querySelector('#acsv').addEventListener('click',exportMembersCSV);
@@ -5651,6 +5709,32 @@ V;
   main.querySelector('#madd').addEventListener('click',()=>{const lb=prompt(AL('Link label','Bağlantı adı'));if(!lb)return;const url=prompt(AL('URL (https://…) — leave blank to scroll to Systems','URL (https://…) — boş bırakırsan Sistemler’e kaydırır'))||'';menu.push({id:'c'+Date.now(),label:lb,act:url?('url:'+url):'scroll:systems',vis:true});setNavMenu(menu);renderAdminPage();});
   main.querySelector('#mreset').addEventListener('click',()=>{store.set('navMenu',null);renderAdminPage();});
  }
+ function admBackend(main){
+  const o=store.get('supaCfg',null);const url=(o&&o.url)||SUPA.url||'';const anon=(o&&o.anon)||SUPA.anon||'';
+  const connected=!!SB;
+  main.innerHTML=`<div class="adm-h">${esc(AL('Backend (Supabase)','Backend (Supabase)'))}</div>
+   <div class="adm-sub">${esc(AL('Connect a Supabase project for real, shared data across all visitors: analytics, accounts, guides and site settings.','Tüm ziyaretçilerde gerçek/paylaşımlı veri için bir Supabase projesi bağla: analitik, hesaplar, rehberler ve site ayarları.'))}</div>
+   <div class="adm-be-status ${connected?'ok':''}">${connected?'● '+esc(AL('Connected','Bağlı'))+' — '+esc(cfgHost()):'○ '+esc(AL('Not connected — using local storage','Bağlı değil — yerel depolama kullanılıyor'))}</div>
+   <div class="fld2"><label>Project URL</label><div class="inp"><input id="be-url" placeholder="https://xxxx.supabase.co" value="${esc(url)}"></div></div>
+   <div class="fld2"><label>Anon (public) key</label><div class="inp"><input id="be-anon" placeholder="eyJhbGciOi…" value="${esc(anon)}"></div></div>
+   <div class="adm-actions"><button class="prim" id="be-save">${esc(AL('Save & connect','Kaydet ve bağlan'))}</button><button class="ghost" id="be-test">${esc(AL('Test connection','Bağlantıyı test et'))}</button>${(o&&(o.url||o.anon))?`<button class="ghost" id="be-clear">${esc(AL('Disconnect','Bağlantıyı kes'))}</button>`:''}</div>
+   <div class="adm-be-msg" id="be-msg"></div>
+   <div class="adm-sec"><h3>${esc(AL('Setup checklist','Kurulum adımları'))}</h3>
+    <ol class="adm-steps">
+     <li>${esc(AL('In Supabase → SQL Editor, run the provided supabase-setup.sql.','Supabase → SQL Editor’de verilen supabase-setup.sql dosyasını çalıştır.'))}</li>
+     <li>${esc(AL('Add your admin email:','Admin e-postanı ekle:'))} <code>insert into public.admins(email) values ('you@example.com');</code></li>
+     <li>${esc(AL('Auth → Providers: enable Email and Google.','Auth → Providers: Email ve Google’ı etkinleştir.'))}</li>
+     <li>${esc(AL('Auth → URL Configuration: add your site URL + redirect URLs.','Auth → URL Configuration: site URL’ini ve redirect URL’lerini ekle.'))}</li>
+     <li>${esc(AL('Paste Project URL + anon key above and Save.','Yukarıya Project URL + anon key yapıştır ve Kaydet.'))}</li>
+    </ol>
+    <div class="adm-note">${esc(AL('Only the anon (public) key goes here — never the service_role key.','Buraya yalnızca anon (public) key girilir — service_role key ASLA.'))}</div>
+   </div>`;
+  const msg=main.querySelector('#be-msg');
+  const readVals=()=>({url:(main.querySelector('#be-url').value||'').trim().replace(/\/$/,''),anon:(main.querySelector('#be-anon').value||'').trim()});
+  main.querySelector('#be-save').addEventListener('click',()=>{const v=readVals();if(!v.url||!v.anon){msg.textContent=AL('Enter both URL and anon key.','URL ve anon key gir.');msg.className='adm-be-msg err';return;}store.set('supaCfg',v);msg.textContent=AL('Saved. Reconnecting…','Kaydedildi. Yeniden bağlanılıyor…');msg.className='adm-be-msg ok';setTimeout(()=>location.reload(),500);});
+  main.querySelector('#be-test').addEventListener('click',async()=>{const v=readVals();if(!v.url||!v.anon){msg.textContent=AL('Enter both URL and anon key.','URL ve anon key gir.');msg.className='adm-be-msg err';return;}msg.textContent='…';msg.className='adm-be-msg';try{const mod=await import('https://esm.sh/@supabase/supabase-js@2');const c=mod.createClient(v.url,v.anon);const {error}=await c.from('site_config').select('id').limit(1);if(error)throw error;msg.textContent=AL('Connection OK — schema found. ✓','Bağlantı başarılı — şema bulundu. ✓');msg.className='adm-be-msg ok';}catch(e){msg.textContent=(AL('Failed: ','Başarısız: '))+(e&&e.message||e);msg.className='adm-be-msg err';}});
+  const clr=main.querySelector('#be-clear');if(clr)clr.addEventListener('click',()=>{store.set('supaCfg',null);msg.textContent=AL('Disconnected. Reloading…','Bağlantı kesildi. Yeniden yükleniyor…');msg.className='adm-be-msg';setTimeout(()=>location.reload(),400);});
+ }
 
  window.addEventListener('resize',()=>{if(state.view!=='select'){if(state.autoFit)fit();else applyZoom();}});
  if(USER&&USER.prefs&&USER.prefs.lang)state.lang=USER.prefs.lang;
@@ -5664,6 +5748,16 @@ const EMBED=/[?&]embed=1/.test(location.search);
  if(!parseHash())renderSelect();
  if(!EMBED){buildFAB();maybeCookie();}
  window.addEventListener('hashchange',()=>{const h=location.hash;if(!h||h==='#'){if(state.view!=='select')renderSelect();}else parseHash(h);});
+ /* ---- optional backend bootstrap (Supabase): syncs after the offline-first render ---- */
+ (async()=>{
+  try{
+   const sb=await initSupa();
+   if(!sb)return;
+   await restoreSession();
+   await hydrateSiteConfig();
+   buildFAB();if(state.view==='select')refreshAuth();
+  }catch(e){console.warn('[osimulator] backend bootstrap',e);}
+ })();
 })();
 </script>
 </body>
