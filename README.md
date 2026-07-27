@@ -1,7 +1,7 @@
 <h1 align="center">osimulator</h1>
 
 <p align="center">
-  <strong>Explore the real Settings menus of 19 operating systems — right in your browser.</strong><br>
+  <strong>Explore the real Settings menus of 41 operating systems — right in your browser.</strong><br>
   Pick an OS, choose a version, and navigate its interface as if you were on the real device.
 </p>
 
@@ -14,20 +14,20 @@
 
 ---
 
-**osimulator** is a single-file, 100% offline web app that recreates the **Settings** experience of 19 operating systems across 40 versions. Nothing is installed and no apps actually run — the goal is to *discover* how each system's interface and settings are structured, and how they differ between versions.
+**osimulator** is a single-file, 100% offline web app that recreates the **Settings** experience of 41 operating systems across 84 versions. Nothing is installed and no apps actually run — the goal is to *discover* how each system's interface and settings are structured, and how they differ between versions.
 
 ## Operating systems
 
 | Category | Systems |
 |---|---|
-| 📱 Phone | iOS, Android, HarmonyOS |
+| 📱 Phone | iOS, Android, HarmonyOS, One UI (Samsung), HyperOS (Xiaomi), OxygenOS (OnePlus), iOS 6, KaiOS, Symbian, Windows Phone, BlackBerry OS |
 | 📲 Tablet | iPadOS |
-| 💻 Desktop | macOS, Windows 11/10, Ubuntu (GNOME), ChromeOS, Windows 7, Mac OS X |
-| ⌚ Watch | watchOS, Wear OS |
-| 📺 TV | tvOS, Google TV |
+| 💻 Desktop | macOS, Windows 11/10, Ubuntu (GNOME), ChromeOS, Windows 7, Windows XP, Windows 95/98, Mac OS X, Mac OS 9 |
+| ⌚ Watch | watchOS, Wear OS, Garmin, Fitbit OS, Zepp OS (Amazfit), Huawei Watch |
+| 📺 TV | tvOS, Google TV, Samsung Tizen, LG webOS, Fire TV, Roku OS |
 | 🚗 Car | Apple CarPlay, Android Auto |
-| 🥽 XR | visionOS |
-| 🎮 Console | PlayStation, Xbox |
+| 🥽 XR | visionOS, Meta Quest (Horizon OS) |
+| 🎮 Console | PlayStation, Xbox, Nintendo Switch, Steam Deck (SteamOS) |
 
 Each system renders version-accurate menus, layout and wallpaper — 100+ settings screens in total.
 
@@ -37,7 +37,7 @@ Each system renders version-accurate menus, layout and wallpaper — 100+ settin
 - **Deep links** — every OS, version and settings screen has its own shareable URL (e.g. `/#/ios/17.5/general`).
 - **Real, navigable menus** — drill into Settings exactly like the real device, down to deep sub-pages.
 - **Version-accurate differences** — the same OS shows different menus and styling per release.
-- **19 systems · 40 versions · 100+ settings screens.**
+- **41 systems · 84 versions · 100+ settings screens.**
 - **Built-in OS AI assistant** — a local how-to helper for Wi-Fi, eSIM, dark mode, screenshots, resets and more.
 - **12 languages** with full RTL support.
 - **Quick OS picker, trending shortcuts and a ✨ "Magic" teleport** to a random system.
@@ -108,7 +108,7 @@ Vanilla HTML, CSS and JavaScript — no frameworks, no build step. The entire UI
 
 ## Türkçe
 
-**osimulator**, 19 işletim sisteminin (40 sürüm) gerçek **Ayarlar** menülerini tarayıcıda birebir gezmeni sağlayan, tek dosyalık ve %100 çevrimdışı bir web uygulamasıdır. Uygulamalar çalışmaz; amaç her sistemin arayüzünü ve ayar yapısını, sürümler arası farklarıyla birlikte keşfetmektir.
+**osimulator**, 41 işletim sisteminin (84 sürüm) gerçek **Ayarlar** menülerini tarayıcıda birebir gezmeni sağlayan, tek dosyalık ve %100 çevrimdışı bir web uygulamasıdır. Uygulamalar çalışmaz; amaç her sistemin arayüzünü ve ayar yapısını, sürümler arası farklarıyla birlikte keşfetmektir.
 
 Çalıştırmak için `index.html` dosyasını herhangi bir modern tarayıcıda açman yeterli — sunucu veya kurulum gerekmez.
 
