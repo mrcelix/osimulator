@@ -1667,6 +1667,7 @@ body.light .adm-steps{color:#44444c}body.light .adm-steps code{background:rgba(0
     <p>osimulator is a free, 100% offline web app to explore the real Settings menus of 19 operating systems across 38 versions. Pick an OS, choose a version and navigate its interface exactly like the real device. Please enable JavaScript to run the simulator.</p>
     <h2>Operating systems</h2>
     <p>iOS, iPadOS, macOS, Windows 11, Windows 10, Windows 7, Mac OS X, Android, Ubuntu (GNOME), ChromeOS, HarmonyOS, watchOS, Wear OS, tvOS, Google TV, Apple CarPlay, Android Auto, visionOS, PlayStation and Xbox.</p>
+    <nav aria-label="Settings by operating system"><p>Browse Settings screen by screen: <a href="/os/">all operating systems</a> · <a href="/os/ios/17-5/">iOS 17.5</a> · <a href="/os/android/14/">Android 14</a> · <a href="/os/macos/14-sonoma/">macOS Sonoma</a> · <a href="/os/windows/11/">Windows 11</a> · <a href="/os/ipados/17-5/">iPadOS 17.5</a> · <a href="/os/watchos/10/">watchOS 10</a> · <a href="/os/visionos/1-2/">visionOS 1.2</a> · <a href="/os/ubuntu/24-04-lts/">Ubuntu 24.04</a> · <a href="/os/chromeos/124/">ChromeOS 124</a></p></nav>
     <h2>How-to guides</h2>
     <p>Step-by-step guides for every OS: connect to Wi‑Fi, pair Bluetooth, add an eSIM, turn on dark mode, check for software updates, take a screenshot, extend battery life, change the language, set up lock &amp; biometrics, free up storage, manage notifications, and reset your device.</p>
     <h2>Features</h2>
@@ -4829,7 +4830,7 @@ V;
  let USER=store.get('user',null);
  /* build/version stamp. version is bumped per release; deploy time is detected
     automatically from the served file (falls back to this baked time). */
- const BUILD={version:'1.6.0',time:'2026-07-26T22:00:00Z'};
+ const BUILD={version:'1.7.0',time:'2026-07-27T03:20:00Z'};
  function buildTimeStr(){try{return new Date(BUILD.time).toLocaleString(state.lang||'en',{dateStyle:'medium',timeStyle:'short'});}catch(e){return (BUILD.time||'').replace('T',' ').replace('Z',' UTC');}}
  function updateFooterVer(){document.querySelectorAll('.foot-ver').forEach(fv=>{fv.innerHTML=`<span class="fv-badge">v${esc(BUILD.version)}</span><span>${esc(t('deployLabel'))}: ${esc(buildTimeStr())}</span>`;});}
  /* auto deploy time: use the served file's Last-Modified (document.lastModified).
@@ -6171,6 +6172,22 @@ const EMBED=/[?&]embed=1/.test(location.search);
    buildFAB();if(state.view==='select')refreshAuth();
   }catch(e){console.warn('[osimulator] backend bootstrap',e);}
  })();
+ /* data export hook — used only by the offline prerender/build step */
+ window.__osList=function(){return PLATFORMS.filter(p=>p.available&&SETTINGS[p.id]).map(p=>({id:p.id,name:p.name,tagline:p.tagline,frame:p.frame,accent:p.accent,logo:p.logo,versions:p.versions.slice()}));};
+ window.__osExport=function(osid,version){
+  const pf=PLATFORMS.find(p=>p.id===osid);if(!pf)return null;
+  const sp=state.platform,sv=state.version,sdl=state.deviceLang;
+  state.platform=pf;state.version=version;state.deviceLang='en';
+  const secs=[];
+  try{osSidebar(SETTINGS[osid]).filter(i=>i&&i.title&&i.kind!=='account').forEach(it=>{
+   const rows=[];
+   const walk=(d,depth)=>{if(!d||!d.sections)return;d.sections.forEach(sec=>{(sec.rows||[]).forEach(r=>{if(r&&r.label&&['link','toggle','value','button','check'].indexOf(r.type)>=0){rows.push(dt(r.label));if(r.detail&&depth<1)walk(r.detail,depth+1);}});});};
+   if(it.detail)walk(it.detail,0);
+   secs.push({id:it.id,title:dt(it.title),rows:rows.filter((v,i,a)=>a.indexOf(v)===i).slice(0,50)});
+  });}catch(e){}
+  state.platform=sp;state.version=sv;state.deviceLang=sdl;
+  return {os:osid,name:pf.name,tagline:pf.tagline,frame:pf.frame,accent:pf.accent,logo:pf.logo,version:version,sections:secs};
+ };
 })();
 </script>
 </body>

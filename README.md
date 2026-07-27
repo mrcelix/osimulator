@@ -67,10 +67,16 @@ This repo is Pages-ready (`index.html` at the root, `.nojekyll` included):
 
 ## Static pages (SEO)
 
-Crawlable, per-URL pages for every guide and comparison live in `guides/` and `compare/` (e.g. `/guides/dark-mode.html`, `/compare/ios-vs-android.html`). Each has its own title, meta, canonical and JSON-LD (HowTo for guides), real text content, and a link into the interactive app. Regenerate them from the app's data with:
+Crawlable, per-URL pages for every guide and comparison live in `guides/` and `compare/` (e.g. `/guides/dark-mode.html`, `/compare/ios-vs-android.html`). Each has its own title, meta, canonical and JSON-LD (HowTo + Article + BreadcrumbList), real text content, and a link into the interactive app. Regenerate them with:
 
 ```bash
 node build-static.js   # rebuilds guides/*.html, compare/*.html and sitemap.xml
+```
+
+**Every OS screen is also a real, path-based URL.** `prerender.js` boots the app in headless Chromium and generates a crawlable page for every operating system, version and Settings section — e.g. `/os/ios/17-5/` and `/os/ios/17-5/general/` — each with its own title/meta/canonical, `TechArticle` + `BreadcrumbList` JSON-LD, the section's real option list as text, a per‑OS/version Open Graph image (`/og/<os>-<ver>.png`) and a link into the live simulator. It also merges everything into `sitemap.xml` (~800 URLs).
+
+```bash
+node prerender.js      # rebuilds os/**, og/*.png and sitemap.xml (needs Playwright + Chromium)
 ```
 
 After deploying, submit `sitemap.xml` in Google Search Console and Bing Webmaster Tools.
