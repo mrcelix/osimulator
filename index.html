@@ -4077,7 +4077,7 @@ V;
   nr.appendChild(flagLangSelect(renderSelect));
   nr.appendChild(buildAuthNav());
   nr.appendChild(navBurger(()=>getNavMenu().filter(it=>it.vis!==false).filter(it=>{const p=it.act.split(':');return !(p[0]==='route'&&!featOn(p[1]));}).map(it=>({label:it.label||t(it.key||''),run:()=>doNav(it.act,go)})),renderSelect));
-  updateThemeIcons();
+  setTimeout(updateThemeIcons,0);
   w.appendChild(nav);
   /* ---- hero (two-column: headline + interactive OS spotlight) ---- */
   const hero=el(`<section class="hero enter"><div class="hero-glow"></div>
