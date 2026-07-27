@@ -178,6 +178,53 @@ function compareIndex() {
   return shell({ title: 'Compare operating systems — osimulator', desc: 'Side-by-side Settings comparisons: iOS vs Android, macOS vs Windows and more.', canonical, body });
 }
 
+/* ---- cross-OS "where is this setting?" finder pages ---- */
+function findPage(g) {
+  const canonical = `${SITE}/find/${g.slug}.html`;
+  const rows = g.os.map(o => `<tr><td>${esc(OSN[o.os] || o.os)}</td><td>${esc((o.en || []).join(' → '))}</td></tr>`).join('');
+  const jsonld = JSON.stringify({ '@context':'https://schema.org','@graph':[
+    { '@type':'WebPage','name':`Where is ${g.title.en} on every operating system`,'description':`Where the ${g.title.en} setting is located on each OS.`,'inLanguage':'en','mainEntityOfPage':canonical },
+    { '@type':'BreadcrumbList','itemListElement':[
+      {'@type':'ListItem','position':1,'name':'Home','item':SITE+'/'},
+      {'@type':'ListItem','position':2,'name':'Find a setting','item':SITE+'/find/'},
+      {'@type':'ListItem','position':3,'name':g.title.en,'item':canonical} ] }
+  ]});
+  const body = `<div class="crumb"><a href="${SITE}/">Home</a> › <a href="${SITE}/find/">Find a setting</a> › ${esc(g.title.en)}</div>
+<h1>Where is “${esc(g.title.en)}” on every operating system?</h1>
+<p class="intro">${esc(g.intro.en)} Here is exactly where to find it on each system.</p>
+<a class="cta" href="${SITE}/#/find/${encodeURIComponent(g.title.en)}">Open the interactive finder →</a>
+<table><thead><tr><th>Operating system</th><th>Where to find it</th></tr></thead><tbody>${rows}</tbody></table>
+<div class="related"><a href="${SITE}/guides/${g.slug}.html">Step-by-step guide →</a></div>`;
+  return shell({ title: `Where is ${g.title.en}? — every OS — osimulator`, desc: `Where the ${g.title.en} setting lives on iOS, Android, macOS, Windows and more.`, canonical, jsonld, body });
+}
+function findIndex() {
+  const canonical = `${SITE}/find/`;
+  const items = GUIDES.map(g => `<a class="tile" href="${SITE}/find/${g.slug}.html">${esc(g.title.en)}</a>`).join('');
+  const body = `<div class="crumb"><a href="${SITE}/">Home</a> › Find a setting</div>
+<h1>Where is this setting? Find it on every OS</h1>
+<p class="intro">Look up any setting and see exactly where it lives across 19 operating systems, side by side.</p>
+<a class="cta" href="${SITE}/#/find">Open the interactive finder →</a>
+<div class="grid">${items}</div>`;
+  return shell({ title: 'Find a setting on any operating system — osimulator', desc: 'Look up where any setting lives across iOS, Android, macOS, Windows and 15 more systems.', canonical, jsonld: JSON.stringify({ '@context':'https://schema.org','@type':'CollectionPage','name':'Find a setting on any OS','url':canonical }), body });
+}
+/* ---- version-changes landing ---- */
+function changesIndex() {
+  const canonical = `${SITE}/changes/`;
+  const OSV = [['iOS','ios','StandBy and Journal were added in iOS 17'],['macOS','macos','VPN became a top-level item in macOS 14 Sonoma'],['Android','android','Security and Privacy were split into separate sections'],['iPadOS','ipados','Health arrived on iPad in iPadOS 17']];
+  const items = OSV.map(o => `<p><strong>${esc(o[0])}</strong> — ${esc(o[2])}. <a href="${SITE}/#/changes/${o[1]}">Compare its versions →</a></p>`).join('');
+  const jsonld = JSON.stringify({ '@context':'https://schema.org','@graph':[
+    { '@type':'WebPage','name':'What changed between OS versions','description':'Settings sections added, removed or renamed between OS versions.','inLanguage':'en','mainEntityOfPage':canonical },
+    { '@type':'BreadcrumbList','itemListElement':[
+      {'@type':'ListItem','position':1,'name':'Home','item':SITE+'/'},
+      {'@type':'ListItem','position':2,'name':'Version changes','item':canonical} ] }
+  ]});
+  const body = `<div class="crumb"><a href="${SITE}/">Home</a> › Version changes</div>
+<h1>What changed between operating-system versions</h1>
+<p class="intro">See which Settings sections were added, removed or renamed between versions of each OS.</p>
+<a class="cta" href="${SITE}/#/changes">Open the interactive version diff →</a>${items}`;
+  return shell({ title: 'What changed between OS versions — osimulator', desc: 'Which Settings sections were added, removed or renamed between iOS, macOS, Android and iPadOS versions.', canonical, jsonld, body });
+}
+
 /* ---- write files ---- */
 function w(rel, content) { const p = path.join(ROOT, rel); fs.mkdirSync(path.dirname(p), { recursive: true }); fs.writeFileSync(p, content); }
 
@@ -186,16 +233,26 @@ w('guides/index.html', guidesIndex()); urls.push(`${SITE}/guides/`);
 GUIDES.forEach(g => { w(`guides/${g.slug}.html`, guidePage(g)); urls.push(`${SITE}/guides/${g.slug}.html`); });
 w('compare/index.html', compareIndex()); urls.push(`${SITE}/compare/`);
 COMPARES.forEach(c => { w(`compare/${c.slug}.html`, comparePage(c)); urls.push(`${SITE}/compare/${c.slug}.html`); });
+w('find/index.html', findIndex()); urls.push(`${SITE}/find/`);
+GUIDES.forEach(g => { w(`find/${g.slug}.html`, findPage(g)); urls.push(`${SITE}/find/${g.slug}.html`); });
+w('changes/index.html', changesIndex()); urls.push(`${SITE}/changes/`);
 
-/* ---- sitemap ---- */
+/* ---- sitemap (preserve any /os/ per-screen URLs added by prerender.js) ---- */
 const today = new Date().toISOString().slice(0, 10);
+let osUrls = [];
+try {
+  const prev = fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf8');
+  osUrls = (prev.match(/<loc>([^<]+)<\/loc>/g) || []).map(m => m.replace(/<\/?loc>/g, '')).filter(u => u.includes('/os/'));
+} catch (e) {}
+const allUrls = Array.from(new Set(urls.concat(osUrls)));
 const sm = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
-  urls.map(u => `  <url><loc>${u}</loc><lastmod>${today}</lastmod><changefreq>weekly</changefreq><priority>${u === SITE + '/' ? '1.0' : '0.8'}</priority></url>`).join('\n') +
+  allUrls.map(u => `  <url><loc>${u}</loc><lastmod>${today}</lastmod><changefreq>weekly</changefreq><priority>${u === SITE + '/' ? '1.0' : '0.8'}</priority></url>`).join('\n') +
   `\n</urlset>\n`;
 fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sm);
 
 /* ---- inject crawlable internal links into index.html <noscript> ---- */
-const links = GUIDES.map(g => `<a href="/guides/${g.slug}.html">${esc(g.title.en)}</a>`).join(' · ') +
+const links = `<a href="/find/">Find a setting</a> · <a href="/changes/">Version changes</a> · ` +
+  GUIDES.map(g => `<a href="/guides/${g.slug}.html">${esc(g.title.en)}</a>`).join(' · ') +
   ' · ' + COMPARES.map(c => `<a href="/compare/${c.slug}.html">${esc((OSN[c.a]||c.a))} vs ${esc((OSN[c.b]||c.b))}</a>`).join(' · ');
 let idx = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 const block = `\n    <nav aria-label="All guides and comparisons"><p>${links}</p></nav>`;
