@@ -1619,6 +1619,19 @@ body.light .adm-steps{color:#44444c}body.light .adm-steps code{background:rgba(0
 .device.device-watch .screen{inset:12px;background:#000}
 .device.device-watch.watch-square .screen{border-radius:52px}
 .device.device-watch.watch-round .screen{border-radius:50%}
+/* watch mini navigation controls */
+.watch-nav{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:140;display:flex;align-items:center;gap:9px;background:rgba(20,20,26,.96);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:8px 11px;box-shadow:0 16px 40px rgba(0,0,0,.5);max-width:calc(100vw - 24px)}
+body.light .watch-nav{background:#fff;border-color:rgba(0,0,0,.1)}
+.watch-nav .wn-btn{width:38px;height:38px;border-radius:11px;background:rgba(255,255,255,.09);color:#e6e6ea;display:flex;align-items:center;justify-content:center;font-size:13px;border:1px solid rgba(255,255,255,.1);flex:none}
+body.light .watch-nav .wn-btn{background:#f0f0f3;color:#26262c;border-color:rgba(0,0,0,.08)}
+.watch-nav .wn-btn:active{background:rgba(255,255,255,.2)}
+.watch-nav .wn-btn:disabled{opacity:.35}
+.watch-nav .wn-btn svg{width:20px;height:20px;fill:currentColor}
+.watch-nav .wn-back svg{transform:rotate(180deg)}
+.watch-nav .wn-crown{display:flex;align-items:center;gap:6px;padding-left:9px;border-left:1px solid rgba(255,255,255,.14)}
+body.light .watch-nav .wn-crown{border-left-color:rgba(0,0,0,.1)}
+.watch-nav .wn-cl{font-size:10px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#8b8b96;writing-mode:vertical-rl;transform:rotate(180deg);line-height:1}
+.watch-nav .wn-up,.watch-nav .wn-down{width:32px;height:34px;font-size:12px}
 .watch-crown{position:absolute;right:-6px;top:38%;width:8px;height:44px;border-radius:5px;background:linear-gradient(90deg,#3a3a3e,#1a1a1e);box-shadow:0 0 0 1px #050505}
 .watch-face{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center}
 .watch-face.wear{justify-content:center}
@@ -4436,7 +4449,7 @@ V;
    device.appendChild(screen);if(!round)device.appendChild(el(`<div class="watch-crown"></div>`));
    wrap.appendChild(device);stage.appendChild(wrap);root.appendChild(stage);
    if(state.view==='home')renderWatchFace(screen);else renderPhoneSettings(screen);
-   finalizeZoom();return;
+   finalizeZoom();root.appendChild(watchNav());return;
   }
   const isPhone=frame==='phone'||frame==='android'||frame==='harmony';
   const bezel=frame==='phone'?'device-iphone':(frame==='android'||frame==='harmony')?'device-android':'';
@@ -4667,6 +4680,21 @@ V;
   </div>`;
   screen.querySelector('.wf-open').addEventListener('click',()=>{state.view='settings';state.stack=[];renderDevice();});
  }
+ function watchNav(){
+  const inSet=state.view!=='home';
+  const nav=el(`<div class="watch-nav">
+    <button class="wn-btn wn-back" title="${esc(AL('Back','Geri'))}" aria-label="${esc(AL('Back','Geri'))}"><svg viewBox="0 0 24 24">${I.chevron}</svg></button>
+    <button class="wn-btn wn-home" title="${esc(AL('Watch face','Saat kadranı'))}" aria-label="${esc(AL('Watch face','Saat kadranı'))}"><svg viewBox="0 0 24 24">${TBIC.home}</svg></button>
+    <div class="wn-crown"><span class="wn-cl">${esc(AL('Crown','Kadran'))}</span><button class="wn-btn wn-up" title="${esc(AL('Scroll up','Yukarı'))}" aria-label="${esc(AL('Scroll up','Yukarı'))}">▲</button><button class="wn-btn wn-down" title="${esc(AL('Scroll down','Aşağı'))}" aria-label="${esc(AL('Scroll down','Aşağı'))}">▼</button></div>
+  </div>`);
+  const scEl=()=>document.querySelector('.stage .phone-scroll');
+  nav.querySelector('.wn-back').addEventListener('click',()=>{if(state.stack&&state.stack.length>0){state.stack.pop();renderDevice();}else{state.view='home';renderDevice();}});
+  nav.querySelector('.wn-home').addEventListener('click',()=>{state.view='home';state.stack=[];renderDevice();});
+  nav.querySelector('.wn-up').addEventListener('click',()=>{const e=scEl();if(e)e.scrollBy({top:-90,behavior:'smooth'});});
+  nav.querySelector('.wn-down').addEventListener('click',()=>{const e=scEl();if(e)e.scrollBy({top:90,behavior:'smooth'});});
+  if(!inSet)nav.querySelector('.wn-back').setAttribute('disabled','');
+  return nav;
+ }
  function renderTVHome(screen){
   const tvos=state.platform.id==='tvos';const time=clock();
   if(tvos){
@@ -4887,8 +4915,7 @@ V;
    const row=el(`<button class="side-row" data-id="${item.id}" data-label="${esc(dt(item.title))}">${icon(item.icon,item.iconBg)}${lbl}<span class="row-right">${right}</span></button>`);
    row.addEventListener('click',()=>{
      if(item.toggle!==undefined){const t=row.querySelector('.tgl');t.classList.toggle('on');prefSet('sidebar::'+item.id,t.classList.contains('on'));return;}
-     if(!item.detail)return;
-     selectSidebar(item.id,item.detail,list,row);
+     selectSidebar(item.id,item.detail||autoDetail(dt(item.title)),list,row);
    });
    list.appendChild(row);
   });
@@ -4919,6 +4946,82 @@ V;
   (detail.sections||[]).forEach(sec=>scroll.appendChild(renderSection(sec,detail.title)));
   if(canBack)pane.querySelector('.nav-back').addEventListener('click',()=>{state.stack.pop();renderDetailPane(pane);});
  }
+ /* Auto-generate a believable sub-page for any leaf row that has no hand-authored
+    detail, so no Settings row is a dead-end. Uses only non-navigable row types
+    (value / toggle / choice / button / note) so generated pages never recurse. */
+ function autoDetail(label,parent){
+  label=String(label==null?'':label).trim()||dt('Settings');
+  const s=label.toLowerCase(),pt=String(parent==null?'':parent).toLowerCase();
+  const has=(...w)=>w.some(x=>s.indexOf(x)>=0);
+  const par=(...w)=>w.some(x=>pt.indexOf(x)>=0);
+  const hdr=label;
+  // 1. Add / new / pair / join / connect / create → a small entry form
+  if(has('add ','add…','add server','new ','pair','join','connect to','hidden network','other network','set up','create','configure')){
+   return D(label,[
+    S([NOTE(AL('Fill in the details below, then save.','Aşağıdaki bilgileri doldurup kaydedin.'))]),
+    S([V(AL('Name','Ad'),AL('Required','Gerekli')),V(AL('Type','Tür'),AL('Automatic','Otomatik')),T(AL('Remember this','Bunu hatırla'),true)],{header:hdr}),
+    S([B(AL('Save','Kaydet'),{align:'center'})])]);
+  }
+  // 2. A specific Wi-Fi network under a Wi-Fi/Network page → real network page
+  if(par('wi-fi','wlan','wi‑fi')&&!has('advanced','proxy','dns','ethernet','wired','data usage','hotspot','hidden','details')){
+   try{return wifiNet(label,false);}catch(e){}
+  }
+  // 3. Software / system update
+  if(has('update','upgrade')&&!has('automatic')){
+   return D(label,[
+    S([NOTE(AL('Your software is up to date.','Yazılımınız güncel.'))],{footer:AL('Last checked: today','Son kontrol: bugün')}),
+    S([T(AL('Automatic Updates','Otomatik Güncellemeler'),true),V(AL('Current version','Mevcut sürüm'),state.version||'—')])]);
+  }
+  // 4. Account / profile / ID / sign-in
+  if(has('account','profile','apple id','google account','huawei id','microsoft account','sign-in','sign in','manage your')){
+   return D(label,[
+    S([V(AL('Name','Ad'),'John Appleseed'),V('Email','john@example.com'),V(AL('Status','Durum'),AL('Signed in','Giriş yapıldı'))],{header:hdr}),
+    S([T(AL('Sync','Eşitle'),true),T(AL('Notifications','Bildirimler'),true)]),
+    S([B(AL('Sign Out','Çıkış Yap'),{style:'destructive',align:'center'})])]);
+  }
+  // 5. Reset / erase
+  if(has('reset','erase','clear','factory')){
+   return D(label,[
+    S([NOTE(AL('This action cannot be undone.','Bu işlem geri alınamaz.'))]),
+    S([B(label,{style:'destructive',align:'center'})])]);
+  }
+  // 6. Wallpaper / screen saver / theme item → preview + set
+  if(par('wallpaper','screen saver','desktop','background','theme','style')||has('wallpaper','aurora','nature','solid color','dynamic')){
+   return D(label,[
+    S([{type:'wallpaperPreview'}]),
+    S([T(AL('Set for Lock Screen','Kilit ekranı için ayarla'),true),T(AL('Set for Home Screen','Ana ekran için ayarla'),true)]),
+    S([B(AL('Set','Ayarla'),{align:'center'})])]);
+  }
+  // 7. Language / region
+  if(has('language','region','locale','keyboard layout')){
+   return D(label,[
+    S([NOTE(AL('Choose your preferred option.','Tercih ettiğiniz seçeneği belirleyin.'))]),
+    CHOICE(hdr,['English','Türkçe','Español','Deutsch','Français','日本語'],0)]);
+  }
+  // 8. Sound / volume / audio
+  if(has('sound','volume','audio','ringtone','haptic','vibrat')){
+   return D(label,[
+    S([SL(65,'sounds','sounds')],{header:AL('Level','Seviye')}),
+    S([T(AL('Vibrate','Titreşim'),true),T(AL('Play sounds','Sesleri çal'),true)])]);
+  }
+  // 9. Brightness / display
+  if(has('brightness','display','resolution','night shift','true tone','refresh')){
+   return D(label,[
+    S([SL(70,'display','display')],{header:AL('Brightness','Parlaklık')}),
+    S([T(AL('Auto-Brightness','Otomatik Parlaklık'),true),T('Night Mode',false)])]);
+  }
+  // 10. Privacy / permission / activity / tracking / ads
+  if(has('activity','history','permission','privacy','tracking','advertis',' ads','ad ','diagnostic','analytics')){
+   return D(label,[
+    S([NOTE(AL('Control what is saved and who can access it.','Neyin kaydedildiğini ve kime erişim verildiğini yönetin.'))]),
+    S([T(AL('Enabled','Etkin'),true),T(AL('Include details','Ayrıntıları dahil et'),false),V(AL('Stored data','Saklanan veri'),'—')],{header:hdr})]);
+  }
+  // Fallback — a clean, on-topic options page (never blank, never a dead-end)
+  return D(label,[
+   S([NOTE(AL('Options for ','Seçenekler: ')+'“'+label+'”.')]),
+   S([T(AL('Enabled','Etkin'),true),V(AL('Status','Durum'),AL('Active','Aktif'))],{header:hdr}),
+   S([T(AL('Show in menu','Menüde göster'),true),T(AL('Notify me','Beni bilgilendir'),false)])]);
+ }
  function renderSection(sec,dTitle){
   const w=el(`<div class="section"></div>`);
   if(sec.header)w.appendChild(el(`<div class="sec-header">${esc(dt(sec.header))}</div>`));
@@ -4938,7 +5041,8 @@ V;
     node.querySelector('.tgl').addEventListener('click',function(){this.classList.toggle('on');const v=this.classList.contains('on');prefSet(pk,v);reactiveToggle(dt(r.label),v);});break;}
    case 'link':{const badge=r.badge==='connected'?`<span class="tick">✓ ${esc(dt('Connected'))}</span>`:(r.badge==='dot'?'<span class="reddot">1</span>':'');
     node=el(`<button class="row tappable"><div class="row-l">${r.icon?icon(r.icon,r.iconBg):''}${lblHTML(r)}</div><div class="row-r">${badge}${r.value?`<span class="row-val">${esc(dt(r.value))}</span>`:''}${chev}</div></button>`);
-    if(r.detail)node.addEventListener('click',()=>openDetail(r.detail));else node.classList.add('dead');break;}
+    if(r.detail)node.addEventListener('click',()=>openDetail(r.detail));
+    else node.addEventListener('click',()=>openDetail(autoDetail(dt(r.label),dt(dTitle))));break;}
    case 'value':node=el(`<div class="row"><div class="row-l">${r.icon?icon(r.icon,r.iconBg):''}${lblHTML(r)}</div><div class="row-r"><span class="row-val">${esc(dt(r.value))}</span></div></div>`);break;
    case 'check':{const sel=prefGet(pk,r.selected);
     node=el(`<button class="row tappable check-row ${sel?'sel':''}">${r.swatch?`<span class="swatch ${r.swatch}"></span>`:''}<span class="row-label">${esc(dt(r.label))}</span><span class="row-r"><svg class="tickmark" viewBox="0 0 24 24"><path d="M5 12l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>`);
@@ -4963,7 +5067,7 @@ V;
  let USER=store.get('user',null);
  /* build/version stamp. version is bumped per release; deploy time is detected
     automatically from the served file (falls back to this baked time). */
- const BUILD={version:'1.10.0',time:'2026-07-27T05:26:00Z'};
+ const BUILD={version:'1.11.0',time:'2026-07-27T07:16:00Z'};
  function buildTimeStr(){try{return new Date(BUILD.time).toLocaleString(state.lang||'en',{dateStyle:'medium',timeStyle:'short'});}catch(e){return (BUILD.time||'').replace('T',' ').replace('Z',' UTC');}}
  function updateFooterVer(){document.querySelectorAll('.foot-ver').forEach(fv=>{fv.innerHTML=`<span class="fv-badge">v${esc(BUILD.version)}</span><span>${esc(t('deployLabel'))}: ${esc(buildTimeStr())}</span>`;});}
  /* auto deploy time: use the served file's Last-Modified (document.lastModified).
