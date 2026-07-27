@@ -128,7 +128,16 @@ body.light .lang-row.on{background:rgba(10,132,255,.12);color:#0a6bd6}
 .tb-hint{font-size:12px;color:#6b6b73}
 
 /* ===== STAGE / DEVICE ===== */
-.stage{flex:1;overflow:auto;display:flex;align-items:center;justify-content:center;padding:26px;background:radial-gradient(120% 120% at 50% 30%,#26263a 0%,#0b0b0f 70%)}
+.stage{flex:1;overflow:auto;display:flex;align-items:center;justify-content:center;padding:26px;background:radial-gradient(120% 120% at 50% 30%,#26263a 0%,#0b0b0f 70%);--rx-bri:1}
+/* live-reactive mock: real changes from device toggles/sliders */
+.stage .device-wrap{filter:brightness(var(--rx-bri,1));transition:filter .25s}
+.stage.rx-gray{filter:grayscale(1)}
+.stage.rx-bold .row-label,.stage.rx-bold .nav-title,.stage.rx-bold .big-title,.stage.rx-bold .sec-header,.stage.rx-bold .side-row{font-weight:800 !important}
+.stage.rx-nomotion *,.stage.rx-nomotion *::before,.stage.rx-nomotion *::after{animation-duration:.001s !important;transition:none !important}
+.stage.rx-contrast .sec-card{border:1.5px solid rgba(255,255,255,.55)}
+.stage.rx-contrast .row-label,.stage.rx-contrast .big-title,.stage.rx-contrast .nav-title{color:#fff !important}
+.stage.rx-contrast .row-val,.stage.rx-contrast .sec-footer{color:#c8c8d0 !important}
+.stage.rx-noblur .phone-scroll,.stage.rx-noblur .detail,.stage.rx-noblur .settings,.stage.rx-noblur .sec-card,.stage.rx-noblur .nav{backdrop-filter:none !important;-webkit-backdrop-filter:none !important}
 .device-wrap{transform-origin:50% 50%;transition:transform .18s ease}
 .device{position:relative;background:#0a0a0a;border-radius:34px;padding:14px;box-shadow:0 40px 80px rgba(0,0,0,.55),0 0 0 2px #2a2a2e inset,0 0 0 6px #050505;width:1080px;aspect-ratio:1194/834;transition:aspect-ratio .25s,width .25s}
 .device.portrait{width:760px;aspect-ratio:834/1194}
@@ -4203,7 +4212,7 @@ V;
   w.addEventListener('click',()=>{document.querySelectorAll('.os-picker.open').forEach(o=>o.classList.remove('open'));document.querySelectorAll('.user-wrap.open').forEach(o=>o.classList.remove('open'));});
  }
 
- function boot(pid,v){try{store.set('lastOpened',{pid,ver:v});track('launch',pid);}catch(e){}state.platform=PLATFORMS.find(p=>p.id===pid);state.version=v;state.view=(['mac','win','linux','chromeos','winclassic','macclassic'].includes(state.platform.frame))?'desktop':'home';state.selectedId=null;state.stack=[];state.zoom=1;state.rotated=false;state.prefs={};state.filter='';state.winOpen=false;state.startOpen=false;state.deviceLang=state.lang;renderDevice();syncHash();}
+ function boot(pid,v){try{store.set('lastOpened',{pid,ver:v});track('launch',pid);}catch(e){}state.platform=PLATFORMS.find(p=>p.id===pid);state.version=v;state.view=(['mac','win','linux','chromeos','winclassic','macclassic'].includes(state.platform.frame))?'desktop':'home';state.selectedId=null;state.stack=[];state.zoom=1;state.rotated=false;state.prefs={};state.rx={};state.filter='';state.winOpen=false;state.startOpen=false;state.deviceLang=state.lang;renderDevice();syncHash();}
  /* ---------- version-aware layer ---------- */
  function verMajor(){const m=(state.version||'').match(/\d+/);return m?+m[0]:0;}
  const WALLS={
@@ -4275,7 +4284,7 @@ V;
   if(a==='zoomout'){state.autoFit=false;state.zoom=Math.max(0.3,state.zoom-0.1);applyZoom();syncTbAuto();return;}
   if(a==='fit'){state.autoFit=false;fit();syncTbAuto();return;}
   if(a==='auto'){state.autoFit=!state.autoFit;syncTbAuto();if(state.autoFit)fit();return;}
-  if(a==='reset'){state.zoom=1;state.autoFit=true;state.rotated=false;state.prefs={};state.selectedId=null;state.stack=[];state.filter='';state.winOpen=false;state.startOpen=false;renderDevice();return;}
+  if(a==='reset'){state.zoom=1;state.autoFit=true;state.rotated=false;state.prefs={};state.rx={};state.selectedId=null;state.stack=[];state.filter='';state.winOpen=false;state.startOpen=false;renderDevice();return;}
  }
  function syncTbAuto(){const b=document.querySelector('.tb-btn[data-act="auto"]');if(b)b.classList.toggle('active',!!state.autoFit);}
  function applyZoom(){
@@ -4353,7 +4362,7 @@ V;
   else if(state.view==='home')renderHome(screen);else renderSettings(screen);
   finalizeZoom();
  }
- function finalizeZoom(){if(state.autoFit)requestAnimationFrame(fit);else applyZoom();}
+ function finalizeZoom(){if(state.autoFit)requestAnimationFrame(fit);else applyZoom();applyReactive();}
 
  /* ---- phone (iOS / Android) ---- */
  function renderPhone(screen){
@@ -4795,6 +4804,13 @@ V;
  function prefKey(k){return k;}
  function prefGet(k,def){return k in state.prefs?state.prefs[k]:def;}
  function prefSet(k,v){state.prefs[k]=v;}
+ /* ---- live-reactive mock: some toggles/sliders actually change the device ---- */
+ const RXMAP={'bold text':'bold','reduce motion':'nomotion','increase contrast':'contrast','reduce transparency':'noblur','grayscale':'gray','greyscale':'gray'};
+ function applyReactive(){const st=document.querySelector('.stage');if(!st)return;const rx=state.rx||{};
+  st.classList.toggle('rx-bold',!!rx.bold);st.classList.toggle('rx-nomotion',!!rx.nomotion);st.classList.toggle('rx-contrast',!!rx.contrast);st.classList.toggle('rx-noblur',!!rx.noblur);st.classList.toggle('rx-gray',!!rx.gray);
+  st.style.setProperty('--rx-bri',rx.brightness!=null?rx.brightness:1);
+ }
+ function reactiveToggle(label,on){const k=RXMAP[(label||'').toLowerCase().trim()];if(!k)return;state.rx=state.rx||{};state.rx[k]=on;applyReactive();}
 
  function openDetail(d){state.stack.push(d);const pane=document.querySelector('.detail');if(pane)renderDetailPane(pane);else renderDevice();}
  function renderDetailPane(pane){
@@ -4810,18 +4826,19 @@ V;
   const w=el(`<div class="section"></div>`);
   if(sec.header)w.appendChild(el(`<div class="sec-header">${esc(dt(sec.header))}</div>`));
   const card=el(`<div class="sec-card"></div>`);
-  (sec.rows||[]).forEach(r=>card.appendChild(renderRow(r,dTitle)));
+  (sec.rows||[]).forEach(r=>card.appendChild(renderRow(r,dTitle,sec.header)));
   w.appendChild(card);
   if(sec.footer)w.appendChild(el(`<div class="sec-footer">${esc(sec.footer)}</div>`));
   return w;
  }
  const tglHTML=on=>`<span class="tgl ${on?'on':''}"><span class="knob"></span></span>`;
- function renderRow(r,dTitle){
+ function renderRow(r,dTitle,secHeader){
   let node;const pk=dTitle+'::'+(r.label||r.text||'');
   switch(r.type){
    case 'toggle':{const on=prefGet(pk,r.value);
     node=el(`<div class="row"><div class="row-l">${r.icon?icon(r.icon,r.iconBg):''}<span class="row-label">${esc(dt(r.label))}</span></div><div class="row-r">${tglHTML(on)}</div></div>`);
-    node.querySelector('.tgl').addEventListener('click',function(){this.classList.toggle('on');prefSet(pk,this.classList.contains('on'));});break;}
+    reactiveToggle(dt(r.label),on);
+    node.querySelector('.tgl').addEventListener('click',function(){this.classList.toggle('on');const v=this.classList.contains('on');prefSet(pk,v);reactiveToggle(dt(r.label),v);});break;}
    case 'link':{const badge=r.badge==='connected'?`<span class="tick">✓ ${esc(dt('Connected'))}</span>`:(r.badge==='dot'?'<span class="reddot">1</span>':'');
     node=el(`<button class="row tappable"><div class="row-l">${r.icon?icon(r.icon,r.iconBg):''}<span class="row-label">${esc(dt(r.label))}</span></div><div class="row-r">${badge}${r.value?`<span class="row-val">${esc(dt(r.value))}</span>`:''}${chev}</div></button>`);
     if(r.detail)node.addEventListener('click',()=>openDetail(r.detail));else node.classList.add('dead');break;}
@@ -4829,7 +4846,11 @@ V;
    case 'check':{const sel=prefGet(pk,r.selected);
     node=el(`<button class="row tappable check-row ${sel?'sel':''}">${r.swatch?`<span class="swatch ${r.swatch}"></span>`:''}<span class="row-label">${esc(dt(r.label))}</span><span class="row-r"><svg class="tickmark" viewBox="0 0 24 24"><path d="M5 12l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>`);
     node.addEventListener('click',function(){const p=this.parentElement;p.querySelectorAll('.check-row').forEach(c=>{c.classList.remove('sel');prefSet(dTitle+'::'+c.querySelector('.row-label').textContent,false);});this.classList.add('sel');prefSet(pk,true);});break;}
-   case 'slider':node=el(`<div class="row slider-row"><svg class="sl-ic" viewBox="0 0 24 24">${I[r.minGlyph]||''}</svg><input type="range" min="0" max="100" value="${r.value}" class="slider"><svg class="sl-ic big" viewBox="0 0 24 24">${I[r.maxGlyph]||''}</svg></div>`);break;
+   case 'slider':{node=el(`<div class="row slider-row"><svg class="sl-ic" viewBox="0 0 24 24">${I[r.minGlyph]||''}</svg><input type="range" min="0" max="100" value="${r.value}" class="slider"><svg class="sl-ic big" viewBox="0 0 24 24">${I[r.maxGlyph]||''}</svg></div>`);
+    const _sh=(dt(secHeader||'')||'').toLowerCase();
+    const _isBri=r.minGlyph==='display'||r.maxGlyph==='display'||_sh.indexOf('brightness')>=0;
+    if(_isBri){const _in=node.querySelector('input');_in.addEventListener('input',()=>{state.rx=state.rx||{};state.rx.brightness=+(0.4+(_in.value/100)*0.6).toFixed(2);applyReactive();});}
+    break;}
    case 'button':{const cls=r.style==='destructive'?'danger':(r.style==='link'?'linkbtn':'');node=el(`<button class="row btn-row ${cls} ${r.align==='center'?'center':''}"><span class="row-label">${esc(dt(r.label))}</span></button>`);break;}
    case 'note':node=el(`<div class="row note"><span class="row-label">${esc(r.text)}</span></div>`);break;
    case 'accHero':{const p=SETTINGS[state.platform.id].profile;node=el(`<div class="row"><div class="acc-hero" style="width:100%"><span class="avatar lg">${esc(p.initials)}</span><span class="n">${esc(p.name)}</span><span class="e">${esc(p.email)}</span></div></div>`);break;}
