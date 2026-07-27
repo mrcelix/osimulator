@@ -149,3 +149,106 @@ build. Ubuntu carries downstream panels — the "Ubuntu Desktop" appearance pane
 in particular — that do not exist in the GNOME source tree, so they are absent
 here. Extracting those would mean a checkout of Ubuntu's packaging branch
 rather than the GNOME tag, which is a separate job.
+
+## ChromeOS (Chromium)
+
+```sh
+git clone --filter=blob:none --sparse --no-checkout \
+    https://github.com/chromium/chromium /tmp/cros
+git -C /tmp/cros sparse-checkout set \
+    ash/constants ash/webui/common ash/webui/settings/public/constants \
+    chrome/app chrome/browser/resources/ash/settings \
+    chrome/browser/ui/webui/ash chrome/browser/ui/webui/settings \
+    chromeos/chromeos_strings.grd ui/chromeos/strings \
+    ui/webui/resources/cr_components
+git -C /tmp/cros fetch --depth 1 origin tag 124.0.6367.201
+git -C /tmp/cros checkout 124.0.6367.201
+
+# the older release is a worktree on the same object store
+git -C /tmp/cros fetch --depth 1 origin tag 120.0.6099.315
+git -C /tmp/cros worktree add /tmp/cros120 120.0.6099.315
+
+python3 tools/cros-extract.py /tmp/cros    /tmp/chromeos124.json
+python3 tools/cros-extract.py /tmp/cros120 /tmp/chromeos120.json
+python3 tools/cros-to-dsl.py                      # JSON -> CHROMEOS_TREE js
+```
+
+`cros-to-dsl.py` reads both JSON files and writes `/tmp/CHROMEOS_TREE.js`,
+which is pasted into `index.html` just above `SETTINGS.chromeos`. M124 is the
+current tree; `osSidebar()` swaps in the M120 tree for any simulated version
+below 124.
+
+`cros-strings.py` is a module, not a script — `cros-extract.py` loads it by
+path (the filename is hyphenated to match its siblings, so it cannot be
+imported by name). Running it directly prints a probe table, which is a quick
+way to check that a checkout resolves strings at all.
+
+### What the extractor does
+
+A ChromeOS Settings label reaches the screen through three files, and the
+extractor walks that chain backwards:
+
+1. The Polymer template (`chrome/browser/resources/ash/settings/**/*.html`)
+   writes the label as `$i18n{someCamelCaseKey}`.
+2. A section file
+   (`chrome/browser/ui/webui/ash/settings/pages/**/*_section.cc`) registers
+   that key against a resource id: `{"someCamelCaseKey", IDS_SOMETHING}`.
+3. A GRIT file (`chrome/app/*.grdp`, plus a few shared `.grd` bundles) holds
+   the English text of `IDS_SOMETHING`.
+
+Which sections exist, in what order, and behind which icon comes from
+`os_settings_menu.ts` (`computeBasicMenuItems_` / `computeAdvancedMenuItems_`),
+and each section's URL path from `routes.mojom` in
+`ash/webui/settings/public/constants`. Subpages are followed through
+`cr-link-row` / `router` navigation, so a drill-in screen is extracted where
+ChromeOS actually puts it.
+
+Two release-specific behaviours are handled explicitly:
+
+- **`kOsSettingsRevampWayfinding` is the M124/M120 fork.** It is enabled by
+  default at M124 and disabled at M120 (both verified in
+  `ash/constants/ash_features.cc`). With the revamp on, the menu is one flat
+  list of 12 items ending in About ChromeOS and there is no Advanced group at
+  all. With it off, the menu is 11 Basic items — `Search and Assistant` in
+  place of `System preferences` — a 6-item Advanced group, and About ChromeOS
+  on its own. The flag also switches individual strings, which is why
+  `cros-strings.py` resolves `kIsRevampEnabled ? IDS_A : IDS_B` ternaries from
+  the release being extracted rather than needing a C++ evaluator.
+- **The legacy menu paints About ChromeOS outside both arrays**, as a
+  standalone item below `<div id="menuSeparator">` inside
+  `<template is="dom-if" if="[[!isRevampWayfindingEnabled_]]">`. Reading only
+  the two arrays silently loses it, so `load_menu()` returns a third `about`
+  bucket for that case.
+
+Two traps in the string layer are worth naming because both produce
+plausible-looking wrong output rather than an error:
+
+- **GRIT `desc` attributes contain literal `>`.** A naive `<message ...>` match
+  ends the tag inside the description and spills translator notes into the
+  visible string, so the attribute run is matched quote-aware.
+- **`$i18nPolymer{}` can appear *inside* a computed binding**, as in
+  `[[getOnOffString_(isBluetoothToggleOn_, '$i18nPolymer{deviceOn}',
+  '$i18nPolymer{deviceOff}')]]`. Interpolating the placeholders resolves both
+  words but leaves the binding wrapper as the label. Which of the two ChromeOS
+  shows is device state, so there is no English form to display and the row
+  title is dropped rather than guessed.
+
+Roughly 77 (M124) and 71 (M120) labels stay unresolved. Each was traced
+individually: they are genuine runtime state (`timeZoneName`, `managementPage`)
+or keys registered nowhere upstream (`nearbyShareSettingsHelpCaptionBottom`,
+the `TrafficCountersDataUsage*` family). None are filled in by hand.
+
+### What is *not* from source
+
+Same boundary as Android and Ubuntu. Structure is source-derived; device state
+is not, and lives in clearly marked tables in `cros-to-dsl.py`: `VALUES` and
+`TOGGLES` supply the text on the right of a row and the position of a switch,
+`EXTRA` the contents of lists a real Chromebook fills from hardware at run time
+(paired Bluetooth accessories, connected networks, displays), and
+`PLACEHOLDERS` fills the `$1` / `$2` runtime slots GRIT leaves inside a
+message. None of them can add, rename or remove a row. The persona is a
+`volteer`-board Chromebook.
+
+Two screens exist only when the hardware does — Mouse and Touchpad are built
+per connected device — so they carry a note saying so instead of invented
+controls.
