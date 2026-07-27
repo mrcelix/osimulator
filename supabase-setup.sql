@@ -152,9 +152,12 @@ create table if not exists public.site_config (
   nav_menu     jsonb,
   features     jsonb,
   os_overrides jsonb,
+  os_menus     jsonb,
   updated_at   timestamptz default now(),
   constraint site_config_single_row check (id = 1)
 );
+-- If you created site_config before os_menus existed, add the column:
+alter table public.site_config add column if not exists os_menus jsonb;
 alter table public.site_config enable row level security;
 
 drop policy if exists "config public read" on public.site_config;

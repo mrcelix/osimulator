@@ -1506,6 +1506,60 @@ body.light .adm-menu-item input.ai{background:#fff;border-color:rgba(0,0,0,.14);
 .adm-actions .prim{background:linear-gradient(135deg,#0a84ff,#5e5ce6);color:#fff}
 .adm-actions .ghost{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:#e6e6ea}
 body.light .adm-actions .ghost{background:#fff;border-color:rgba(0,0,0,.12);color:#26262c}
+/* OS menu editor */
+.osm-pick{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:6px 0 18px}
+.osm-pick select{height:40px;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);color:#fff;padding:0 12px;font-size:14px;font-family:inherit;font-weight:600}
+body.light .osm-pick select{background:#fff;border-color:rgba(0,0,0,.16);color:#111}
+.osm-seticon{display:flex;align-items:center;gap:14px;padding:14px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);margin-bottom:20px;flex-wrap:wrap}
+body.light .osm-seticon{background:#fff;border-color:rgba(0,0,0,.08)}
+.osm-preview{width:58px;height:58px;border-radius:14px;overflow:hidden;display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.osm-preview svg,.osm-preview img{width:100%;height:100%;object-fit:cover;display:block}
+.osm-si-txt{flex:1;min-width:150px}
+.osm-si-txt .nm{font-weight:800;font-size:14px}
+.osm-si-txt .mt{font-size:12px;color:#8b8b96;margin-top:2px}
+.osm-si-ctl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.osm-si-ctl label.upl{height:34px;padding:0 13px;border-radius:9px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);color:#e6e6ea;font-size:12.5px;font-weight:700;display:flex;align-items:center;cursor:pointer}
+body.light .osm-si-ctl label.upl{background:#fff;border-color:rgba(0,0,0,.12);color:#26262c}
+.osm-si-ctl input[type=color]{width:34px;height:34px;border:none;border-radius:9px;background:none;padding:0;cursor:pointer}
+.osm-si-ctl button{height:34px;padding:0 12px;border-radius:9px;font-size:12.5px;font-weight:700;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);color:#c8c8d2}
+.osm-item{display:flex;align-items:flex-start;gap:9px;padding:10px 11px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);margin-bottom:9px}
+body.light .osm-item{background:#fff;border-color:rgba(0,0,0,.08)}
+.osm-item.hidden{opacity:.5}
+.osm-mv{display:flex;flex-direction:column;gap:3px;flex:none}
+.osm-mv button{width:26px;height:22px;border-radius:6px;background:rgba(255,255,255,.08);color:#c7c7cf;font-size:12px;display:flex;align-items:center;justify-content:center}
+.osm-mv button:disabled{opacity:.3}
+.osm-ipreview{width:36px;height:36px;border-radius:9px;flex:none;display:flex;align-items:center;justify-content:center;overflow:hidden;margin-top:2px;cursor:pointer;border:2px solid transparent}
+.osm-ipreview:hover{border-color:#5e5ce6}
+.osm-ipreview svg{width:22px;height:22px;fill:#fff}.osm-ipreview img{width:100%;height:100%;object-fit:cover}
+.osm-fields{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px}
+.osm-fields .r1{display:flex;gap:8px;align-items:center}
+.osm-fields input{height:32px;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);color:#fff;padding:0 10px;font-size:13px;outline:none;font-family:inherit;min-width:0}
+body.light .osm-fields input{background:#fff;border-color:rgba(0,0,0,.14);color:#111}
+.osm-fields input.title{flex:1;font-weight:600}
+.osm-fields input.desc{width:100%;font-size:12px;color:#c8c8d2}
+.osm-fields input[type=color]{width:34px;height:32px;padding:0;border:none;border-radius:8px;background:none;flex:none;cursor:pointer}
+.osm-badge{font-size:10px;font-weight:800;letter-spacing:.04em;padding:2px 6px;border-radius:5px;background:rgba(94,92,230,.25);color:#b9b8ff;text-transform:uppercase;flex:none}
+.osm-act{display:flex;flex-direction:column;gap:4px;flex:none;align-items:center}
+.osm-act .osm-del{width:28px;height:28px;border-radius:7px;background:rgba(255,59,48,.14);color:#ff6b6b;font-size:14px}
+/* icon picker popover */
+.icp-ovl{position:fixed;inset:0;z-index:400;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;padding:20px}
+.icp-box{width:min(420px,94vw);max-height:80vh;overflow:auto;background:#16161d;border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:16px}
+body.light .icp-box{background:#fff;border-color:rgba(0,0,0,.12)}
+.icp-h{font-weight:800;font-size:15px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center}
+.icp-h button{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.1);color:#c8c8d0}
+body.light .icp-h button{background:rgba(0,0,0,.06);color:#444}
+.icp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(52px,1fr));gap:8px}
+.icp-cell{aspect-ratio:1;border-radius:11px;display:flex;align-items:center;justify-content:center;background:#8e8e93;cursor:pointer;border:2px solid transparent}
+.icp-cell:hover{border-color:#5e5ce6}.icp-cell.sel{border-color:#0a84ff}
+.icp-cell svg{width:24px;height:24px;fill:#fff}
+.icp-sec{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:#8b8b96;margin:14px 0 8px}
+.icp-upl{height:38px;border-radius:10px;background:rgba(94,92,230,.16);border:1px dashed rgba(94,92,230,.5);color:#b9b8ff;display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;font-weight:700;font-size:13px;margin-top:4px}
+/* menu item subtitle (description) */
+.row-txt{display:flex;flex-direction:column;min-width:0}
+.row-txt .row-label{display:block}
+.row-sub{font-size:11.5px;color:#8a8a90;margin-top:1px;line-height:1.25;font-weight:400}
+.os-android .row-sub{color:#5f6368}
+.side-row .row-txt{flex:1;min-width:0}
 .adm-gate{max-width:360px}
 .adm-live{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:800;letter-spacing:.04em;color:#34c759;padding:3px 10px;border:1px solid rgba(52,199,89,.35);border-radius:100px;background:rgba(52,199,89,.1)}
 .adm-be-status{margin:14px 0;padding:11px 14px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);font-weight:700;font-size:13.5px;color:#c8c8d2}
@@ -4025,7 +4079,8 @@ V;
 
  const el=h=>{const t=document.createElement('template');t.innerHTML=h.trim();return t.content.firstElementChild;};
  const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
- const icon=(n,bg)=>`<span class="ic" style="background:${bg||'#8e8e93'}"><svg viewBox="0 0 24 24" fill="#fff">${I[n]||''}</svg></span>`;
+ const icon=(n,bg)=>`<span class="ic" style="background:${bg||'#8e8e93'}">${n&&/^(data:|https?:|blob:)/.test(n)?`<img src="${esc(n)}" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:inherit">`:`<svg viewBox="0 0 24 24" fill="#fff">${I[n]||''}</svg>`}</span>`;
+ const lblHTML=r=>r&&r.sub?`<span class="row-txt"><span class="row-label">${esc(dt(r.label))}</span><span class="row-sub">${esc(dt(r.sub))}</span></span>`:`<span class="row-label">${esc(dt(r.label))}</span>`;
  const chev=`<svg class="chev" viewBox="0 0 24 24">${I.chevron}</svg>`;
  const clock=()=>{const d=new Date();const h=d.getHours(),m=d.getMinutes();return (h<10?'0'+h:h)+':'+(m<10?'0'+m:m);};
 
@@ -4262,7 +4317,7 @@ V;
   if(id==='ipados'&&v<17)arr=arr.filter(i=>i.id!=='health');
   if(id==='macos'&&v<14)arr=arr.filter(i=>i.id!=='vpn');
   if(id==='android'&&v<14)arr=arr.flatMap(i=>i.id==='security'?androidSplitSec():[i]);
-  return arr;
+  return applyMenuOv(id,arr);
  }
  function androidSplitSec(){
   return [
@@ -4448,8 +4503,8 @@ V;
    const flush=()=>{if(rows.length){scroll.appendChild(renderSection(S(rows.slice())));rows=[];}};
    SB.filter(i=>i.kind!=='account').forEach(item=>{
      if(item.group!==cur){flush();cur=item.group;}
-     if(item.toggle!==undefined)rows.push(T(item.title,item.toggle,{icon:item.icon,iconBg:item.iconBg}));
-     else rows.push(L(item.title,{value:item.value,icon:item.icon,iconBg:item.iconBg,badge:item.badge,detail:item.detail}));
+     if(item.toggle!==undefined)rows.push(T(item.title,item.toggle,{icon:item.icon,iconBg:item.iconBg,sub:item.sub}));
+     else rows.push(L(item.title,{value:item.value,icon:item.icon,iconBg:item.iconBg,badge:item.badge,detail:item.detail,sub:item.sub}));
    });
    flush();
   }else{
@@ -4746,19 +4801,27 @@ V;
   }
   return `<g fill="${o.color}">${teeth}<circle cx="${o.cx}" cy="${o.cy}" r="${o.rBody}"/></g><circle cx="${o.cx}" cy="${o.cy}" r="${o.rHole}" fill="${o.hole}"/>`;
  }
+ // Wrap a Settings-icon SVG so an admin per-OS override (uploaded image or tile color) takes over.
+ function setIconWrap(inner,osid){
+  const o=osSetIcon(osid||(state.platform&&state.platform.id));
+  if(o&&o.img)return `<svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid slice"><image href="${esc(o.img)}" xlink:href="${esc(o.img)}" x="0" y="0" width="24" height="24" preserveAspectRatio="xMidYMid slice"/></svg>`;
+  if(o&&o.color)return `<svg viewBox="0 0 24 24"><rect x="0" y="0" width="24" height="24" rx="5" fill="${esc(o.color)}"/>${inner}</svg>`;
+  return `<svg viewBox="0 0 24 24">${inner}</svg>`;
+ }
  function appleSettingsSVG(){
   const g=(cx,cy,rt,rb,rh,teeth,tw)=>gearShape({cx,cy,rTip:rt,rBody:rb,rHole:rh,teeth,tw,color:'#8a8a8f',hole:'#ededf0'});
-  return `<svg viewBox="0 0 24 24">${g(6.2,6.4,3.6,2.4,1,7,1.3)}${g(18,17.4,3.5,2.3,.95,7,1.25)}${g(12,11.4,7.7,5.3,2.2,9,2.3)}</svg>`;
+  return setIconWrap(`${g(6.2,6.4,3.6,2.4,1,7,1.3)}${g(18,17.4,3.5,2.3,.95,7,1.25)}${g(12,11.4,7.7,5.3,2.2,9,2.3)}`);
  }
  function androidSettingsSVG(){
-  return `<svg viewBox="0 0 24 24">${gearShape({cx:12,cy:12,rTip:9.6,rBody:6.6,rHole:2.9,teeth:8,tw:3.1,color:'#fff',hole:'#5f6368'})}</svg>`;
+  return setIconWrap(gearShape({cx:12,cy:12,rTip:9.6,rBody:6.6,rHole:2.9,teeth:8,tw:3.1,color:'#fff',hole:'#5f6368'}));
  }
  function windowsSettingsSVG(color,hole){
-  return `<svg viewBox="0 0 24 24">${gearShape({cx:12,cy:12,rTip:9.6,rBody:6.4,rHole:3.1,teeth:6,tw:3.6,color:color||'currentColor',hole:hole||'#0067c0'})}</svg>`;
+  return setIconWrap(gearShape({cx:12,cy:12,rTip:9.6,rBody:6.4,rHole:3.1,teeth:6,tw:3.6,color:color||'currentColor',hole:hole||'#0067c0'}));
  }
  function settingsGlyph(osid){
-  if(osid==='android')return {bg:'#5f6368',svg:androidSettingsSVG()};
-  return {bg:'linear-gradient(160deg,#f2f2f4 0%,#c7c7cd 100%)',svg:appleSettingsSVG()}; // ios / ipados
+  const base=osid==='android'?{bg:'#5f6368',svg:androidSettingsSVG()}:{bg:'linear-gradient(160deg,#f2f2f4 0%,#c7c7cd 100%)',svg:appleSettingsSVG()};
+  const o=osSetIcon(osid);if(o&&o.img)base.bg='transparent';else if(o&&o.color)base.bg=o.color;
+  return base;
  }
  /* ---- realistic signature app icons (original simplified vector marks) ---- */
  function pie(cx,cy,r,a0,a1,fill){const R=d=>d*Math.PI/180;const x0=cx+r*Math.cos(R(a0)),y0=cy+r*Math.sin(R(a0)),x1=cx+r*Math.cos(R(a1)),y1=cy+r*Math.sin(R(a1));const lg=((a1-a0)%360+360)%360>180?1:0;return `<path d="M${cx} ${cy} L${x0.toFixed(2)} ${y0.toFixed(2)} A${r} ${r} 0 ${lg} 1 ${x1.toFixed(2)} ${y1.toFixed(2)} Z" fill="${fill}"/>`;}
@@ -4820,7 +4883,8 @@ V;
    let right='';
    if(item.toggle!==undefined)right=tglHTML(prefGet('sidebar::'+item.id,item.toggle));
    else right=`${item.value?`<span class="row-val">${esc(dt(item.value))}</span>`:''}${chev}`;
-   const row=el(`<button class="side-row" data-id="${item.id}" data-label="${esc(dt(item.title))}">${icon(item.icon,item.iconBg)}<span class="row-label">${esc(dt(item.title))}</span><span class="row-right">${right}</span></button>`);
+   const lbl=item.sub?`<span class="row-txt"><span class="row-label">${esc(dt(item.title))}</span><span class="row-sub">${esc(dt(item.sub))}</span></span>`:`<span class="row-label">${esc(dt(item.title))}</span>`;
+   const row=el(`<button class="side-row" data-id="${item.id}" data-label="${esc(dt(item.title))}">${icon(item.icon,item.iconBg)}${lbl}<span class="row-right">${right}</span></button>`);
    row.addEventListener('click',()=>{
      if(item.toggle!==undefined){const t=row.querySelector('.tgl');t.classList.toggle('on');prefSet('sidebar::'+item.id,t.classList.contains('on'));return;}
      if(!item.detail)return;
@@ -4869,13 +4933,13 @@ V;
   let node;const pk=dTitle+'::'+(r.label||r.text||'');
   switch(r.type){
    case 'toggle':{const on=prefGet(pk,r.value);
-    node=el(`<div class="row"><div class="row-l">${r.icon?icon(r.icon,r.iconBg):''}<span class="row-label">${esc(dt(r.label))}</span></div><div class="row-r">${tglHTML(on)}</div></div>`);
+    node=el(`<div class="row"><div class="row-l">${r.icon?icon(r.icon,r.iconBg):''}${lblHTML(r)}</div><div class="row-r">${tglHTML(on)}</div></div>`);
     reactiveToggle(dt(r.label),on);
     node.querySelector('.tgl').addEventListener('click',function(){this.classList.toggle('on');const v=this.classList.contains('on');prefSet(pk,v);reactiveToggle(dt(r.label),v);});break;}
    case 'link':{const badge=r.badge==='connected'?`<span class="tick">✓ ${esc(dt('Connected'))}</span>`:(r.badge==='dot'?'<span class="reddot">1</span>':'');
-    node=el(`<button class="row tappable"><div class="row-l">${r.icon?icon(r.icon,r.iconBg):''}<span class="row-label">${esc(dt(r.label))}</span></div><div class="row-r">${badge}${r.value?`<span class="row-val">${esc(dt(r.value))}</span>`:''}${chev}</div></button>`);
+    node=el(`<button class="row tappable"><div class="row-l">${r.icon?icon(r.icon,r.iconBg):''}${lblHTML(r)}</div><div class="row-r">${badge}${r.value?`<span class="row-val">${esc(dt(r.value))}</span>`:''}${chev}</div></button>`);
     if(r.detail)node.addEventListener('click',()=>openDetail(r.detail));else node.classList.add('dead');break;}
-   case 'value':node=el(`<div class="row"><div class="row-l">${r.icon?icon(r.icon,r.iconBg):''}<span class="row-label">${esc(dt(r.label))}</span></div><div class="row-r"><span class="row-val">${esc(dt(r.value))}</span></div></div>`);break;
+   case 'value':node=el(`<div class="row"><div class="row-l">${r.icon?icon(r.icon,r.iconBg):''}${lblHTML(r)}</div><div class="row-r"><span class="row-val">${esc(dt(r.value))}</span></div></div>`);break;
    case 'check':{const sel=prefGet(pk,r.selected);
     node=el(`<button class="row tappable check-row ${sel?'sel':''}">${r.swatch?`<span class="swatch ${r.swatch}"></span>`:''}<span class="row-label">${esc(dt(r.label))}</span><span class="row-r"><svg class="tickmark" viewBox="0 0 24 24"><path d="M5 12l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>`);
     node.addEventListener('click',function(){const p=this.parentElement;p.querySelectorAll('.check-row').forEach(c=>{c.classList.remove('sel');prefSet(dTitle+'::'+c.querySelector('.row-label').textContent,false);});this.classList.add('sel');prefSet(pk,true);});break;}
@@ -4899,7 +4963,7 @@ V;
  let USER=store.get('user',null);
  /* build/version stamp. version is bumped per release; deploy time is detected
     automatically from the served file (falls back to this baked time). */
- const BUILD={version:'1.9.1',time:'2026-07-27T05:02:00Z'};
+ const BUILD={version:'1.10.0',time:'2026-07-27T05:26:00Z'};
  function buildTimeStr(){try{return new Date(BUILD.time).toLocaleString(state.lang||'en',{dateStyle:'medium',timeStyle:'short'});}catch(e){return (BUILD.time||'').replace('T',' ').replace('Z',' UTC');}}
  function updateFooterVer(){document.querySelectorAll('.foot-ver').forEach(fv=>{fv.innerHTML=`<span class="fv-badge">v${esc(BUILD.version)}</span><span>${esc(t('deployLabel'))}: ${esc(buildTimeStr())}</span>`;});}
  /* auto deploy time: use the served file's Last-Modified (document.lastModified).
@@ -6171,8 +6235,8 @@ V;
  /* ---- shared site config (Supabase) ---- */
  let _cfgTimer=null;
  function queueConfigPush(){if(!SB)return;clearTimeout(_cfgTimer);_cfgTimer=setTimeout(pushSiteConfig,600);}
- async function pushSiteConfig(){if(!SB)return;try{const row={id:1,nav_menu:store.get('navMenu',null),features:store.get('features',{}),os_overrides:store.get('osOverrides',{}),updated_at:new Date().toISOString()};await SB.from('site_config').upsert(row,{onConflict:'id'});}catch(e){console.warn('[osimulator] config push failed (need admin?)',e&&e.message);}}
- async function hydrateSiteConfig(){if(!SB)return;try{const {data,error}=await SB.from('site_config').select('*').eq('id',1).maybeSingle();if(error||!data)return;if(data.nav_menu)store.set('navMenu',data.nav_menu);if(data.features)store.set('features',data.features);if(data.os_overrides)store.set('osOverrides',data.os_overrides);applyOsOverrides();if(state.view==='select')renderSelect();else if(state.view==='admin')renderAdminPage();}catch(e){}}
+ async function pushSiteConfig(){if(!SB)return;try{const row={id:1,nav_menu:store.get('navMenu',null),features:store.get('features',{}),os_overrides:store.get('osOverrides',{}),os_menus:store.get('osMenus',{}),updated_at:new Date().toISOString()};await SB.from('site_config').upsert(row,{onConflict:'id'});}catch(e){console.warn('[osimulator] config push failed (need admin?)',e&&e.message);}}
+ async function hydrateSiteConfig(){if(!SB)return;try{const {data,error}=await SB.from('site_config').select('*').eq('id',1).maybeSingle();if(error||!data)return;if(data.nav_menu)store.set('navMenu',data.nav_menu);if(data.features)store.set('features',data.features);if(data.os_overrides)store.set('osOverrides',data.os_overrides);if(data.os_menus)store.set('osMenus',data.os_menus);applyOsOverrides();if(state.view==='select')renderSelect();else if(state.view==='admin')renderAdminPage();else if(state.platform)renderDevice();}catch(e){}}
  function doNav(act,go){const p=String(act||'').split(':');const kind=p[0],val=p.slice(1).join(':');
   if(kind==='scroll'){if(go)go(val);}
   else if(kind==='route'){if(val==='guides')renderGuidesPage();else if(val==='compare')renderComparePage();else if(val==='vs')renderVsPage('ios','android');else if(val==='quiz')renderQuizPage();else if(val==='embed')renderEmbedPage();else if(val==='find')renderFindPage();else if(val==='changes')renderChangesPage();else if(val==='daily')renderDailyPage();}
@@ -6186,6 +6250,53 @@ V;
  function getOsOv(){return store.get('osOverrides',{});}
  function setOsOv(id,turnOff){const o=getOsOv();if(turnOff)o[id]='off';else delete o[id];store.set('osOverrides',o);queueConfigPush();}
  function applyOsOverrides(){const o=getOsOv();PLATFORMS.forEach(p=>{if(SETTINGS[p.id])p.available=(o[p.id]!=='off');});}
+ /* ===== per-OS Settings-menu overrides (CRUD + order + icon/color + description + custom Settings icon) ===== */
+ function getOsMenus(){return store.get('osMenus',{});}
+ function getOsMenu(osid){return getOsMenus()[osid]||null;}
+ function mutOsMenu(osid,fn){const all=getOsMenus();all[osid]=all[osid]||{};fn(all[osid]);
+  // prune empty overrides so a fully reset OS drops out cleanly
+  const m=all[osid];if((!m.items||!Object.keys(m.items).length)&&(!m.added||!m.added.length)&&(!m.hidden||!m.hidden.length)&&(!m.order||!m.order.length)&&!m.settingsIcon)delete all[osid];
+  store.set('osMenus',all);queueConfigPush();}
+ function resetOsMenu(osid){const all=getOsMenus();delete all[osid];store.set('osMenus',all);queueConfigPush();}
+ function osSetIcon(osid){const m=getOsMenu(osid);const s=m&&m.settingsIcon;return s&&(s.img||s.color)?s:null;}
+ // Apply overrides to a (version-filtered) sidebar array for the given OS.
+ function applyMenuOv(osid,arr){
+  const ov=getOsMenu(osid);if(!ov)return arr;
+  const items=ov.items||{},hidden=ov.hidden||[];
+  let out=arr.filter(it=>hidden.indexOf(it.id)<0).map(it=>{
+    const o=items[it.id];if(!o)return it;const n=Object.assign({},it);
+    if(o.title!=null&&o.title!=='')n.title=o.title;
+    if(o.icon!=null&&o.icon!=='')n.icon=o.icon;
+    if(o.iconBg!=null&&o.iconBg!=='')n.iconBg=o.iconBg;
+    if(o.desc!=null&&o.desc!=='')n.sub=o.desc;
+    return n;});
+  (ov.added||[]).forEach(id=>{const o=items[id]||{};
+    out.push({id:id,title:o.title||'Menu',icon:o.icon||'general',iconBg:o.iconBg||'#8e8e93',sub:o.desc||'',group:'zcustom',detail:D(o.title||'Menu',[S([NOTE(o.desc||(o.title||'Custom settings section.'))])])});});
+  if(ov.order&&ov.order.length){const pos={};ov.order.forEach((id,i)=>pos[id]=i);out=out.slice().sort((x,y)=>((pos[x.id]==null?9998:pos[x.id])-(pos[y.id]==null?9998:pos[y.id])));}
+  return out;
+ }
+ // Admin editor view: every editable item (base + custom) with effective values, incl. hidden ones.
+ function admMenuItems(osid){
+  const ov=getOsMenu(osid)||{},items=ov.items||{},hidden=ov.hidden||[];
+  const base=(SETTINGS[osid]?SETTINGS[osid].sidebar:[]).filter(i=>i.kind!=='account');
+  const list=base.map(it=>{const o=items[it.id]||{};return {id:it.id,base:true,
+    title:o.title!=null&&o.title!==''?o.title:dt(it.title),
+    icon:o.icon!=null&&o.icon!==''?o.icon:(it.icon||'general'),
+    iconBg:o.iconBg!=null&&o.iconBg!==''?o.iconBg:(it.iconBg||'#8e8e93'),
+    desc:o.desc||'',hidden:hidden.indexOf(it.id)>=0};});
+  (ov.added||[]).forEach(id=>{const o=items[id]||{};list.push({id:id,base:false,
+    title:o.title||'',icon:o.icon||'general',iconBg:o.iconBg||'#8e8e93',desc:o.desc||'',hidden:false});});
+  if(ov.order&&ov.order.length){const pos={};ov.order.forEach((id,i)=>pos[id]=i);list.sort((x,y)=>((pos[x.id]==null?9998:pos[x.id])-(pos[y.id]==null?9998:pos[y.id])));}
+  return list;
+ }
+ function setMenuField(osid,id,field,val){mutOsMenu(osid,m=>{m.items=m.items||{};m.items[id]=m.items[id]||{};m.items[id][field]=val;});}
+ function toggleMenuHidden(osid,id){mutOsMenu(osid,m=>{m.hidden=m.hidden||[];const i=m.hidden.indexOf(id);if(i>=0)m.hidden.splice(i,1);else m.hidden.push(id);});}
+ function moveMenuItem(osid,idx,dir){const ids=admMenuItems(osid).map(i=>i.id);const j=idx+dir;if(j<0||j>=ids.length)return;const t=ids[idx];ids[idx]=ids[j];ids[j]=t;mutOsMenu(osid,m=>{m.order=ids;});}
+ function addMenuItem(osid){const id='c'+Math.abs(Date.now()%1e9).toString(36)+(getOsMenu(osid)&&getOsMenu(osid).added?getOsMenu(osid).added.length:0);
+  mutOsMenu(osid,m=>{m.added=m.added||[];m.added.push(id);m.items=m.items||{};m.items[id]={title:AL('New menu','Yeni menü'),icon:'general',iconBg:'#5e5ce6',desc:''};if(m.order&&m.order.length)m.order.push(id);});return id;}
+ function deleteCustomMenu(osid,id){mutOsMenu(osid,m=>{if(m.added)m.added=m.added.filter(x=>x!==id);if(m.items)delete m.items[id];if(m.order)m.order=m.order.filter(x=>x!==id);if(m.hidden)m.hidden=m.hidden.filter(x=>x!==id);});}
+ function setSettingsIcon(osid,patch){mutOsMenu(osid,m=>{m.settingsIcon=Object.assign({},m.settingsIcon,patch);if(!m.settingsIcon.img&&!m.settingsIcon.color)delete m.settingsIcon;});}
+ function reRenderAfterMenuEdit(osid){if(state.view==='device'&&state.platform&&state.platform.id===osid){renderDevice();}}
  /* members */
  let _admMembers=null;
  function getMembers(){return store.get('members',[]);}
@@ -6216,14 +6327,14 @@ V;
   const themeBtn=el('<button class="nav-theme"></button>');themeBtn.addEventListener('click',toggleTheme);top.appendChild(themeBtn);
   top.appendChild(langSelect(renderAdminPage));
   const vb=el(`<button class="abtn">${esc(AL('View site','Siteyi gör'))}</button>`);vb.addEventListener('click',()=>{try{history.replaceState(null,'',guideBaseUrl());}catch(e){}renderSelect();});top.appendChild(vb);
-  const TABS=[['overview',AL('Overview','Genel bakış')],['analytics',AL('Analytics','Analitik')],['members',AL('Members','Üyeler')],['os',AL('Operating systems','İşletim sistemleri')],['features',AL('Site features','Site özellikleri')],['menu',AL('Header menu','Menü yönetimi')],['backend',AL('Backend','Backend')]];
-  const ADMICON={overview:'<path d="M3 3h8v8H3V3zm10 0h8v5h-8V3zM3 13h8v8H3v-8zm10 3h8v5h-8v-5z"/>',analytics:'<path d="M4 20V10h3v10H4zm6.5 0V4h3v16h-3zM17 20v-7h3v7h-3z"/>',members:'<path d="M8 11a3.5 3.5 0 100-7 3.5 3.5 0 000 7zm8 0a3 3 0 100-6 3 3 0 000 6zM2 19c0-2.7 3-4.3 6-4.3s6 1.6 6 4.3v1H2v-1zm14.2-3.9c2 .5 3.8 1.7 3.8 3.9v1h-4v-1c0-1.5-.7-2.7-1.8-3.6.7-.2 1.4-.3 2-.2z"/>',os:'<path d="M4 5h16a1 1 0 011 1v9a1 1 0 01-1 1h-6l1 3h2v2H7v-2h2l1-3H4a1 1 0 01-1-1V6a1 1 0 011-1zm1 2v7h14V7H5z"/>',features:'<path d="M12 2l2.1 5.3L20 8l-4 3.7 1.1 5.8L12 14.8 6.9 17.5 8 11.7 4 8l5.9-.7L12 2z"/>',menu:'<path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>',backend:'<path d="M4 4h16a1 1 0 011 1v5a1 1 0 01-1 1H4a1 1 0 01-1-1V5a1 1 0 011-1zm3 3v1h2V7H7zm-3 6h16a1 1 0 011 1v5a1 1 0 01-1 1H4a1 1 0 01-1-1v-5a1 1 0 011-1zm3 3v1h2v-1H7z"/>'};
+  const TABS=[['overview',AL('Overview','Genel bakış')],['analytics',AL('Analytics','Analitik')],['members',AL('Members','Üyeler')],['os',AL('Operating systems','İşletim sistemleri')],['osmenu',AL('OS menus','OS menüleri')],['features',AL('Site features','Site özellikleri')],['menu',AL('Header menu','Menü yönetimi')],['backend',AL('Backend','Backend')]];
+  const ADMICON={overview:'<path d="M3 3h8v8H3V3zm10 0h8v5h-8V3zM3 13h8v8H3v-8zm10 3h8v5h-8v-5z"/>',analytics:'<path d="M4 20V10h3v10H4zm6.5 0V4h3v16h-3zM17 20v-7h3v7h-3z"/>',members:'<path d="M8 11a3.5 3.5 0 100-7 3.5 3.5 0 000 7zm8 0a3 3 0 100-6 3 3 0 000 6zM2 19c0-2.7 3-4.3 6-4.3s6 1.6 6 4.3v1H2v-1zm14.2-3.9c2 .5 3.8 1.7 3.8 3.9v1h-4v-1c0-1.5-.7-2.7-1.8-3.6.7-.2 1.4-.3 2-.2z"/>',os:'<path d="M4 5h16a1 1 0 011 1v9a1 1 0 01-1 1h-6l1 3h2v2H7v-2h2l1-3H4a1 1 0 01-1-1V6a1 1 0 011-1zm1 2v7h14V7H5z"/>',features:'<path d="M12 2l2.1 5.3L20 8l-4 3.7 1.1 5.8L12 14.8 6.9 17.5 8 11.7 4 8l5.9-.7L12 2z"/>',osmenu:'<path d="M4 4h7v7H4V4zm0 9h7v7H4v-7zm9-9h7v7h-7V4zm2 2v3h3V6h-3zM13 13h7v7h-7v-7z"/>',menu:'<path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>',backend:'<path d="M4 4h16a1 1 0 011 1v5a1 1 0 01-1 1H4a1 1 0 01-1-1V5a1 1 0 011-1zm3 3v1h2V7H7zm-3 6h16a1 1 0 011 1v5a1 1 0 01-1 1H4a1 1 0 01-1-1v-5a1 1 0 011-1zm3 3v1h2v-1H7z"/>'};
   const tabs=w.querySelector('.adm-tabs');
   TABS.forEach(([k,lab])=>{const b=el(`<button class="adm-tab ${k===tab?'on':''}" title="${esc(lab)}"><svg viewBox="0 0 24 24">${ADMICON[k]||ICN2.tools}</svg><span>${esc(lab)}</span></button>`);b.addEventListener('click',()=>{state.adminTab=k;renderAdminPage();});tabs.appendChild(b);});
   if(SB){const badge=el(`<span class="adm-live" title="${esc(cfgHost())}">● ${esc(AL('Live backend','Canlı backend'))}</span>`);top.insertBefore(badge,top.firstChild.nextSibling);}
   root.appendChild(w);setTimeout(updateThemeIcons,0);
   const main=w.querySelector('.adm-main');
-  ({overview:admOverview,analytics:admAnalytics,members:admMembers,os:admOS,features:admFeatures,menu:admMenu,backend:admBackend}[tab]||admOverview)(main);
+  ({overview:admOverview,analytics:admAnalytics,members:admMembers,os:admOS,osmenu:admOsMenu,features:admFeatures,menu:admMenu,backend:admBackend}[tab]||admOverview)(main);
   if(SB&&_admStale&&(tab==='overview'||tab==='analytics'||tab==='members')){_admStale=false;Promise.all([loadAdminEvents(),loadAdminMembers()]).then(()=>{if(state.view==='admin')renderAdminPage();});}
  }
  function cfgHost(){try{const c=supaCfg();return c?c.url.replace(/^https?:\/\//,''):'';}catch(e){return '';}}
@@ -6286,6 +6397,85 @@ V;
    list.appendChild(row);});
   main.querySelector('#madd').addEventListener('click',()=>{const lb=prompt(AL('Link label','Bağlantı adı'));if(!lb)return;const url=prompt(AL('URL (https://…) — leave blank to scroll to Systems','URL (https://…) — boş bırakırsan Sistemler’e kaydırır'))||'';menu.push({id:'c'+Date.now(),label:lb,act:url?('url:'+url):'scroll:systems',vis:true});setNavMenu(menu);renderAdminPage();});
   main.querySelector('#mreset').addEventListener('click',()=>{store.set('navMenu',null);renderAdminPage();});
+ }
+ /* ---- per-OS Settings menu editor ---- */
+ function readImageFile(file,cb){
+  const fr=new FileReader();
+  fr.onload=()=>{const img=new Image();img.onload=()=>{const max=128;let w=img.width||max,h=img.height||max;const sc=Math.min(1,max/Math.max(w,h));w=Math.max(1,Math.round(w*sc));h=Math.max(1,Math.round(h*sc));
+    try{const c=document.createElement('canvas');c.width=w;c.height=h;c.getContext('2d').drawImage(img,0,0,w,h);cb(c.toDataURL('image/png'));}catch(e){cb(fr.result);}};
+   img.onerror=()=>cb(fr.result);img.src=fr.result;};
+  fr.readAsDataURL(file);
+ }
+ function isImgSrc(s){return s&&/^(data:|https?:|blob:)/.test(s);}
+ function osmIconPreview(osid){const o=osSetIcon(osid);
+  if(o&&o.img)return `<span class="osm-preview"><img src="${esc(o.img)}" alt=""></span>`;
+  const bg=o&&o.color?o.color:(osid==='android'?'#5f6368':'linear-gradient(160deg,#f2f2f4,#c7c7cd)');
+  return `<span class="osm-preview" style="background:${esc(bg)}"><svg viewBox="0 0 24 24" fill="${o&&o.color?'#fff':'#8a8a8f'}">${I.general}</svg></span>`;}
+ function admOsMenu(main){
+  const real=PLATFORMS.filter(p=>SETTINGS[p.id]);
+  if(!state.admOsSel||!SETTINGS[state.admOsSel])state.admOsSel=real[0]?real[0].id:'ios';
+  const osid=state.admOsSel;const pf=real.find(p=>p.id===osid);
+  main.innerHTML=`<div class="adm-h">${esc(AL('OS menus','OS menüleri'))}</div><div class="adm-sub">${esc(AL('Edit each operating system’s Settings menu — add, remove, reorder, rename, recolor, add a description, and set a custom Settings icon.','Her işletim sisteminin Ayarlar menüsünü düzenle — ekle, çıkar, sırala, adlandır, renklendir, açıklama ekle ve özel Ayarlar simgesi ata.'))}</div>
+   <div class="osm-pick"><select id="osm-os">${real.map(p=>`<option value="${p.id}" ${p.id===osid?'selected':''}>${esc(p.name)}</option>`).join('')}</select><span style="font-size:12px;color:#8b8b96">${esc(AL('These changes appear on the live device.','Bu değişiklikler canlı cihazda görünür.'))}</span></div>
+   <div id="osm-si"></div><div id="osm-list"></div>
+   <div class="adm-actions"><button class="prim" id="osm-add">${esc(AL('Add menu','Menü ekle'))}</button><button class="ghost" id="osm-reset">${esc(AL('Reset this OS','Bu OS’u sıfırla'))}</button></div>`;
+  main.querySelector('#osm-os').addEventListener('change',e=>{state.admOsSel=e.target.value;renderAdminPage();});
+  renderOsmSettingsIcon(main.querySelector('#osm-si'),osid);
+  renderOsmList(main.querySelector('#osm-list'),osid);
+  main.querySelector('#osm-add').addEventListener('click',()=>{addMenuItem(osid);renderAdminPage();});
+  main.querySelector('#osm-reset').addEventListener('click',()=>{if(confirm(AL('Reset ALL menu customizations for this OS?','Bu OS için TÜM menü özelleştirmeleri sıfırlansın mı?'))){resetOsMenu(osid);renderAdminPage();}});
+ }
+ function renderOsmSettingsIcon(box,osid){
+  const o=osSetIcon(osid)||{};
+  box.innerHTML=`<div class="osm-seticon">${osmIconPreview(osid)}
+    <div class="osm-si-txt"><div class="nm">${esc(AL('Settings app icon','Ayarlar uygulama simgesi'))}</div><div class="mt">${esc(AL('Upload your own image, or pick a tile color, for this OS’s Settings icon.','Bu OS’un Ayarlar simgesi için kendi görselini yükle ya da bir renk seç.'))}</div></div>
+    <div class="osm-si-ctl">
+      <label class="upl">${esc(AL('Upload image','Görsel yükle'))}<input type="file" accept="image/*" hidden id="osm-si-file"></label>
+      <input type="color" id="osm-si-color" value="${esc(o.color||'#8e8e93')}" title="${esc(AL('Tile color','Renk'))}">
+      ${(o.img||o.color)?`<button id="osm-si-clear">${esc(AL('Reset','Sıfırla'))}</button>`:''}
+    </div></div>`;
+  box.querySelector('#osm-si-file').addEventListener('change',e=>{const f=e.target.files&&e.target.files[0];if(!f)return;readImageFile(f,d=>{setSettingsIcon(osid,{img:d,color:''});renderAdminPage();});});
+  const cin=box.querySelector('#osm-si-color');
+  cin.addEventListener('input',e=>setSettingsIcon(osid,{color:e.target.value,img:''}));
+  cin.addEventListener('change',()=>renderAdminPage());
+  const clr=box.querySelector('#osm-si-clear');if(clr)clr.addEventListener('click',()=>{mutOsMenu(osid,m=>{delete m.settingsIcon;});renderAdminPage();});
+ }
+ function renderOsmList(box,osid){
+  box.innerHTML='';const items=admMenuItems(osid);
+  if(!items.length){box.innerHTML=`<div class="adm-note">${esc(AL('No menu items.','Menü öğesi yok.'))}</div>`;return;}
+  items.forEach((it,i)=>{
+   const iconHTML=isImgSrc(it.icon)?`<img src="${esc(it.icon)}" alt="">`:`<svg viewBox="0 0 24 24">${I[it.icon]||I.general}</svg>`;
+   const row=el(`<div class="osm-item ${it.hidden?'hidden':''}">
+     <div class="osm-mv"><button class="up" ${i===0?'disabled':''}>▲</button><button class="down" ${i===items.length-1?'disabled':''}>▼</button></div>
+     <span class="osm-ipreview" style="background:${esc(/^#/.test(it.iconBg)?it.iconBg:'#8e8e93')}" title="${esc(AL('Change icon','Simge değiştir'))}">${iconHTML}</span>
+     <div class="osm-fields">
+       <div class="r1"><input class="title" value="${esc(it.title)}" placeholder="${esc(AL('Title','Başlık'))}"><input type="color" class="clr" value="${esc(/^#/.test(it.iconBg)?it.iconBg:'#8e8e93')}" title="${esc(AL('Color','Renk'))}">${it.base?'':`<span class="osm-badge">${esc(AL('custom','özel'))}</span>`}</div>
+       <input class="desc" value="${esc(it.desc)}" placeholder="${esc(AL('Description (optional subtitle)','Açıklama (opsiyonel alt yazı)'))}">
+     </div>
+     <div class="osm-act"><div class="aswitch ${it.hidden?'':'on'}" title="${esc(AL('Show / hide','Göster / gizle'))}"><i></i></div>${it.base?'':`<button class="osm-del" title="${esc(AL('Delete','Sil'))}">✕</button>`}</div>
+   </div>`);
+   row.querySelector('.up').addEventListener('click',()=>{moveMenuItem(osid,i,-1);renderAdminPage();});
+   row.querySelector('.down').addEventListener('click',()=>{moveMenuItem(osid,i,1);renderAdminPage();});
+   row.querySelector('.title').addEventListener('input',e=>setMenuField(osid,it.id,'title',e.target.value));
+   row.querySelector('.desc').addEventListener('input',e=>setMenuField(osid,it.id,'desc',e.target.value));
+   const clr=row.querySelector('.clr');clr.addEventListener('input',e=>{setMenuField(osid,it.id,'iconBg',e.target.value);row.querySelector('.osm-ipreview').style.background=e.target.value;});
+   row.querySelector('.osm-ipreview').addEventListener('click',()=>openIconPicker(it.icon,ic=>{setMenuField(osid,it.id,'icon',ic);renderAdminPage();}));
+   row.querySelector('.aswitch').addEventListener('click',()=>{toggleMenuHidden(osid,it.id);renderAdminPage();});
+   const del=row.querySelector('.osm-del');if(del)del.addEventListener('click',()=>{deleteCustomMenu(osid,it.id);renderAdminPage();});
+   box.appendChild(row);});
+ }
+ function openIconPicker(current,cb){
+  const keys=Object.keys(I).filter(k=>k!=='chevron');
+  const ov=el(`<div class="icp-ovl"><div class="icp-box"><div class="icp-h">${esc(AL('Choose an icon','Simge seç'))}<button class="icp-x">✕</button></div>
+    <label class="icp-upl">＋ ${esc(AL('Upload custom image','Özel görsel yükle'))}<input type="file" accept="image/*" hidden></label>
+    <div class="icp-sec">${esc(AL('Built-in icons','Hazır simgeler'))}</div>
+    <div class="icp-grid">${keys.map(k=>`<button class="icp-cell ${k===current?'sel':''}" data-k="${esc(k)}"><svg viewBox="0 0 24 24">${I[k]}</svg></button>`).join('')}</div></div></div>`);
+  document.body.appendChild(ov);
+  const close=()=>ov.remove();
+  ov.addEventListener('click',e=>{if(e.target===ov)close();});
+  ov.querySelector('.icp-x').addEventListener('click',close);
+  ov.querySelectorAll('.icp-cell').forEach(b=>b.addEventListener('click',()=>{cb(b.dataset.k);close();}));
+  ov.querySelector('.icp-upl input').addEventListener('change',e=>{const f=e.target.files&&e.target.files[0];if(!f)return;readImageFile(f,d=>{cb(d);close();});});
  }
  function admBackend(main){
   const o=store.get('supaCfg',null);const url=(o&&o.url)||SUPA.url||'';const anon=(o&&o.anon)||SUPA.anon||'';

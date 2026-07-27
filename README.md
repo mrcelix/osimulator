@@ -88,7 +88,7 @@ osimulator is offline-first: with no backend configured it stores everything in 
 - **Analytics** — every visitor's page views and OS launches land in one database; the admin panel shows real aggregates.
 - **Real accounts** — Supabase Auth (email + Google) instead of the simulated login.
 - **Shared Record & Play guides** — saved guides live in the cloud and replay from any device.
-- **Admin-managed site config** — header menu, feature flags and per-OS enable/disable set in the admin panel apply to every visitor.
+- **Admin-managed site config** — header menu, feature flags, per-OS enable/disable, and full **per-OS Settings-menu editing** (add/remove/reorder menu items, rename, recolor, change icon, add descriptions, and upload a custom Settings app icon per OS) set in the admin panel apply to every visitor.
 
 Setup:
 
