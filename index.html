@@ -2346,14 +2346,14 @@ SETTINGS.macos={
         S([V('macOS','Sonoma 14.5'),V('Chip','Apple M2 Pro'),V('Memory','16 GB'),V('Startup disk','Macintosh HD'),V('Serial number','C02X1P3AJGH7')]),
         S([B('System Report…',{style:'link'}),B('Software Update…',{style:'link'})])
       ])}),
-       L('Software Update',{icon:'update',iconBg:'#8e8e93',detail:D('Software Update',[S([V('macOS Sonoma 14.5','Up to date')],{footer:'This Mac will automatically install updates.'}),S([L('Automatic Updates',{value:'On'})])])}),
-       L('Storage',{icon:'storage',iconBg:'#8e8e93',detail:D('Storage',[S([{type:'storageBar'}]),S([L('Applications',{value:'32 GB'}),L('Documents',{value:'48 GB'}),L('macOS',{value:'12 GB'}),L('System Data',{value:'19 GB'})])])})]),
+       L('Software Update',{icon:'update',iconBg:'#8e8e93',detail:D('Software Update',[S([V('macOS Sonoma 14.5','Up to date')],{footer:'This Mac will automatically install updates. Last checked today.'}),S([L('Automatic Updates',{value:'On',detail:D('Automatic Updates',[S([T('Check for updates',true),T('Download new updates when available',true),T('Install macOS updates',true),T('Install application updates from the App Store',true),T('Install Security Responses and system files',true)])])}),L('Beta Updates',{value:'Off'})])])}),
+       L('Storage',{icon:'storage',iconBg:'#8e8e93',detail:D('Storage',[S([{type:'storageBar'}]),S([L('Applications',{value:'32 GB',detail:D('Applications',[S([V('Xcode','12.4 GB'),V('Final Cut Pro','4.1 GB'),V('Adobe Photoshop','3.2 GB'),V('Logic Pro','2.8 GB'),L('Show all')])])}),L('Documents',{value:'48 GB',detail:D('Documents',[S([L('Large Files',{value:'22 GB'}),L('Downloads',{value:'8 GB'}),L('Unsupported Apps',{value:'0 GB'}),L('File Browser')])])}),L('macOS',{value:'12 GB'}),L('System Data',{value:'19 GB'}),L('Trash',{value:'2 GB'}),L('iCloud Drive',{value:'Optimized'})]),S([T('Optimize Storage',true),T('Empty Trash Automatically',false)],{header:'Recommendations'})])})]),
     S([L('AirDrop & Handoff',{icon:'general',iconBg:'#0a84ff',detail:D('AirDrop & Handoff',[S([T('Allow Handoff',true),T('AirPlay Receiver',true)]),CHOICE('AirDrop',['No One','Contacts Only','Everyone'],1)])}),
        L('Login Items',{icon:'general',iconBg:'#8e8e93',detail:D('Login Items',[S([V('Music',''),V('Dropbox',''),V('Rectangle','')],{header:'Open at Login'}),S([T('Allow in the Background — Adobe',true),T('Allow in the Background — Google',true)],{header:'Allow in the Background'})])}),
        L('Language & Region',{icon:'language',iconBg:'#8e8e93',detail:D('Language & Region',[S([V('English','Primary'),V('Türkçe',''),L('Add Language…')],{header:'Preferred Languages'}),S([L('Region',{value:'Türkiye'}),L('Temperature',{value:'Celsius'}),L('Measurement',{value:'Metric'}),L('First day of week',{value:'Monday'})])])}),
        L('Date & Time',{icon:'datetime',iconBg:'#8e8e93',detail:D('Date & Time',[S([T('Set time and date automatically',true),T('24-hour time',true)]),S([V('Time Zone','Istanbul — Türkiye'),T('Set time zone automatically using your location',true)])])}),
        L('Sharing',{icon:'general',iconBg:'#0a84ff',detail:D('Sharing',[S([T('Screen Sharing',false),T('File Sharing',false),T('Media Sharing',false),T('Printer Sharing',false),T('Remote Login',false),T('Content Caching',false)]),S([L('Local hostname',{value:'Johns-MacBook-Pro.local'})])])}),
-       L('Time Machine',{icon:'update',iconBg:'#34c759',detail:D('Time Machine',[S([V('Latest Backup','Today, 11:42')]),S([T('Back Up Automatically',true)]),S([L('Add Backup Disk…'),L('Options…')])])}),
+       L('Time Machine',{icon:'update',iconBg:'#34c759',detail:D('Time Machine',[S([V('Time Machine Backups','2.4 TB'),V('Latest Backup','Today, 11:42'),V('Oldest Backup','14 May 2024'),V('Next Backup','Within the hour')]),S([T('Back Up Automatically',true)]),S([L('Add Backup Disk…'),L('Options…',{detail:D('Options',[S([CHOICE('Back up frequency',['Automatically every hour','Manually'],0)]),S([T('Back up on battery power',false),T('Notify after old backups are deleted',true)]),S([L('Exclude from Backups',{value:'0 items'})])])})])])}),
        L('Startup Disk',{icon:'storage',iconBg:'#8e8e93',detail:D('Startup Disk',[S([V('Macintosh HD','macOS 14.5')],{footer:'Select the system you want to use to start up your computer.'}),S([B('Restart…',{style:'link'})])])})])
   ])},
   {id:'appearance',title:'Appearance',icon:'appearance',iconBg:'#111',group:'gen',detail:D('Appearance',[
@@ -2479,23 +2479,14 @@ SETTINGS.windows={
  sidebar:[
   {id:'account',kind:'account',detail:D('Your info',[S([{type:'accHero'}]),S([V('Account type','Administrator'),L('Sign in with a Microsoft account instead')]),S([L('Related settings'),L('Accounts')])])},
   {id:'system',title:'System',icon:'desktop',iconBg:'#0067c0',group:'w1',detail:D('System',[
-    S([L('Display',{icon:'display',iconBg:'#0067c0',detail:D('Display',[
-        S([SL(70,'display','display')],{header:'Brightness'}),
-        S([T('Night light',false),T('HDR',false)]),
-        CHOICE('Scale',['100%','125% (Recommended)','150%'],1),
-        S([L('Display resolution',{value:'2560 × 1440'}),L('Display orientation',{value:'Landscape'})])
-      ])}),
-       L('Sound',{icon:'sounds',iconBg:'#0067c0',detail:D('Sound',[S([SL(60,'sounds','sounds')],{header:'Volume'}),S([L('Output',{value:'Speakers'}),L('Input',{value:'Microphone Array'}),T('Mono audio',false)])])}),
-       L('Notifications',{icon:'notifications',iconBg:'#0067c0',detail:D('Notifications',[S([T('Notifications',true)]),S([T('Show notifications on the lock screen',true),T('Play a sound when a notification arrives',true),T('Do not disturb',false)])])}),
-       L('Focus assist',{icon:'focus',iconBg:'#0067c0'}),
-       L('Power & battery',{icon:'battery',iconBg:'#0067c0',detail:D('Power & battery',[S([V('Battery level','86%')]),S([L('Power mode',{value:'Balanced'}),T('Battery saver',false),T('Energy saver',false)])])}),
-       L('Storage',{icon:'storage',iconBg:'#0067c0',detail:D('Storage',[S([{type:'storageBar'}]),S([L('Apps & features',{value:'42.1 GB'}),L('Temporary files',{value:'8.3 GB'}),T('Storage Sense',true)])])}),
-       L('Multitasking',{icon:'apps',iconBg:'#0067c0',detail:D('Multitasking',[S([T('Snap windows',true),T('Show tabs from apps when snapping',true),T('Shake title bar to minimize',false)])])}),
-       L('About',{icon:'desktop',iconBg:'#0067c0',detail:D('About',[
-         S([V('Device name','DESKTOP-M7K2P9')]),
-         S([V('Processor','Intel Core i7-13700 3.40 GHz'),V('Installed RAM','32.0 GB'),V('Device ID','A1B2-C3D4-E5F6'),V('System type','64-bit operating system')],{header:'Device specifications'}),
-         S([V('Edition','Windows 11 Pro'),V('Version','23H2'),V('OS build','22631.3737')],{header:'Windows specifications'})
-       ])})])
+    S([L('Display',{icon:'display',iconBg:'#0067c0',detail:winDisplay()}),
+       L('Sound',{icon:'sounds',iconBg:'#0067c0',detail:winSound()}),
+       L('Notifications',{icon:'notifications',iconBg:'#0067c0',detail:D('Notifications',[S([T('Notifications',true)]),S([T('Show notifications on the lock screen',true),T('Show reminders and incoming VoIP calls on the lock screen',true),T('Play a sound when a notification arrives',true)]),S([L('Set priority notifications'),V('Chrome','On'),V('Mail','On'),V('Teams','Off')],{header:'Notifications from apps and other senders'})])}),
+       L('Focus',{icon:'focus',iconBg:'#0067c0',detail:winFocus()}),
+       L('Power & battery',{icon:'battery',iconBg:'#0067c0',detail:winPower()}),
+       L('Storage',{icon:'storage',iconBg:'#0067c0',detail:winStorage()}),
+       L('Multitasking',{icon:'apps',iconBg:'#0067c0',detail:D('Multitasking',[S([L('Snap windows',{value:'On',detail:D('Snap windows',[S([T('Snap windows',true),T('Show snap layouts when I hover over a window’s maximize button',true),T('Show snap layouts when I drag a window to the top of my screen',true),T('When I snap a window, suggest what I can snap next to it',true)])])}),T('Show tabs from apps when snapping or pressing Alt+Tab',true),L('Desktops',{detail:D('Desktops',[CHOICE('On the taskbar, show all the open windows',['On all desktops','Only on the desktop I’m using'],1)])}),T('Title bar window shake',false)])])}),
+       L('About',{icon:'desktop',iconBg:'#0067c0',detail:winAbout()})])
   ,
     S([L('Nearby sharing',{icon:'network',iconBg:'#0067c0',detail:D('Nearby sharing',[CHOICE('',['Off','My devices only','Everyone nearby'],1),S([L('Save files to',{value:'Downloads'})])])}),L('Remote Desktop',{value:'Off',icon:'desktop',iconBg:'#0067c0',detail:D('Remote Desktop',[S([T('Remote Desktop',false)],{footer:'Connect to and control this PC from a remote device.'})])}),L('Clipboard',{icon:'files',iconBg:'#0067c0',detail:D('Clipboard',[S([T('Clipboard history',true),T('Sync across your devices',false)]),S([B('Clear',{style:'link'})])])}),L('Activation',{value:'Active',icon:'privacy',iconBg:'#0067c0',detail:D('Activation',[S([V('Activation state','Active'),V('Edition','Windows 11 Pro')]),S([L('Change product key'),L('Upgrade your edition of Windows')])])}),L('Recovery',{icon:'update',iconBg:'#0067c0',detail:D('Recovery',[S([L('Fix problems using Windows Update'),L('Reset this PC',{value:'Get started'}),L('Advanced startup',{value:'Restart now'})])])})],{header:'More'})])},
   {id:'bt',title:'Bluetooth & devices',icon:'bluetooth',iconBg:'#0067c0',group:'w1',detail:D('Bluetooth & devices',[
@@ -2571,12 +2562,12 @@ SETTINGS.windows={
     S([L('General',{icon:'gear',iconBg:'#0067c0',detail:D('General',[S([T('Let apps show me personalized ads by using my advertising ID',false),T('Let websites show me locally relevant content',true),T('Let Windows improve Start and search results',true)])])}),
        L('Location',{value:'On',icon:'location',iconBg:'#0067c0',detail:D('Location',[S([T('Location services',true),T('Let apps access your location',true),T('Let desktop apps access your location',true)]),S([V('Zoom',''),V('Weather',''),V('Maps','')],{header:'Let these apps access your location'})])}),
        L('Camera',{value:'On',icon:'camera',iconBg:'#0067c0',detail:D('Camera',[S([T('Camera access',true),T('Let apps access your camera',true)]),S([V('Zoom',''),V('Teams',''),V('Camera','')],{header:'Let these apps access your camera'})])}),
-       L('Microphone',{value:'On',icon:'mic',iconBg:'#0067c0',detail:D('Microphone',[S([T('Microphone access',true),T('Let apps access your microphone',true)])])}),
-       L('Notifications',{value:'On',icon:'notifications',iconBg:'#0067c0'}),
-       L('Account info',{value:'On',icon:'personcircle',iconBg:'#0067c0'})],{header:'App permissions'})
+       winPermList('Microphone',[['Zoom',true],['Teams',true],['Voice Recorder',true],['Chrome',false]]),
+       winPermList('Notifications',[['Mail',true],['Teams',true],['Chrome',true]]),
+       winPermList('Account info',[['Mail',true],['People',true],['Store',false]])],{header:'App permissions'})
   ,
     S([L('Speech',{icon:'mic',iconBg:'#0067c0',detail:D('Speech',[S([T('Online speech recognition',true)],{footer:'Use your voice for dictation and to talk to apps.'})])}),L('Inking & typing personalization',{icon:'keyboard',iconBg:'#0067c0',detail:D('Inking & typing personalization',[S([T('Personal inking and typing dictionary',true)])])}),L('Diagnostics & feedback',{icon:'privacy',iconBg:'#0067c0',detail:D('Diagnostics & feedback',[CHOICE('Diagnostic data',['Required only','Optional'],0),S([T('Improve inking and typing',true),T('Tailored experiences',true),L('Delete diagnostic data',{value:'Delete'})])])}),L('Activity history',{icon:'update',iconBg:'#0067c0',detail:D('Activity history',[S([T('Store my activity history on this device',true)])])}),L('Search permissions',{icon:'search',iconBg:'#0067c0',detail:D('Search permissions',[CHOICE('SafeSearch',['Strict','Moderate','Off'],1),S([T('Cloud content search — Microsoft account',true),T('Search history on this device',true)])])})],{header:'Windows permissions'}),
-    S([L('Contacts',{value:'On',icon:'appleid',iconBg:'#0067c0'}),L('Calendar',{value:'On',icon:'calendar',iconBg:'#0067c0'}),L('Phone calls',{value:'Off',icon:'message',iconBg:'#0067c0'}),L('Documents',{value:'On',icon:'files',iconBg:'#0067c0'}),L('Pictures',{value:'On',icon:'wallpaper',iconBg:'#0067c0'}),L('File system',{value:'On',icon:'storage',iconBg:'#0067c0'})],{header:'More app permissions'})])},
+    S([winPermList('Contacts',[['Mail',true],['Teams',true],['People',true]]),winPermList('Calendar',[['Mail',true],['Teams',true]]),L('Phone calls',{value:'Off',icon:'message',iconBg:'#0067c0',detail:D('Phone calls',[S([T('Phone call access',false),T('Let apps make phone calls',false)])])}),winPermList('Documents',[['Word',true],['Chrome',true]]),winPermList('Pictures',[['Photos',true],['Instagram',true]]),L('File system',{value:'On',icon:'storage',iconBg:'#0067c0',detail:D('File system',[S([T('File system access',true),T('Let apps access your file system',true)]),S([V('OneDrive',''),V('Backup and Sync','')],{header:'Let these apps access your file system'})])})],{header:'More app permissions'})])},
   {id:'update',title:'Windows Update',icon:'update',iconBg:'#0067c0',group:'w2',detail:D('Windows Update',[
     S([V('You\'re up to date','Last checked: Today, 09:12')]),
     S([B('Check for updates',{style:'link'})]),
@@ -2947,6 +2938,43 @@ function winHelloPin(){return D('PIN (Windows Hello)',[
   S([L('Change PIN'),L('I forgot my PIN')]),
   S([T('Include letters and symbols',false)],{footer:'A PIN is tied to this device only and is not sent to Microsoft.'})
 ]);}
+/* ---- Windows 11 (23H2) — real deep System sub-screens ---- */
+function winDisplay(){return D('Display',[
+  S([SL(70,'display','display'),T('Change brightness automatically when lighting changes',false),T('Change brightness based on content',true)],{header:'Brightness & color'}),
+  S([L('Night light',{value:'Off',detail:D('Night light',[S([B('Turn on now',{style:'link'})]),S([SL(50,'display','display')],{header:'Strength'}),S([T('Schedule night light',false),CHOICE('',['Sunset to sunrise','Set hours'],0)],{header:'Schedule'})])}),L('HDR',{value:'Off',detail:D('HDR',[S([T('Use HDR',false),T('HDR video streaming',false)]),S([L('Display',{value:'PHL 279M1'}),CHOICE('Battery options',['Optimize for battery life','Optimize for image quality'],0)])])}),T('HDR',false)],{header:'HDR'}),
+  S([CHOICE('Scale',['100%','125% (Recommended)','150%','175%'],1),L('Display resolution',{value:'2560 × 1440 (Recommended)',detail:D('Display resolution',[CHOICE('',['1920 × 1080','2560 × 1440 (Recommended)','3840 × 2160'],1)])}),L('Display orientation',{value:'Landscape',detail:D('Display orientation',[CHOICE('',['Landscape','Portrait','Landscape (flipped)','Portrait (flipped)'],0)])})],{header:'Scale & layout'}),
+  S([L('Multiple displays',{detail:D('Multiple displays',[S([T('Remember window locations based on monitor connection',true),T('Minimize windows when a monitor is disconnected',false)]),S([L('Detect other display'),CHOICE('',['Duplicate','Extend','Show only on 1','Show only on 2'],1)])])}),L('Advanced display',{detail:D('Advanced display',[S([L('Choose a display',{value:'Display 1'})]),S([V('Desktop resolution','2560 × 1440'),V('Active signal resolution','2560 × 1440'),V('Bit depth','8-bit'),V('Color format','RGB')],{header:'Display information'}),S([CHOICE('Choose a refresh rate',['60 Hz','120 Hz','144 Hz'],2)])])}),L('Graphics',{detail:D('Graphics',[S([L('Change default graphics settings')]),S([V('Adobe Photoshop','High performance'),V('Chrome','Power saving'),L('Add an app')],{header:'Custom options for apps'})])})],{header:'Related settings'})
+]);}
+function winSound(){return D('Sound',[
+  S([SL(60,'sounds','sounds'),L('Output',{value:'Speakers (Realtek Audio)',detail:D('Speakers',[S([B('Test',{style:'link'})]),S([SL(60,'sounds','sounds')],{header:'Volume'}),S([CHOICE('Audio channels',['Stereo','5.1'],0),L('Format',{value:'24 bit, 48000 Hz (Studio Quality)'}),T('Enhance audio',true)]),S([L('Spatial sound',{value:'Off',detail:D('Spatial sound',[CHOICE('',['Off','Windows Sonic for Headphones','Dolby Atmos for Headphones'],0)])})])])})],{header:'Output'}),
+  S([L('Input',{value:'Microphone Array',detail:D('Microphone Array',[S([B('Test',{style:'link'})]),S([SL(70,'sounds','sounds')],{header:'Input volume'}),S([L('Format',{value:'2 channel, 24 bit, 48000 Hz'}),T('Audio enhancements',true)])])})],{header:'Input'}),
+  S([L('Volume mixer',{detail:D('Volume mixer',[S([SL(60,'sounds','sounds')],{header:'System'}),S([V('Chrome','80%'),V('Spotify','100%'),V('System sounds','60%')],{header:'Apps'})])}),T('Mono audio',false),L('All sound devices',{detail:D('All sound devices',[S([V('Speakers (Realtek Audio)','Default'),V('WH-1000XM5','Disconnected'),V('Microphone Array','Default')])])}),L('More sound settings',{detail:D('More sound settings',[S([L('Sound Control Panel'),L('App volume and device preferences')])])})],{header:'Advanced'})
+]);}
+function winFocus(){return D('Focus',[
+  S([L('Focus session',{value:'30 minutes'}),B('Start focus session',{style:'link'})]),
+  S([T('Show the timer in the Clock app',true),T('Hide badges on taskbar apps',true),T('Hide flashing on taskbar apps',true),T('Turn on do not disturb',true)],{footer:'While in focus, do not disturb turns on to silence notifications, and a timer appears.'})
+]);}
+function winPower(){return D('Power & battery',[
+  S([V('Battery level','86%')]),
+  S([L('Battery usage',{detail:D('Battery usage',[S([V('Last 24 hours',''),{type:'storageBar'}]),S([V('Chrome','18%'),V('YouTube','14%'),V('Display','22%'),V('System','9%')],{header:'Battery usage per app'})])})],{header:'Battery'}),
+  S([L('Power mode',{value:'Balanced',detail:D('Power mode',[CHOICE('',['Best power efficiency','Balanced','Best performance'],1)])}),L('Screen and sleep',{detail:D('Screen and sleep',[S([L('On battery power, turn off my screen after',{value:'5 minutes'}),L('When plugged in, turn off my screen after',{value:'15 minutes'}),L('On battery power, put my device to sleep after',{value:'10 minutes'}),L('When plugged in, put my device to sleep after',{value:'30 minutes'})])])})],{header:'Power'}),
+  S([L('Battery saver',{value:'Off',detail:D('Battery saver',[S([B('Turn on now',{style:'link'})]),S([L('Turn battery saver on automatically at',{value:'20%'}),T('Lower screen brightness when using battery saver',true)])])}),T('Energy saver',false)],{header:'Energy'})
+]);}
+function winStorage(){return D('Storage',[
+  S([{type:'storageBar'}]),
+  S([L('Apps & features',{value:'42.1 GB',detail:D('Installed apps',[S([V('Microsoft Edge','412 MB'),V('Adobe Photoshop','3.2 GB'),V('Steam','1.1 GB'),V('Spotify','420 MB'),V('Office','2.8 GB')])])}),L('Temporary files',{value:'8.3 GB',detail:D('Temporary files',[S([T('Windows Update Cleanup',true),T('Delivery Optimization Files',true),T('Recycle Bin',false),T('Thumbnails',true),T('Temporary Internet Files',true)]),S([B('Remove files',{style:'link'})])])}),L('Documents',{value:'6.1 GB'}),L('Pictures',{value:'12.4 GB'})],{header:'Local Disk (C:)'}),
+  S([L('Storage Sense',{value:'On',detail:D('Storage Sense',[S([T('Automatic User content cleanup',true)]),S([CHOICE('Run Storage Sense',['Every day','Every week','Every month','During low free disk space'],3),L('Delete files in my recycle bin if they have been there for over',{value:'30 days'}),L('Delete files in my Downloads folder if they have not been opened for more than',{value:'Never'})],{header:'Configure cleanup schedules'})])}),L('Cleanup recommendations',{detail:D('Cleanup recommendations',[S([V('Temporary files','8.3 GB'),V('Large or unused files','2.1 GB'),V('Files synced to the cloud','—')])])}),L('Advanced storage settings',{detail:D('Advanced storage settings',[S([L('Storage used on other drives'),L('Where new content is saved'),L('Disks & volumes'),L('Backup options')])])})],{header:'Storage management'})
+]);}
+function winAbout(){return D('About',[
+  S([V('Device name','DESKTOP-M7K2P9'),L('Rename this PC',{value:'Rename',detail:D('Rename your PC',[S([NOTE('Use a name to identify this PC on the network. Your PC will restart to apply the new name.')]),S([L('Current name','DESKTOP-M7K2P9'),B('Next',{style:'link',align:'center'})])])})]),
+  S([V('Processor','Intel Core i7-13700 3.40 GHz'),V('Installed RAM','32.0 GB (31.8 GB usable)'),V('Device ID','A1B2C3D4-E5F6-7890-ABCD-EF1234567890'),V('Product ID','00330-80000-00000-AA123'),V('System type','64-bit operating system, x64-based processor'),V('Pen and touch','No pen or touch input')],{header:'Device specifications'}),
+  S([V('Edition','Windows 11 Pro'),V('Version','23H2'),V('Installed on','2024-03-14'),V('OS build','22631.3737'),V('Experience','Windows Feature Experience Pack 1000.22700.1020.0')],{header:'Windows specifications'}),
+  S([L('BitLocker settings'),L('Device Manager'),L('Remote desktop'),L('System protection'),L('Advanced system settings')],{header:'Related links'})
+]);}
+function winPermList(name,apps){return L(name,{value:'On',icon:'privacy',iconBg:'#0067c0',detail:D(name,[
+  S([T(name+' access',true),T('Let apps access your '+name.toLowerCase(),true)]),
+  S(apps.map(function(a){return T(a[0],a[1]);}),{header:'Let these apps access your '+name.toLowerCase()})
+])});}
 /* ---- Software update ---- */
 function androidSystemUpdate(){return D('System update',[
   S([NOTE('Your system is up to date.')],{footer:'Checked for updates just now'}),
@@ -5625,7 +5653,7 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
  let USER=store.get('user',null);
  /* build/version stamp. version is bumped per release; deploy time is detected
     automatically from the served file (falls back to this baked time). */
- const BUILD={version:'1.16.0',time:'2026-07-27T13:43:00Z'};
+ const BUILD={version:'1.17.0',time:'2026-07-27T13:56:00Z'};
  function buildTimeStr(){try{return new Date(BUILD.time).toLocaleString(state.lang||'en',{dateStyle:'medium',timeStyle:'short'});}catch(e){return (BUILD.time||'').replace('T',' ').replace('Z',' UTC');}}
  function updateFooterVer(){document.querySelectorAll('.foot-ver').forEach(fv=>{fv.innerHTML=`<span class="fv-badge">v${esc(BUILD.version)}</span><span>${esc(t('deployLabel'))}: ${esc(buildTimeStr())}</span>`;});}
  /* auto deploy time: use the served file's Last-Modified (document.lastModified).
