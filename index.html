@@ -4172,7 +4172,7 @@ V;
   /* ---- sticky top nav ---- */
   const nav=el(`<header class="site-nav"><div class="nav-inner">
     <button class="nav-brand" data-scroll="top" aria-label="osimulator"><span class="nav-mark">o<i>s</i></span><span class="nav-word">osimulator</span></button>
-    <nav class="nav-links">${getNavMenu().filter(it=>it.vis!==false).filter(it=>{const p=it.act.split(':');return !(p[0]==='route'&&!featOn(p[1]));}).map(it=>`<button class="nav-link" data-act="${esc(it.act)}">${esc(it.label||t(it.key||''))}</button>`).join('')}</nav>
+    <nav class="nav-links">${getNavMenu().filter(it=>it.vis!==false&&it.act!=='route:embed').filter(it=>{const p=it.act.split(':');return !(p[0]==='route'&&!featOn(p[1]));}).map(it=>`<button class="nav-link" data-act="${esc(it.act)}">${esc(it.label||t(it.key||''))}</button>`).join('')}</nav>
     <div class="nav-right"></div>
   </div></header>`);
   const nr=nav.querySelector('.nav-right');
@@ -4186,7 +4186,7 @@ V;
   nr.appendChild(themeBtn);
   nr.appendChild(flagLangSelect(renderSelect));
   nr.appendChild(buildAuthNav());
-  nr.appendChild(navBurger(()=>getNavMenu().filter(it=>it.vis!==false).filter(it=>{const p=it.act.split(':');return !(p[0]==='route'&&!featOn(p[1]));}).map(it=>({label:it.label||t(it.key||''),run:()=>doNav(it.act,go)})),renderSelect));
+  nr.appendChild(navBurger(()=>getNavMenu().filter(it=>it.vis!==false&&it.act!=='route:embed').filter(it=>{const p=it.act.split(':');return !(p[0]==='route'&&!featOn(p[1]));}).map(it=>({label:it.label||t(it.key||''),run:()=>doNav(it.act,go)})),renderSelect));
   setTimeout(updateThemeIcons,0);
   w.appendChild(nav);
   /* ---- hero (two-column: headline + interactive OS spotlight) ---- */
@@ -5067,7 +5067,7 @@ V;
  let USER=store.get('user',null);
  /* build/version stamp. version is bumped per release; deploy time is detected
     automatically from the served file (falls back to this baked time). */
- const BUILD={version:'1.11.0',time:'2026-07-27T07:16:00Z'};
+ const BUILD={version:'1.11.1',time:'2026-07-27T07:21:00Z'};
  function buildTimeStr(){try{return new Date(BUILD.time).toLocaleString(state.lang||'en',{dateStyle:'medium',timeStyle:'short'});}catch(e){return (BUILD.time||'').replace('T',' ').replace('Z',' UTC');}}
  function updateFooterVer(){document.querySelectorAll('.foot-ver').forEach(fv=>{fv.innerHTML=`<span class="fv-badge">v${esc(BUILD.version)}</span><span>${esc(t('deployLabel'))}: ${esc(buildTimeStr())}</span>`;});}
  /* auto deploy time: use the served file's Last-Modified (document.lastModified).
@@ -5774,7 +5774,7 @@ V;
   const greRender=()=>{if(state.view==='guide')renderGuideArticle(state.guideSlug);else if(state.view==='comparison')renderComparison(state.cmpSlug);else if(state.view==='compare')renderComparePage();else if(state.view==='vs')renderVsPage('ios','android');else if(state.view==='quiz')renderQuizPage();else if(state.view==='embed')renderEmbedPage();else renderGuidesPage();};
   nr.appendChild(flagLangSelect(greRender));
   nr.appendChild(buildAuthNav());
-  nr.appendChild(navBurger(()=>{const gl=[{label:t('homeNav'),run:()=>{try{history.replaceState(null,'',guideBaseUrl());}catch(e){}renderSelect();}}];if(featOn('find'))gl.push({label:t('findNav'),run:()=>renderFindPage()});if(featOn('guides'))gl.push({label:t('guidesNav'),run:renderGuidesPage});if(featOn('compare'))gl.push({label:t('compareNav'),run:renderComparePage});if(featOn('vs'))gl.push({label:t('vsNav'),run:()=>renderVsPage('ios','android')});if(featOn('changes'))gl.push({label:t('changesNav'),run:()=>renderChangesPage()});if(featOn('daily'))gl.push({label:t('dailyNav'),run:()=>renderDailyPage()});if(featOn('quiz'))gl.push({label:t('quizNav'),run:renderQuizPage});if(featOn('embed'))gl.push({label:t('embedNav'),run:()=>renderEmbedPage()});return gl;},greRender));
+  nr.appendChild(navBurger(()=>{const gl=[{label:t('homeNav'),run:()=>{try{history.replaceState(null,'',guideBaseUrl());}catch(e){}renderSelect();}}];if(featOn('find'))gl.push({label:t('findNav'),run:()=>renderFindPage()});if(featOn('guides'))gl.push({label:t('guidesNav'),run:renderGuidesPage});if(featOn('compare'))gl.push({label:t('compareNav'),run:renderComparePage});if(featOn('vs'))gl.push({label:t('vsNav'),run:()=>renderVsPage('ios','android')});if(featOn('changes'))gl.push({label:t('changesNav'),run:()=>renderChangesPage()});if(featOn('daily'))gl.push({label:t('dailyNav'),run:()=>renderDailyPage()});if(featOn('quiz'))gl.push({label:t('quizNav'),run:renderQuizPage});return gl;},greRender));
   nav.querySelectorAll('[data-ghome]').forEach(b=>b.addEventListener('click',()=>{try{history.replaceState(null,'',guideBaseUrl());}catch(e){}renderSelect();}));
   nav.querySelectorAll('[data-findl]').forEach(b=>b.addEventListener('click',()=>renderFindPage()));
   nav.querySelectorAll('[data-gall]').forEach(b=>b.addEventListener('click',renderGuidesPage));
@@ -6333,7 +6333,7 @@ V;
  function topView(n){const m={};evAll().filter(e=>e.t==='view').forEach(e=>m[e.l]=(m[e.l]||0)+1);const a=Object.keys(m).map(k=>[k,m[k]]);a.sort((x,y)=>y[1]-x[1]);return a.slice(0,n);}
  function typeCounts(){const m={};evAll().forEach(e=>m[e.t]=(m[e.t]||0)+1);return Object.keys(m).map(k=>[k,m[k]]).sort((x,y)=>y[1]-x[1]);}
  /* header menu config */
- const DEFAULT_NAV=[{id:'systems',key:'navSystems',act:'scroll:systems',vis:true},{id:'how',key:'navHow',act:'scroll:how',vis:true},{id:'find',key:'findNav',act:'route:find',vis:true},{id:'guides',key:'guidesNav',act:'route:guides',vis:true},{id:'compare',key:'compareNav',act:'route:compare',vis:true},{id:'vs',key:'vsNav',act:'route:vs',vis:true},{id:'changes',key:'changesNav',act:'route:changes',vis:true},{id:'daily',key:'dailyNav',act:'route:daily',vis:true},{id:'quiz',key:'quizNav',act:'route:quiz',vis:true},{id:'embed',key:'embedNav',act:'route:embed',vis:true},{id:'features',key:'navFeatures',act:'scroll:features',vis:true}];
+ const DEFAULT_NAV=[{id:'systems',key:'navSystems',act:'scroll:systems',vis:true},{id:'how',key:'navHow',act:'scroll:how',vis:true},{id:'find',key:'findNav',act:'route:find',vis:true},{id:'guides',key:'guidesNav',act:'route:guides',vis:true},{id:'compare',key:'compareNav',act:'route:compare',vis:true},{id:'vs',key:'vsNav',act:'route:vs',vis:true},{id:'changes',key:'changesNav',act:'route:changes',vis:true},{id:'daily',key:'dailyNav',act:'route:daily',vis:true},{id:'quiz',key:'quizNav',act:'route:quiz',vis:true},{id:'features',key:'navFeatures',act:'scroll:features',vis:true}];
  function getNavMenu(){const m=store.get('navMenu',null);return (m&&m.length)?m:JSON.parse(JSON.stringify(DEFAULT_NAV));}
  function setNavMenu(m){store.set('navMenu',m);queueConfigPush();}
  /* ---- shared site config (Supabase) ---- */
