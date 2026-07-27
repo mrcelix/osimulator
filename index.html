@@ -2636,8 +2636,9 @@ SETTINGS.ios={
   {id:'sounds',title:'Sounds & Haptics',icon:'sounds',iconBg:'#ff2d55',group:'alerts',detail:D('Sounds & Haptics',[
     S([T('Silent Mode',false)]),
     S([SL(70,'sounds','sounds'),T('Change with Buttons',true)],{header:'Ringtone and Alert Volume'}),
-    S([L('Ringtone',{value:'Reflection'}),L('Text Tone',{value:'Note'}),L('New Voicemail',{value:'Tri-tone'})],{header:'Sounds and Haptic Patterns'}),
-    S([T('Play Haptics in Silent Mode',true),T('Keyboard Feedback',true)])
+    S([L('Ringtone',{value:'Reflection',detail:iosRingtone()}),L('Text Tone',{value:'Note',detail:iosTextTone()}),L('New Voicemail',{value:'Tri-tone',detail:iosAlertTone(13)}),L('New Mail',{value:'None',detail:iosAlertTone(0)}),L('Sent Mail',{value:'Swoosh',detail:iosAlertTone(0)}),L('Calendar Alerts',{value:'Chord',detail:iosAlertTone(4)}),L('Reminder Alerts',{value:'Chord',detail:iosAlertTone(4)}),L('AirDrop',{value:'Pulse',detail:iosAlertTone(11)})],{header:'Sounds and Haptic Patterns'}),
+    S([L('Keyboard Feedback',{value:'On',detail:D('Keyboard Feedback',[S([T('Sound',true),T('Haptic',false)])])}),T('Lock Sound',true),T('Play Haptics in Silent Mode',true),T('Play Haptics in Ring Mode',true)]),
+    S([L('System Haptics',{value:'On'})],{footer:'Play haptics for system controls and interactions.'})
   ])},
   {id:'focus',title:'Focus',icon:'focus',iconBg:'#5e5ce6',group:'alerts',detail:D('Focus',[
     S([L('Add Focus',{detail:focusCreate()})],{footer:'Focus helps you stay in the moment by silencing or allowing only certain notifications.'}),
@@ -2683,16 +2684,7 @@ SETTINGS.ios={
     S([T('Show in App Library',true),T('Show Notification Badges',true)]),
     S([T('Show on Home Screen — Search',true)],{header:'Search'})
   ])},
-  {id:'accessibility',title:'Accessibility',icon:'accessibility',iconBg:'#0a84ff',group:'sys',detail:D('Accessibility',[
-    S([L('VoiceOver',{value:'Off',detail:D('VoiceOver',[S([T('VoiceOver',false)],{footer:'VoiceOver speaks items on the screen: Tap to select, double-tap to activate, swipe with three fingers to scroll.'}),S([SL(50,'general','general')],{header:'Speaking Rate'}),S([L('Speech'),L('Braille'),L('Verbosity'),L('Audio'),L('Rotor')])])}),
-       L('Zoom',{value:'Off',detail:D('Zoom',[S([T('Zoom',false)]),S([T('Follow Focus',true),T('Smart Typing',true)]),S([L('Zoom Region',{value:'Window Zoom'}),L('Zoom Controller',{value:'Off'}),SL(30,'general','general')])])}),
-       L('Display & Text Size',{detail:displayTextSize()}),
-       L('Motion',{detail:D('Motion',[S([T('Reduce Motion',false),T('Auto-Play Message Effects',true),T('Auto-Play Video Previews',true),T('Limit Frame Rate',false)])])}),
-       L('Spoken Content',{detail:D('Spoken Content',[S([T('Speak Selection',false),T('Speak Screen',false)]),S([L('Voices'),L('Speaking Rate'),T('Highlight Content',true),L('Typing Feedback')])])}),
-       L('Audio Descriptions',{value:'Off',detail:D('Audio Descriptions',[S([T('Audio Descriptions',false)],{footer:'Play audio descriptions automatically for video content when available.'})])})],{header:'Vision'}),
-    S([L('Touch',{detail:D('Touch',[S([L('AssistiveTouch',{value:'Off'}),L('Reachability',{value:'On'}),L('Tap to Wake',{value:'On'})])])}),L('Face ID & Attention'),L('Switch Control',{value:'Off'}),L('Voice Control',{value:'Off'})],{header:'Physical and Motor'}),
-    S([L('Hearing Devices'),L('Sound Recognition',{value:'Off'}),L('Audio & Visual'),L('Subtitles & Captioning')],{header:'Hearing'})
-  ])},
+  {id:'accessibility',title:'Accessibility',icon:'accessibility',iconBg:'#0a84ff',group:'sys',detail:iosAccessibility()},
   {id:'wallpaper',title:'Wallpaper',icon:'wallpaper',iconBg:'#34c759',group:'sys',detail:D('Wallpaper',[S([{type:'wallpaperPreview'}]),S([B('Add New Wallpaper',{style:'link',align:'center'})]),S([T('Dark Mode Dims Wallpaper',true)])])},
   {id:'siri',title:'Siri & Search',icon:'siri',iconBg:'#0a84ff',group:'sys',detail:D('Siri & Search',[S([T('Listen for "Hey Siri"',true),T('Press Side Button for Siri',true),T('Allow Siri When Locked',true)]),S([L('Language',{value:'English (United States)'}),L('Siri Voice',{value:'Voice 4'}),L('Siri Responses')])])},
   {id:'faceid',title:'Face ID & Passcode',icon:'passcode',iconBg:'#34c759',group:'sys',detail:D('Face ID & Passcode',[
@@ -2961,6 +2953,42 @@ function androidSystemUpdate(){return D('System update',[
   S([V('Android version','14'),V('Android security update','July 1'),V('Google Play system update','July 1')]),
   S([L('Check for update')])
 ]);}
+/* ---- Android 14 (Pixel) — real deep sub-screens ---- */
+function androidPermGroup(name,apps){return L(name,{value:apps.filter(function(a){return a[1];}).length+' of '+apps.length+' apps allowed',detail:D(name+' permission',[
+  S(apps.filter(function(a){return a[1];}).map(function(a){return V(a[0],'');}),{header:'Allowed'}),
+  S(apps.filter(function(a){return !a[1];}).map(function(a){return V(a[0],'');}),{header:'Not allowed'})
+])});}
+function androidPermMgr(){return D('Permission manager',[
+  S([androidPermGroup('Location',[['Maps',true],['Weather',true],['Uber',true],['Chrome',false],['Instagram',false]]),
+     androidPermGroup('Camera',[['Instagram',true],['WhatsApp',true],['Snapchat',true],['Chrome',false]]),
+     androidPermGroup('Microphone',[['Phone',true],['WhatsApp',true],['Assistant',true],['Instagram',false]]),
+     androidPermGroup('Contacts',[['WhatsApp',true],['Messages',true],['Gmail',true],['Instagram',false]]),
+     androidPermGroup('Files and media',[['Instagram',true],['WhatsApp',true],['Files',true]]),
+     androidPermGroup('Notifications',[['Gmail',true],['WhatsApp',true],['YouTube',false]]),
+     androidPermGroup('Nearby devices',[['Pixel Buds',true],['Cast',true]]),
+     androidPermGroup('Physical activity',[['Fit',true],['Health Connect',true]]),
+     androidPermGroup('Calendar',[['Calendar',true],['Gmail',true]]),
+     androidPermGroup('SMS',[['Messages',true],['Phone',true]]),
+     androidPermGroup('Phone',[['Phone',true],['WhatsApp',true]])])
+]);}
+function androidPrivacyDash(){return D('Privacy dashboard',[
+  S([V('Location','8 uses'),V('Camera','3 uses'),V('Microphone','5 uses')],{header:'Last 24 hours'}),
+  S([V('9:42 Maps','Location'),V('9:10 WhatsApp','Camera, Microphone'),V('8:55 Instagram','Camera'),V('8:30 Assistant','Microphone')],{header:'Timeline'}),
+  S([L('Show all permissions',{detail:androidPermMgr()})])
+]);}
+function androidScreenLock(){return D('Choose screen lock',[
+  CHOICE('',['None','Swipe','Pattern','PIN','Password'],3),
+  S([NOTE('A secure lock is required to use fingerprint and Face Unlock.')])
+]);}
+function androidFingerprint(){return D('Fingerprint',[
+  S([V('Finger 1',''),V('Finger 2','')],{header:'Fingerprints'}),
+  S([L('Add fingerprint')]),
+  S([T('Fingerprint unlock',true),T('Tap to pay',true),T('App sign-in',true),T('Show fingerprint icon',true)],{header:'Use fingerprint for'})
+]);}
+function androidAddLanguage(){return D('Add a language',[
+  CHOICE('Suggested',['English (United States)','Türkçe'],-1),
+  CHOICE('All languages',['Afrikaans','Azərbaycan','Deutsch','Español','Français','Italiano','Nederlands','Português','Русский','العربية','हिन्दी','中文','日本語','한국어'],-1)
+]);}
 /* ---- Notifications ---- */
 function showPreviews(){return D('Show Previews',[CHOICE('',['Always','When Unlocked','Never'],0,'Previews can include text from Messages, invitation details, and more.')]);}
 function scheduledSummary(){return D('Scheduled Summary',[
@@ -3149,14 +3177,14 @@ SETTINGS.android={
     S([L('Switch Access',{value:'Off'}),L('Timing controls',{detail:D('Timing controls',[S([L('Touch & hold delay',{value:'Default'}),L('Time to take action',{value:'Default'}),T('Autoclick',false)])])}),L('System controls',{detail:D('System controls',[S([L('System navigation',{value:'Gesture navigation'}),T('Power button ends call',true),T('Auto-rotate screen',true)])])})],{header:'Interaction controls'})
   ])},
   {id:'security',title:'Security & privacy',icon:'privacy',iconBg:'#4285f4',group:'a2',detail:D('Security & privacy',[
-    S([L('App security',{value:'0 issues'}),L('Device unlock',{detail:D('Device unlock',[S([L('Screen lock',{value:'PIN'}),L('Fingerprint',{value:'2 added'}),L('Face Unlock',{value:'Set up'})])])}),L('Device lock')]),
-    S([L('Privacy controls',{detail:D('Privacy',[S([L('Permission manager'),L('Privacy dashboard'),T('Camera access',true),T('Microphone access',true),L('Ads')])])}),L('More security & privacy')]),
+    S([L('App security',{value:'0 issues'}),L('Device unlock',{detail:D('Device unlock',[S([L('Screen lock',{value:'PIN',detail:androidScreenLock()}),L('Fingerprint',{value:'2 added',detail:androidFingerprint()}),L('Face Unlock',{value:'Set up',detail:D('Face Unlock',[S([NOTE('Look at your phone to unlock it. Face Unlock is less secure than a PIN, pattern or password.')]),S([B('Set up Face Unlock',{style:'link',align:'center'})])])})])])}),L('Device lock')]),
+    S([L('Privacy controls',{detail:D('Privacy',[S([L('Permission manager',{detail:androidPermMgr()}),L('Privacy dashboard',{detail:androidPrivacyDash()}),T('Camera access',true),T('Microphone access',true),L('Show clipboard access',{value:'On'}),L('Ads',{detail:D('Ads',[S([L('Delete advertising ID'),T('Opt out of Ads Personalization',false)])])})])])}),L('More security & privacy')]),
     S([L('Find My Device',{value:'On'}),L('Google Play Protect',{value:'On'})])
   ,
     S([L('Google Play Protect',{value:'On',detail:D('Google Play Protect',[S([NOTE('Apps scanned. No harmful apps found.')]),S([T('Scan apps with Play Protect',true),T('Improve harmful app detection',false)])])}),L('Security update',{value:'July 1',detail:D('Security update',[S([NOTE('Your system is up to date.')],{footer:'Android security update: July 1'}),S([L('Check for update')])])}),L('Encryption & credentials',{detail:D('Encryption & credentials',[S([V('Encrypt phone','Encrypted'),L('Trusted credentials'),L('User credentials'),L('Install a certificate')])])}),L('Trust agents',{value:'1 active'}),L('App pinning',{value:'Off'})],{header:'More security settings'})])},
   {id:'location',title:'Location',icon:'location',iconBg:'#ea4335',group:'a2',detail:D('Location',[
     S([T('Use location',true)]),
-    S([L('App location permissions',{value:'6 apps allowed'}),L('Location services',{detail:D('Location services',[S([T('Emergency Location Service',true),T('Google Location Accuracy',true),L('Wi-Fi scanning'),L('Bluetooth scanning')])])})]),
+    S([L('App location permissions',{value:'6 apps allowed',detail:androidPermGroup('Location',[['Maps',true],['Weather',true],['Uber',true],['Find My Device',true],['Camera',true],['Chrome',true],['Instagram',false]]).detail}),L('Location services',{detail:D('Location services',[S([T('Emergency Location Service',true),T('Google Location Accuracy',true),T('Earthquake alerts',true),L('Wi-Fi scanning',{value:'On'}),L('Bluetooth scanning',{value:'On'})])])})]),
     S([L('Recent access',{value:'Maps, Weather'})])
   ])},
   {id:'safety',title:'Safety & emergency',icon:'sounds',iconBg:'#ea4335',group:'a2',detail:D('Safety & emergency',[
@@ -3171,7 +3199,7 @@ SETTINGS.android={
     S([L('Set up parental controls',{detail:D('Parental controls',[S([NOTE('Add content restrictions and other limits to help your child balance their screen time.')]),S([B('Get started',{style:'link'})])])})],{header:'Parental controls'})
   ])},
   {id:'system',title:'System',icon:'general',iconBg:'#5f6368',group:'a3',detail:D('System',[
-    S([L('Languages',{detail:D('Languages',[S([V('English (United States)','1'),V('Türkçe','2'),L('Add a language')])])}),L('Gestures',{detail:D('Gestures',[S([L('System navigation',{value:'Gesture navigation'}),T('Press and hold power button',true),T('Double-tap for Quick Tap',false)])])}),L('Date & time',{detail:D('Date & time',[S([T('Set time automatically',true),T('Use 24-hour format',true)]),S([V('Time zone','GMT+03:00 Istanbul')])])})]),
+    S([L('Languages',{detail:D('Languages',[S([V('English (United States)','1'),V('Türkçe','2'),L('Add a language',{detail:androidAddLanguage()})]),S([L('App languages'),L('Speech',{detail:D('Speech',[S([L('Text-to-speech output'),L('Voice input')])])})])])}),L('Gestures',{detail:D('Gestures',[S([L('System navigation',{value:'Gesture navigation',detail:D('System navigation',[CHOICE('',['Gesture navigation','3-button navigation'],0)])}),T('Press and hold power button for Assistant',true),T('Double-tap for Quick Tap',false),T('Flip camera for selfie',true),T('Prevent ringing (Power + Volume up)',true)])])}),L('Date & time',{detail:D('Date & time',[S([T('Set time automatically',true),T('Set time zone automatically',true),V('Time zone','GMT+03:00 Istanbul'),T('Use 24-hour format',true)])])})]),
     S([L('Backup',{value:'On'}),L('Reset options',{detail:D('Reset options',[S([L('Reset Wi-Fi, mobile & Bluetooth'),L('Reset app preferences'),L('Erase all data (factory reset)')])])}),L('Multiple users',{value:'Off'}),L('System update',{value:'Up to date',detail:androidSystemUpdate()})])
   ,
     S([L('Developer options',{detail:D('Developer options',[S([T('Developer options',true)]),S([T('USB debugging',false),T('Stay awake',false),L('Running services'),L('Default USB configuration',{value:'File Transfer'})]),CHOICE('Window animation scale',['Off','0.5x','1x','2x'],2)])})],{header:'Advanced'})])},
@@ -3278,6 +3306,40 @@ function locationServices(){return D('Location Services',[
   S([T('Location Services',true)],{footer:'Location Services uses GPS, Bluetooth, and crowd-sourced Wi-Fi hotspot and cell tower locations to determine your approximate location.'}),
   S([L('Location Alerts'),L('Share My Location',{value:'This iPad'}),L('System Services',{value:'On'})]),
   S([locPage('Camera','While Using'),locPage('Maps','While Using'),locPage('Weather','Always'),locPage('Safari','While Using'),locPage('Find My','While Using'),locPage('Facebook','Never')],{header:'App Location'})
+]);}
+/* ===== iOS 17 — real deep sub-screens (tones + Accessibility) ===== */
+function iosRingtone(){return D('Ringtone',[
+  S([L('Haptics',{value:'Default'})]),
+  S([L('Tone Store'),L('Download All Purchased Tones')],{header:'Store'}),
+  CHOICE('Ringtones',['Reflection','Apex','Beacon','Bulletin','By The Seaside','Chimes','Circuit','Constellation','Cosmic','Crystals','Hillside','Illuminate','Night Owl','Opening','Playtime','Presto','Radar','Radiate','Ripples','Sencha','Signal','Silk','Slow Rise','Stargaze','Summit','Twinkle','Uplift','Waves'],0),
+  S([L('Classic',{value:'Marimba',detail:D('Classic',[CHOICE('',['Marimba','Alarm','Ascending','Bark','Bell Tower','Blues','Boing','Crickets','Digital','Doorbell','Duck','Harp','Motorcycle','Old Car Horn','Old Phone','Piano Riff','Pinball','Robot','Sci-Fi','Sonar','Strum','Time Passing','Trill','Xylophone'],0)])})])
+]);}
+function iosTextTone(){return D('Text Tone',[
+  S([L('Haptics',{value:'Default'})]),
+  S([L('Tone Store')],{header:'Store'}),
+  CHOICE('Alert Tones',['None','Note','Aurora','Bamboo','Chord','Circles','Complete','Hello','Input','Keys','Popcorn','Pulse','Synth'],1),
+  S([L('Classic',{value:'Tri-tone',detail:D('Classic',[CHOICE('',['Tri-tone','Bell','Chime','Glass','Horn','Bloom','Calypso','Choo Choo','Descent','Fanfare','Ladder','Minuet','News Flash','Noir','Sherwood Forest','Spell','Suspense','Swish','Swoosh','Telegraph','Tiptoes','Typewriters','Update'],0)])})])
+]);}
+function iosAlertTone(sel){return D('Alert Tone',[S([L('Haptics',{value:'Default'})]),CHOICE('Alert Tones',['None','Note','Aurora','Bamboo','Chord','Circles','Complete','Hello','Input','Keys','Popcorn','Pulse','Synth','Tri-tone','Bell','Chime','Glass','Horn'],sel==null?13:sel)]);}
+function iosAssistiveTouch(){return D('AssistiveTouch',[
+  S([T('AssistiveTouch',false)],{footer:'AssistiveTouch allows you to use iPhone if you have difficulty touching the screen or if you require an adaptive accessory.'}),
+  S([L('Customize Top Level Menu',{value:'8 icons'}),L('Single-Tap',{value:'Open Menu'}),L('Double-Tap',{value:'None'}),L('Long Press',{value:'None'})],{header:'Custom Actions'}),
+  S([SL(15,'general','general')],{header:'Idle Opacity'}),
+  S([L('Custom Gestures'),L('Pointer Devices',{detail:D('Pointer Devices',[S([L('Devices'),T('Show Onscreen Keyboard',true),SL(50,'general','general')],{header:'Tracking Speed'})])}),T('Confirm with AssistiveTouch',true)])
+]);}
+function iosVoiceOverPage(){return D('VoiceOver',[
+  S([T('VoiceOver',false)],{footer:'VoiceOver speaks items on the screen: Tap once to select an item, double-tap to activate the selected item, swipe three fingers to scroll.'}),
+  S([L('VoiceOver Practice')]),
+  S([SL(50,'general','general')],{header:'Speaking Rate'}),
+  S([L('Speech',{detail:D('Speech',[S([L('Voice',{value:'Samantha',detail:D('Voice',[CHOICE('',['Samantha','Aaron','Fred','Nicky','Siri Voice 1','Siri Voice 2'],0)])}),L('Pronunciations'),T('Use Pitch Change',true),T('Use Compact Voice',false)])])}),L('Braille',{detail:D('Braille',[S([L('Add Braille Display')],{header:'Braille Displays'}),S([CHOICE('Braille Output',['Contracted','Uncontracted (6 dot)','Uncontracted (8 dot)'],0),T('Show Onscreen Braille Keyboard',false)])])}),L('Verbosity',{detail:D('Verbosity',[S([L('Punctuation',{value:'Some'}),CHOICE('Emoji',['Speak','Do Not Speak'],0),T('Speak Detected Text',true),T('Media Descriptions',true)])])}),L('Audio',{detail:D('Audio',[S([T('Sounds',true),SL(60,'sounds','sounds')],{header:'Sound Volume'}),CHOICE('Audio Ducking',['On','Off'],0),S([T('Auto-select Speaker in Call',true)])])})]),
+  S([L('Commands',{detail:D('Commands',[S([L('All Commands'),L('Touch Gestures'),L('Handwriting'),L('Braille Screen Input')])])}),L('Activities'),L('Rotor',{detail:D('Rotor',[S([CH('Characters',true),CH('Words',true),CH('Lines',true),CH('Speaking Rate',true),CH('Volume',false),CH('Headings',false),CH('Links',false),CH('Containers',false)])])}),L('Rotor Actions'),L('Typing',{detail:D('Typing',[CHOICE('Typing Style',['Standard Typing','Touch Typing','Direct Touch Typing'],0),S([L('Typing Feedback'),T('Phonetic Feedback',true)])])})])
+]);}
+function iosAccessibility(){return D('Accessibility',[
+  S([L('VoiceOver',{value:'Off',detail:iosVoiceOverPage()}),L('Zoom',{value:'Off',detail:D('Zoom',[S([T('Zoom',false)]),S([T('Follow Focus',true),T('Smart Typing',true),L('Keyboard Shortcuts')]),S([L('Zoom Controller',{value:'Off'}),CHOICE('Zoom Region',['Full Screen Zoom','Window Zoom','Pinned Zoom'],1),L('Zoom Filter',{value:'None'})]),S([SL(30,'general','general')],{header:'Maximum Zoom Level'})])}),L('Hover Text',{value:'Off',detail:D('Hover Text',[S([T('Hover Text',false)]),S([L('Text Size'),L('Font'),L('Text Color'),L('Background Color')])])}),L('Display & Text Size',{detail:displayTextSize()}),L('Motion',{detail:D('Motion',[S([T('Reduce Motion',false),T('Auto-Play Message Effects',true),T('Auto-Play Video Previews',true)]),S([T('Limit Frame Rate',false),T('Dim Flashing Lights',false)])])}),L('Spoken Content',{detail:D('Spoken Content',[S([T('Speak Selection',false),T('Speak Screen',false),T('Speak Typing Feedback',false)]),S([L('Highlight Content',{value:'On'}),L('Voices'),L('Pronunciations'),SL(50,'general','general')],{header:'Speaking Rate'})])}),L('Audio Descriptions',{value:'Off',detail:D('Audio Descriptions',[S([T('Audio Descriptions',false)],{footer:'Play audio descriptions automatically for video content when available.'})])})],{header:'Vision'}),
+  S([L('Touch',{detail:D('Touch',[S([L('AssistiveTouch',{value:'Off',detail:iosAssistiveTouch()}),L('Reachability',{value:'On',detail:D('Reachability',[S([T('Reachability',true)],{footer:'Swipe down on the bottom edge of the screen to bring the top within reach.'})])}),L('Haptic Touch',{value:'Fast',detail:D('Haptic Touch',[CHOICE('Touch Duration',['Fast','Slow'],0),S([NOTE('Test the touch duration using the image below.')])])})]),S([T('Tap to Wake',true),T('Shake to Undo',true),L('Vibration',{value:'On',detail:D('Vibration',[S([T('Vibration',true)],{footer:'Turn off to disable all vibration, including earthquake, tsunami and other emergency alerts.'})])}),L('Call Audio Routing',{value:'Automatic',detail:D('Call Audio Routing',[CHOICE('',['Automatic','Bluetooth Headset','Speaker'],0),T('Auto-Answer Calls',false)])})])])}),L('Face ID & Attention',{detail:D('Face ID & Attention',[S([T('Require Attention for Face ID',true),T('Attention Aware Features',true),T('Haptic on Successful Authentication',false)])])}),L('Switch Control',{value:'Off',detail:D('Switch Control',[S([T('Switch Control',false)],{footer:'Switch Control highlights items on the screen that can be activated through an adaptive accessory.'}),S([L('Switches'),L('Recipes'),CHOICE('Scanning Style',['Auto Scanning','Manual Scanning','Single Switch Step Scanning'],0)])])}),L('Voice Control',{value:'Off',detail:D('Voice Control',[S([T('Voice Control',false)]),S([L('Language',{value:'English (US)'}),L('Customize Commands'),L('Vocabulary'),T('Show Confirmation',true),T('Show Hints',true),T('Overlay',false)])])}),L('Side Button',{detail:D('Side Button',[CHOICE('Click Speed',['Default','Slow','Slowest'],0),S([T('Press and Hold to Speak (Siri)',true)])])}),L('Apple TV Remote'),L('Keyboards',{detail:D('Keyboards',[S([L('Full Keyboard Access',{value:'Off'}),CHOICE('Key Repeat',['On','Off'],0),T('Sticky Keys',false),T('Slow Keys',false)])])})],{header:'Physical and Motor'}),
+  S([L('Hearing Devices',{detail:D('Hearing Devices',[S([NOTE('Pair a Made for iPhone hearing device in Bluetooth settings.')]),S([T('Hearing Aid Compatibility',false),T('Headphone Audio Level Notifications',true)])])}),L('Sound Recognition',{value:'Off',detail:D('Sound Recognition',[S([T('Sound Recognition',false)],{footer:'iPhone will listen for certain sounds and, using on-device intelligence, notify you when they may be recognized.'}),S([L('Sounds',{detail:D('Sounds',[S([T('Fire',false),T('Siren',false),T('Smoke',false)],{header:'Alarms'}),S([T('Cat',false),T('Dog',false)],{header:'Animals'}),S([T('Baby Crying',false),T('Shouting',false)],{header:'People'}),S([T('Appliances Beeping',false),T('Car Horn',false),T('Doorbell',false),T('Door Knock',false),T('Water Running',false)],{header:'Household'})])})])])}),L('RTT / TTY',{value:'Off'}),L('Audio & Visual',{detail:D('Audio & Visual',[S([L('Headphone Accommodations',{value:'Off'}),L('Background Sounds',{value:'Off',detail:D('Background Sounds',[S([T('Background Sounds',false)]),CHOICE('Sound',['Balanced Noise','Bright Noise','Dark Noise','Ocean','Rain','Stream'],3),S([SL(50,'sounds','sounds')],{header:'Volume'})])})],{header:'Audio'}),S([T('Mono Audio',false),T('Phone Noise Cancellation',true),SL(50,'sounds','sounds')],{header:'Left/Right Balance'}),S([L('LED Flash for Alerts',{value:'Off'})],{header:'Visual'})])}),L('Subtitles & Captioning',{detail:D('Subtitles & Captioning',[S([T('Closed Captions + SDH',false)]),S([L('Style',{value:'Transparent Background'})])])})],{header:'Hearing'}),
+  S([L('Guided Access',{value:'Off',detail:D('Guided Access',[S([T('Guided Access',false)],{footer:'Guided Access keeps iPhone in a single app, and allows you to control which features are available.'}),S([L('Passcode Settings'),L('Time Limits'),T('Accessibility Shortcut',true)])])}),L('Siri',{detail:D('Siri',[S([T('Type to Siri',false),CHOICE('Voice Feedback',['Always','With Silent Mode Off','Only with Hey Siri'],0)])])}),L('Per-App Settings',{detail:D('Per-App Settings',[S([L('Add App')],{footer:'Customize display and text size settings for individual apps.'})])})],{header:'General'}),
+  S([L('Accessibility Shortcut',{detail:D('Accessibility Shortcut',[S([CH('VoiceOver',false),CH('Zoom',false),CH('AssistiveTouch',false),CH('Color Filters',false),CH('Guided Access',false)],{footer:'Triple-click the side button to toggle these features.'})])})])
 ]);}
 V; // no-op to keep V referenced
 
@@ -5563,7 +5625,7 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
  let USER=store.get('user',null);
  /* build/version stamp. version is bumped per release; deploy time is detected
     automatically from the served file (falls back to this baked time). */
- const BUILD={version:'1.15.0',time:'2026-07-27T12:21:00Z'};
+ const BUILD={version:'1.16.0',time:'2026-07-27T13:43:00Z'};
  function buildTimeStr(){try{return new Date(BUILD.time).toLocaleString(state.lang||'en',{dateStyle:'medium',timeStyle:'short'});}catch(e){return (BUILD.time||'').replace('T',' ').replace('Z',' UTC');}}
  function updateFooterVer(){document.querySelectorAll('.foot-ver').forEach(fv=>{fv.innerHTML=`<span class="fv-badge">v${esc(BUILD.version)}</span><span>${esc(t('deployLabel'))}: ${esc(buildTimeStr())}</span>`;});}
  /* auto deploy time: use the served file's Last-Modified (document.lastModified).
