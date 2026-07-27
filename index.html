@@ -5400,12 +5400,13 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
    if(item.group!==last){list.appendChild(el(`<div class="side-gap"></div>`));last=item.group;}
    let right='';
    if(item.toggle!==undefined)right=tglHTML(prefGet('sidebar::'+item.id,item.toggle));
-   else right=`${item.value?`<span class="row-val">${esc(dt(item.value))}</span>`:''}${chev}`;
+   else right=`${item.value?`<span class="row-val">${esc(dt(item.value))}</span>`:''}${item.detail?chev:''}`;
    const lbl=item.sub?`<span class="row-txt"><span class="row-label">${esc(dt(item.title))}</span><span class="row-sub">${esc(dt(item.sub))}</span></span>`:`<span class="row-label">${esc(dt(item.title))}</span>`;
    const row=el(`<button class="side-row" data-id="${item.id}" data-label="${esc(dt(item.title))}">${icon(item.icon,item.iconBg)}${lbl}<span class="row-right">${right}</span></button>`);
    row.addEventListener('click',()=>{
      if(item.toggle!==undefined){const t=row.querySelector('.tgl');t.classList.toggle('on');prefSet('sidebar::'+item.id,t.classList.contains('on'));return;}
-     selectSidebar(item.id,item.detail||autoDetail(dt(item.title)),list,row);
+     if(!item.detail)return;
+     selectSidebar(item.id,item.detail,list,row);
    });
    list.appendChild(row);
   });
@@ -5530,9 +5531,14 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
     reactiveToggle(dt(r.label),on);
     node.querySelector('.tgl').addEventListener('click',function(){this.classList.toggle('on');const v=this.classList.contains('on');prefSet(pk,v);reactiveToggle(dt(r.label),v);});break;}
    case 'link':{const badge=r.badge==='connected'?`<span class="tick">✓ ${esc(dt('Connected'))}</span>`:(r.badge==='dot'?'<span class="reddot">1</span>':'');
-    node=el(`<button class="row tappable"><div class="row-l">${r.icon?icon(r.icon,r.iconBg):''}${lblHTML(r)}</div><div class="row-r">${badge}${r.value?`<span class="row-val">${esc(dt(r.value))}</span>`:''}${chev}</div></button>`);
-    if(r.detail)node.addEventListener('click',()=>openDetail(r.detail));
-    else node.addEventListener('click',()=>openDetail(autoDetail(dt(r.label),dt(dTitle))));break;}
+    if(r.detail){
+     node=el(`<button class="row tappable"><div class="row-l">${r.icon?icon(r.icon,r.iconBg):''}${lblHTML(r)}</div><div class="row-r">${badge}${r.value?`<span class="row-val">${esc(dt(r.value))}</span>`:''}${chev}</div></button>`);
+     node.addEventListener('click',()=>openDetail(r.detail));
+    }else{
+     // No hand-authored sub-screen → render as a terminal setting (no chevron, not tappable).
+     // We never fabricate a deeper page, so drilling only ever lands on real, authored content.
+     node=el(`<div class="row"><div class="row-l">${r.icon?icon(r.icon,r.iconBg):''}${lblHTML(r)}</div><div class="row-r">${badge}${r.value?`<span class="row-val">${esc(dt(r.value))}</span>`:''}</div></div>`);
+    }break;}
    case 'value':node=el(`<div class="row"><div class="row-l">${r.icon?icon(r.icon,r.iconBg):''}${lblHTML(r)}</div><div class="row-r"><span class="row-val">${esc(dt(r.value))}</span></div></div>`);break;
    case 'check':{const sel=prefGet(pk,r.selected);
     node=el(`<button class="row tappable check-row ${sel?'sel':''}">${r.swatch?`<span class="swatch ${r.swatch}"></span>`:''}<span class="row-label">${esc(dt(r.label))}</span><span class="row-r"><svg class="tickmark" viewBox="0 0 24 24"><path d="M5 12l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>`);
@@ -5557,7 +5563,7 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
  let USER=store.get('user',null);
  /* build/version stamp. version is bumped per release; deploy time is detected
     automatically from the served file (falls back to this baked time). */
- const BUILD={version:'1.14.0',time:'2026-07-27T11:59:00Z'};
+ const BUILD={version:'1.15.0',time:'2026-07-27T12:21:00Z'};
  function buildTimeStr(){try{return new Date(BUILD.time).toLocaleString(state.lang||'en',{dateStyle:'medium',timeStyle:'short'});}catch(e){return (BUILD.time||'').replace('T',' ').replace('Z',' UTC');}}
  function updateFooterVer(){document.querySelectorAll('.foot-ver').forEach(fv=>{fv.innerHTML=`<span class="fv-badge">v${esc(BUILD.version)}</span><span>${esc(t('deployLabel'))}: ${esc(buildTimeStr())}</span>`;});}
  /* auto deploy time: use the served file's Last-Modified (document.lastModified).
