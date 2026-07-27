@@ -15,3 +15,5 @@ osimulator.html
 /js/
 /css/
 /assets/
+__pycache__/
+*.pyc
