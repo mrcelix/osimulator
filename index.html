@@ -1548,6 +1548,56 @@ body.light .adm-row{background:#fff;border-color:rgba(0,0,0,.08)}
 .aswitch.on{background:#34c759}
 .aswitch i{position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:.15s}
 .aswitch.on i{left:21px}
+/* --- admin: date range, sparkline, sub-grids, recordings, forms --- */
+.adm-range{display:flex;gap:6px;flex-wrap:wrap;margin:-8px 0 18px}
+.adm-range button{height:30px;padding:0 13px;border-radius:9px;font-size:12.5px;font-weight:700;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#c7c7cf;cursor:pointer}
+.adm-range button.on{background:#0a84ff;border-color:#0a84ff;color:#fff}
+body.light .adm-range button{background:#fff;border-color:rgba(0,0,0,.12);color:#4a4a55}
+body.light .adm-range button.on{background:#0a6fd8;border-color:#0a6fd8;color:#fff}
+.adm-grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-bottom:18px}
+.adm-grid2 .adm-sec{margin-bottom:0}
+.dspark{display:flex;align-items:flex-end;gap:3px;height:96px;padding-top:6px}
+.dspark i{flex:1;min-width:2px;background:linear-gradient(180deg,#5e9dff,#0a84ff);border-radius:3px 3px 0 0;position:relative}
+.dspark i:hover{background:#34c759}
+.dspark-x{display:flex;justify-content:space-between;font-size:10.5px;color:#8b8b96;margin-top:7px}
+.adm-kv{display:flex;flex-wrap:wrap;gap:10px;margin-top:2px}
+.adm-kv span{font-size:12px;color:#9a9aa6;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:5px 9px}
+body.light .adm-kv span{background:#fff;border-color:rgba(0,0,0,.08);color:#55555f}
+.adm-card b.up{color:#34c759}.adm-card b.dn{color:#ff6b6b}
+.adm-card .dlt{font-size:11.5px;font-weight:700;margin-left:6px}
+.adm-card .dlt.up{color:#34c759}.adm-card .dlt.dn{color:#ff6b6b}
+.g-row{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:11px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);margin-bottom:9px}
+body.light .g-row{background:#fff;border-color:rgba(0,0,0,.08)}
+.g-row .gic{width:34px;height:34px;border-radius:9px;flex:none;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#0a84ff,#5e5ce6)}
+.g-row .gic svg{width:18px;height:18px;fill:#fff}
+.g-row .gmain{flex:1;min-width:0}
+.g-row .gmain .n{font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.g-row .gmain .m{font-size:12px;color:#9a9aa6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.g-row .gact{display:flex;gap:6px;flex:none}
+.g-row .gact button{width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;cursor:pointer;border:0}
+body.light .g-row .gact button{background:rgba(0,0,0,.06)}
+.g-row .gact button svg{width:16px;height:16px;fill:#c7c7cf}
+body.light .g-row .gact button svg{fill:#4a4a55}
+.g-row .gact button.del svg{fill:#ff6b6b}
+.adm-fld{margin-bottom:14px}
+.adm-fld label{display:block;font-size:12px;font-weight:700;color:#9a9aa6;margin-bottom:6px}
+.adm-fld input[type=text],.adm-fld input[type=password],.adm-fld textarea,.adm-search{width:100%;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);color:#fff;padding:10px 12px;font-size:13.5px;outline:none;font-family:inherit;box-sizing:border-box}
+.adm-fld input[type=text]:focus,.adm-fld textarea:focus,.adm-search:focus{border-color:#0a84ff}
+body.light .adm-fld input[type=text],body.light .adm-fld input[type=password],body.light .adm-fld textarea,body.light .adm-search{background:#fff;border-color:rgba(0,0,0,.14);color:#111}
+.adm-fld textarea{min-height:76px;resize:vertical}
+.adm-search{margin-bottom:14px}
+.adm-flag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:3px 7px;border-radius:6px;background:rgba(10,132,255,.18);color:#5eb0ff;margin-left:8px}
+.site-ann{position:fixed;top:0;left:0;right:0;z-index:80;color:#fff;font-size:13.5px;font-weight:600;text-align:center;padding:9px 40px 9px 16px;box-shadow:0 2px 14px rgba(0,0,0,.25)}
+.site-ann a{color:#fff;text-decoration:underline}
+.site-ann .ann-x{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:26px;height:26px;border-radius:7px;background:rgba(255,255,255,.18);color:#fff;border:0;cursor:pointer;font-size:13px}
+body.has-ann{padding-top:38px}
+.site-mnt{position:fixed;inset:0;z-index:999;background:#08080c;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center}
+body.light .site-mnt{background:#f4f4f7}
+.site-mnt .mnt-box{max-width:440px}
+.site-mnt h2{font-size:26px;font-weight:800;margin:16px 0 10px;color:#f5f5f7}
+body.light .site-mnt h2{color:#16161a}
+.site-mnt p{font-size:15px;line-height:1.55;color:#9a9aa6;margin:0}
+.site-mnt .mnt-mk .mk{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:15px;background:linear-gradient(135deg,#0a84ff,#5e5ce6);color:#fff;font-weight:800;font-size:20px}
 .adm-menu-item{display:flex;align-items:center;gap:9px;padding:9px 11px;border-radius:11px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);margin-bottom:8px}
 body.light .adm-menu-item{background:#fff;border-color:rgba(0,0,0,.08)}
 .adm-menu-item input.ai{flex:1;min-width:0;height:34px;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);color:#fff;padding:0 10px;font-size:13px;outline:none;font-family:inherit}
@@ -4965,7 +5015,7 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
     </div>
     <div class="foot-cta"><span class="fc-txt">${esc(t('footLove'))}</span><a class="fc-star" href="https://github.com/mrcelix/osimulator" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"/></svg>${esc(t('starGh'))}</a><div class="fc-share"><button data-fs="x" title="X"><svg viewBox="0 0 24 24">${ICN2.x}</svg></button><button data-fs="wa" title="WhatsApp"><svg viewBox="0 0 24 24">${GICON.wa}</svg></button><button data-fs="tg" title="Telegram"><svg viewBox="0 0 24 24">${GICON.tg}</svg></button><button data-fs="copy" title="${esc(t('copyLink'))}"><svg viewBox="0 0 24 24">${GICON.link}</svg></button></div></div>
     <div class="foot-oslinks" aria-label="${esc(t('browseAll'))}">${osLinks}</div>
-    <div class="foot-bottom"><div class="fbrand">osimulator</div><div class="fnote">© 2026 · ${esc(t('footer'))}</div><div class="fnote">${esc(t('footRights'))}</div></div>
+    <div class="foot-bottom"><div class="fbrand">osimulator</div><div class="fnote">© 2026 · ${esc(t('footer'))}</div><div class="fnote">${esc(t('footRights'))}</div>${(function(){try{const fn=getSiteCfg().footNote;return fn?`<div class="fnote" style="color:var(--label2)">${esc(fn)}</div>`:'';}catch(e){return '';}})()}</div>
     <div class="foot-ver"><span class="fv-badge">v${esc(BUILD.version)}</span><span>${esc(t('deployLabel'))}: ${esc(buildTimeStr())}</span></div>
   </footer>`);
   const nlForm=footer.querySelector('.nl-form');const nlBox=footer.querySelector('.nl-box');
@@ -5788,7 +5838,7 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
  let USER=store.get('user',null);
  /* build/version stamp. version is bumped per release; deploy time is detected
     automatically from the served file (falls back to this baked time). */
- const BUILD={version:'1.24.1',time:'2026-07-28T13:20:00Z'};
+ const BUILD={version:'1.25.0',time:'2026-07-28T16:40:00Z'};
  function buildTimeStr(){try{return new Date(BUILD.time).toLocaleString(state.lang||'en',{dateStyle:'medium',timeStyle:'short'});}catch(e){return (BUILD.time||'').replace('T',' ').replace('Z',' UTC');}}
  function updateFooterVer(){document.querySelectorAll('.foot-ver').forEach(fv=>{fv.innerHTML=`<span class="fv-badge">v${esc(BUILD.version)}</span><span>${esc(t('deployLabel'))}: ${esc(buildTimeStr())}</span>`;});}
  /* auto deploy time: use the served file's Last-Modified (document.lastModified).
@@ -7067,15 +7117,62 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
 
  /* ===================== ADMIN PANEL + config + analytics ===================== */
  const AL=(en,tr)=>state.lang==='tr'?tr:en;
- /* analytics (client-side, localStorage) */
- function track(type,label){try{const a=store.get('analytics',[]);a.push({t:type,l:label||'',ts:Date.now()});store.set('analytics',a.slice(-3000));}catch(e){}try{if(SB)SB.from('events').insert({type:type,label:label||''}).then(()=>{},()=>{});}catch(e){}}
+ /* ===== analytics =====
+    Events live in two places: a local ring buffer (so the panel still says
+    something useful with no backend at all) and, when Supabase is connected,
+    the shared `events` table. Writes are batched — a click-heavy session should
+    not become a click-heavy stream of HTTP requests — and the queue survives
+    until the backend finishes connecting, so the first page view is not lost. */
+ const EVQ=[];let _evTimer=null;
+ function evFlush(){if(!SB||!EVQ.length)return;const batch=EVQ.splice(0,EVQ.length);try{SB.from('events').insert(batch).then(()=>{},()=>{});}catch(e){}}
+ function track(type,label){
+  const lab=String(label==null?'':label).slice(0,140);
+  try{const a=store.get('analytics',[]);a.push({t:type,l:lab,ts:Date.now()});store.set('analytics',a.slice(-4000));}catch(e){}
+  try{EVQ.push({type:String(type).slice(0,40),label:lab});if(EVQ.length>300)EVQ.splice(0,EVQ.length-300);
+   if(SB){if(EVQ.length>=25)evFlush();else{clearTimeout(_evTimer);_evTimer=setTimeout(evFlush,3000);}}}catch(e){}
+ }
+ window.addEventListener('pagehide',evFlush);
+ document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')evFlush();});
  let _admEvents=null; /* when admin loads from Supabase, holds server events {t,l,ts} */
  function evAll(){return _admEvents||store.get('analytics',[]);}
- async function loadAdminEvents(){if(!SB){_admEvents=null;return;}try{const {data,error}=await SB.from('events').select('type,label,ts').order('ts',{ascending:false}).limit(8000);if(error||!data){_admEvents=null;return;}_admEvents=data.map(e=>({t:e.type,l:e.label||'',ts:Date.parse(e.ts)}));}catch(e){_admEvents=null;}}
- function viewsByDay(n){const ev=evAll().filter(e=>e.t==='view');const out=[];const now=new Date();for(let i=n-1;i>=0;i--){const d=new Date(now.getFullYear(),now.getMonth(),now.getDate()-i);const k=('0'+(d.getMonth()+1)).slice(-2)+'/'+('0'+d.getDate()).slice(-2);const c=ev.filter(e=>{const ed=new Date(e.ts);return ed.getFullYear()===d.getFullYear()&&ed.getMonth()===d.getMonth()&&ed.getDate()===d.getDate();}).length;out.push([k,c]);}return out;}
- function topLaunch(n){const m={};evAll().filter(e=>e.t==='launch').forEach(e=>m[e.l]=(m[e.l]||0)+1);const a=Object.keys(m).map(k=>{const p=PLATFORMS.find(x=>x.id===k);return[p?p.name:k,m[k]];});a.sort((x,y)=>y[1]-x[1]);return a.slice(0,n);}
- function topView(n){const m={};evAll().filter(e=>e.t==='view').forEach(e=>m[e.l]=(m[e.l]||0)+1);const a=Object.keys(m).map(k=>[k,m[k]]);a.sort((x,y)=>y[1]-x[1]);return a.slice(0,n);}
- function typeCounts(){const m={};evAll().forEach(e=>m[e.t]=(m[e.t]||0)+1);return Object.keys(m).map(k=>[k,m[k]]).sort((x,y)=>y[1]-x[1]);}
+ async function loadAdminEvents(){if(!SB){_admEvents=null;return;}try{const {data,error}=await SB.from('events').select('type,label,ts').order('ts',{ascending:false}).limit(20000);if(error||!data){_admEvents=null;return;}_admEvents=data.map(e=>({t:e.type,l:e.label||'',ts:Date.parse(e.ts)}));}catch(e){_admEvents=null;}}
+ /* ---- aggregation, all scoped to the range the admin picked (0 = all time) ---- */
+ const DAY=864e5;
+ const RANGES=[[1,'24h'],[7,'7d'],[14,'14d'],[30,'30d'],[90,'90d'],[0,'∞']];
+ function admRange(){return state.admRange==null?14:state.admRange;}
+ function evSel(){const n=admRange();if(!n)return evAll();const from=Date.now()-n*DAY;return evAll().filter(e=>e.ts>=from);}
+ function dkey(d){return d.getFullYear()+'-'+d.getMonth()+'-'+d.getDate();}
+ function dlabel(d){return ('0'+(d.getMonth()+1)).slice(-2)+'/'+('0'+d.getDate()).slice(-2);}
+ function seriesByDay(list,n){
+  const b={};list.forEach(e=>{const k=dkey(new Date(e.ts));b[k]=(b[k]||0)+1;});
+  const out=[],now=new Date();
+  for(let i=n-1;i>=0;i--){const d=new Date(now.getFullYear(),now.getMonth(),now.getDate()-i);out.push([dlabel(d),b[dkey(d)]||0]);}
+  return out;}
+ function tally(list,fn){const m={};list.forEach(e=>{let k;try{k=fn(e);}catch(err){k=null;}if(k==null||k==='')return;m[k]=(m[k]||0)+1;});return Object.keys(m).map(k=>[k,m[k]]).sort((a,b)=>b[1]-a[1]);}
+ function ofType(t,list){return (list||evSel()).filter(e=>e.t===t);}
+ /* Human page names for the labels the view events carry. */
+ const PAGEN={home:['Home','Ana sayfa'],guides:['Guides','Rehberler'],compare:['Comparisons','Karşılaştırmalar'],vs:['Side-by-side','Yan yana'],find:['Setting finder','Ayar bulucu'],changes:['Version changes','Sürüm farkları'],daily:['Daily challenge','Günlük görev'],quiz:['Quiz','Quiz'],embed:['Embed builder','Gömme aracı']};
+ function pageName(l){const p=String(l).split(':');const base=PAGEN[p[0]]?AL(PAGEN[p[0]][0],PAGEN[p[0]][1]):p[0];return p.length>1?base+' › '+p.slice(1).join(':'):base;}
+ function osName(id){const p=PLATFORMS.find(x=>x.id===id);return p?p.name:id;}
+ function viewsByDay(n){return seriesByDay(ofType('view',evAll()),n);}
+ function topLaunch(n){return tally(ofType('launch'),e=>osName(e.l)).slice(0,n);}
+ function topView(n){return tally(ofType('view'),e=>pageName(e.l)).slice(0,n);}
+ function typeCounts(){return tally(evSel(),e=>e.t);}
+ function topFeature(n){return tally(evSel().filter(e=>e.t==='feature'),e=>featName(e.l)).slice(0,n);}
+ function topClick(n){return tally(ofType('click'),e=>e.l).slice(0,n);}
+ function topMenu(n){return tally(ofType('menu'),e=>{const p=String(e.l).split(':');return osName(p[0])+' › '+(p[1]||'');}).slice(0,n);}
+ function topRef(n){return tally(ofType('visit'),e=>e.l||'direct').slice(0,n);}
+ function byHour(){const b=new Array(24).fill(0);evSel().forEach(e=>{const h=new Date(e.ts).getHours();if(h>=0&&h<24)b[h]++;});return b.map((c,h)=>[('0'+h).slice(-2)+':00',c]);}
+ function topSearch(n){return tally(ofType('search'),e=>e.l).slice(0,n);}
+ /* Friendlier names for the feature keys the instrumentation emits. */
+ const FEATN={search:['Global search','Global arama'],ai:['AI assistant','AI asistanı'],magic:['Magic teleport','Sihir ışınlama'],feedback:['Feedback','Geri bildirim'],account:['Account sheet','Hesap paneli'],tools:['Tools','Araçlar'],shortcuts:['Shortcuts','Kısayollar'],auth:['Sign in','Giriş'],newsletter:['Newsletter','E-Bülten'],myguides:['My recordings','Kayıtlarım'],embedbuild:['Embed code','Gömme kodu'],sharecard:['Share card','Paylaşım kartı'],admin:['Admin panel','Admin paneli']};
+ function featName(k){const p=String(k).split(':');const b=FEATN[p[0]]?AL(FEATN[p[0]][0],FEATN[p[0]][1]):p[0];return p.length>1?b+' · '+p.slice(1).join(':'):b;}
+ function exportEventsCSV(){
+  const ev=evSel().slice().sort((a,b)=>b.ts-a.ts);
+  const rows=[['time','type','label']].concat(ev.map(e=>[new Date(e.ts).toISOString(),e.t,e.l]));
+  dlText(rows.map(r=>r.map(c=>'"'+String(c).replace(/"/g,'""')+'"').join(',')).join('\n'),'osimulator-events.csv','text/csv');
+ }
+ function dlText(text,name,mime){try{const b=new Blob([text],{type:mime||'text/plain'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),2000);}catch(e){}}
  /* header menu config */
  const DEFAULT_NAV=[{id:'systems',key:'navSystems',act:'scroll:systems',vis:true},{id:'how',key:'navHow',act:'scroll:how',vis:true},{id:'find',key:'findNav',act:'route:find',vis:true},{id:'guides',key:'guidesNav',act:'route:guides',vis:true},{id:'compare',key:'compareNav',act:'route:compare',vis:true},{id:'vs',key:'vsNav',act:'route:vs',vis:true},{id:'changes',key:'changesNav',act:'route:changes',vis:true},{id:'daily',key:'dailyNav',act:'route:daily',vis:true},{id:'quiz',key:'quizNav',act:'route:quiz',vis:true},{id:'features',key:'navFeatures',act:'scroll:features',vis:true}];
  function getNavMenu(){const m=store.get('navMenu',null);return (m&&m.length)?m:JSON.parse(JSON.stringify(DEFAULT_NAV));}
@@ -7083,8 +7180,55 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
  /* ---- shared site config (Supabase) ---- */
  let _cfgTimer=null;
  function queueConfigPush(){if(!SB)return;clearTimeout(_cfgTimer);_cfgTimer=setTimeout(pushSiteConfig,600);}
- async function pushSiteConfig(){if(!SB)return;try{const row={id:1,nav_menu:store.get('navMenu',null),features:store.get('features',{}),os_overrides:store.get('osOverrides',{}),os_menus:store.get('osMenus',{}),updated_at:new Date().toISOString()};await SB.from('site_config').upsert(row,{onConflict:'id'});}catch(e){console.warn('[osimulator] config push failed (need admin?)',e&&e.message);}}
- async function hydrateSiteConfig(){if(!SB)return;try{const {data,error}=await SB.from('site_config').select('*').eq('id',1).maybeSingle();if(error||!data)return;if(data.nav_menu)store.set('navMenu',data.nav_menu);if(data.features)store.set('features',data.features);if(data.os_overrides)store.set('osOverrides',data.os_overrides);if(data.os_menus)store.set('osMenus',data.os_menus);applyOsOverrides();if(state.view==='select')renderSelect();else if(state.view==='admin')renderAdminPage();else if(state.platform)renderDevice();}catch(e){}}
+ async function pushSiteConfig(){if(!SB)return;
+  const row={id:1,nav_menu:store.get('navMenu',null),features:store.get('features',{}),os_overrides:store.get('osOverrides',{}),os_menus:store.get('osMenus',{}),updated_at:new Date().toISOString()};
+  /* `site` is a newer column. Projects that ran the original supabase-setup.sql
+     do not have it yet, and an unknown column fails the whole upsert — so try
+     with it, and fall back to the columns every schema version has. */
+  try{const {error}=await SB.from('site_config').upsert(Object.assign({site:store.get('siteCfg',{})},row),{onConflict:'id'});if(!error)return;}catch(e){}
+  try{await SB.from('site_config').upsert(row,{onConflict:'id'});}catch(e){console.warn('[osimulator] config push failed (need admin?)',e&&e.message);}}
+ async function hydrateSiteConfig(){if(!SB)return;try{const {data,error}=await SB.from('site_config').select('*').eq('id',1).maybeSingle();if(error||!data)return;if(data.nav_menu)store.set('navMenu',data.nav_menu);if(data.features)store.set('features',data.features);if(data.os_overrides)store.set('osOverrides',data.os_overrides);if(data.os_menus)store.set('osMenus',data.os_menus);if(data.site)store.set('siteCfg',data.site);applyOsOverrides();applySiteCfg();if(state.view==='select')renderSelect();else if(state.view==='admin')renderAdminPage();else if(state.platform)renderDevice();}catch(e){}}
+ /* ---- site-wide content settings (announcement bar, maintenance, meta) ---- */
+ const SITE_DEF={annOn:false,annText:'',annTextTr:'',annLink:'',annColor:'#0a84ff',mntOn:false,mntTitle:'',mntText:'',metaTitle:'',metaDesc:'',footNote:''};
+ function getSiteCfg(){return Object.assign({},SITE_DEF,store.get('siteCfg',{}));}
+ function setSiteCfg(k,v){const c=store.get('siteCfg',{});c[k]=v;store.set('siteCfg',c);queueConfigPush();applySiteCfg();}
+ function resetSiteCfg(){store.set('siteCfg',{});queueConfigPush();applySiteCfg();}
+ /* Applied on load, after a backend hydrate, and after every admin edit, so the
+    panel is never showing a setting the visitor side is quietly ignoring. */
+ function applySiteCfg(){
+  const c=getSiteCfg();
+  try{
+   if(c.metaTitle)document.title=c.metaTitle;
+   if(c.metaDesc){let m=document.querySelector('meta[name="description"]');if(!m){m=document.createElement('meta');m.setAttribute('name','description');document.head.appendChild(m);}m.setAttribute('content',c.metaDesc);}
+  }catch(e){}
+  /* announcement bar */
+  try{
+   const txt=(state.lang==='tr'&&c.annTextTr)?c.annTextTr:c.annText;
+   const old=document.querySelector('.site-ann');
+   if(!c.annOn||!txt||EMBED_ON()){if(old)old.remove();document.body.classList.remove('has-ann');}
+   else{
+    const html=c.annLink?`<a href="${esc(c.annLink)}" target="_blank" rel="noopener">${esc(txt)}</a>`:esc(txt);
+    if(old)old.innerHTML=html+'<button class="ann-x" aria-label="close">✕</button>';
+    else{const b=el(`<div class="site-ann">${html}<button class="ann-x" aria-label="close">✕</button></div>`);document.body.appendChild(b);}
+    const bar=document.querySelector('.site-ann');
+    bar.style.background=c.annColor||'#0a84ff';
+    bar.querySelector('.ann-x').addEventListener('click',()=>{bar.remove();document.body.classList.remove('has-ann');});
+    document.body.classList.add('has-ann');
+   }
+  }catch(e){}
+  /* maintenance curtain — admins keep working, everyone else gets the notice */
+  try{
+   /* #/admin always stays reachable so maintenance mode can never lock you out */
+   const onAdmin=state.view==='admin'||/\/admin/.test(location.hash||'');
+   const on=c.mntOn&&!state.adminOK&&!onAdmin&&!EMBED_ON();
+   const cur=document.querySelector('.site-mnt');
+   if(!on){if(cur)cur.remove();}
+   else if(!cur){
+    document.body.appendChild(el(`<div class="site-mnt"><div class="mnt-box"><div class="mnt-mk"><span class="mk">os</span></div><h2>${esc(c.mntTitle||AL('We’ll be right back','Birazdan buradayız'))}</h2><p>${esc(c.mntText||AL('osimulator is being updated. Please check back shortly.','osimulator güncelleniyor. Lütfen kısa süre sonra tekrar dene.'))}</p></div></div>`));
+   }
+  }catch(e){}
+ }
+ function EMBED_ON(){try{return /[?&]embed=1/.test(location.search);}catch(e){return false;}}
  function doNav(act,go){const p=String(act||'').split(':');const kind=p[0],val=p.slice(1).join(':');
   if(kind==='scroll'){if(go)go(val);}
   else if(kind==='route'){if(val==='guides')renderGuidesPage();else if(val==='compare')renderComparePage();else if(val==='vs')renderVsPage('ios','android');else if(val==='quiz')renderQuizPage();else if(val==='embed')renderEmbedPage();else if(val==='find')renderFindPage();else if(val==='changes')renderChangesPage();else if(val==='daily')renderDailyPage();}
@@ -7155,7 +7299,7 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
  function exportMembersCSV(){const m=membersList();const rows=[['name','email','provider','joined']].concat(m.map(x=>[x.name,x.email,x.provider||'',x.ts?new Date(x.ts).toISOString():'']));const csv=rows.map(r=>r.map(c=>'"'+String(c).replace(/"/g,'""')+'"').join(',')).join('\n');try{const b=new Blob([csv],{type:'text/csv'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='osimulator-members.csv';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000);}catch(e){}}
  /* gate + open */
  let _admStale=false;
- function openAdmin(){_admStale=true;if(state.adminOK){renderAdminPage();return;}adminGate(()=>{state.adminOK=true;renderAdminPage();});}
+ function openAdmin(){_admStale=true;try{applySiteCfg();}catch(e){}if(state.adminOK){renderAdminPage();return;}adminGate(()=>{state.adminOK=true;try{applySiteCfg();}catch(e){}renderAdminPage();});}
  function adminGate(onOk){
   closePanels();const has=store.get('adminPin',null);
   const o=el('<div class="ovl show auth-ovl"><div class="ovl-bg"></div></div>');document.body.appendChild(o);
@@ -7175,51 +7319,214 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
   const themeBtn=el('<button class="nav-theme"></button>');themeBtn.addEventListener('click',toggleTheme);top.appendChild(themeBtn);
   top.appendChild(langSelect(renderAdminPage));
   const vb=el(`<button class="abtn">${esc(AL('View site','Siteyi gör'))}</button>`);vb.addEventListener('click',()=>{try{history.replaceState(null,'',guideBaseUrl());}catch(e){}renderSelect();});top.appendChild(vb);
-  const TABS=[['overview',AL('Overview','Genel bakış')],['analytics',AL('Analytics','Analitik')],['members',AL('Members','Üyeler')],['os',AL('Operating systems','İşletim sistemleri')],['osmenu',AL('OS menus','OS menüleri')],['features',AL('Site features','Site özellikleri')],['menu',AL('Header menu','Menü yönetimi')],['backend',AL('Backend','Backend')]];
-  const ADMICON={overview:'<path d="M3 3h8v8H3V3zm10 0h8v5h-8V3zM3 13h8v8H3v-8zm10 3h8v5h-8v-5z"/>',analytics:'<path d="M4 20V10h3v10H4zm6.5 0V4h3v16h-3zM17 20v-7h3v7h-3z"/>',members:'<path d="M8 11a3.5 3.5 0 100-7 3.5 3.5 0 000 7zm8 0a3 3 0 100-6 3 3 0 000 6zM2 19c0-2.7 3-4.3 6-4.3s6 1.6 6 4.3v1H2v-1zm14.2-3.9c2 .5 3.8 1.7 3.8 3.9v1h-4v-1c0-1.5-.7-2.7-1.8-3.6.7-.2 1.4-.3 2-.2z"/>',os:'<path d="M4 5h16a1 1 0 011 1v9a1 1 0 01-1 1h-6l1 3h2v2H7v-2h2l1-3H4a1 1 0 01-1-1V6a1 1 0 011-1zm1 2v7h14V7H5z"/>',features:'<path d="M12 2l2.1 5.3L20 8l-4 3.7 1.1 5.8L12 14.8 6.9 17.5 8 11.7 4 8l5.9-.7L12 2z"/>',osmenu:'<path d="M4 4h7v7H4V4zm0 9h7v7H4v-7zm9-9h7v7h-7V4zm2 2v3h3V6h-3zM13 13h7v7h-7v-7z"/>',menu:'<path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>',backend:'<path d="M4 4h16a1 1 0 011 1v5a1 1 0 01-1 1H4a1 1 0 01-1-1V5a1 1 0 011-1zm3 3v1h2V7H7zm-3 6h16a1 1 0 011 1v5a1 1 0 01-1 1H4a1 1 0 01-1-1v-5a1 1 0 011-1zm3 3v1h2v-1H7z"/>'};
+  const TABS=[['overview',AL('Overview','Genel bakış')],['analytics',AL('Analytics','Analitik')],['recordings',AL('Recordings','Kayıtlar')],['members',AL('Members','Üyeler')],['os',AL('Operating systems','İşletim sistemleri')],['osmenu',AL('OS menus','OS menüleri')],['features',AL('Site features','Site özellikleri')],['menu',AL('Header menu','Menü yönetimi')],['content',AL('Site & content','Site ve içerik')],['data',AL('Data','Veri')],['security',AL('Security','Güvenlik')],['backend',AL('Backend','Backend')]];
+  const ADMICON={overview:'<path d="M3 3h8v8H3V3zm10 0h8v5h-8V3zM3 13h8v8H3v-8zm10 3h8v5h-8v-5z"/>',analytics:'<path d="M4 20V10h3v10H4zm6.5 0V4h3v16h-3zM17 20v-7h3v7h-3z"/>',recordings:'<path d="M12 3a9 9 0 100 18 9 9 0 000-18zm-2 5.2l6 3.8-6 3.8V8.2z"/>',members:'<path d="M8 11a3.5 3.5 0 100-7 3.5 3.5 0 000 7zm8 0a3 3 0 100-6 3 3 0 000 6zM2 19c0-2.7 3-4.3 6-4.3s6 1.6 6 4.3v1H2v-1zm14.2-3.9c2 .5 3.8 1.7 3.8 3.9v1h-4v-1c0-1.5-.7-2.7-1.8-3.6.7-.2 1.4-.3 2-.2z"/>',os:'<path d="M4 5h16a1 1 0 011 1v9a1 1 0 01-1 1h-6l1 3h2v2H7v-2h2l1-3H4a1 1 0 01-1-1V6a1 1 0 011-1zm1 2v7h14V7H5z"/>',features:'<path d="M12 2l2.1 5.3L20 8l-4 3.7 1.1 5.8L12 14.8 6.9 17.5 8 11.7 4 8l5.9-.7L12 2z"/>',osmenu:'<path d="M4 4h7v7H4V4zm0 9h7v7H4v-7zm9-9h7v7h-7V4zm2 2v3h3V6h-3zM13 13h7v7h-7v-7z"/>',menu:'<path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>',content:'<path d="M5 3h9l5 5v13a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1zm8 1.8V9h4.2L13 4.8zM7 12h10v1.8H7V12zm0 4h10v1.8H7V16z"/>',data:'<path d="M12 3c4.4 0 8 1.3 8 3v12c0 1.7-3.6 3-8 3s-8-1.3-8-3V6c0-1.7 3.6-3 8-3zm0 1.8c-3.6 0-6.2 1-6.2 1.2S8.4 7.2 12 7.2s6.2-1 6.2-1.2S15.6 4.8 12 4.8zM5.8 9.3v3c.6.6 3.1 1.3 6.2 1.3s5.6-.7 6.2-1.3v-3c-1.5.7-3.8 1.1-6.2 1.1s-4.7-.4-6.2-1.1zm0 5.4V18c.6.6 3.1 1.3 6.2 1.3s5.6-.7 6.2-1.3v-3.3c-1.5.7-3.8 1.1-6.2 1.1s-4.7-.4-6.2-1.1z"/>',security:'<path d="M12 2l8 3.5v6c0 4.8-3.4 9.1-8 10.5-4.6-1.4-8-5.7-8-10.5v-6L12 2zm0 5.5a2.4 2.4 0 00-1.2 4.5V15h2.4v-3a2.4 2.4 0 00-1.2-4.5z"/>',backend:'<path d="M4 4h16a1 1 0 011 1v5a1 1 0 01-1 1H4a1 1 0 01-1-1V5a1 1 0 011-1zm3 3v1h2V7H7zm-3 6h16a1 1 0 011 1v5a1 1 0 01-1 1H4a1 1 0 01-1-1v-5a1 1 0 011-1zm3 3v1h2v-1H7z"/>'};
   const tabs=w.querySelector('.adm-tabs');
   TABS.forEach(([k,lab])=>{const b=el(`<button class="adm-tab ${k===tab?'on':''}" title="${esc(lab)}"><svg viewBox="0 0 24 24">${ADMICON[k]||ICN2.tools}</svg><span>${esc(lab)}</span></button>`);b.addEventListener('click',()=>{state.adminTab=k;renderAdminPage();});tabs.appendChild(b);});
   if(SB){const badge=el(`<span class="adm-live" title="${esc(cfgHost())}">● ${esc(AL('Live backend','Canlı backend'))}</span>`);top.insertBefore(badge,top.firstChild.nextSibling);}
   root.appendChild(w);setTimeout(updateThemeIcons,0);
   const main=w.querySelector('.adm-main');
-  ({overview:admOverview,analytics:admAnalytics,members:admMembers,os:admOS,osmenu:admOsMenu,features:admFeatures,menu:admMenu,backend:admBackend}[tab]||admOverview)(main);
-  if(SB&&_admStale&&(tab==='overview'||tab==='analytics'||tab==='members')){_admStale=false;Promise.all([loadAdminEvents(),loadAdminMembers()]).then(()=>{if(state.view==='admin')renderAdminPage();});}
+  ({overview:admOverview,analytics:admAnalytics,recordings:admRecordings,members:admMembers,os:admOS,osmenu:admOsMenu,features:admFeatures,menu:admMenu,content:admContent,data:admData,security:admSecurity,backend:admBackend}[tab]||admOverview)(main);
+  if(SB&&_admStale){_admStale=false;Promise.all([loadAdminEvents(),loadAdminMembers(),loadAdminGuides(),loadNewsletter()]).then(()=>{if(state.view==='admin')renderAdminPage();});}
+ }
+ /* The range chips every reporting tab shares. */
+ function rangeBar(main){
+  const bar=el('<div class="adm-range"></div>');
+  RANGES.forEach(([n,lab])=>{const b=el(`<button class="${admRange()===n?'on':''}">${esc(lab)}</button>`);b.addEventListener('click',()=>{state.admRange=n;renderAdminPage();});bar.appendChild(b);});
+  main.appendChild(bar);
+ }
+ /* A day-by-day column chart. abars() is fine for a top-10 list but unreadable
+    at 90 buckets, so long ranges get a sparkline with only the ends labelled. */
+ function spark(series){
+  const max=Math.max(1,...series.map(s=>s[1]));
+  return `<div class="dspark">${series.map(s=>`<i style="height:${Math.max(2,Math.round(s[1]/max*100))}%" title="${esc(s[0])}: ${s[1]}"></i>`).join('')}</div>
+   <div class="dspark-x"><span>${esc(series[0]?series[0][0]:'')}</span><span>${esc(AL('peak','zirve'))} ${max}</span><span>${esc(series.length?series[series.length-1][0]:'')}</span></div>`;
+ }
+ function statCard(v,label,delta){
+  const d=delta==null?'':`<span class="dlt ${delta>=0?'up':'dn'}">${delta>=0?'▲':'▼'} ${Math.abs(delta)}%</span>`;
+  return `<div class="adm-card"><b>${esc(String(v))}</b><span>${esc(label)}${d}</span></div>`;
+ }
+ /* Percentage change of this range against the range immediately before it. */
+ function deltaPct(pred){
+  const n=admRange();if(!n)return null;
+  const now=Date.now(),a=now-n*DAY,b=now-2*n*DAY;const all=evAll();
+  const cur=all.filter(e=>e.ts>=a&&pred(e)).length,prev=all.filter(e=>e.ts>=b&&e.ts<a&&pred(e)).length;
+  if(!prev)return cur?100:null;
+  return Math.round((cur-prev)/prev*100);
  }
  function cfgHost(){try{const c=supaCfg();return c?c.url.replace(/^https?:\/\//,''):'';}catch(e){return '';}}
  function admOverview(main){
-  const ev=evAll();const views=ev.filter(e=>e.t==='view').length,launches=ev.filter(e=>e.t==='launch').length;
+  const ev=evSel();
+  const views=ofType('view',ev).length,launches=ofType('launch',ev).length,clicks=ofType('click',ev).length,visits=ofType('visit',ev).length;
   const real=PLATFORMS.filter(p=>SETTINGS[p.id]);const osOn=real.filter(p=>p.available).length;const featsOn=FEATS.filter(f=>featOn(f.k)).length;
-  main.innerHTML=`<div class="adm-h">${esc(AL('Overview','Genel bakış'))}</div><div class="adm-sub">${esc(SB?AL('Live snapshot from your Supabase backend.','Supabase backend’inden canlı anlık durum.'):AL('A snapshot of your site. Data is stored in this browser.','Sitenin anlık durumu. Veriler bu tarayıcıda saklanır.'))}</div>
+  const days=admRange()||30;
+  main.innerHTML=`<div class="adm-h">${esc(AL('Overview','Genel bakış'))}</div><div class="adm-sub">${esc(SB?AL('Live snapshot from your Supabase backend.','Supabase backend’inden canlı anlık durum.'):AL('A snapshot of your site. Data is stored in this browser.','Sitenin anlık durumu. Veriler bu tarayıcıda saklanır.'))}</div>`;
+  rangeBar(main);
+  const body=el(`<div>
    <div class="adm-cards">
-    <div class="adm-card"><b>${membersList().length}</b><span>${esc(AL('Members','Üyeler'))}</span></div>
-    <div class="adm-card"><b>${views}</b><span>${esc(AL('Page views','Sayfa görüntüleme'))}</span></div>
-    <div class="adm-card"><b>${launches}</b><span>${esc(AL('OS launches','OS açılışı'))}</span></div>
-    <div class="adm-card"><b>${ev.length}</b><span>${esc(AL('Total events','Toplam olay'))}</span></div>
-    <div class="adm-card"><b>${osOn}/${real.length}</b><span>${esc(AL('OSes enabled','Etkin OS'))}</span></div>
-    <div class="adm-card"><b>${featsOn}/${FEATS.length}</b><span>${esc(AL('Features on','Açık özellik'))}</span></div>
+    ${statCard(visits,AL('Sessions','Oturum'),deltaPct(e=>e.t==='visit'))}
+    ${statCard(views,AL('Page views','Sayfa görüntüleme'),deltaPct(e=>e.t==='view'))}
+    ${statCard(clicks,AL('Clicks','Tıklama'),deltaPct(e=>e.t==='click'))}
+    ${statCard(launches,AL('OS launches','OS açılışı'),deltaPct(e=>e.t==='launch'))}
+    ${statCard(membersList().length,AL('Members','Üyeler'))}
+    ${statCard(guidesList().length,AL('Recordings','Kayıt'))}
+    ${statCard(osOn+'/'+real.length,AL('OSes enabled','Etkin OS'))}
+    ${statCard(featsOn+'/'+FEATS.length,AL('Features on','Açık özellik'))}
    </div>
-   <div class="adm-sec"><h3>${esc(AL('Views · last 14 days','Görüntüleme · son 14 gün'))}</h3>${abars(viewsByDay(14))}</div>
-   <div class="adm-sec"><h3>${esc(AL('Most opened operating systems','En çok açılan OS’ler'))}</h3>${abars(topLaunch(8))}</div>`;
+   <div class="adm-sec"><h3>${esc(AL('Page views by day','Güne göre görüntüleme'))}</h3>${spark(seriesByDay(ofType('view',ev),Math.min(days,90)))}</div>
+   <div class="adm-grid2">
+    <div class="adm-sec"><h3>${esc(AL('Most opened operating systems','En çok açılan OS’ler'))}</h3>${abars(topLaunch(8))}</div>
+    <div class="adm-sec"><h3>${esc(AL('Most used features','En çok kullanılan özellikler'))}</h3>${abars(topFeature(8))}</div>
+   </div>
+   <div class="adm-sec"><h3>${esc(AL('Quick actions','Hızlı işlemler'))}</h3>
+    <div class="adm-actions">
+     <button class="prim" id="ov-rec">${esc(AL('See recordings','Kayıtları gör'))}</button>
+     <button class="ghost" id="ov-ana">${esc(AL('Full analytics','Tüm analitik'))}</button>
+     <button class="ghost" id="ov-ann">${esc(AL('Announcement bar','Duyuru çubuğu'))}</button>
+     <button class="ghost" id="ov-csv">${esc(AL('Export events CSV','Olayları CSV indir'))}</button>
+     <button class="ghost" id="ov-ref">${esc(AL('Refresh','Yenile'))}</button>
+    </div></div></div>`);
+  main.appendChild(body);
+  body.querySelector('#ov-rec').addEventListener('click',()=>{state.adminTab='recordings';renderAdminPage();});
+  body.querySelector('#ov-ana').addEventListener('click',()=>{state.adminTab='analytics';renderAdminPage();});
+  body.querySelector('#ov-ann').addEventListener('click',()=>{state.adminTab='content';renderAdminPage();});
+  body.querySelector('#ov-csv').addEventListener('click',exportEventsCSV);
+  body.querySelector('#ov-ref').addEventListener('click',()=>{_admStale=true;renderAdminPage();});
  }
  function admAnalytics(main){
-  const ev=evAll();
-  main.innerHTML=`<div class="adm-h">${esc(AL('Analytics','Analitik'))}</div><div class="adm-sub">${esc(SB?AL('Visits and clicks from all visitors (via Supabase).','Tüm ziyaretçilerin ziyaret ve tıklamaları (Supabase).'):AL('Visits and clicks tracked in this browser (no external tracking).','Bu tarayıcıda izlenen ziyaret ve tıklamalar (dış izleme yok).'))}</div>
-   <div class="adm-sec"><h3>${esc(AL('Views · last 14 days','Görüntüleme · son 14 gün'))}</h3>${abars(viewsByDay(14))}</div>
-   <div class="adm-sec"><h3>${esc(AL('Top pages','En çok görüntülenen'))}</h3>${abars(topView(10))}</div>
-   <div class="adm-sec"><h3>${esc(AL('By event type','Olay türüne göre'))}</h3>${abars(typeCounts())}</div>
-   <div class="adm-sec"><h3>${esc(AL('Recent events','Son olaylar'))}</h3><table class="adm-tbl"><thead><tr><th>${esc(AL('Time','Zaman'))}</th><th>${esc(AL('Type','Tür'))}</th><th>${esc(AL('Label','Etiket'))}</th></tr></thead><tbody>${ev.slice().sort((a,b)=>b.ts-a.ts).slice(0,25).map(e=>`<tr><td>${esc(new Date(e.ts).toLocaleString())}</td><td>${esc(e.t)}</td><td>${esc(e.l)}</td></tr>`).join('')||'<tr><td colspan="3">—</td></tr>'}</tbody></table></div>
-   ${SB?`<div class="adm-note">${esc(AL('Server analytics are managed in Supabase; “Clear” only clears this browser’s local cache.','Sunucu analitiği Supabase’de yönetilir; “Temizle” yalnızca bu tarayıcının yerel önbelleğini temizler.'))}</div>`:''}
-   <div class="adm-actions"><button class="ghost" id="aclr">${esc(AL('Clear analytics','Analitiği temizle'))}</button></div>`;
-  main.querySelector('#aclr').addEventListener('click',()=>{store.set('analytics',[]);_admStale=true;renderAdminPage();});
+  const ev=evSel();const days=admRange()||90;
+  const hours=byHour();const peak=hours.slice().sort((a,b)=>b[1]-a[1])[0];
+  const clicksPerSession=ofType('visit',ev).length?(ofType('click',ev).length/ofType('visit',ev).length).toFixed(1):'—';
+  const viewsPerSession=ofType('visit',ev).length?(ofType('view',ev).length/ofType('visit',ev).length).toFixed(1):'—';
+  main.innerHTML=`<div class="adm-h">${esc(AL('Analytics','Analitik'))}</div><div class="adm-sub">${esc(SB?AL('Every visit and click from every visitor, via your Supabase backend.','Tüm ziyaretçilerin her ziyareti ve tıklaması — Supabase üzerinden.'):AL('Visits and clicks tracked in this browser only (no external tracking).','Yalnızca bu tarayıcıda izlenen ziyaret ve tıklamalar (dış izleme yok).'))}</div>`;
+  rangeBar(main);
+  const body=el(`<div>
+   <div class="adm-cards">
+    ${statCard(ev.length,AL('Events in range','Aralıktaki olay'))}
+    ${statCard(viewsPerSession,AL('Views / session','Oturum başına görüntüleme'))}
+    ${statCard(clicksPerSession,AL('Clicks / session','Oturum başına tıklama'))}
+    ${statCard(peak?peak[0]:'—',AL('Busiest hour','En yoğun saat'))}
+   </div>
+   <div class="adm-sec"><h3>${esc(AL('Page views by day','Güne göre görüntüleme'))}</h3>${spark(seriesByDay(ofType('view',ev),Math.min(days,90)))}</div>
+   <div class="adm-sec"><h3>${esc(AL('All events by day','Güne göre tüm olaylar'))}</h3>${spark(seriesByDay(ev,Math.min(days,90)))}</div>
+   <div class="adm-grid2">
+    <div class="adm-sec"><h3>${esc(AL('Most visited pages','En çok ziyaret edilen sayfalar'))}</h3>${abars(topView(12))}</div>
+    <div class="adm-sec"><h3>${esc(AL('Most clicked elements','En çok tıklanan öğeler'))}</h3>${abars(topClick(12))}</div>
+    <div class="adm-sec"><h3>${esc(AL('Features that get hits','Hit alan özellikler'))}</h3>${abars(topFeature(12))}</div>
+    <div class="adm-sec"><h3>${esc(AL('Most opened operating systems','En çok açılan OS’ler'))}</h3>${abars(topLaunch(12))}</div>
+    <div class="adm-sec"><h3>${esc(AL('Most opened settings menus','En çok açılan ayar menüleri'))}</h3>${abars(topMenu(12))}</div>
+    <div class="adm-sec"><h3>${esc(AL('What people search for','Aranan kelimeler'))}</h3>${abars(topSearch(12))}</div>
+    <div class="adm-sec"><h3>${esc(AL('Where visitors come from','Ziyaretçi kaynağı'))}</h3>${abars(topRef(10))}</div>
+    <div class="adm-sec"><h3>${esc(AL('Devices','Cihazlar'))}</h3>${abars(tally(ofType('device'),e=>e.l))}</div>
+    <div class="adm-sec"><h3>${esc(AL('Versions opened','Açılan sürümler'))}</h3>${abars(tally(ofType('version'),e=>{const p=String(e.l).split('@');return osName(p[0])+' '+(p[1]||'');}).slice(0,12))}</div>
+    <div class="adm-sec"><h3>${esc(AL('By event type','Olay türüne göre'))}</h3>${abars(typeCounts())}</div>
+   </div>
+   <div class="adm-sec"><h3>${esc(AL('By hour of day','Günün saatine göre'))}</h3>${spark(hours)}</div>
+   <div class="adm-sec"><h3>${esc(AL('Recent events','Son olaylar'))}</h3><table class="adm-tbl"><thead><tr><th>${esc(AL('Time','Zaman'))}</th><th>${esc(AL('Type','Tür'))}</th><th>${esc(AL('Label','Etiket'))}</th></tr></thead><tbody>${ev.slice().sort((a,b)=>b.ts-a.ts).slice(0,40).map(e=>`<tr><td>${esc(new Date(e.ts).toLocaleString())}</td><td>${esc(e.t)}</td><td>${esc(e.l)}</td></tr>`).join('')||'<tr><td colspan="3">—</td></tr>'}</tbody></table></div>
+   ${SB?`<div class="adm-note">${esc(AL('Server analytics live in Supabase; “Clear” only empties this browser’s local cache.','Sunucu analitiği Supabase’de tutulur; “Temizle” yalnızca bu tarayıcının yerel önbelleğini boşaltır.'))}</div>`:''}
+   <div class="adm-actions"><button class="prim" id="acsvE">${esc(AL('Export events CSV','Olayları CSV indir'))}</button><button class="ghost" id="aref">${esc(AL('Refresh','Yenile'))}</button><button class="ghost" id="aclr">${esc(AL('Clear local analytics','Yerel analitiği temizle'))}</button></div></div>`);
+  main.appendChild(body);
+  body.querySelector('#acsvE').addEventListener('click',exportEventsCSV);
+  body.querySelector('#aref').addEventListener('click',()=>{_admStale=true;renderAdminPage();});
+  body.querySelector('#aclr').addEventListener('click',()=>{store.set('analytics',[]);_admStale=true;renderAdminPage();});
  }
+ /* ===== recordings: what members saved with Record & Play ===== */
+ let _admGuides=null;
+ async function loadAdminGuides(){
+  if(!SB){_admGuides=null;return;}
+  try{const {data,error}=await SB.from('guides').select('id,title,data,owner_email,owner_name,created_at').order('created_at',{ascending:false}).limit(2000);
+   if(error||!data){_admGuides=null;return;}
+   _admGuides=data.map(r=>({id:r.id,title:r.title||'',g:r.data||{},who:r.owner_name||'',email:r.owner_email||'',ts:r.created_at?Date.parse(r.created_at):0}));
+  }catch(e){_admGuides=null;}
+ }
+ /* With no backend there is only this browser's own shelf — say so rather than
+    pretending an empty list means nobody has recorded anything. */
+ function guidesList(){
+  if(_admGuides)return _admGuides;
+  return loadGuides().map(g=>({id:g.id,title:g.title||'',g:g,who:g.by||'',email:'',ts:g.ts||0}));
+ }
+ function exportGuidesCSV(){
+  const rows=[['title','owner','email','os','version','steps','created']].concat(guidesList().map(r=>[r.title,r.who,r.email,(r.g&&r.g.os)||'',(r.g&&r.g.ver)||'',((r.g&&r.g.steps)||[]).length,r.ts?new Date(r.ts).toISOString():'']));
+  dlText(rows.map(r=>r.map(c=>'"'+String(c).replace(/"/g,'""')+'"').join(',')).join('\n'),'osimulator-recordings.csv','text/csv');
+ }
+ function admRecordings(main){
+  const q=(state.admGq||'').toLowerCase();
+  let list=guidesList();
+  if(q)list=list.filter(r=>((r.title||'')+' '+(r.who||'')+' '+(r.email||'')+' '+((r.g&&r.g.os)||'')).toLowerCase().includes(q));
+  const steps=list.reduce((a,r)=>a+(((r.g&&r.g.steps)||[]).length),0);
+  const byOs=tally(list,r=>osName((r.g&&r.g.os)||'—')).slice(0,8);
+  const byWho=tally(list,r=>r.who||r.email||AL('anonymous','anonim')).slice(0,8);
+  main.innerHTML=`<div class="adm-h">${esc(AL('Recordings','Kayıtlar'))}</div>
+   <div class="adm-sub">${esc(SB?AL('Every walkthrough members have saved with Record & Play.','Üyelerin Kaydet ve Oynat ile kaydettiği tüm anlatımlar.'):AL('Recordings saved in this browser. Connect a backend to see everyone’s.','Bu tarayıcıda kayıtlı anlatımlar. Herkesinkini görmek için backend bağla.'))}</div>
+   ${SB?'':`<div class="adm-note">${esc(AL('No backend connected — only this device’s recordings are listed.','Backend bağlı değil — yalnızca bu cihazdaki kayıtlar listeleniyor.'))}</div>`}
+   <div class="adm-cards">
+    ${statCard(list.length,AL('Recordings','Kayıt'))}
+    ${statCard(steps,AL('Recorded steps','Kayıtlı adım'))}
+    ${statCard(tally(list,r=>r.email||r.who||'?').length,AL('Contributors','Katkıda bulunan'))}
+    ${statCard(byOs.length,AL('Systems covered','Kapsanan sistem'))}
+   </div>
+   <input class="adm-search" id="gq" placeholder="${esc(AL('Search title, member or OS…','Başlık, üye veya OS ara…'))}" value="${esc(state.admGq||'')}">
+   <div id="glist"></div>
+   <div class="adm-actions"><button class="prim" id="gcsv">${esc(AL('Export CSV','CSV indir'))}</button><button class="ghost" id="gref">${esc(AL('Refresh','Yenile'))}</button></div>
+   <div class="adm-grid2" style="margin-top:18px">
+    <div class="adm-sec"><h3>${esc(AL('Recordings per system','Sisteme göre kayıt'))}</h3>${abars(byOs)}</div>
+    <div class="adm-sec"><h3>${esc(AL('Top contributors','En çok katkı verenler'))}</h3>${abars(byWho)}</div>
+   </div>`;
+  const box=main.querySelector('#glist');
+  if(!list.length)box.innerHTML=`<div class="adm-note">${esc(AL('No recordings yet.','Henüz kayıt yok.'))}</div>`;
+  list.slice(0,300).forEach(r=>{
+   const g=r.g||{},pf=PLATFORMS.find(p=>p.id===g.os);
+   const meta=[(pf?pf.name:(g.os||'—'))+' '+(g.ver||''),(((g.steps)||[]).length)+' '+AL('steps','adım'),(r.who||r.email||AL('anonymous','anonim')),(r.ts?new Date(r.ts).toLocaleDateString():'—')].join(' · ');
+   const row=el(`<div class="g-row"><span class="gic"><svg viewBox="0 0 24 24">${GICON.guide}</svg></span>
+    <div class="gmain"><div class="n">${esc(r.title||AL('Untitled recording','Adsız kayıt'))}</div><div class="m">${esc(meta)}</div></div>
+    <div class="gact">
+     <button data-a="play" title="${esc(AL('Play','Oynat'))}"><svg viewBox="0 0 24 24">${GICON.play}</svg></button>
+     <button data-a="link" title="${esc(AL('Copy link','Bağlantıyı kopyala'))}"><svg viewBox="0 0 24 24">${SHARE_SVG}</svg></button>
+     <button data-a="dl" title="${esc(AL('Download JSON','JSON indir'))}"><svg viewBox="0 0 24 24">${GICON.dl}</svg></button>
+     <button data-a="del" class="del" title="${esc(AL('Delete','Sil'))}"><svg viewBox="0 0 24 24">${GICON.trash}</svg></button>
+    </div></div>`);
+   row.querySelector('[data-a="play"]').addEventListener('click',()=>{if(!g||!g.steps||!g.steps.length){savedToast(AL('This recording has no steps.','Bu kaydın adımı yok.'));return;}playGuide(g);});
+   row.querySelector('[data-a="link"]').addEventListener('click',()=>{try{navigator.clipboard.writeText(guideLink(g));}catch(e){}savedToast(AL('Link copied','Bağlantı kopyalandı'));});
+   row.querySelector('[data-a="dl"]').addEventListener('click',()=>downloadGuide(g));
+   row.querySelector('[data-a="del"]').addEventListener('click',()=>{
+    if(!confirm(AL('Delete this recording for everyone?','Bu kayıt herkes için silinsin mi?')))return;
+    deleteGuide(r.id);if(_admGuides)_admGuides=_admGuides.filter(x=>x.id!==r.id);renderAdminPage();});
+   box.appendChild(row);
+  });
+  const qi=main.querySelector('#gq');
+  qi.addEventListener('input',e=>{state.admGq=e.target.value;const p=e.target.selectionStart;renderAdminPage();const n=document.querySelector('#gq');if(n){n.focus();try{n.setSelectionRange(p,p);}catch(err){}}});
+  main.querySelector('#gcsv').addEventListener('click',exportGuidesCSV);
+  main.querySelector('#gref').addEventListener('click',()=>{_admStale=true;renderAdminPage();});
+ }
+ /* newsletter subscribers — same table the site writes to on subscribe */
+ let _admNews=null;
+ async function loadNewsletter(){if(!SB){_admNews=null;return;}try{const {data,error}=await SB.from('newsletter').select('email,ts').order('ts',{ascending:false}).limit(5000);if(error||!data){_admNews=null;return;}_admNews=data.map(r=>({email:r.email,ts:r.ts?Date.parse(r.ts):0}));}catch(e){_admNews=null;}}
+ function newsList(){return _admNews||store.get('newsletter',[]).map(x=>typeof x==='string'?{email:x,ts:0}:x);}
  function admMembers(main){
-  const ms=membersList();
-  main.innerHTML=`<div class="adm-h">${esc(AL('Members','Üyeler'))}</div><div class="adm-sub">${esc(SB?AL('Everyone who has signed up.','Kayıt olan herkes.'):AL('People who signed up on this device.','Bu cihazda kayıt olan kişiler.'))}</div>
+  const q=(state.admMq||'').toLowerCase();
+  let ms=membersList();if(q)ms=ms.filter(m=>((m.name||'')+' '+(m.email||'')).toLowerCase().includes(q));
+  const subs=newsList();
+  const perDay=seriesByDay(membersList().filter(m=>m.ts).map(m=>({ts:m.ts})),Math.min(admRange()||30,90));
+  main.innerHTML=`<div class="adm-h">${esc(AL('Members','Üyeler'))}</div><div class="adm-sub">${esc(SB?AL('Everyone who has signed up, plus your newsletter list.','Kayıt olan herkes ve e-bülten listen.'):AL('People who signed up on this device.','Bu cihazda kayıt olan kişiler.'))}</div>
    ${SB?'':`<div class="adm-note">${esc(AL('Membership is stored locally (no backend). Connect a server for real, shared accounts.','Üyelik yerel olarak saklanır (backend yok). Gerçek/paylaşımlı hesaplar için sunucu bağla.'))}</div>`}
-   <table class="adm-tbl"><thead><tr><th>${esc(AL('Name','Ad'))}</th><th>Email</th><th>${esc(AL('Provider','Sağlayıcı'))}</th><th>${esc(AL('Joined','Katıldı'))}</th>${SB?'':'<th></th>'}</tr></thead><tbody>${ms.map(m=>`<tr><td>${esc(m.name)}</td><td>${esc(m.email)}</td><td>${esc(m.provider||'email')}</td><td>${esc(m.ts?new Date(m.ts).toLocaleDateString():'—')}</td>${SB?'':`<td><span class="adel" data-em="${esc(m.email)}">${esc(AL('Delete','Sil'))}</span></td>`}</tr>`).join('')||`<tr><td colspan="${SB?4:5}">${esc(AL('No members yet.','Henüz üye yok.'))}</td></tr>`}</tbody></table>
-   <div class="adm-actions"><button class="prim" id="acsv">${esc(AL('Export CSV','CSV indir'))}</button></div>`;
+   <div class="adm-cards">
+    ${statCard(membersList().length,AL('Members','Üye'))}
+    ${statCard(subs.length,AL('Newsletter subscribers','E-bülten abonesi'))}
+    ${statCard(tally(membersList(),m=>m.provider||'email').map(p=>p[0]).join(', ')||'—',AL('Sign-in methods','Giriş yöntemleri'))}
+    ${statCard(guidesList().length,AL('Recordings by members','Üye kaydı'))}
+   </div>
+   <div class="adm-sec"><h3>${esc(AL('New members by day','Güne göre yeni üye'))}</h3>${spark(perDay)}</div>
+   <input class="adm-search" id="mq" placeholder="${esc(AL('Search name or email…','Ad veya e-posta ara…'))}" value="${esc(state.admMq||'')}">
+   <table class="adm-tbl"><thead><tr><th>${esc(AL('Name','Ad'))}</th><th>Email</th><th>${esc(AL('Provider','Sağlayıcı'))}</th><th>${esc(AL('Recordings','Kayıt'))}</th><th>${esc(AL('Joined','Katıldı'))}</th>${SB?'':'<th></th>'}</tr></thead><tbody>${ms.map(m=>{const me=(m.email||'').toLowerCase(),mn=(m.name||'').toLowerCase();const n=guidesList().filter(g=>{const ge=(g.email||'').toLowerCase();if(ge&&me)return ge===me;const gw=(g.who||'').toLowerCase();return !!gw&&!!mn&&gw===mn;}).length;return `<tr><td>${esc(m.name)}</td><td>${esc(m.email)}</td><td>${esc(m.provider||'email')}</td><td>${n||'—'}</td><td>${esc(m.ts?new Date(m.ts).toLocaleDateString():'—')}</td>${SB?'':`<td><span class="adel" data-em="${esc(m.email)}">${esc(AL('Delete','Sil'))}</span></td>`}</tr>`;}).join('')||`<tr><td colspan="${SB?5:6}">${esc(AL('No members yet.','Henüz üye yok.'))}</td></tr>`}</tbody></table>
+   <div class="adm-actions"><button class="prim" id="acsv">${esc(AL('Export members CSV','Üyeleri CSV indir'))}</button><button class="ghost" id="ncsv">${esc(AL('Export subscribers CSV','Aboneleri CSV indir'))}</button><button class="ghost" id="mref">${esc(AL('Refresh','Yenile'))}</button></div>
+   <div class="adm-sec" style="margin-top:18px"><h3>${esc(AL('Newsletter subscribers','E-bülten aboneleri'))}</h3>
+    <table class="adm-tbl"><thead><tr><th>Email</th><th>${esc(AL('Subscribed','Abone oldu'))}</th></tr></thead><tbody>${subs.slice(0,200).map(s=>`<tr><td>${esc(s.email)}</td><td>${esc(s.ts?new Date(s.ts).toLocaleDateString():'—')}</td></tr>`).join('')||`<tr><td colspan="2">${esc(AL('No subscribers yet.','Henüz abone yok.'))}</td></tr>`}</tbody></table></div>`;
   main.querySelectorAll('.adel').forEach(x=>x.addEventListener('click',()=>{delMember(x.dataset.em);renderAdminPage();}));
   main.querySelector('#acsv').addEventListener('click',exportMembersCSV);
+  main.querySelector('#ncsv').addEventListener('click',()=>{const rows=[['email','subscribed']].concat(newsList().map(s=>[s.email,s.ts?new Date(s.ts).toISOString():'']));dlText(rows.map(r=>r.map(c=>'"'+String(c).replace(/"/g,'""')+'"').join(',')).join('\n'),'osimulator-subscribers.csv','text/csv');});
+  main.querySelector('#mref').addEventListener('click',()=>{_admStale=true;renderAdminPage();});
+  const mi=main.querySelector('#mq');
+  mi.addEventListener('input',e=>{state.admMq=e.target.value;const p=e.target.selectionStart;renderAdminPage();const n=document.querySelector('#mq');if(n){n.focus();try{n.setSelectionRange(p,p);}catch(err){}}});
  }
  function admOS(main){
   const real=PLATFORMS.filter(p=>SETTINGS[p.id]);
@@ -7325,6 +7632,125 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
   ov.querySelectorAll('.icp-cell').forEach(b=>b.addEventListener('click',()=>{cb(b.dataset.k);close();}));
   ov.querySelector('.icp-upl input').addEventListener('change',e=>{const f=e.target.files&&e.target.files[0];if(!f)return;readImageFile(f,d=>{cb(d);close();});});
  }
+ /* ===== site & content: the things that were previously only editable in code ===== */
+ function admContent(main){
+  const c=getSiteCfg();
+  const fld=(k,label,ph,area)=>`<div class="adm-fld"><label>${esc(label)}</label>${area?`<textarea data-k="${k}" placeholder="${esc(ph||'')}">${esc(c[k]||'')}</textarea>`:`<input type="text" data-k="${k}" placeholder="${esc(ph||'')}" value="${esc(c[k]||'')}">`}</div>`;
+  main.innerHTML=`<div class="adm-h">${esc(AL('Site & content','Site ve içerik'))}</div>
+   <div class="adm-sub">${esc(AL('Announcement bar, maintenance mode and the page title/description every visitor gets. Changes apply immediately and sync to every visitor when a backend is connected.','Duyuru çubuğu, bakım modu ve tüm ziyaretçilerin gördüğü sayfa başlığı/açıklaması. Değişiklikler anında uygulanır; backend bağlıysa herkese senkronlanır.'))}</div>
+   <div class="adm-sec"><h3>${esc(AL('Announcement bar','Duyuru çubuğu'))}</h3>
+    <div class="adm-row"><div class="arl"><div class="nm">${esc(AL('Show the bar','Çubuğu göster'))}</div><div class="mt">${esc(AL('A dismissible strip pinned to the top of the site.','Sitenin üstüne sabitlenen, kapatılabilir bir şerit.'))}</div></div><div class="aswitch ${c.annOn?'on':''}" data-sw="annOn"><i></i></div></div>
+    ${fld('annText',AL('Message (English)','Mesaj (İngilizce)'),'New: Android 16 settings are live')}
+    ${fld('annTextTr',AL('Message (Turkish)','Mesaj (Türkçe)'),'Yeni: Android 16 ayarları yayında')}
+    ${fld('annLink',AL('Link (optional)','Bağlantı (opsiyonel)'),'https://…')}
+    <div class="adm-fld"><label>${esc(AL('Bar colour','Çubuk rengi'))}</label><input type="color" data-c="annColor" value="${esc(c.annColor||'#0a84ff')}"></div>
+   </div>
+   <div class="adm-sec"><h3>${esc(AL('Maintenance mode','Bakım modu'))}</h3>
+    <div class="adm-row"><div class="arl"><div class="nm">${esc(AL('Close the site to visitors','Siteyi ziyaretçilere kapat'))}</div><div class="mt">${esc(AL('You keep full access while the admin panel is unlocked in this browser.','Bu tarayıcıda admin paneli açıkken senin erişimin sürer.'))}</div></div><div class="aswitch ${c.mntOn?'on':''}" data-sw="mntOn"><i></i></div></div>
+    ${fld('mntTitle',AL('Headline','Başlık'),AL('We’ll be right back','Birazdan buradayız'))}
+    ${fld('mntText',AL('Explanation','Açıklama'),'',true)}
+   </div>
+   <div class="adm-sec"><h3>${esc(AL('Page title & description','Sayfa başlığı ve açıklaması'))}</h3>
+    <div class="adm-note">${esc(AL('These override the built-in <title> and meta description at runtime. Leave blank to keep the defaults that the prerendered pages ship with.','Bunlar çalışma anında yerleşik <title> ve meta açıklamasını geçersiz kılar. Önceden oluşturulmuş sayfaların varsayılanları için boş bırak.'))}</div>
+    ${fld('metaTitle',AL('Title','Başlık'),'osimulator — every OS settings menu, simulated')}
+    ${fld('metaDesc',AL('Meta description','Meta açıklama'),'',true)}
+    ${fld('footNote',AL('Extra footer note','Ek altbilgi notu'),'',true)}
+   </div>
+   <div class="adm-actions"><button class="ghost" id="cres">${esc(AL('Reset all content settings','Tüm içerik ayarlarını sıfırla'))}</button></div>`;
+  main.querySelectorAll('[data-sw]').forEach(sw=>sw.addEventListener('click',()=>{setSiteCfg(sw.dataset.sw,!c[sw.dataset.sw]);renderAdminPage();}));
+  main.querySelectorAll('[data-k]').forEach(inp=>inp.addEventListener('input',e=>setSiteCfg(e.target.dataset.k,e.target.value)));
+  main.querySelectorAll('[data-c]').forEach(inp=>inp.addEventListener('input',e=>setSiteCfg(e.target.dataset.c,e.target.value)));
+  main.querySelector('#cres').addEventListener('click',()=>{if(confirm(AL('Reset announcement, maintenance and meta settings?','Duyuru, bakım ve meta ayarları sıfırlansın mı?'))){resetSiteCfg();renderAdminPage();}});
+ }
+ /* ===== data: everything the panel manages, in and out as one file ===== */
+ const CFG_KEYS=['navMenu','features','osOverrides','osMenus','siteCfg'];
+ function configBundle(){const o={_type:'osimulator-config',_v:1,_at:new Date().toISOString()};CFG_KEYS.forEach(k=>o[k]=store.get(k,null));return o;}
+ function storageBytes(){let n=0;try{for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);n+=(k.length+(localStorage.getItem(k)||'').length)*2;}}catch(e){}return n;}
+ function admData(main){
+  const b=storageBytes();
+  main.innerHTML=`<div class="adm-h">${esc(AL('Data','Veri'))}</div>
+   <div class="adm-sub">${esc(AL('Move your whole configuration between browsers or projects, and clear what you no longer need.','Tüm yapılandırmanı tarayıcılar veya projeler arasında taşı, gereksizleri temizle.'))}</div>
+   <div class="adm-cards">
+    ${statCard(Math.round(b/1024)+' KB',AL('Local storage used','Yerel depolama'))}
+    ${statCard(store.get('analytics',[]).length,AL('Local events','Yerel olay'))}
+    ${statCard(loadGuides().length,AL('Local recordings','Yerel kayıt'))}
+    ${statCard(SB?AL('Connected','Bağlı'):AL('Local only','Yalnızca yerel'),AL('Backend','Backend'))}
+   </div>
+   <div class="adm-sec"><h3>${esc(AL('Configuration','Yapılandırma'))}</h3>
+    <div class="adm-note">${esc(AL('Header menu, feature flags, OS visibility, per-OS menu edits and content settings — one JSON file.','Menü, özellik anahtarları, OS görünürlüğü, OS menü düzenlemeleri ve içerik ayarları — tek JSON dosyası.'))}</div>
+    <div class="adm-actions">
+     <button class="prim" id="dexp">${esc(AL('Export config JSON','Yapılandırmayı indir'))}</button>
+     <label class="upl" style="display:inline-flex;align-items:center;height:36px;padding:0 14px;border-radius:9px;background:rgba(255,255,255,.08);cursor:pointer;font-size:13px;font-weight:700">${esc(AL('Import config…','Yapılandırma yükle…'))}<input type="file" accept="application/json,.json" hidden id="dimp"></label>
+     ${SB?`<button class="ghost" id="dpush">${esc(AL('Push to backend now','Backend’e şimdi gönder'))}</button><button class="ghost" id="dpull">${esc(AL('Pull from backend','Backend’den çek'))}</button>`:''}
+    </div>
+    <div class="adm-be-msg" id="dmsg"></div>
+   </div>
+   <div class="adm-sec"><h3>${esc(AL('Exports','Dışa aktarım'))}</h3>
+    <div class="adm-actions">
+     <button class="ghost" id="dev">${esc(AL('Events CSV','Olaylar CSV'))}</button>
+     <button class="ghost" id="dme">${esc(AL('Members CSV','Üyeler CSV'))}</button>
+     <button class="ghost" id="dgu">${esc(AL('Recordings CSV','Kayıtlar CSV'))}</button>
+    </div></div>
+   <div class="adm-sec"><h3>${esc(AL('Danger zone','Tehlikeli bölge'))}</h3>
+    <div class="adm-note">${esc(AL('These clear data in this browser only. Supabase rows are not touched.','Bunlar yalnızca bu tarayıcıdaki veriyi temizler. Supabase satırlarına dokunulmaz.'))}</div>
+    <div class="adm-actions">
+     <button class="ghost" id="dca">${esc(AL('Clear local analytics','Yerel analitiği temizle'))}</button>
+     <button class="ghost" id="dcg">${esc(AL('Clear local recordings','Yerel kayıtları temizle'))}</button>
+     <button class="ghost" id="dcc">${esc(AL('Reset all admin settings','Tüm admin ayarlarını sıfırla'))}</button>
+    </div></div>`;
+  const msg=main.querySelector('#dmsg');
+  main.querySelector('#dexp').addEventListener('click',()=>dlText(JSON.stringify(configBundle(),null,2),'osimulator-config.json','application/json'));
+  main.querySelector('#dimp').addEventListener('change',e=>{
+   const f=e.target.files&&e.target.files[0];if(!f)return;
+   const fr=new FileReader();
+   fr.onload=()=>{try{const o=JSON.parse(fr.result);if(!o||o._type!=='osimulator-config')throw new Error(AL('Not an osimulator config file.','osimulator yapılandırma dosyası değil.'));
+     CFG_KEYS.forEach(k=>{if(o[k]!==undefined)store.set(k,o[k]);});
+     applyOsOverrides();applySiteCfg();queueConfigPush();
+     msg.textContent=AL('Imported. ✓','Yüklendi. ✓');msg.className='adm-be-msg ok';setTimeout(renderAdminPage,400);
+    }catch(err){msg.textContent=String(err&&err.message||err);msg.className='adm-be-msg err';}};
+   fr.readAsText(f);});
+  const pu=main.querySelector('#dpush');if(pu)pu.addEventListener('click',async()=>{msg.textContent='…';msg.className='adm-be-msg';await pushSiteConfig();msg.textContent=AL('Pushed. ✓','Gönderildi. ✓');msg.className='adm-be-msg ok';});
+  const pl=main.querySelector('#dpull');if(pl)pl.addEventListener('click',async()=>{msg.textContent='…';msg.className='adm-be-msg';await hydrateSiteConfig();msg.textContent=AL('Pulled. ✓','Çekildi. ✓');msg.className='adm-be-msg ok';});
+  main.querySelector('#dev').addEventListener('click',exportEventsCSV);
+  main.querySelector('#dme').addEventListener('click',exportMembersCSV);
+  main.querySelector('#dgu').addEventListener('click',exportGuidesCSV);
+  main.querySelector('#dca').addEventListener('click',()=>{if(confirm(AL('Clear local analytics?','Yerel analitik temizlensin mi?'))){store.set('analytics',[]);_admStale=true;renderAdminPage();}});
+  main.querySelector('#dcg').addEventListener('click',()=>{if(confirm(AL('Clear recordings stored in this browser?','Bu tarayıcıdaki kayıtlar silinsin mi?'))){store.set('guides',[]);renderAdminPage();}});
+  main.querySelector('#dcc').addEventListener('click',()=>{if(confirm(AL('Reset menu, features, OS visibility and content settings to defaults?','Menü, özellikler, OS görünürlüğü ve içerik ayarları varsayılana dönsün mü?'))){CFG_KEYS.forEach(k=>store.set(k,k==='navMenu'?null:(k==='features'||k==='osOverrides'||k==='osMenus'||k==='siteCfg'?{}:null)));applyOsOverrides();applySiteCfg();queueConfigPush();renderAdminPage();}});
+ }
+ /* ===== security ===== */
+ function admSecurity(main){
+  const has=!!store.get('adminPin',null);
+  main.innerHTML=`<div class="adm-h">${esc(AL('Security','Güvenlik'))}</div>
+   <div class="adm-sub">${esc(AL('Who can open this panel, and what actually protects your data.','Bu paneli kimin açabileceği ve verini gerçekte neyin koruduğu.'))}</div>
+   <div class="adm-note">${esc(AL('The PIN is a convenience lock in this browser — anyone reading the page source can bypass it. Real protection comes from Supabase row-level security: only e-mails in the public.admins table can read analytics or write site settings.','PIN yalnızca bu tarayıcıdaki pratik bir kilittir — sayfa kaynağını okuyan biri atlayabilir. Gerçek koruma Supabase satır düzeyi güvenliğinden gelir: analitiği okuyup site ayarlarını yalnızca public.admins tablosundaki e-postalar yazabilir.'))}</div>
+   <div class="adm-sec"><h3>${esc(AL('Admin PIN','Admin PIN'))}</h3>
+    <div class="adm-fld"><label>${esc(has?AL('Current PIN','Mevcut PIN'):AL('No PIN set yet','Henüz PIN yok'))}</label><input type="password" id="p-old" ${has?'':'disabled'} placeholder="••••"></div>
+    <div class="adm-fld"><label>${esc(AL('New PIN','Yeni PIN'))}</label><input type="password" id="p-new" placeholder="••••"></div>
+    <div class="adm-actions"><button class="prim" id="p-save">${esc(has?AL('Change PIN','PIN değiştir'):AL('Set PIN','PIN belirle'))}</button>${has?`<button class="ghost" id="p-clr">${esc(AL('Remove PIN','PIN kaldır'))}</button>`:''}<button class="ghost" id="p-lock">${esc(AL('Lock panel now','Paneli şimdi kilitle'))}</button></div>
+    <div class="adm-be-msg" id="p-msg"></div>
+   </div>
+   <div class="adm-sec"><h3>${esc(AL('Backend admins','Backend adminleri'))}</h3>
+    <div class="adm-note">${esc(AL('Add or remove admins in the Supabase SQL editor:','Adminleri Supabase SQL editöründe ekle/çıkar:'))}</div>
+    <ol class="adm-steps"><li><code>insert into public.admins(email) values ('you@example.com');</code></li><li><code>delete from public.admins where email='someone@example.com';</code></li></ol>
+   </div>
+   <div class="adm-sec"><h3>${esc(AL('Signed in as','Oturum'))}</h3>
+    <table class="adm-tbl"><tbody>
+     <tr><td>${esc(AL('Account','Hesap'))}</td><td>${esc(USER?(USER.name||USER.email||'—'):AL('Not signed in','Giriş yapılmadı'))}</td></tr>
+     <tr><td>Email</td><td>${esc(USER&&USER.email||'—')}</td></tr>
+     <tr><td>${esc(AL('Backend','Backend'))}</td><td>${esc(SB?cfgHost():AL('Not connected','Bağlı değil'))}</td></tr>
+    </tbody></table></div>`;
+  const msg=main.querySelector('#p-msg');
+  main.querySelector('#p-save').addEventListener('click',()=>{
+   const cur=store.get('adminPin',null);
+   const oldv=(main.querySelector('#p-old').value||'').trim(),nv=(main.querySelector('#p-new').value||'').trim();
+   if(cur&&oldv!==cur){msg.textContent=AL('Current PIN is wrong.','Mevcut PIN yanlış.');msg.className='adm-be-msg err';return;}
+   if(nv.length<4){msg.textContent=AL('Use at least 4 characters.','En az 4 karakter kullan.');msg.className='adm-be-msg err';return;}
+   store.set('adminPin',nv);msg.textContent=AL('Saved. ✓','Kaydedildi. ✓');msg.className='adm-be-msg ok';
+   main.querySelector('#p-old').value='';main.querySelector('#p-new').value='';});
+  const pc=main.querySelector('#p-clr');if(pc)pc.addEventListener('click',()=>{if(confirm(AL('Remove the PIN? The panel will open without one.','PIN kaldırılsın mı? Panel PIN’siz açılır.'))){store.set('adminPin',null);renderAdminPage();}});
+  main.querySelector('#p-lock').addEventListener('click',()=>{state.adminOK=false;applySiteCfg();renderSelect();});
+ }
  function admBackend(main){
   const o=store.get('supaCfg',null);const url=(o&&o.url)||SUPA.url||'';const anon=(o&&o.anon)||SUPA.anon||'';
   const connected=!!SB;
@@ -7352,6 +7778,96 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
   const clr=main.querySelector('#be-clear');if(clr)clr.addEventListener('click',()=>{store.set('supaCfg',null);msg.textContent=AL('Disconnected. Reloading…','Bağlantı kesildi. Yeniden yükleniyor…');msg.className='adm-be-msg';setTimeout(()=>location.reload(),400);});
  }
 
+ /* ===================== site-wide instrumentation =====================
+    The admin panel can only report what the site bothers to report, and the
+    site used to report two things: page views and OS launches. Rather than
+    sprinkle track() through fifty call sites (and quietly miss the fifty-first
+    every time a feature is added), each feature entry point is wrapped once
+    here and one delegated listener catches everything else that is clicked.
+    Original function bodies stay untouched, so nothing here can change what a
+    feature does — a wrapper only records that it ran. */
+ (function instrument(){
+  const before=(fn,note)=>function(){try{note.apply(null,arguments);}catch(e){}return fn.apply(this,arguments);};
+  const feat=k=>()=>track('feature',k);
+  /* --- session-level facts, once per tab --- */
+  try{
+   if(!sessionStorage.getItem('osim_seen')){
+    sessionStorage.setItem('osim_seen','1');
+    let ref='direct';
+    try{if(document.referrer){const h=new URL(document.referrer).host;if(h&&h!==location.host)ref=h;else ref='internal';}}catch(e){}
+    track('visit',ref);
+    const w=Math.min(screen.width||window.innerWidth,screen.height||window.innerHeight);
+    track('device',w<600?'phone':(w<1000?'tablet':'desktop'));
+    track('lang',state.lang||'en');
+   }
+  }catch(e){}
+  /* --- feature entry points --- */
+  openSettingsSearch=before(openSettingsSearch,feat('search'));
+  aiSheet=before(aiSheet,feat('ai'));
+  magicSurprise=before(magicSurprise,feat('magic'));
+  feedbackSheet=before(feedbackSheet,feat('feedback'));
+  accountSheet=before(accountSheet,feat('account'));
+  toolsSheet=before(toolsSheet,feat('tools'));
+  shortcutsSheet=before(shortcutsSheet,feat('shortcuts'));
+  runTool=before(runTool,k=>track('feature','tools:'+k));
+  openAuth=before(openAuth,feat('auth'));
+  signOut=before(signOut,()=>track('feature','auth:signout'));
+  subscribeNewsletter=before(subscribeNewsletter,feat('newsletter'));
+  embedModal=before(embedModal,feat('embedbuild'));
+  shareCardModal=before(shareCardModal,feat('sharecard'));
+  myGuidesModal=before(myGuidesModal,feat('myguides'));
+  openAdmin=before(openAdmin,feat('admin'));
+  siteShare=before(siteShare,k=>track('share',String(k||'site')));
+  shareSite=before(shareSite,()=>track('share','site'));
+  toggleTheme=before(toggleTheme,()=>track('pref','theme:'+(currentTheme()==='light'?'dark':'light')));
+  /* --- recorder + guides: what members actually make --- */
+  startRecording=before(startRecording,()=>track('record','start:'+(state.platform?state.platform.id:'-')));
+  stopRecording=before(stopRecording,save=>track('record',save?'finish':'cancel'));
+  saveGuide=before(saveGuide,g=>track('guide','save:'+((g&&g.os)||'-')));
+  deleteGuide=before(deleteGuide,()=>track('guide','delete'));
+  shareGuideModal=before(shareGuideModal,g=>track('guide','share:'+((g&&g.os)||'-')));
+  downloadGuide=before(downloadGuide,()=>track('guide','download'));
+  playGuide=before(playGuide,g=>track('guide','play:'+((g&&g.os)||'-')));
+  /* --- inside the simulator --- */
+  boot=before(boot,(pid,v)=>track('version',pid+'@'+v));
+  selectSidebar=before(selectSidebar,id=>track('menu',(state.platform?state.platform.id:'-')+':'+id));
+  startChallenge=before(startChallenge,()=>track('feature','daily:start'));
+  quizAnswer=before(quizAnswer,()=>track('feature','quiz:answer'));
+  doNav=before(doNav,act=>track('nav',String(act||'')));
+  /* Searches are typed, so one event per keystroke would drown everything else.
+     Wait for the typing to stop, and ignore fragments nobody would call a query. */
+  let _sq=null;
+  const noteSearch=q=>{q=String(q||'').trim();if(q.length<3)return;clearTimeout(_sq);_sq=setTimeout(()=>track('search',q.toLowerCase()),900);};
+  findAcross=before(findAcross,noteSearch);
+  /* --- everything else that gets clicked --- */
+  let _lastClick='',_lastClickAt=0;
+  function clickLabel(el){
+   const ex=el.closest('[data-track]');if(ex)return ex.getAttribute('data-track');
+   const a=el.closest('a[href]');
+   if(a){const h=a.getAttribute('href')||'';
+    if(/^https?:/i.test(h)){try{if(new URL(h,location.href).host!==location.host)return 'out › '+new URL(h,location.href).host;}catch(e){}}
+    if(h.charAt(0)==='#')return 'link › '+h.slice(1,60);
+    if(h&&h.charAt(0)!=='j')return 'link › '+h.slice(0,60);}
+   const b=el.closest('button,[role="button"],.tile,.os-card,.chip,.seg,.tb-btn,.fab-btn,.nav-link,.side-row,.row.tappable');
+   if(!b)return '';
+   const raw=(b.getAttribute('aria-label')||b.getAttribute('title')||b.dataset.label||b.textContent||'').replace(/\s+/g,' ').trim();
+   const cls=(b.className&&b.className.baseVal!==undefined?b.className.baseVal:String(b.className||'')).split(' ')[0];
+   return (raw||cls||'button').slice(0,48);
+  }
+  document.addEventListener('click',e=>{
+   try{
+    if(state.view==='admin')return;             /* the panel measuring itself is noise */
+    const t=e.target&&e.target.closest?e.target:null;if(!t)return;
+    if(t.closest('.adm-body,.rec-bar,.icp-ovl'))return;
+    const lab=clickLabel(t);if(!lab)return;
+    const full=(state.view||'?')+' › '+lab;
+    const now=Date.now();if(full===_lastClick&&now-_lastClickAt<600)return;
+    _lastClick=full;_lastClickAt=now;
+    track('click',full);
+   }catch(err){}
+  },true);
+ })();
+
  window.addEventListener('resize',()=>{if(state.view!=='select'){if(state.autoFit)fit();else applyZoom();}});
  if(USER&&USER.prefs&&USER.prefs.lang)state.lang=USER.prefs.lang;
 const EMBED=/[?&]embed=1/.test(location.search);
@@ -7360,6 +7876,7 @@ const EMBED=/[?&]embed=1/.test(location.search);
  initTheme();
  autoStamp();
  try{applyOsOverrides();}catch(e){}
+ try{applySiteCfg();}catch(e){}
  if(USER)recordMember(USER);
  if(EMBED){document.body.classList.add('embed');if(BARE)document.body.classList.add('bare');if(EMBTHEME)applyTheme(EMBTHEME,false);}
  if(!parseHash())renderSelect();
@@ -7370,6 +7887,7 @@ const EMBED=/[?&]embed=1/.test(location.search);
   try{
    const sb=await initSupa();
    if(!sb)return;
+   try{evFlush();}catch(e){}
    await restoreSession();
    await hydrateSiteConfig();
    buildFAB();if(state.view==='select')refreshAuth();
