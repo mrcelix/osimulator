@@ -1048,8 +1048,9 @@ body.light .saved-toast{background:#141418}
 .rec-info{font-size:13px;color:#e6e6ea;font-weight:600;white-space:nowrap}
 .rec-info b{color:#fff}
 .rec-info .hint{display:block;font-size:11px;color:#9a9aa6;font-weight:500;margin-top:1px;max-width:190px;white-space:normal}
-.rec-bar button{height:34px;padding:0 13px;border-radius:10px;font-size:13px;font-weight:700}
-.rec-min{width:34px;padding:0!important;background:rgba(255,255,255,.08);color:#d0d0d8;border:1px solid rgba(255,255,255,.14);font-size:17px;line-height:1;flex:none}
+.rec-bar button{width:34px;height:34px;padding:0;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.rec-bar button svg{width:17px;height:17px;fill:currentColor;display:block}
+.rec-min{background:rgba(255,255,255,.08);color:#d0d0d8;border:1px solid rgba(255,255,255,.14)}
 .rec-bar.mini{padding:9px 13px;gap:9px;cursor:pointer;max-width:none}
 .rec-bar.mini .rec-info .hint,.rec-bar.mini .rec-can,.rec-bar.mini .rec-fin,.rec-bar.mini .rec-min{display:none}
 .rec-bar.mini::after{content:"⤢";color:#9a9aa6;font-size:13px;margin-left:2px}
@@ -1136,6 +1137,10 @@ body.light .coach-steps-h{color:#5e5ce6}body.light .coach-sitem{color:#44444c}bo
 /* light theme bits */
 body.light .rec-bar,body.light .coach,body.light .guide-card,body.light .step-edit input,body.light .share-btn,body.light .share-link input,body.light .embed-box{background:#fff;border-color:rgba(0,0,0,.1);color:#1c1c22}
 body.light .rec-info,body.light .coach-note{color:#1c1c22}
+body.light .rec-info b{color:#000}
+/* light theme left these two at their dark-bar grey, which was already faint
+   for the word and would be worse for a 16px glyph */
+body.light .rec-min,body.light .rec-can{background:rgba(0,0,0,.05);color:#3a3a44;border-color:rgba(0,0,0,.12)}
 body.light .guide-card .gt .n{color:#141418}
 body.light .share-btn{color:#33333a}
 body.light .step-edit input{color:#111}
@@ -5732,7 +5737,7 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
  let USER=store.get('user',null);
  /* build/version stamp. version is bumped per release; deploy time is detected
     automatically from the served file (falls back to this baked time). */
- const BUILD={version:'1.22.0',time:'2026-07-28T07:20:00Z'};
+ const BUILD={version:'1.22.1',time:'2026-07-28T08:05:00Z'};
  function buildTimeStr(){try{return new Date(BUILD.time).toLocaleString(state.lang||'en',{dateStyle:'medium',timeStyle:'short'});}catch(e){return (BUILD.time||'').replace('T',' ').replace('Z',' UTC');}}
  function updateFooterVer(){document.querySelectorAll('.foot-ver').forEach(fv=>{fv.innerHTML=`<span class="fv-badge">v${esc(BUILD.version)}</span><span>${esc(t('deployLabel'))}: ${esc(buildTimeStr())}</span>`;});}
  /* auto deploy time: use the served file's Last-Modified (document.lastModified).
@@ -6132,7 +6137,9 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
   guide:'<path d="M4 4h11l5 5v11a1 1 0 01-1 1H4a1 1 0 01-1-1V5a1 1 0 011-1zm9 1.5V9h3.5L13 5.5zM7 12h10v1.6H7V12zm0 3.4h7V17H7v-1.6z"/>',
   cam:'<path d="M9 3l-1.8 2H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V7a2 2 0 00-2-2h-3.2L15 3H9zm3 15a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/>',
   link:'<path d="M3.9 12a3.1 3.1 0 013.1-3.1h4V7H7a5 5 0 000 10h4v-1.9H7A3.1 3.1 0 013.9 12zM8 13h8v-2H8v2zm9-6h-4v1.9h4a3.1 3.1 0 010 6.2h-4V17h4a5 5 0 000-10z"/>',
-  copy:'<path d="M16 1H4a2 2 0 00-2 2v14h2V3h12V1zm3 4H8a2 2 0 00-2 2v14a2 2 0 002 2h11a2 2 0 002-2V7a2 2 0 00-2-2zm0 16H8V7h11v14z"/>'
+  copy:'<path d="M16 1H4a2 2 0 00-2 2v14h2V3h12V1zm3 4H8a2 2 0 00-2 2v14a2 2 0 002 2h11a2 2 0 002-2V7a2 2 0 00-2-2zm0 16H8V7h11v14z"/>',
+  x:'<path d="M19 6.4L17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6 13.4 12z"/>',
+  minim:'<path d="M5 11h14v2H5z"/>'
  };
  const REC={active:false,steps:[],os:null,ver:null,lang:null};
  let PLAY=null;
@@ -6171,7 +6178,11 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
  }
  function showRecBar(){
   hideRecBar();
-  const bar=el(`<div class="rec-bar"><span class="rec-dot"></span><span class="rec-info"><b>${esc(t('recBar'))}</b> · <span class="rec-n">0</span> ${esc(t('recStepWord'))}<span class="hint">${esc(t('recStartedHint'))}</span></span><button class="rec-min" title="${esc(t('guideMin'))}" aria-label="${esc(t('guideMin'))}">–</button><button class="rec-can">${esc(t('recCancel'))}</button><button class="rec-fin">${esc(t('recFinish'))}</button></div>`);
+  // The three buttons are glyph-only: the bar is a fixed-width overlay sitting
+  // on top of the device, and three translated words did not fit beside the
+  // step counter. The word survives as the tooltip and the accessible name.
+  const rbtn=(cls,ico,label)=>`<button class="${cls}" title="${esc(label)}" aria-label="${esc(label)}"><svg viewBox="0 0 24 24" aria-hidden="true">${ico}</svg></button>`;
+  const bar=el(`<div class="rec-bar"><span class="rec-dot"></span><span class="rec-info"><b>${esc(t('recBar'))}</b> · <span class="rec-n">0</span> ${esc(t('recStepWord'))}<span class="hint">${esc(t('recStartedHint'))}</span></span>${rbtn('rec-min',GICON.minim,t('guideMin'))}${rbtn('rec-can',GICON.x,t('recCancel'))}${rbtn('rec-fin',GICON.check,t('recFinish'))}</div>`);
   document.body.appendChild(bar);requestAnimationFrame(()=>bar.classList.add('show'));
   bar.querySelector('.rec-fin').addEventListener('click',e=>{e.stopPropagation();stopRecording(true);});
   bar.querySelector('.rec-can').addEventListener('click',e=>{e.stopPropagation();stopRecording(false);});
