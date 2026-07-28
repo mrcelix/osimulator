@@ -252,3 +252,148 @@ message. None of them can add, rename or remove a row. The persona is a
 Two screens exist only when the hardware does — Mouse and Touchpad are built
 per connected device — so they carry a note saying so instead of invented
 controls.
+
+## webOS OSE (Enact / React)
+
+```sh
+git clone --depth 1 https://github.com/webosose/com.webos.app.settings /tmp/webos
+
+python3 tools/webos-ose-extract.py /tmp/webos /tmp/webos-ose.json
+python3 tools/webos-ose-to-dsl.py  /tmp/webos-ose.json > /tmp/WEBOS_OSE_TREE.js
+```
+
+**webOS OSE is the Open Source Edition** — the Settings app LG ships in the
+open-source webOS built for developer boards and embedded devices. It is *not*
+the closed webOS on LG televisions, which the simulator carries separately as
+"LG webOS" from hand-written notes. The two are different products with
+different menus, and conflating them would be exactly the kind of guess these
+scripts exist to avoid.
+
+### Where the strings come from
+
+The app is Enact (React). `src/views/MainPanels.js` declares the top level:
+
+```js
+const panelMap = ['General', 'Network'];
+```
+
+Each `<X>Panel.js` declares its own screen graph the same way, as a map from
+the visible screen name to the component that draws it, and a row is one JSX
+element inside that component. Every word the user sees is wrapped in Enact's
+`$L()`, which keeps the English literal *in the call* rather than behind a key:
+
+```jsx
+<Item onClick={props.addPath.bind(this, 'System Information')}>
+    {$L('System Information')}
+</Item>
+```
+
+So the extractor never needs a string table — the label and the screen it opens
+are both right there. Navigation is always `addPath.bind(this, '<screen>')`,
+which is what ties a row to its destination.
+
+Three things needed more than a regex:
+
+- **`export default connect(mapState)(WifiPanel)`.** The rows are in the class,
+  not the wrapper, so the extractor resolves the wrapper to the class and reads
+  its `render()`. Without this Wi-Fi Connection came out with zero rows.
+- **Field sets built by a spread.** `<Input {...ipProps} />` hides the label in
+  a method, so `propsets()` resolves the spread to the method that returns it.
+- **Dropdown choices live in a constructor table**, not in JSX:
+  `securityTypeProps()` → `makeSecurityList()` → `this.securityTypes`. The
+  extractor follows that chain (`option_tables()` + `propopts()`) so the
+  Security row's `['Open', 'WEP', 'WPA/WPA2 PSK']` is read from the source
+  rather than typed in downstream.
+
+### One version, not two
+
+The panel graph is byte-identical at the `submissions/20`, `/25`, `/30` and
+`/37` tags, so there is one version here. The app's own `package.json` and
+`webos-meta/appinfo.json` both say `1.1.0` — that is the *app* version, not a
+platform release, which is why the version chip reads `OSE 1.1` and the
+invented platform build string stays confined to the device-state table.
+
+### What is *not* from source
+
+`$L('Loading...')` marks the slots webOS fills from the box. Those — device
+name, build string, MAC and IP addresses, networks in range, whether Ethernet
+is connected — come from `DeviceState` in `webos-ose-to-dsl.py`, which may set
+the value on the right of a row, the position of a switch, or append a labelled
+list of hardware, and may never add, rename or remove a row.
+
+Two screens (Menu Language, Keyboard Languages) are a `VirtualList` over what
+is installed on the box, so there is no menu in the source at all; they carry a
+note saying so. The Wired Edit and Edit forms open pre-filled with the box's
+current configuration; Add Network and Wi-Fi Security open blank, because that
+is how they open.
+
+One rendering note: a few of these destinations are drawn as `<Button>` rather
+than as an item. The simulator's `renderRow` does not wire `openDetail` on a
+button, so a button that navigates is emitted as a link row — otherwise a whole
+panel would be unreachable.
+
+## Gaia (Firefox OS)
+
+```sh
+git clone --depth 1 -b v2.5 https://github.com/mozilla-b2g/gaia /tmp/gaia25
+git clone --depth 1 -b v2.2 https://github.com/mozilla-b2g/gaia /tmp/gaia22
+
+python3 tools/gaia-extract.py /tmp/gaia25 /tmp/gaia25.json
+python3 tools/gaia-extract.py /tmp/gaia22 /tmp/gaia22.json
+python3 tools/gaia-to-dsl.py  /tmp/gaia25.json /tmp/gaia22.json > /tmp/GAIA_TREE.js
+```
+
+**This is upstream Gaia, not a vendor build.** KaiOS forked Gaia 2.5 and its
+own tree is not public (`kaiostech/gaia`, `KaiOS/gaia` are 404 or private), so
+a KaiOS handset differs from what is shown here. The simulator therefore keeps
+its hand-written KaiOS entry and adds Firefox OS as its own platform, the same
+"upstream, not the vendor's patched build" caveat already applied to Ubuntu —
+only larger, because the fork diverged for years.
+
+### Where the strings come from
+
+Gaia's Settings app is plain HTML. Each screen is one custom element:
+
+```html
+<element name="wifi" extends="section">
+  <li><a data-l10n-id="wifi-settings">…</a></li>
+</element>
+```
+
+`elements/root.html` *is* the sidebar, each `<li>` is a row, and every visible
+string is a `data-l10n-id` key. Keys resolve out of
+`apps/settings/locales/settings.en-US.properties` plus
+`shared/locales/**/*.en-US.properties`.
+
+The resolution chain has four wrinkles, all handled:
+
+- **A key may have no plain value**, only attributes. Then the row's text falls
+  through to its children, skipping `<small>`, `<button>` and anything classed
+  `desc`.
+- **`{{var}}` interpolation is recursive** and covers branding, aliasing and
+  `data-l10n-args`. `branding/unofficial` is skipped so `brandShortName`
+  resolves to `Firefox OS` rather than `Boot2Gecko`, and the `device_type/phone`
+  overlay is loaded first so the reset row reads "Reset Phone".
+- **A slider carries no label of its own**; its heading is found through
+  `aria-labelledby`.
+- **`<small>` is the discriminator** between a row showing a live reading and a
+  row that is just prose: with one it is a value, without one it is a note.
+
+Both releases extract with **zero unresolved keys and zero surviving
+`{{vars}}`**: 2.5 gives 39 sidebar items over 58 screens and 339 rows, 2.2
+gives 39 items over 52 screens and 307 rows. The menu difference is real —
+2.5 has Home Screens, Add-ons and Achievements; 2.2 has Homescreen,
+Homescreens and Privacy Controls — which is why both ship.
+
+One engine note: `verMajor()` reads the first integer of the version string, so
+"Firefox OS 2.5" and "Firefox OS 2.2" both give `2`. The fork in `osSidebar()`
+tests the version *string* instead.
+
+### What is *not* from source
+
+`DeviceState` in `gaia-to-dsl.py`, under the same rule as everywhere else. The
+persona is a ZTE Open C running `Boot2Gecko 2.5.0.0-prerelease`: operator,
+phone number, model, build and git-commit fields, MAC address, storage figures
+and battery level. Four screens (Themes, Achievements, App Permissions,
+Downloads) are built from a runtime list, so they carry a note rather than
+invented rows.
