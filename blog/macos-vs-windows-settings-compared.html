@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>macOS vs Windows Settings: Where Every Option Actually Lives — osimulator</title>
+<meta name="description" content="macOS vs Windows settings compared: sidebar layouts, the legacy Control Panel problem, search behaviour, and where display, network and update options live.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<link rel="canonical" href="https://osimulator.com/blog/macos-vs-windows-settings-compared.html">
+<link rel="alternate" hreflang="x-default" href="https://osimulator.com/blog/macos-vs-windows-settings-compared.html">
+<link rel="alternate" type="application/rss+xml" title="osimulator blog" href="https://osimulator.com/blog/feed.xml">
+<link rel="icon" type="image/png" sizes="32x32" href="https://osimulator.com/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://osimulator.com/apple-touch-icon.png">
+<meta name="theme-color" content="#0b0b0f">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="osimulator">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="macOS vs Windows Settings: Where Every Option Actually Lives — osimulator">
+<meta property="og:description" content="macOS vs Windows settings compared: sidebar layouts, the legacy Control Panel problem, search behaviour, and where display, network and update options live.">
+<meta property="og:url" content="https://osimulator.com/blog/macos-vs-windows-settings-compared.html">
+<meta property="og:image" content="https://osimulator.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="osimulator — explore the real Settings menus of 43 operating systems">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="macOS vs Windows Settings: Where Every Option Actually Lives — osimulator">
+<meta name="twitter:description" content="macOS vs Windows settings compared: sidebar layouts, the legacy Control Panel problem, search behaviour, and where display, network and update options live.">
+<meta name="twitter:image" content="https://osimulator.com/og.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","@id":"https://osimulator.com/blog/macos-vs-windows-settings-compared.html#post","headline":"macOS System Settings vs the Windows Settings app","alternativeHeadline":"macOS vs Windows Settings: Where Every Option Actually Lives","description":"macOS vs Windows settings compared: sidebar layouts, the legacy Control Panel problem, search behaviour, and where display, network and update options live.","articleSection":"Compare","keywords":"macos, windows, settings, compare, desktop","wordCount":524,"inLanguage":"en","datePublished":"2026-07-28","dateModified":"2026-07-28","image":"https://osimulator.com/og.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://osimulator.com/blog/macos-vs-windows-settings-compared.html"},"isPartOf":{"@id":"https://osimulator.com/blog/#blog"},"author":{"@type":"Organization","name":"osimulator","url":"https://osimulator.com/"},"publisher":{"@type":"Organization","name":"osimulator","url":"https://osimulator.com/","logo":{"@type":"ImageObject","url":"https://osimulator.com/icon-512.png"}}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://osimulator.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://osimulator.com/blog/"},{"@type":"ListItem","position":3,"name":"macOS System Settings vs the Windows Settings app","item":"https://osimulator.com/blog/macos-vs-windows-settings-compared.html"}]},{"@type":"FAQPage","@id":"https://osimulator.com/blog/macos-vs-windows-settings-compared.html#faq","mainEntity":[{"@type":"Question","name":"Does Windows 11 still need the Control Panel?","acceptedAnswer":{"@type":"Answer","text":"For most everyday tasks, no. A few legacy and administrative dialogs still open Control Panel windows, so it has not been removed, but the modern Settings app now covers the common cases."}},{"@type":"Question","name":"What replaced System Preferences on a Mac?","acceptedAnswer":{"@type":"Answer","text":"System Settings, introduced in macOS Ventura in 2022. It contains the same controls reorganised into an iPhone-style sidebar, so older tutorials referring to System Preferences panes still broadly apply."}},{"@type":"Question","name":"Where is software update on each system?","acceptedAnswer":{"@type":"Answer","text":"Windows has a top-level Windows Update entry in Settings. macOS files Software Update inside the General pane in Ventura and later, and at the top level in older versions."}}]}]}</script>
+<style>:root{--sf:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--ink:#e8e8ee;--dim:#a9a9b6;--faint:#7c7c88;--line:rgba(255,255,255,.10);--card:rgba(255,255,255,.045);--accent:#8b8bff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--sf);background:#0b0b0f;color:var(--ink);line-height:1.62;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;background:radial-gradient(120% 80% at 50% 0%,#1c1c2b 0%,#0b0b0f 62%);z-index:-1}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+header.site{position:sticky;top:0;z-index:30;backdrop-filter:blur(16px);background:rgba(11,11,15,.82);border-bottom:1px solid var(--line)}
+.hin{display:flex;align-items:center;justify-content:space-between;gap:14px;max-width:1080px;margin:0 auto;padding:12px 20px}
+.brand{display:inline-flex;align-items:center;gap:9px;font-weight:800;font-size:17px;color:#f5f5f7}
+.brand:hover{text-decoration:none}
+.mk{width:29px;height:29px;border-radius:9px;background:linear-gradient(135deg,#0a84ff,#5e5ce6);color:#fff;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+.nav{display:flex;flex-wrap:wrap;gap:4px 16px;align-items:center}
+.nav a{color:#b6b6c2;font-weight:600;font-size:14px}
+.nav a.on{color:#fff}
+.nav .open{padding:7px 14px;border-radius:10px;background:linear-gradient(135deg,#0a84ff,#5e5ce6);color:#fff}
+.nav .open:hover{text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:30px 20px 72px}
+.narrow{max-width:734px}
+.crumb{font-size:13px;color:var(--faint);margin:0 0 14px}
+.crumb a{color:var(--faint)}
+h1{font-size:clamp(28px,5vw,42px);font-weight:800;letter-spacing:-.025em;line-height:1.16;margin:6px 0 12px}
+h2{font-size:clamp(20px,3vw,25px);font-weight:750;letter-spacing:-.015em;margin:38px 0 10px;scroll-margin-top:80px}
+.lede{font-size:18.5px;color:#c6c6d2;margin:0 0 22px}
+.meta{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;font-size:13px;color:var(--faint);margin:0 0 26px;padding-bottom:22px;border-bottom:1px solid var(--line)}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.02em;background:rgba(255,255,255,.07);border:1px solid var(--line);color:#dcdce6}
+.chip i{width:7px;height:7px;border-radius:50%;display:block}
+article p{margin:0 0 16px;color:#dcdce6}
+article ul{margin:0 0 18px;padding-left:22px}
+article li{margin:0 0 8px;color:#dcdce6}
+article strong{color:#f4f4f8}
+table{width:100%;border-collapse:collapse;border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:6px 0 22px;font-size:14.5px}
+th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:rgba(255,255,255,.05);font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:#9a9aa6}
+td:first-child{font-weight:700;color:#f2f2f5;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+.toc{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 20px;margin:0 0 28px}
+.toc h2{font-size:11.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--faint);margin:0 0 8px}
+.toc ol{margin:0;padding-left:20px}
+.toc li{margin:4px 0;font-size:14.5px}
+.key{background:linear-gradient(180deg,rgba(10,132,255,.10),rgba(94,92,230,.06));border:1px solid rgba(94,92,230,.28);border-radius:16px;padding:18px 22px;margin:30px 0 6px}
+.key h2{font-size:11.5px;text-transform:uppercase;letter-spacing:.09em;color:#a9a9ff;margin:0 0 8px}
+.key ul{margin:0;padding-left:20px}
+.cta{display:block;margin:34px 0 6px;padding:22px 24px;border-radius:18px;background:linear-gradient(135deg,rgba(10,132,255,.16),rgba(94,92,230,.14));border:1px solid rgba(94,92,230,.34)}
+.cta:hover{text-decoration:none}
+.cta b{display:block;color:#fff;font-size:18px;margin-bottom:4px}
+.cta span{color:#c2c2d4;font-size:14.5px}
+.faq{margin-top:34px}
+.faq details{border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin:0 0 10px;background:var(--card)}
+.faq summary{cursor:pointer;font-weight:700;color:#f2f2f6;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";float:right;color:var(--faint);font-weight:700}
+.faq details[open] summary::after{content:"\2212"}
+.faq p{margin:10px 0 0;color:#c8c8d4;font-size:15px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(272px,1fr));gap:16px;margin:20px 0 0}
+.card{display:flex;flex-direction:column;gap:9px;padding:20px;border-radius:18px;background:var(--card);border:1px solid var(--line);transition:border-color .18s,transform .18s,background .18s}
+.card:hover{border-color:rgba(139,139,255,.5);background:rgba(255,255,255,.065);transform:translateY(-2px);text-decoration:none}
+.card h3{margin:0;font-size:17px;font-weight:750;letter-spacing:-.012em;color:#f4f4f8;line-height:1.3}
+.card p{margin:0;font-size:14px;color:var(--dim);line-height:1.5}
+.card .cmeta{margin-top:auto;padding-top:4px;font-size:12px;color:var(--faint);display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 4px}
+.fbtn{padding:8px 15px;border-radius:999px;font-size:13.5px;font-weight:650;color:#c2c2d0;background:rgba(255,255,255,.06);border:1px solid var(--line);cursor:pointer}
+.fbtn[aria-pressed="true"]{background:#fff;color:#111;border-color:#fff}
+.bsearch{width:100%;margin:16px 0 0;padding:13px 16px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--ink);font-family:inherit;font-size:15px}
+.bsearch::placeholder{color:var(--faint)}
+.bsearch:focus{outline:2px solid rgba(139,139,255,.55);outline-offset:1px}
+.empty{color:var(--faint);padding:26px 2px;display:none}
+.related{margin-top:42px;padding-top:22px;border-top:1px solid var(--line)}
+.related h2{font-size:11.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--faint);margin:0 0 12px}
+.pn{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;margin-top:26px;font-size:14.5px}
+.tagrow{margin:26px 0 0;display:flex;flex-wrap:wrap;gap:7px}
+.tag{font-size:12px;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.055);border:1px solid var(--line);color:#a9a9b6}
+footer{border-top:1px solid var(--line);margin-top:52px}
+.fin{max-width:1080px;margin:0 auto;padding:24px 20px 40px;color:var(--faint);font-size:12.5px}
+.fin nav{margin-bottom:10px;display:flex;flex-wrap:wrap;gap:6px 16px}
+.fin nav a{color:#9a9aa6;font-weight:600}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}</style>
+</head>
+<body>
+<header class="site"><div class="hin">
+<a class="brand" href="https://osimulator.com/"><span class="mk">os</span>osimulator</a>
+<nav class="nav">
+<a href="https://osimulator.com/blog/" class="on">Blog</a>
+<a href="https://osimulator.com/guides/">Guides</a>
+<a href="https://osimulator.com/compare/">Compare</a>
+<a href="https://osimulator.com/find/">Find a setting</a>
+<a class="open" href="https://osimulator.com/">Open the simulator</a>
+</nav>
+</div></header>
+<main class="wrap narrow">
+<div class="crumb"><a href="https://osimulator.com/">Home</a> &rsaquo; <a href="https://osimulator.com/blog/">Blog</a> &rsaquo; macOS System Settings vs the Windows Settings app</div>
+<article>
+<h1>macOS System Settings vs the Windows Settings app</h1>
+<p class="lede">Apple and Microsoft have converged on the same idea: a sidebar of categories with a search box on top. What separates them now is how much of the old control surface each one still drags along.</p>
+<div class="meta"><span class="chip"><i style="background:#5e5ce6"></i>Compare</span><time datetime="2026-07-28">28 July 2026</time><span>2 min read</span></div>
+<nav class="toc" aria-label="On this page"><h2>On this page</h2><ol><li><a href="#two-sidebars-that-look-alike">Two sidebars that look alike</a></li><li><a href="#the-control-panel-problem">The Control Panel problem</a></li><li><a href="#how-search-behaves-on-each">How search behaves on each</a></li><li><a href="#where-the-common-settings-live">Where the common settings live</a></li><li><a href="#which-is-easier-to-live-with">Which is easier to live with</a></li></ol></nav>
+<h2 id="two-sidebars-that-look-alike">Two sidebars that look alike</h2>
+<p>macOS Ventura replaced the old System Preferences grid with <strong>System Settings</strong> in 2022, a scrolling sidebar that borrows heavily from the iPhone. Windows 11 arrived a year earlier with a similar shape: a fixed category list on the left, detail pane on the right.</p><p>The category names are close enough to be confusing. Windows uses System, Bluetooth &amp; devices, Network &amp; internet, Personalisation, Apps, Accounts, Time &amp; language, Gaming, Accessibility, Privacy &amp; security and Windows Update.</p><p>macOS instead leads with the connectivity items, Wi-Fi and Bluetooth and Network, then Notifications, Sound and Focus, then General, Appearance, Accessibility and the hardware panes. A side-by-side view is on the <a href="/compare/macos-vs-windows.html">macOS vs Windows comparison page</a>.</p>
+<h2 id="the-control-panel-problem">The Control Panel problem</h2>
+<p>This is the single biggest structural difference. Windows 11 still ships the Control Panel from the 1990s alongside the modern Settings app, and a handful of dialogs still open it, including several older device and administrative applets.</p><p>Microsoft has migrated most everyday options into Settings, but the seam is visible: some links quietly hand you off to a window with a different design language. Anyone who remembers <a href="/os/win7/">Windows 7</a> will recognise those panels immediately.</p><p>macOS has no equivalent second system. There are advanced sheets hidden behind Details or Options buttons, and a few things live in Disk Utility or Terminal instead, but there is only one Settings app to search.</p>
+<h2 id="how-search-behaves-on-each">How search behaves on each</h2>
+<p>Both put a search field at the top of the sidebar, and on both it is faster than hunting for the right category.</p><p>Windows search is broader in scope: typing into the Settings box, or into the Start menu, returns matches from Settings and from Control Panel applets together, which is genuinely useful given the split.</p><p>macOS search filters the sidebar and highlights the exact row inside a pane once you open it. It matches on feature names rather than plain-English phrasing, so searching for a described symptom works less often than searching for the actual label.</p>
+<h2 id="where-the-common-settings-live">Where the common settings live</h2>
+<p>Four areas cover most of what people actually look for.</p><ul><li><strong>Display:</strong> Windows puts it under System, then Display. macOS gives Displays its own top-level pane.</li><li><strong>Network:</strong> Windows groups everything under Network &amp; internet. macOS separates Wi-Fi from the wider Network pane, as covered in the <a href="/guides/connect-wifi.html">Wi-Fi guide</a>.</li><li><strong>Privacy:</strong> both use a per-app permission list, under Privacy &amp; security on Windows and Privacy &amp; Security on macOS.</li><li><strong>Updates:</strong> Windows Update is a top-level item; macOS files Software Update inside General.</li></ul><p>Appearance is another split, with Windows keeping light and dark themes under Personalisation and macOS placing them in Appearance. The <a href="/guides/dark-mode.html">dark mode guide</a> covers both routes.</p>
+<h2 id="which-is-easier-to-live-with">Which is easier to live with</h2>
+<p>macOS is more consistent, because there is exactly one place to look and Apple rarely leaves an old interface running beside a new one.</p><p>Windows is more discoverable, largely because its search reaches further and its category names read more like plain descriptions of tasks. The cost is the occasional jump into a legacy dialog with different conventions.</p><p>If you are moving between the two, the quickest way to build a mental map is to browse both trees without switching machines. Open the real menus for <a href="/os/macos/">macOS</a> and <a href="/os/windows/">Windows</a> and click through them in <a href="/">the free simulator</a>.</p>
+<aside class="key"><h2>Key points</h2><ul><li>Both now use a sidebar of categories with search on top.</li><li>Windows still carries the legacy Control Panel; macOS has no equivalent.</li><li>Updates are top-level on Windows but nested under General on macOS.</li></ul></aside>
+<a class="cta" href="https://osimulator.com/"><b>Try it yourself, on the real menus</b><span>Open any of 43 operating systems in your browser and walk the Settings tree exactly as it appears on the device. No download, no account.</span></a>
+<section class="faq"><h2 id="faq">Frequently asked questions</h2><details><summary>Does Windows 11 still need the Control Panel?</summary><p>For most everyday tasks, no. A few legacy and administrative dialogs still open Control Panel windows, so it has not been removed, but the modern Settings app now covers the common cases.</p></details><details><summary>What replaced System Preferences on a Mac?</summary><p>System Settings, introduced in macOS Ventura in 2022. It contains the same controls reorganised into an iPhone-style sidebar, so older tutorials referring to System Preferences panes still broadly apply.</p></details><details><summary>Where is software update on each system?</summary><p>Windows has a top-level Windows Update entry in Settings. macOS files Software Update inside the General pane in Ventura and later, and at the top level in older versions.</p></details></section>
+<div class="tagrow"><span class="tag">macos</span><span class="tag">windows</span><span class="tag">settings</span><span class="tag">compare</span><span class="tag">desktop</span></div>
+</article>
+<div class="pn"><a href="https://osimulator.com/blog/macos-system-settings-explained.html">&larr; macOS System Settings, explained after the Ventura redesign</a><a href="https://osimulator.com/blog/privacy-settings-checklist.html">A ten-minute privacy settings checklist for every device you own &rarr;</a></div>
+<section class="related"><h2>Keep reading</h2><div class="grid"><a class="card" href="https://osimulator.com/blog/ios-vs-android-settings-compared.html" data-cat="compare" data-s="ios vs android settings, compared menu by menu ios vs android settings compared: how each menu is organised, where the same task lives on both, the naming differences, and which one is quicker to learn. ios android settings compare smartphones">
+<span class="chip"><i style="background:#5e5ce6"></i>Compare</span>
+<h3>iOS vs Android settings, compared menu by menu</h3>
+<p>iOS vs Android settings compared: how each menu is organised, where the same task lives on both, the naming differences, and which one is quicker to learn.</p>
+<span class="cmeta"><time datetime="2026-07-28">28 July 2026</time><span>&middot;</span><span>3 min read</span></span>
+</a><a class="card" href="https://osimulator.com/blog/chromeos-vs-ubuntu-for-beginners.html" data-cat="compare" data-s="chromeos vs ubuntu for beginners chromeos vs ubuntu for beginners: how each handles updates, apps, files, printing and privacy, plus an honest look at who each desktop actually suits. chromeos ubuntu linux beginners compare">
+<span class="chip"><i style="background:#5e5ce6"></i>Compare</span>
+<h3>ChromeOS vs Ubuntu for beginners</h3>
+<p>ChromeOS vs Ubuntu for beginners: how each handles updates, apps, files, printing and privacy, plus an honest look at who each desktop actually suits.</p>
+<span class="cmeta"><time datetime="2026-07-28">28 July 2026</time><span>&middot;</span><span>3 min read</span></span>
+</a><a class="card" href="https://osimulator.com/blog/watchos-vs-wear-os-settings-compared.html" data-cat="compare" data-s="watchos vs wear os settings, compared watchos vs wear os compared: what you can change on the watch, what needs the phone app, and how faces, notifications, workouts and battery modes differ. watchos wear os smartwatch settings compare">
+<span class="chip"><i style="background:#5e5ce6"></i>Compare</span>
+<h3>watchOS vs Wear OS settings, compared</h3>
+<p>watchOS vs Wear OS compared: what you can change on the watch, what needs the phone app, and how faces, notifications, workouts and battery modes differ.</p>
+<span class="cmeta"><time datetime="2026-07-28">28 July 2026</time><span>&middot;</span><span>3 min read</span></span>
+</a></div></section>
+</main>
+<footer><div class="fin">
+<nav aria-label="Site sections">
+<a href="https://osimulator.com/">Simulator</a><a href="https://osimulator.com/blog/">Blog</a><a href="https://osimulator.com/guides/">Guides</a><a href="https://osimulator.com/compare/">Compare</a><a href="https://osimulator.com/find/">Find a setting</a><a href="https://osimulator.com/changes/">Version changes</a><a href="https://osimulator.com/os/">All systems</a><a href="https://osimulator.com/blog/feed.xml">RSS</a>
+</nav>
+osimulator — explore the real Settings menus of 43 operating systems across 87 versions, free and fully offline.
+Independent educational project; not affiliated with Apple, Google, Microsoft or any other OS vendor. All trademarks belong to their owners.
+</div></footer>
+</body>
+</html>

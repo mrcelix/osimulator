@@ -5,6 +5,7 @@ const path = require('path');
 
 const ROOT = __dirname;
 const SITE = 'https://osimulator.com';
+const blog = require('./build-blog');
 const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 
 /* ---- extract a JS array literal by name, quote/escape aware ---- */
@@ -91,11 +92,11 @@ footer{max-width:760px;margin:40px auto 0;padding:22px 20px 0;border-top:1px sol
 </style>
 </head>
 <body>
-<header class="site"><a class="brand" href="${SITE}/"><span class="mk">os</span>osimulator</a><nav class="nav"><a href="${SITE}/#/guides">Guides</a><a href="${SITE}/#/compare">Compare</a><a href="${SITE}/">Open app</a></nav></header>
+<header class="site"><a class="brand" href="${SITE}/"><span class="mk">os</span>osimulator</a><nav class="nav"><a href="${SITE}/#/guides">Guides</a><a href="${SITE}/#/compare">Compare</a><a href="${SITE}/blog/">Blog</a><a href="${SITE}/">Open app</a></nav></header>
 <main class="wrap">
 ${body}
 </main>
-<footer>osimulator — explore the real Settings menus of 19 operating systems. Independent educational project; not affiliated with Apple, Google, Microsoft or any OS vendor. <a href="${SITE}/">osimulator.com</a></footer>
+<footer>osimulator — explore the real Settings menus of 43 operating systems. Independent educational project; not affiliated with Apple, Google, Microsoft or any OS vendor. <a href="${SITE}/">osimulator.com</a></footer>
 </body>
 </html>`;
 }
@@ -141,7 +142,7 @@ function guidesIndex() {
 <h1>How-to guides for every OS</h1>
 <p class="intro">Step-by-step help for iOS, Android, macOS, Windows and more — then try it live.</p>
 <a class="cta" href="${SITE}/#/guides">Open interactive guides →</a>${secs}`;
-  return shell({ title: 'How-to guides for 19 operating systems — osimulator', desc: 'Step-by-step Settings guides for iOS, Android, macOS, Windows, Linux and more.', canonical, body });
+  return shell({ title: 'How-to guides for 43 operating systems — osimulator', desc: 'Step-by-step Settings guides for iOS, Android, macOS, Windows, Linux and more.', canonical, body });
 }
 
 /* ---- comparisons ---- */
@@ -202,7 +203,7 @@ function findIndex() {
   const items = GUIDES.map(g => `<a class="tile" href="${SITE}/find/${g.slug}.html">${esc(g.title.en)}</a>`).join('');
   const body = `<div class="crumb"><a href="${SITE}/">Home</a> › Find a setting</div>
 <h1>Where is this setting? Find it on every OS</h1>
-<p class="intro">Look up any setting and see exactly where it lives across 19 operating systems, side by side.</p>
+<p class="intro">Look up any setting and see exactly where it lives across 43 operating systems, side by side.</p>
 <a class="cta" href="${SITE}/#/find">Open the interactive finder →</a>
 <div class="grid">${items}</div>`;
   return shell({ title: 'Find a setting on any operating system — osimulator', desc: 'Look up where any setting lives across iOS, Android, macOS, Windows and 15 more systems.', canonical, jsonld: JSON.stringify({ '@context':'https://schema.org','@type':'CollectionPage','name':'Find a setting on any OS','url':canonical }), body });
@@ -237,6 +238,10 @@ w('find/index.html', findIndex()); urls.push(`${SITE}/find/`);
 GUIDES.forEach(g => { w(`find/${g.slug}.html`, findPage(g)); urls.push(`${SITE}/find/${g.slug}.html`); });
 w('changes/index.html', changesIndex()); urls.push(`${SITE}/changes/`);
 
+/* ---- blog (posts.json -> index + post pages + RSS) ---- */
+const blogUrls = blog.build();
+blogUrls.forEach(u => urls.push(u));
+
 /* ---- sitemap (preserve any /os/ per-screen URLs added by prerender.js) ---- */
 const today = new Date().toISOString().slice(0, 10);
 let osUrls = [];
@@ -251,7 +256,8 @@ const sm = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.si
 fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sm);
 
 /* ---- inject crawlable internal links into index.html <noscript> ---- */
-const links = `<a href="/find/">Find a setting</a> · <a href="/changes/">Version changes</a> · ` +
+const links = `<a href="/find/">Find a setting</a> · <a href="/changes/">Version changes</a> · <a href="/blog/">Blog</a> · ` +
+  blog.POSTS.map(p => `<a href="/blog/${p.slug}.html">${esc(p.title)}</a>`).join(' · ') + ' · ' +
   GUIDES.map(g => `<a href="/guides/${g.slug}.html">${esc(g.title.en)}</a>`).join(' · ') +
   ' · ' + COMPARES.map(c => `<a href="/compare/${c.slug}.html">${esc((OSN[c.a]||c.a))} vs ${esc((OSN[c.b]||c.b))}</a>`).join(' · ');
 let idx = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
@@ -260,4 +266,4 @@ idx = idx.replace(/\n\s*<nav aria-label="All guides and comparisons">[\s\S]*?<\/
 idx = idx.replace('  </main>\n</noscript>', `  ${block}\n  </main>\n</noscript>`);
 fs.writeFileSync(path.join(ROOT, 'index.html'), idx);
 
-console.log('Generated', urls.length, 'URLs;', GUIDES.length, 'guides,', COMPARES.length, 'comparisons. sitemap.xml updated; noscript links injected.');
+console.log('Generated', urls.length, 'URLs;', GUIDES.length, 'guides,', COMPARES.length, 'comparisons,', blog.POSTS.length, 'blog posts. sitemap.xml updated; noscript links injected.');

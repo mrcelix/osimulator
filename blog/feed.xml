@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>osimulator blog</title>
+  <link>https://osimulator.com/blog/</link>
+  <atom:link href="https://osimulator.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
+  <description>Practical guides and explainers about operating-system settings.</description>
+  <language>en</language>
+  <lastBuildDate>Tue, 28 Jul 2026 09:00:00 GMT</lastBuildDate>
+  <item>
+    <title>How to turn on dark mode on any device</title>
+    <link>https://osimulator.com/blog/turn-on-dark-mode-any-device.html</link>
+    <guid isPermaLink="true">https://osimulator.com/blog/turn-on-dark-mode-any-device.html</guid>
+    <pubDate>Tue, 28 Jul 2026 09:00:00 GMT</pubDate>
+    <category>How-to</category>
+    <description>Learn how to turn on dark mode on iOS, Android, macOS, Windows 11, ChromeOS and Ubuntu, schedule it at sunset, and fix apps that ignore the system theme.</description>
+  </item>
+  <item>
+    <title>iOS vs Android settings, compared menu by menu</title>
+    <link>https://osimulator.com/blog/ios-vs-android-settings-compared.html</link>
+    <guid isPermaLink="true">https://osimulator.com/blog/ios-vs-android-settings-compared.html</guid>
+    <pubDate>Tue, 28 Jul 2026 09:00:00 GMT</pubDate>
+    <category>Compare</category>
+    <description>iOS vs Android settings compared: how each menu is organised, where the same task lives on both, the naming differences, and which one is quicker to learn.</description>
+  </item>
+  <item>
+    <title>Where is the VPN setting on your device?</title>
+    <link>https://osimulator.com/blog/where-is-the-vpn-setting.html</link>
+    <guid isPermaLink="true">https://osimulator.com/blog/where-is-the-vpn-setting.html</guid>
+    <pubDate>Tue, 28 Jul 2026 09:00:00 GMT</pubDate>
+    <category>How-to</category>
+    <description>Where is the VPN setting on iOS, Android, macOS, Windows and Ubuntu? Find the exact menu path, tell a system profile from a VPN app, and confirm it is on.</description>
+  </item>
+  <item>
+    <title>How to free up storage on your phone</title>
+    <link>https://osimulator.com/blog/free-up-storage-on-your-phone.html</link>
+    <guid isPermaLink="true">https://osimulator.com/blog/free-up-storage-on-your-phone.html</guid>
+    <pubDate>Tue, 28 Jul 2026 09:00:00 GMT</pubDate>
+    <category>How-to</category>
+    <description>Learn how to free up storage on iPhone and Android, read the storage breakdown, understand System and Other, and skip the cleanups that never reclaim space.</description>
+  </item>
+  <item>
+    <title>How to add an eSIM on iPhone and Android</title>
+    <link>https://osimulator.com/blog/how-to-add-an-esim.html</link>
+    <guid isPermaLink="true">https://osimulator.com/blog/how-to-add-an-esim.html</guid>
+    <pubDate>Tue, 28 Jul 2026 09:00:00 GMT</pubDate>
+    <category>How-to</category>
+    <description>Learn how to add an eSIM on iPhone and Android, what a carrier QR code holds, how to transfer a line to a new phone, and what to check if activation fails.</description>
+  </item>
+  <item>
+    <title>How to take a screenshot on any device</title>
+    <link>https://osimulator.com/blog/take-a-screenshot-on-any-device.html</link>
+    <guid isPermaLink="true">https://osimulator.com/blog/take-a-screenshot-on-any-device.html</guid>
+    <pubDate>Tue, 28 Jul 2026 09:00:00 GMT</pubDate>
+    <category>How-to</category>
+    <description>Learn how to take a screenshot on iPhone, Android, Mac, Windows, ChromeOS, Ubuntu, Apple Watch and consoles, plus scrolling captures and where the files land.</description>
+  </item>
+  <item>
+    <title>The iOS Settings app, explained top to bottom</title>
+    <link>https://osimulator.com/blog/ios-settings-menu-explained.html</link>
+    <guid isPermaLink="true">https://osimulator.com/blog/ios-settings-menu-explained.html</guid>
+    <pubDate>Tue, 28 Jul 2026 09:00:00 GMT</pubDate>
+    <category>Explainer</category>
+    <description>The iOS Settings app explained block by block, from the Apple Account card down to per-app panels, plus how to search when a toggle refuses to turn up.</description>
+  </item>
+  <item>
+    <title>The Android Settings menu, explained section by section</title>
+    <link>https://osimulator.com/blog/android-settings-menu-explained.html</link>
+    <guid isPermaLink="true">https://osimulator.com/blog/android-settings-menu-explained.html</guid>
+    <pubDate>Tue, 28 Jul 2026 09:00:00 GMT</pubDate>
+    <category>Explainer</category>
+    <description>Android settings explained block by block, from Network and internet through to System, plus why manufacturer skins move things and how search saves you.</description>
+  </item>
+  <item>
+    <title>The Windows 11 Settings app, explained section by section</title>
+    <link>https://osimulator.com/blog/windows-11-settings-app-explained.html</link>
+    <guid isPermaLink="true">https://osimulator.com/blog/windows-11-settings-app-explained.html</guid>
+    <pubDate>Tue, 28 Jul 2026 09:00:00 GMT</pubDate>
+    <category>Explainer</category>
+    <description>Windows 11 settings explained sidebar section by section, what still opens Control Panel, how to find a control fast, and what changed since Windows 10.</description>
+  </item>
+  <item>
+    <title>macOS System Settings, explained after the Ventura redesign</title>
+    <link>https://osimulator.com/blog/macos-system-settings-explained.html</link>
+    <guid isPermaLink="true">https://osimulator.com/blog/macos-system-settings-explained.html</guid>
+    <pubDate>Tue, 28 Jul 2026 09:00:00 GMT</pubDate>
+    <category>Explainer</category>
+    <description>macOS system settings explained after the Ventura redesign: the sidebar order, which panes moved, where privacy and login items sit, and how to search it.</description>
+  </item>
+  <item>
+    <title>macOS System Settings vs the Windows Settings app</title>
+    <link>https://osimulator.com/blog/macos-vs-windows-settings-compared.html</link>
+    <guid isPermaLink="true">https://osimulator.com/blog/macos-vs-windows-settings-compared.html</guid>
+    <pubDate>Tue, 28 Jul 2026 09:00:00 GMT</pubDate>
+    <category>Compare</category>
+    <description>macOS vs Windows settings compared: sidebar layouts, the legacy Control Panel problem, search behaviour, and where display, network and update options live.</description>
+  </item>
+  <item>
+    <title>A ten-minute privacy settings checklist for every device you own</title>
+    <link>https://osimulator.com/blog/privacy-settings-checklist.html</link>
+    <guid isPermaLink="true">https://osimulator.com/blog/privacy-settings-checklist.html</guid>
+    <pubDate>Tue, 28 Jul 2026 09:00:00 GMT</pubDate>
+    <category>Learn</category>
+    <description>Run this privacy settings checklist on iOS, Android, Windows and macOS: location precision, ad tracking, microphone and camera access and lock screens.</description>
+  </item>
+  <item>
+    <title>The settings that actually improve battery life (and the myths)</title>
+    <link>https://osimulator.com/blog/settings-that-actually-improve-battery-life.html</link>
+    <guid isPermaLink="true">https://osimulator.com/blog/settings-that-actually-improve-battery-life.html</guid>
+    <pubDate>Tue, 28 Jul 2026 09:00:00 GMT</pubDate>
+    <category>How-to</category>
+    <description>Find the settings to improve battery life that measurably work, from brightness and refresh rate to background refresh, and learn to read battery screens.</description>
+  </item>
+  <item>
+    <title>How to manage notifications without silencing everything</title>
+    <link>https://osimulator.com/blog/manage-notifications-without-silencing-everything.html</link>
+    <guid isPermaLink="true">https://osimulator.com/blog/manage-notifications-without-silencing-everything.html</guid>
+    <pubDate>Tue, 28 Jul 2026 09:00:00 GMT</pubDate>
+    <category>How-to</category>
+    <description>Learn how to manage notifications properly: Android channels, iOS Focus and Summary, Windows priority rules, and a triage method that actually sticks.</description>
+  </item>
+  <item>
+    <title>How to set up a passcode, Face ID or fingerprint unlock</title>
+    <link>https://osimulator.com/blog/set-up-a-passcode-face-id-or-fingerprint.html</link>
+    <guid isPermaLink="true">https://osimulator.com/blog/set-up-a-passcode-face-id-or-fingerprint.html</guid>
+    <pubDate>Tue, 28 Jul 2026 09:00:00 GMT</pubDate>
+    <category>How-to</category>
+    <description>Learn how to set up Face ID, fingerprint and Windows Hello, choose a strong passcode, tune screen-lock timeouts and control what your lock screen reveals.</description>
+  </item>
+  <item>
+    <title>How to factory reset a device safely (and what it does not erase)</title>
+    <link>https://osimulator.com/blog/factory-reset-a-device-safely.html</link>
+    <guid isPermaLink="true">https://osimulator.com/blog/factory-reset-a-device-safely.html</guid>
+    <pubDate>Tue, 28 Jul 2026 09:00:00 GMT</pubDate>
+    <category>How-to</category>
+    <description>Learn how to factory reset a phone, tablet or computer safely: what a reset really erases, the sign-outs to do first, and where the option sits on each OS.</description>
+  </item>
+  <item>
+    <title>How to change system language, keyboard and region settings</title>
+    <link>https://osimulator.com/blog/change-language-and-region-settings.html</link>
+    <guid isPermaLink="true">https://osimulator.com/blog/change-language-and-region-settings.html</guid>
+    <pubDate>Tue, 28 Jul 2026 09:00:00 GMT</pubDate>
+    <category>How-to</category>
+    <description>See how to change system language, keyboard input and region format on iOS, Android, Windows, macOS and ChromeOS, plus why dates and currency follow region.</description>
+  </item>
+  <item>
+    <title>The accessibility settings worth knowing on every operating system</title>
+    <link>https://osimulator.com/blog/accessibility-settings-on-every-os.html</link>
+    <guid isPermaLink="true">https://osimulator.com/blog/accessibility-settings-on-every-os.html</guid>
+    <pubDate>Tue, 28 Jul 2026 09:00:00 GMT</pubDate>
+    <category>Learn</category>
+    <description>Find the accessibility settings that matter on iOS, Android, macOS, Windows, ChromeOS and Ubuntu: screen readers, text size, reduce motion and captions.</description>
+  </item>
+  <item>
+    <title>ChromeOS vs Ubuntu for beginners</title>
+    <link>https://osimulator.com/blog/chromeos-vs-ubuntu-for-beginners.html</link>
+    <guid isPermaLink="true">https://osimulator.com/blog/chromeos-vs-ubuntu-for-beginners.html</guid>
+    <pubDate>Tue, 28 Jul 2026 09:00:00 GMT</pubDate>
+    <category>Compare</category>
+    <description>ChromeOS vs Ubuntu for beginners: how each handles updates, apps, files, printing and privacy, plus an honest look at who each desktop actually suits.</description>
+  </item>
+  <item>
+    <title>watchOS vs Wear OS settings, compared</title>
+    <link>https://osimulator.com/blog/watchos-vs-wear-os-settings-compared.html</link>
+    <guid isPermaLink="true">https://osimulator.com/blog/watchos-vs-wear-os-settings-compared.html</guid>
+    <pubDate>Tue, 28 Jul 2026 09:00:00 GMT</pubDate>
+    <category>Compare</category>
+    <description>watchOS vs Wear OS compared: what you can change on the watch, what needs the phone app, and how faces, notifications, workouts and battery modes differ.</description>
+  </item>
+  <item>
+    <title>PlayStation vs Xbox settings, menu by menu</title>
+    <link>https://osimulator.com/blog/playstation-vs-xbox-settings-compared.html</link>
+    <guid isPermaLink="true">https://osimulator.com/blog/playstation-vs-xbox-settings-compared.html</guid>
+    <pubDate>Tue, 28 Jul 2026 09:00:00 GMT</pubDate>
+    <category>Compare</category>
+    <description>PlayStation vs Xbox settings compared: accounts and family, storage, HDR and video output, accessibility, power modes and network menus on both consoles.</description>
+  </item>
+  <item>
+    <title>What a settings menu actually is under the hood</title>
+    <link>https://osimulator.com/blog/what-a-settings-menu-actually-is.html</link>
+    <guid isPermaLink="true">https://osimulator.com/blog/what-a-settings-menu-actually-is.html</guid>
+    <pubDate>Tue, 28 Jul 2026 09:00:00 GMT</pubDate>
+    <category>Explainer</category>
+    <description>What is a settings menu really? A front end over preference stores, layered defaults and per-app scopes, and why every operating system grows a similar tree.</description>
+  </item>
+  <item>
+    <title>How settings menus changed, from icon grids to searchable sidebars</title>
+    <link>https://osimulator.com/blog/how-os-settings-menus-have-changed.html</link>
+    <guid isPermaLink="true">https://osimulator.com/blog/how-os-settings-menus-have-changed.html</guid>
+    <pubDate>Tue, 28 Jul 2026 09:00:00 GMT</pubDate>
+    <category>Learn</category>
+    <description>See how settings menus changed from Mac OS X System Preferences and Windows Control Panel to searchable sidebars, and how to track renames version by version.</description>
+  </item>
+  <item>
+    <title>Teaching device skills with a settings simulator</title>
+    <link>https://osimulator.com/blog/teaching-device-skills-with-a-simulator.html</link>
+    <guid isPermaLink="true">https://osimulator.com/blog/teaching-device-skills-with-a-simulator.html</guid>
+    <pubDate>Tue, 28 Jul 2026 09:00:00 GMT</pubDate>
+    <category>Learn</category>
+    <description>Teach device skills with a simulator in classrooms and helpdesk training: safe practice, repeatable walkthroughs and clean screenshots for your support docs.</description>
+  </item>
+  <item>
+    <title>Try iOS and Android online, without owning either device</title>
+    <link>https://osimulator.com/blog/try-ios-and-android-online-without-a-device.html</link>
+    <guid isPermaLink="true">https://osimulator.com/blog/try-ios-and-android-online-without-a-device.html</guid>
+    <pubDate>Tue, 28 Jul 2026 09:00:00 GMT</pubDate>
+    <category>Learn</category>
+    <description>Try iOS online alongside Android and 40 more systems in your browser, with no download, and learn exactly what a settings simulator can and cannot show you.</description>
+  </item>
+</channel>
+</rss>

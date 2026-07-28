@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>macOS System Settings Explained: Where Every Old Pane Went — osimulator</title>
+<meta name="description" content="macOS system settings explained after the Ventura redesign: the sidebar order, which panes moved, where privacy and login items sit, and how to search it.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<link rel="canonical" href="https://osimulator.com/blog/macos-system-settings-explained.html">
+<link rel="alternate" hreflang="x-default" href="https://osimulator.com/blog/macos-system-settings-explained.html">
+<link rel="alternate" type="application/rss+xml" title="osimulator blog" href="https://osimulator.com/blog/feed.xml">
+<link rel="icon" type="image/png" sizes="32x32" href="https://osimulator.com/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://osimulator.com/apple-touch-icon.png">
+<meta name="theme-color" content="#0b0b0f">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="osimulator">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="macOS System Settings Explained: Where Every Old Pane Went — osimulator">
+<meta property="og:description" content="macOS system settings explained after the Ventura redesign: the sidebar order, which panes moved, where privacy and login items sit, and how to search it.">
+<meta property="og:url" content="https://osimulator.com/blog/macos-system-settings-explained.html">
+<meta property="og:image" content="https://osimulator.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="osimulator — explore the real Settings menus of 43 operating systems">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="macOS System Settings Explained: Where Every Old Pane Went — osimulator">
+<meta name="twitter:description" content="macOS system settings explained after the Ventura redesign: the sidebar order, which panes moved, where privacy and login items sit, and how to search it.">
+<meta name="twitter:image" content="https://osimulator.com/og.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","@id":"https://osimulator.com/blog/macos-system-settings-explained.html#post","headline":"macOS System Settings, explained after the Ventura redesign","alternativeHeadline":"macOS System Settings Explained: Where Every Old Pane Went","description":"macOS system settings explained after the Ventura redesign: the sidebar order, which panes moved, where privacy and login items sit, and how to search it.","articleSection":"Explainer","keywords":"macos, settings, explainer, ventura, apple","wordCount":529,"inLanguage":"en","datePublished":"2026-07-28","dateModified":"2026-07-28","image":"https://osimulator.com/og.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://osimulator.com/blog/macos-system-settings-explained.html"},"isPartOf":{"@id":"https://osimulator.com/blog/#blog"},"author":{"@type":"Organization","name":"osimulator","url":"https://osimulator.com/"},"publisher":{"@type":"Organization","name":"osimulator","url":"https://osimulator.com/","logo":{"@type":"ImageObject","url":"https://osimulator.com/icon-512.png"}}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://osimulator.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://osimulator.com/blog/"},{"@type":"ListItem","position":3,"name":"macOS System Settings, explained after the Ventura redesign","item":"https://osimulator.com/blog/macos-system-settings-explained.html"}]},{"@type":"FAQPage","@id":"https://osimulator.com/blog/macos-system-settings-explained.html#faq","mainEntity":[{"@type":"Question","name":"Where is Software Update in System Settings?","acceptedAnswer":{"@type":"Answer","text":"Inside General. It lost its own top-level pane in Ventura, and the same screen holds the automatic update options."}},{"@type":"Question","name":"Where did login items go?","acceptedAnswer":{"@type":"Answer","text":"They moved from Users and Groups into General. On recent releases the row is named Login Items and Extensions and also lists background items."}},{"@type":"Question","name":"Can I get the old System Preferences grid back?","acceptedAnswer":{"@type":"Answer","text":"No. From Ventura onward the sidebar layout is the only interface, though the underlying preferences and command-line tools are unchanged."}}]}]}</script>
+<style>:root{--sf:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--ink:#e8e8ee;--dim:#a9a9b6;--faint:#7c7c88;--line:rgba(255,255,255,.10);--card:rgba(255,255,255,.045);--accent:#8b8bff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--sf);background:#0b0b0f;color:var(--ink);line-height:1.62;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;background:radial-gradient(120% 80% at 50% 0%,#1c1c2b 0%,#0b0b0f 62%);z-index:-1}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+header.site{position:sticky;top:0;z-index:30;backdrop-filter:blur(16px);background:rgba(11,11,15,.82);border-bottom:1px solid var(--line)}
+.hin{display:flex;align-items:center;justify-content:space-between;gap:14px;max-width:1080px;margin:0 auto;padding:12px 20px}
+.brand{display:inline-flex;align-items:center;gap:9px;font-weight:800;font-size:17px;color:#f5f5f7}
+.brand:hover{text-decoration:none}
+.mk{width:29px;height:29px;border-radius:9px;background:linear-gradient(135deg,#0a84ff,#5e5ce6);color:#fff;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+.nav{display:flex;flex-wrap:wrap;gap:4px 16px;align-items:center}
+.nav a{color:#b6b6c2;font-weight:600;font-size:14px}
+.nav a.on{color:#fff}
+.nav .open{padding:7px 14px;border-radius:10px;background:linear-gradient(135deg,#0a84ff,#5e5ce6);color:#fff}
+.nav .open:hover{text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:30px 20px 72px}
+.narrow{max-width:734px}
+.crumb{font-size:13px;color:var(--faint);margin:0 0 14px}
+.crumb a{color:var(--faint)}
+h1{font-size:clamp(28px,5vw,42px);font-weight:800;letter-spacing:-.025em;line-height:1.16;margin:6px 0 12px}
+h2{font-size:clamp(20px,3vw,25px);font-weight:750;letter-spacing:-.015em;margin:38px 0 10px;scroll-margin-top:80px}
+.lede{font-size:18.5px;color:#c6c6d2;margin:0 0 22px}
+.meta{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;font-size:13px;color:var(--faint);margin:0 0 26px;padding-bottom:22px;border-bottom:1px solid var(--line)}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.02em;background:rgba(255,255,255,.07);border:1px solid var(--line);color:#dcdce6}
+.chip i{width:7px;height:7px;border-radius:50%;display:block}
+article p{margin:0 0 16px;color:#dcdce6}
+article ul{margin:0 0 18px;padding-left:22px}
+article li{margin:0 0 8px;color:#dcdce6}
+article strong{color:#f4f4f8}
+table{width:100%;border-collapse:collapse;border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:6px 0 22px;font-size:14.5px}
+th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:rgba(255,255,255,.05);font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:#9a9aa6}
+td:first-child{font-weight:700;color:#f2f2f5;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+.toc{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 20px;margin:0 0 28px}
+.toc h2{font-size:11.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--faint);margin:0 0 8px}
+.toc ol{margin:0;padding-left:20px}
+.toc li{margin:4px 0;font-size:14.5px}
+.key{background:linear-gradient(180deg,rgba(10,132,255,.10),rgba(94,92,230,.06));border:1px solid rgba(94,92,230,.28);border-radius:16px;padding:18px 22px;margin:30px 0 6px}
+.key h2{font-size:11.5px;text-transform:uppercase;letter-spacing:.09em;color:#a9a9ff;margin:0 0 8px}
+.key ul{margin:0;padding-left:20px}
+.cta{display:block;margin:34px 0 6px;padding:22px 24px;border-radius:18px;background:linear-gradient(135deg,rgba(10,132,255,.16),rgba(94,92,230,.14));border:1px solid rgba(94,92,230,.34)}
+.cta:hover{text-decoration:none}
+.cta b{display:block;color:#fff;font-size:18px;margin-bottom:4px}
+.cta span{color:#c2c2d4;font-size:14.5px}
+.faq{margin-top:34px}
+.faq details{border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin:0 0 10px;background:var(--card)}
+.faq summary{cursor:pointer;font-weight:700;color:#f2f2f6;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";float:right;color:var(--faint);font-weight:700}
+.faq details[open] summary::after{content:"\2212"}
+.faq p{margin:10px 0 0;color:#c8c8d4;font-size:15px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(272px,1fr));gap:16px;margin:20px 0 0}
+.card{display:flex;flex-direction:column;gap:9px;padding:20px;border-radius:18px;background:var(--card);border:1px solid var(--line);transition:border-color .18s,transform .18s,background .18s}
+.card:hover{border-color:rgba(139,139,255,.5);background:rgba(255,255,255,.065);transform:translateY(-2px);text-decoration:none}
+.card h3{margin:0;font-size:17px;font-weight:750;letter-spacing:-.012em;color:#f4f4f8;line-height:1.3}
+.card p{margin:0;font-size:14px;color:var(--dim);line-height:1.5}
+.card .cmeta{margin-top:auto;padding-top:4px;font-size:12px;color:var(--faint);display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 4px}
+.fbtn{padding:8px 15px;border-radius:999px;font-size:13.5px;font-weight:650;color:#c2c2d0;background:rgba(255,255,255,.06);border:1px solid var(--line);cursor:pointer}
+.fbtn[aria-pressed="true"]{background:#fff;color:#111;border-color:#fff}
+.bsearch{width:100%;margin:16px 0 0;padding:13px 16px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--ink);font-family:inherit;font-size:15px}
+.bsearch::placeholder{color:var(--faint)}
+.bsearch:focus{outline:2px solid rgba(139,139,255,.55);outline-offset:1px}
+.empty{color:var(--faint);padding:26px 2px;display:none}
+.related{margin-top:42px;padding-top:22px;border-top:1px solid var(--line)}
+.related h2{font-size:11.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--faint);margin:0 0 12px}
+.pn{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;margin-top:26px;font-size:14.5px}
+.tagrow{margin:26px 0 0;display:flex;flex-wrap:wrap;gap:7px}
+.tag{font-size:12px;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.055);border:1px solid var(--line);color:#a9a9b6}
+footer{border-top:1px solid var(--line);margin-top:52px}
+.fin{max-width:1080px;margin:0 auto;padding:24px 20px 40px;color:var(--faint);font-size:12.5px}
+.fin nav{margin-bottom:10px;display:flex;flex-wrap:wrap;gap:6px 16px}
+.fin nav a{color:#9a9aa6;font-weight:600}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}</style>
+</head>
+<body>
+<header class="site"><div class="hin">
+<a class="brand" href="https://osimulator.com/"><span class="mk">os</span>osimulator</a>
+<nav class="nav">
+<a href="https://osimulator.com/blog/" class="on">Blog</a>
+<a href="https://osimulator.com/guides/">Guides</a>
+<a href="https://osimulator.com/compare/">Compare</a>
+<a href="https://osimulator.com/find/">Find a setting</a>
+<a class="open" href="https://osimulator.com/">Open the simulator</a>
+</nav>
+</div></header>
+<main class="wrap narrow">
+<div class="crumb"><a href="https://osimulator.com/">Home</a> &rsaquo; <a href="https://osimulator.com/blog/">Blog</a> &rsaquo; macOS System Settings, explained after the Ventura redesign</div>
+<article>
+<h1>macOS System Settings, explained after the Ventura redesign</h1>
+<p class="lede">macOS Ventura swapped the System Preferences grid for a sidebar and rehomed a dozen familiar panes. This is where each of them ended up.</p>
+<div class="meta"><span class="chip"><i style="background:#30d158"></i>Explainer</span><time datetime="2026-07-28">28 July 2026</time><span>3 min read</span></div>
+<nav class="toc" aria-label="On this page"><h2>On this page</h2><ol><li><a href="#why-system-preferences-became-system-settings">Why System Preferences became System Settings</a></li><li><a href="#reading-the-sidebar-top-to-bottom">Reading the sidebar top to bottom</a></li><li><a href="#general-swallowed-a-dozen-old-panes">General swallowed a dozen old panes</a></li><li><a href="#where-privacy-and-login-items-live-now">Where privacy and login items live now</a></li><li><a href="#what-did-not-move">What did not move</a></li><li><a href="#searching-instead-of-hunting">Searching instead of hunting</a></li></ol></nav>
+<h2 id="why-system-preferences-became-system-settings">Why System Preferences became System Settings</h2>
+<p>macOS Ventura replaced System Preferences with System Settings. The old window was a grid of icons called panes, each opening its own bespoke layout. The new one is a fixed sidebar beside a scrolling detail view, matching the shape of Settings on iPhone and iPad.</p><p>The change was structural, not cosmetic. Panes were split, merged and renamed, so a path written for Monterey or earlier often points at something that no longer exists. Ventura and later layouts sit on the <a href="/os/macos/">macOS hub</a>, while the original grid is preserved on the <a href="/os/macosx/">Mac OS X hub</a>.</p>
+<h2 id="reading-the-sidebar-top-to-bottom">Reading the sidebar top to bottom</h2>
+<p>Your Apple Account card sits at the very top, holding iCloud, Family Sharing, payment details and the list of signed-in devices. Below it come Wi-Fi, Bluetooth, Network and VPN, which is where you <a href="/guides/connect-wifi.html">join a network</a> or <a href="/guides/pair-bluetooth.html">pair an accessory</a>.</p><p>Then comes a group for Notifications, Sound, Focus and Screen Time, followed by General, Appearance, Accessibility, Control Centre, Siri and Spotlight, and Privacy &amp; Security. Further down sit Desktop &amp; Dock, Displays, Screen Saver and Wallpaper, then Lock Screen, Touch ID &amp; Password and Users &amp; Groups, with Keyboard, Mouse, Trackpad and Printers &amp; Scanners at the end. Apple adds and renames rows each release.</p>
+<h2 id="general-swallowed-a-dozen-old-panes">General swallowed a dozen old panes</h2>
+<p>General is the drawer that absorbed the most. Software Update, Storage, About, AirDrop &amp; Handoff, Sharing, Time Machine, Startup Disk, Date &amp; Time, Language &amp; Region and Transfer or Reset all live inside it now.</p><p>That single change breaks most older instructions. Updating no longer has its own icon, so the <a href="/guides/software-update.html">update guide</a> routes through General, and the storage screen you need when <a href="/guides/free-storage.html">freeing space</a> is in the same section.</p>
+<h2 id="where-privacy-and-login-items-live-now">Where privacy and login items live now</h2>
+<p>Privacy &amp; Security replaced the old Security &amp; Privacy pane and carries considerably more. Per-app access to location, camera, microphone, files, screen recording and full disk access sits near the top, while FileVault, Lockdown Mode and the rule for allowing apps from identified developers sit lower down alongside the <a href="/guides/lock-security.html">lock and security basics</a>.</p><p>Login items moved out of Users &amp; Groups and into General. On recent releases that row is called Login Items &amp; Extensions and also gathers the background-item toggles that used to be scattered across several panes.</p>
+<h2 id="what-did-not-move">What did not move</h2>
+<p>Plenty stayed put. Displays, Sound, Keyboard, Trackpad and Printers &amp; Scanners kept their names and most of their contents. Appearance holds the light and dark switch that the <a href="/guides/dark-mode.html">dark mode guide</a> uses, and Desktop &amp; Dock inherited the old Mission Control options.</p><p>What did change is depth. Advanced options that used to sit behind a visible button now hide behind a row at the foot of a page or a small Advanced sheet. Nothing was deleted outright, but a good deal sits one level lower than it used to.</p>
+<h2 id="searching-instead-of-hunting">Searching instead of hunting</h2>
+<p>The search field sits directly above the sidebar. It matches individual controls rather than only page names, so typing a phrase such as login items or firewall filters the sidebar down to the pages that contain it.</p><p>If you are weighing platforms rather than chasing one toggle, the <a href="/compare/macos-vs-windows.html">macOS and Windows comparison</a> and the <a href="/compare/macos-vs-ubuntu.html">macOS and Ubuntu comparison</a> line the sections up. You can also <a href="/">open macOS System Settings in the simulator</a> and click through the real tree.</p>
+<aside class="key"><h2>Key points</h2><ul><li>Ventura replaced the pane grid with an iPhone-style sidebar.</li><li>General absorbed Software Update, Sharing, Storage, Date and Time and reset.</li><li>Login items now sit under General, not Users and Groups.</li></ul></aside>
+<a class="cta" href="https://osimulator.com/"><b>Try it yourself, on the real menus</b><span>Open any of 43 operating systems in your browser and walk the Settings tree exactly as it appears on the device. No download, no account.</span></a>
+<section class="faq"><h2 id="faq">Frequently asked questions</h2><details><summary>Where is Software Update in System Settings?</summary><p>Inside General. It lost its own top-level pane in Ventura, and the same screen holds the automatic update options.</p></details><details><summary>Where did login items go?</summary><p>They moved from Users and Groups into General. On recent releases the row is named Login Items and Extensions and also lists background items.</p></details><details><summary>Can I get the old System Preferences grid back?</summary><p>No. From Ventura onward the sidebar layout is the only interface, though the underlying preferences and command-line tools are unchanged.</p></details></section>
+<div class="tagrow"><span class="tag">macos</span><span class="tag">settings</span><span class="tag">explainer</span><span class="tag">ventura</span><span class="tag">apple</span></div>
+</article>
+<div class="pn"><a href="https://osimulator.com/blog/windows-11-settings-app-explained.html">&larr; The Windows 11 Settings app, explained section by section</a><a href="https://osimulator.com/blog/macos-vs-windows-settings-compared.html">macOS System Settings vs the Windows Settings app &rarr;</a></div>
+<section class="related"><h2>Keep reading</h2><div class="grid"><a class="card" href="https://osimulator.com/blog/ios-settings-menu-explained.html" data-cat="explainer" data-s="the ios settings app, explained top to bottom the ios settings app explained block by block, from the apple account card down to per-app panels, plus how to search when a toggle refuses to turn up. ios iphone settings explainer apple">
+<span class="chip"><i style="background:#30d158"></i>Explainer</span>
+<h3>The iOS Settings app, explained top to bottom</h3>
+<p>The iOS Settings app explained block by block, from the Apple Account card down to per-app panels, plus how to search when a toggle refuses to turn up.</p>
+<span class="cmeta"><time datetime="2026-07-28">28 July 2026</time><span>&middot;</span><span>3 min read</span></span>
+</a><a class="card" href="https://osimulator.com/blog/android-settings-menu-explained.html" data-cat="explainer" data-s="the android settings menu, explained section by section android settings explained block by block, from network and internet through to system, plus why manufacturer skins move things and how search saves you. android settings explainer pixel samsung">
+<span class="chip"><i style="background:#30d158"></i>Explainer</span>
+<h3>The Android Settings menu, explained section by section</h3>
+<p>Android settings explained block by block, from Network and internet through to System, plus why manufacturer skins move things and how search saves you.</p>
+<span class="cmeta"><time datetime="2026-07-28">28 July 2026</time><span>&middot;</span><span>3 min read</span></span>
+</a><a class="card" href="https://osimulator.com/blog/windows-11-settings-app-explained.html" data-cat="explainer" data-s="the windows 11 settings app, explained section by section windows 11 settings explained sidebar section by section, what still opens control panel, how to find a control fast, and what changed since windows 10. windows windows 11 settings explainer control panel">
+<span class="chip"><i style="background:#30d158"></i>Explainer</span>
+<h3>The Windows 11 Settings app, explained section by section</h3>
+<p>Windows 11 settings explained sidebar section by section, what still opens Control Panel, how to find a control fast, and what changed since Windows 10.</p>
+<span class="cmeta"><time datetime="2026-07-28">28 July 2026</time><span>&middot;</span><span>2 min read</span></span>
+</a></div></section>
+</main>
+<footer><div class="fin">
+<nav aria-label="Site sections">
+<a href="https://osimulator.com/">Simulator</a><a href="https://osimulator.com/blog/">Blog</a><a href="https://osimulator.com/guides/">Guides</a><a href="https://osimulator.com/compare/">Compare</a><a href="https://osimulator.com/find/">Find a setting</a><a href="https://osimulator.com/changes/">Version changes</a><a href="https://osimulator.com/os/">All systems</a><a href="https://osimulator.com/blog/feed.xml">RSS</a>
+</nav>
+osimulator — explore the real Settings menus of 43 operating systems across 87 versions, free and fully offline.
+Independent educational project; not affiliated with Apple, Google, Microsoft or any other OS vendor. All trademarks belong to their owners.
+</div></footer>
+</body>
+</html>

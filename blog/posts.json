@@ -1,0 +1,1509 @@
+[
+ {
+  "slug": "turn-on-dark-mode-any-device",
+  "title": "How to Turn On Dark Mode on Any Device: Phone, Mac, Windows",
+  "h1": "How to turn on dark mode on any device",
+  "desc": "Learn how to turn on dark mode on iOS, Android, macOS, Windows 11, ChromeOS and Ubuntu, schedule it at sunset, and fix apps that ignore the system theme.",
+  "keyword": "how to turn on dark mode",
+  "cat": "how-to",
+  "tags": [
+   "dark mode",
+   "display",
+   "ios",
+   "android",
+   "windows",
+   "appearance"
+  ],
+  "lede": "Every major operating system now ships a dark theme, but each one buries the switch in a different section and calls it something slightly different. Here is where the setting lives on seven systems, how to put it on a schedule, and why some apps stubbornly stay bright.",
+  "body": [
+   {
+    "h2": "Where dark mode lives on iPhone, iPad and Android",
+    "html": "<p>On an iPhone or iPad, the switch sits in <strong>Settings &gt; Display &amp; Brightness</strong>, under the Appearance thumbnails at the top. Tap Dark and it applies immediately across the system and every app that follows the system theme.</p><p>Android keeps the same control in <strong>Settings &gt; Display</strong>, normally labelled Dark theme. Samsung's One UI lists it simply as Dark, and most Android skins also offer a Dark theme tile you can pull into Quick Settings for one-tap switching.</p><p>Version matters: system-wide dark mode arrived in iOS 13 and Android 10, so older builds only offer per-app themes. The <a href=\"/guides/dark-mode.html\">dark mode guide</a> shows the screens side by side, and the <a href=\"/os/android/\">Android settings hub</a> covers how Display is arranged in each release.</p>"
+   },
+   {
+    "h2": "Dark mode on macOS, Windows 11, ChromeOS and Ubuntu",
+    "html": "<p>macOS Ventura and later give Appearance its own row in <strong>System Settings</strong>; on Monterey and earlier the same three options live in System Preferences under General.</p><p>Windows 11 splits the decision in two under <strong>Settings &gt; Personalization &gt; Colors</strong>. \"Choose your mode\" offers Light, Dark or Custom, and Custom is why some desktops end up half-dark: it lets the Windows mode for the taskbar and Start menu differ from the app mode. Set both to Dark unless you want that contrast on purpose, as the <a href=\"/compare/macos-vs-windows.html\">macOS versus Windows comparison</a> explains.</p><p>ChromeOS keeps its dark theme in the personalisation section and, on recent builds, as a Quick Settings toggle. Ubuntu 22.04 and newer use <strong>Settings &gt; Appearance &gt; Style</strong>, with Dark beside the accent colours; earlier GNOME releases needed the separate Tweaks app, which the <a href=\"/os/ubuntu/\">Ubuntu hub</a> spells out.</p>"
+   },
+   {
+    "h2": "Making it switch automatically",
+    "html": "<p>Apple handles scheduling in the same Appearance panel. Turn on Automatic, then choose Sunset to Sunrise, which relies on location services, or a Custom Schedule with your own start and end times.</p><p>Android hides the equivalent under Schedule inside Dark theme, offering sunset-to-sunrise or a custom window. macOS calls its version Auto and follows your time zone rather than exact clock times.</p><p>Windows 11 is the outlier: it has no built-in theme schedule at all. Night light sits nearby, but it only warms the screen's colour temperature and never switches the theme, so the two are easy to confuse.</p>"
+   },
+   {
+    "h2": "Why some apps stay light anyway",
+    "html": "<p>Apps are not obliged to obey the system. Most keep their own theme picker with a \"Follow system\" default, and if that was ever changed to Light, the app ignores Settings until you change it back inside the app.</p><p>Websites work differently. A page turns dark only when its designers wrote a dark palette for the prefers-color-scheme rule browsers pass along, so a light site stays light whatever your phone says.</p><p>Android's developer options include an override that forces unconverted apps into dark colours. It works, but it often ruins contrast in image-heavy apps, so treat it as a last resort.</p>"
+   },
+   {
+    "h2": "Quick reference for all seven systems",
+    "html": "<p>Use this as a shortcut when you move between devices.</p><table><tr><td>iOS and iPadOS</td><td>Display &amp; Brightness, Appearance</td></tr><tr><td>Android</td><td>Display, Dark theme</td></tr><tr><td>macOS 13 and later</td><td>System Settings, Appearance</td></tr><tr><td>Windows 11</td><td>Personalization, Colors</td></tr><tr><td>ChromeOS</td><td>Personalisation or Quick Settings</td></tr><tr><td>Ubuntu 22.04 and later</td><td>Appearance, Style</td></tr></table><p>One note on power: a dark theme genuinely saves battery on OLED screens because black pixels stay unlit, but it changes almost nothing on an LCD. The <a href=\"/guides/battery-life.html\">battery life guide</a> covers the settings that actually help, and you can search any menu by name from the <a href=\"/find/\">settings finder</a>.</p><p>If you would rather practise first, <a href=\"/\">open the real Settings menus in the simulator</a> and click through the Appearance panels for any of these systems.</p>"
+   }
+  ],
+  "faq": [
+   {
+    "q": "Does dark mode actually save battery?",
+    "a": "On OLED and AMOLED screens it does, because black pixels are switched off rather than lit. On LCD panels the backlight stays on regardless, so the saving is negligible."
+   },
+   {
+    "q": "Why is my taskbar still light in Windows 11?",
+    "a": "You are likely on Custom mode under Personalization and Colors, which sets the Windows mode and the app mode separately. Set both to Dark to darken the taskbar and Start menu."
+   },
+   {
+    "q": "Can I schedule dark mode on Windows?",
+    "a": "Windows 11 has no built-in schedule for the theme. Night light can be scheduled, but it only shifts colour temperature and does not switch between light and dark themes."
+   }
+  ],
+  "key": [
+   "iOS uses Display & Brightness; Android uses Display > Dark theme",
+   "Windows 11 Custom mode is why taskbars stay light",
+   "Apps with their own theme picker override the system setting"
+  ],
+  "date": "2026-07-28",
+  "order": 0
+ },
+ {
+  "slug": "ios-vs-android-settings-compared",
+  "title": "iOS vs Android Settings: How the Two Menus Actually Differ",
+  "h1": "iOS vs Android settings, compared menu by menu",
+  "desc": "iOS vs Android settings compared: how each menu is organised, where the same task lives on both, the naming differences, and which one is quicker to learn.",
+  "keyword": "ios vs android settings",
+  "cat": "compare",
+  "tags": [
+   "ios",
+   "android",
+   "settings",
+   "compare",
+   "smartphones"
+  ],
+  "lede": "Both phones can do the same things, but they file those things in completely different places. Here is how the two Settings apps are structured, and what the same feature is called on each.",
+  "body": [
+   {
+    "h2": "Two different filing systems",
+    "html": "<p>Open Settings on an iPhone and you get one long scrolling list. Connectivity sits at the top, system-wide behaviour in the middle, and near the bottom every installed app that registers a preference gets its own row.</p><p>Android takes the opposite approach. Its Settings app is a short list of broad categories such as Network &amp; internet, Connected devices, Apps, Notifications, Battery and Storage, and almost everything lives two or three taps inside one of them.</p><p>The practical difference is scanning versus predicting. iOS lets you scroll until you recognise a name; Android asks you to guess which category a feature was filed under, which is fast once you know the map and slow until you do. The <a href=\"/compare/ios-vs-android.html\">iOS vs Android comparison page</a> puts the two trees next to each other.</p>"
+   },
+   {
+    "h2": "Where the same task lives on each",
+    "html": "<p>Nearly every everyday task exists on both platforms, just shelved differently. Manufacturer skins matter too, so a Samsung Galaxy running One UI will not always match a Pixel running stock Android.</p><table><tr><td><strong>Task</strong></td><td><strong>iOS</strong></td><td><strong>Android (Pixel)</strong></td></tr><tr><td>Install an OS update</td><td>General, then Software Update</td><td>System, then System update</td></tr><tr><td>Free up space</td><td>General, then iPhone Storage</td><td>Storage</td></tr><tr><td>Silence one app</td><td>Notifications, then the app</td><td>Notifications, then App notifications</td></tr><tr><td>Mobile data</td><td>Cellular or Mobile Data</td><td>Network &amp; internet</td></tr></table><p>Step-by-step versions of the first two live in the <a href=\"/guides/software-update.html\">software update guide</a> and the <a href=\"/guides/free-storage.html\">free up storage guide</a>.</p>"
+   },
+   {
+    "h2": "Same feature, different name",
+    "html": "<p>Vocabulary is the other trap. Apple labels mobile data <strong>Cellular</strong> in the United States and <strong>Mobile Data</strong> in the UK and Australia. It is the same screen; only the regional wording changes.</p><p>Android files the equivalent under Network &amp; internet, where the row may read SIMs, Mobile network or Internet depending on the version and the manufacturer.</p><p>Sharing is the clearest split. Apple has kept the name <strong>AirDrop</strong> since 2011, while Google went from Android Beam to Nearby Share and then to <strong>Quick Share</strong> once Google and Samsung merged their two systems in 2024. Bluetooth is one of the rare areas where both use the same word, as the <a href=\"/guides/pair-bluetooth.html\">Bluetooth pairing guide</a> shows.</p>"
+   },
+   {
+    "h2": "Fragmentation only cuts one way",
+    "html": "<p>Every iPhone on a given iOS version shows the same Settings layout, so a path you learn on one handset transfers to any other. Android vendors rewrite the Settings app, which is why instructions written for a Pixel often fail on a Galaxy, Xiaomi or OnePlus phone.</p><p>That difference explains a lot of bad advice online. The Android structure used in our simulator is machine-extracted from the open-source code rather than retyped from memory, and the <a href=\"/gercek-veri-durumu.html\">data provenance page</a> sets out exactly which systems that applies to.</p><p>Both platforms put a search field at the top of Settings. On Android it is usually the quickest route to anything buried three levels down.</p>"
+   },
+   {
+    "h2": "Which one is easier to learn",
+    "html": "<p>For a first phone, iOS wins on predictability. One list, identical across devices, and Apple moves items between releases only rarely.</p><p>For anyone who wants control, Android's category structure scales better, because it can absorb far more options without turning into an endless scroll. Notification handling shows this well: Android exposes per-channel switches inside each app, which the <a href=\"/guides/manage-notifications.html\">notifications guide</a> walks through, while iOS keeps a simpler per-app toggle.</p><p>The fastest way to judge for yourself is to tap through both. You can open the real menus of <a href=\"/os/ios/\">iOS</a> and <a href=\"/os/android/\">Android</a> and explore them in <a href=\"/\">the free browser-based simulator</a> without owning either device.</p>"
+   }
+  ],
+  "faq": [
+   {
+    "q": "Why do Android instructions online often not match my phone?",
+    "a": "Because each manufacturer redesigns the Settings app. Stock Android on a Pixel, One UI on a Samsung and MIUI or HyperOS on a Xiaomi use different category names and different nesting for the same features."
+   },
+   {
+    "q": "Is Cellular the same thing as Mobile network?",
+    "a": "Effectively yes. Apple uses Cellular in US English and Mobile Data in UK and Australian English, while Android groups the equivalent controls under Network and internet."
+   },
+   {
+    "q": "Can iPhones and Android phones share files directly?",
+    "a": "Not through AirDrop and Quick Share, which do not talk to each other. Bluetooth, a shared cloud drive or a messaging app remain the reliable cross-platform routes."
+   }
+  ],
+  "key": [
+   "iOS is one long list; Android is a small set of nested categories.",
+   "Cellular, Mobile Data and Mobile network all describe the same feature.",
+   "Android menus vary by manufacturer, iOS menus do not."
+  ],
+  "date": "2026-07-28",
+  "order": 1
+ },
+ {
+  "slug": "where-is-the-vpn-setting",
+  "title": "Where Is the VPN Setting? iOS, Android, Mac, Windows, Linux",
+  "h1": "Where is the VPN setting on your device?",
+  "desc": "Where is the VPN setting on iOS, Android, macOS, Windows and Ubuntu? Find the exact menu path, tell a system profile from a VPN app, and confirm it is on.",
+  "keyword": "where is the vpn setting",
+  "cat": "how-to",
+  "tags": [
+   "vpn",
+   "network",
+   "privacy",
+   "ios",
+   "android",
+   "windows"
+  ],
+  "lede": "A VPN can be switched on from two completely different places: the operating system's own network settings, or inside the provider's app. Knowing which one you are looking at explains most of the confusion about whether a VPN is actually running.",
+  "body": [
+   {
+    "h2": "iPhone and iPad: General, then VPN",
+    "html": "<p>On iOS and iPadOS the entry sits in <strong>Settings &gt; General &gt; VPN &amp; Device Management</strong> on iOS 15 and later. Earlier releases label the same row simply VPN, and some builds add a VPN row directly on the main Settings page once at least one configuration exists.</p><p>Inside that screen you get a status toggle and a list of configurations. Tap the info button beside one to see its type, server and account, or use Add VPN Configuration to enter IKEv2, IPsec or L2TP details by hand.</p><p>If the screen is empty, no profile has been installed yet, which is normal on a fresh device. The <a href=\"/os/ios/\">iOS settings hub</a> shows how the General section is laid out across versions.</p>"
+   },
+   {
+    "h2": "Android, and why the path keeps moving",
+    "html": "<p>Stock Android puts VPN under <strong>Settings &gt; Network &amp; internet &gt; VPN</strong>, sometimes one level deeper behind an Advanced or More heading. Samsung devices move it to Connections, then More connection settings, then VPN, which is the single most common reason people cannot find it.</p><p>The fastest route on any Android build is the search box at the top of Settings: type VPN and jump straight there. The gear icon beside a saved profile holds the useful extras, including Always-on VPN and Block connections without VPN, which stops traffic leaking when the tunnel drops.</p><p>Layout differences between manufacturers are covered in the <a href=\"/os/android/\">Android hub</a> and in the <a href=\"/compare/ios-vs-android.html\">iOS versus Android settings comparison</a>.</p>"
+   },
+   {
+    "h2": "macOS, Windows 11 and Ubuntu",
+    "html": "<p>macOS Ventura and later give VPN its own item in <strong>System Settings</strong>, just below Network. On Monterey and earlier, VPN connections are added as interfaces inside the Network pane using the plus button.</p><p>Windows 11 keeps it at <strong>Settings &gt; Network &amp; internet &gt; VPN</strong>, where Add VPN asks for a provider, connection name, server address and sign-in type. A VPN button also appears in Quick Settings once a connection exists.</p><p>Ubuntu and other GNOME desktops list VPN as a section inside <strong>Settings &gt; Network</strong>, with a plus button offering the protocols your installed plugins support, such as OpenVPN or WireGuard. Imported .ovpn or .conf files land in the same list, as the <a href=\"/os/ubuntu/\">Ubuntu hub</a> shows.</p>"
+   },
+   {
+    "h2": "System profile versus the VPN app's own switch",
+    "html": "<p>A system VPN profile is a configuration the operating system owns. You created it, you can edit every field, and the OS toggle connects and disconnects it.</p><p>A commercial VPN app is different. It installs a profile you usually cannot edit, then drives it from inside the app, choosing servers and protocols for you. Turning the system toggle off disconnects the tunnel, but the app may reconnect the moment you open it, which looks like the setting ignoring you.</p><p>The practical rule: if you subscribed to a service, control it in its app. If your employer or school sent you server details, use the built-in settings, and check the <a href=\"/guides/lock-security.html\">security settings guide</a> for the profile and certificate prompts that come with it.</p>"
+   },
+   {
+    "h2": "Confirming the tunnel is actually up",
+    "html": "<p>Every platform shows a badge. iOS and iPadOS print VPN in the status bar; Android 12 and later show a small key icon; macOS adds a VPN item to the menu bar; Windows marks the network as Connected in Quick Settings; GNOME lists the active VPN in the system menu.</p><p>No badge means no tunnel, even if the app claims otherwise. Check that the underlying connection works first, since a VPN cannot start without one, which the <a href=\"/guides/connect-wifi.html\">Wi-Fi guide</a> covers.</p><p>To see these screens without changing anything on your own device, <a href=\"/\">open the settings simulator</a> and walk through the network menus of each system.</p>"
+   }
+  ],
+  "faq": [
+   {
+    "q": "Why does my iPhone have no VPN row in Settings?",
+    "a": "The top-level VPN row only appears once a configuration exists. Until then, look in General and either VPN or VPN & Device Management, depending on your iOS version."
+   },
+   {
+    "q": "Does turning off the system toggle stop my VPN app?",
+    "a": "It disconnects the current tunnel, but many apps reconnect automatically when opened or when always-on is enabled. Disable the connection inside the app for a lasting result."
+   },
+   {
+    "q": "What does Always-on VPN do on Android?",
+    "a": "It reconnects the chosen VPN whenever the device has a network. Paired with Block connections without VPN, it prevents traffic going out while the tunnel is down."
+   }
+  ],
+  "key": [
+   "iOS hides VPN under General; Samsung hides it under Connections",
+   "System profiles you can edit; app-installed profiles you cannot",
+   "Status bar badge is the only proof the tunnel is really up"
+  ],
+  "date": "2026-07-28",
+  "order": 2
+ },
+ {
+  "slug": "free-up-storage-on-your-phone",
+  "title": "How to Free Up Storage on iPhone and Android the Right Way",
+  "h1": "How to free up storage on your phone",
+  "desc": "Learn how to free up storage on iPhone and Android, read the storage breakdown, understand System and Other, and skip the cleanups that never reclaim space.",
+  "keyword": "how to free up storage on iphone",
+  "cat": "how-to",
+  "tags": [
+   "storage",
+   "ios",
+   "android",
+   "cache",
+   "maintenance"
+  ],
+  "lede": "Storage warnings almost never mean your photos are the problem. Reading the breakdown properly tells you which category is actually growing, and which of the popular tricks reclaim nothing at all.",
+  "body": [
+   {
+    "h2": "Reading the storage breakdown",
+    "html": "<p>On iPhone and iPad, open <strong>Settings &gt; General &gt; iPhone Storage</strong>. A coloured bar splits usage into apps, media, photos, mail and system, and below it sits a list of apps sorted by size, each showing app size separately from documents and data.</p><p>Android puts the same view in <strong>Settings &gt; Storage</strong> on Pixel and stock builds; Samsung tucks it inside Battery and device care. Tap any category to drill into the files behind it. Wording moves between versions, which the <a href=\"/os/android/\">Android settings hub</a> tracks release by release.</p><p>Sort by size before you delete anything. One video app holding several gigabytes of cached downloads is far more common than a thousand oversized photos, and the <a href=\"/guides/free-storage.html\">free up storage guide</a> shows both screens in detail.</p>"
+   },
+   {
+    "h2": "What System and Other really are",
+    "html": "<p>iOS labels this System Data, previously Other. It is a bucket for caches, logs, streamed video and music left on disk, Siri voices, keyboard dictionaries and update files, and it grows and shrinks on its own.</p><p>Android's equivalent System entry covers the operating system image, its updates and internal working files. Neither can be deleted directly, and no setting exposes a clean button for them, however deep you dig.</p><p>If System Data has ballooned to many gigabytes, the usual causes are an interrupted update or a heavily used streaming app. Restarting clears part of it, installing the pending update clears more, as the <a href=\"/guides/software-update.html\">software update guide</a> explains.</p>"
+   },
+   {
+    "h2": "Offloading versus deleting apps",
+    "html": "<p>iOS offers two very different actions on each app's page, and the difference matters.</p><table><tr><td>Offload App</td><td>Removes the app binary, keeps documents and data, icon stays with a cloud badge, reinstalling restores your data</td></tr><tr><td>Delete App</td><td>Removes the app and all of its local data permanently</td></tr></table><p>Offloading is the safer first move for large games and apps you use occasionally. There is also an automatic option that offloads unused apps for you when space runs short.</p><p>Android has no direct equivalent, but uninstalling an app whose content lives in the cloud has a similar effect, and the <a href=\"/compare/ios-vs-android.html\">iOS versus Android comparison</a> covers where the two diverge.</p>"
+   },
+   {
+    "h2": "Clearing caches without losing data",
+    "html": "<p>On Android, open an app's info page and look for Storage and cache. <strong>Clear cache</strong> is safe: it drops temporary files that rebuild themselves. <strong>Clear storage</strong> is not: it resets the app to a fresh install and signs you out.</p><p>iOS gives no per-app cache button. Instead, use each app's own settings, for example clearing downloaded episodes in a podcast app, or delete and reinstall the app to reset its cache.</p><p>Also empty the deleted items album in Photos. Removed pictures sit there for around 30 days and keep occupying space until the album is emptied, so a big photo purge frees nothing until you do.</p>"
+   },
+   {
+    "h2": "Cleanups that do not help",
+    "html": "<p>Closing background apps frees memory, not storage, and changes the storage bar not at all. Third-party cleaner apps mostly delete caches the system would have cleared anyway, while occupying space themselves.</p><p>Turning off cloud photo sync does not shrink anything either. The opposite setting, which keeps smaller optimised copies on the device, is the one that actually saves space.</p><p>A factory reset does free the drive, but it is a last resort rather than maintenance, as the <a href=\"/guides/reset-device.html\">reset guide</a> makes clear. You can also search any storage screen by name from the <a href=\"/find/free-storage.html\">storage settings finder</a>. To explore the menus safely, <a href=\"/\">open the storage screens in the settings simulator</a> and click through them on any system before touching your own device.</p>"
+   }
+  ],
+  "faq": [
+   {
+    "q": "Why is System Data so large on my iPhone?",
+    "a": "It collects caches, logs and streamed media left on disk. It usually shrinks on its own after a restart or once a pending update installs, and it cannot be deleted manually."
+   },
+   {
+    "q": "Is clearing an app's cache safe?",
+    "a": "Yes on Android, where Clear cache only removes temporary files. Avoid Clear storage, which wipes the app's data and signs you out as if it were freshly installed."
+   },
+   {
+    "q": "Does offloading an app keep my data?",
+    "a": "Yes. Offloading removes only the app itself and keeps its documents and data, so reinstalling from the greyed-out icon restores everything where you left it."
+   }
+  ],
+  "key": [
+   "Sort apps by size before deleting anything at random",
+   "System and Other cannot be cleared directly; updates shrink them",
+   "Offload keeps app data, delete does not; cleaner apps rarely help"
+  ],
+  "date": "2026-07-28",
+  "order": 3
+ },
+ {
+  "slug": "how-to-add-an-esim",
+  "title": "How to Add an eSIM on iPhone and Android: Full Setup Guide",
+  "h1": "How to add an eSIM on iPhone and Android",
+  "desc": "Learn how to add an eSIM on iPhone and Android, what a carrier QR code holds, how to transfer a line to a new phone, and what to check if activation fails.",
+  "keyword": "how to add an esim",
+  "cat": "how-to",
+  "tags": [
+   "esim",
+   "cellular",
+   "ios",
+   "android",
+   "dual sim"
+  ],
+  "lede": "An eSIM is a carrier profile downloaded into a chip already soldered inside your phone, so activating one is a software job rather than a plastic card swap. The steps are short on both iPhone and Android, but the failure messages are vague, so it helps to know what is happening underneath.",
+  "body": [
+   {
+    "h2": "Adding an eSIM on iPhone",
+    "html": "<p>Open <strong>Settings &gt; Cellular</strong>, called Mobile Data or Mobile Service in some regions, then tap Add eSIM. On iOS 16 and later you are offered Transfer From Nearby iPhone or Use QR Code; older releases show Add Cellular Plan and go straight to the scanner.</p><p>Point the camera at the carrier's QR code, or choose to enter details manually if you were sent an activation code as text. The profile downloads over Wi-Fi or an existing mobile connection, so you need working internet before you start.</p><p>When it finishes, iOS asks you to label the line and pick defaults. The <a href=\"/guides/add-esim.html\">eSIM setup guide</a> walks through each prompt, and the <a href=\"/os/ios/\">iOS hub</a> shows how the Cellular section changed between versions.</p>"
+   },
+   {
+    "h2": "Adding an eSIM on Android",
+    "html": "<p>Pixel and most stock builds use <strong>Settings &gt; Network &amp; internet &gt; SIMs</strong>, then a plus button or a Download a SIM instead link on the SIM screen. Samsung routes the same job through Connections and SIM manager, where the option reads Add eSIM.</p><p>From there the flow matches the iPhone: scan the QR code, confirm the plan, wait for the download and give the line a name. Some carriers skip the code entirely and push the profile automatically after you sign in to their app.</p><p>Manufacturer wording varies more on Android than anywhere else, which is why the <a href=\"/os/android/\">Android settings hub</a> and the <a href=\"/compare/ios-vs-android.html\">iOS versus Android comparison</a> are useful before you go hunting.</p>"
+   },
+   {
+    "h2": "What the carrier QR code actually contains",
+    "html": "<p>The code is not the SIM. It holds a short activation string: the address of the carrier's provisioning server, a unique matching identifier that names your profile on that server, and sometimes a confirmation code you type separately.</p><p>Your phone reads that string, contacts the server and downloads the real profile. That is why the process needs internet, and why a screenshot of the code works just as well as the printed original.</p><p>Most codes are single use. Once a profile has been downloaded, scanning the same code again usually fails, so keep the email until the line is confirmed working.</p>"
+   },
+   {
+    "h2": "Moving an eSIM to a new phone and labelling lines",
+    "html": "<p>Do not delete an eSIM as your first step when upgrading. Deleting removes the profile from the device, and many carriers then require a support call to reissue it.</p><p>Recent iPhones can pull a line across during setup or later through Transfer From Nearby iPhone, with both devices unlocked and nearby. Newer Android phones offer a comparable transfer, though support depends on the carrier and the handset pair, so check before wiping anything.</p><p>With two lines active, labels do the heavy lifting. Both systems let you name each line and choose which one handles calls, messages and mobile data by default, plus whether data may switch to the other line automatically. Pick names you will recognise in a hurry, because the label appears in the call and message screens.</p>"
+   },
+   {
+    "h2": "When the eSIM will not activate",
+    "html": "<p>Work through the obvious causes first. Confirm the phone is carrier-unlocked and supports eSIM for your region, that you are online, and that the code has not already been used on another device.</p><p>If the download stalls, toggle airplane mode, restart, and try again on a different network; captive Wi-Fi portals often block the provisioning request. A pending carrier settings or system update can also block activation, which the <a href=\"/guides/software-update.html\">software update guide</a> covers.</p><p>Still stuck? Ask the carrier to reissue the profile rather than resetting the phone, since a reset rarely helps and creates new problems, as the <a href=\"/guides/reset-device.html\">reset guide</a> explains. You can also <a href=\"/\">practise the whole flow in the settings simulator</a> before touching a live line.</p>"
+   }
+  ],
+  "faq": [
+   {
+    "q": "Can I use one eSIM QR code on two phones?",
+    "a": "Usually not. Activation codes are typically single use, and the profile can only live on one device at a time, so the carrier must reissue it for a second phone."
+   },
+   {
+    "q": "Do I need Wi-Fi to add an eSIM?",
+    "a": "You need some working internet connection so the phone can download the profile from the carrier's server. Wi-Fi is easiest, but an existing mobile data line also works."
+   },
+   {
+    "q": "What happens to my eSIM if I factory reset the phone?",
+    "a": "A reset can erase the profile, and some carriers then require a reissue. Check the erase options for a keep or transfer choice, or contact the carrier first."
+   }
+  ],
+  "key": [
+   "A QR code holds a server address and an ID, not the SIM itself",
+   "Transfer a line to a new phone before deleting the old profile",
+   "Activation needs internet and a carrier-unlocked, eSIM-capable phone"
+  ],
+  "date": "2026-07-28",
+  "order": 4
+ },
+ {
+  "slug": "take-a-screenshot-on-any-device",
+  "title": "How to Take a Screenshot on Any Device: Phone, PC, Console",
+  "h1": "How to take a screenshot on any device",
+  "desc": "Learn how to take a screenshot on iPhone, Android, Mac, Windows, ChromeOS, Ubuntu, Apple Watch and consoles, plus scrolling captures and where the files land.",
+  "keyword": "how to take a screenshot",
+  "cat": "how-to",
+  "tags": [
+   "screenshot",
+   "shortcuts",
+   "ios",
+   "android",
+   "windows",
+   "macos"
+  ],
+  "lede": "Almost every device can capture its own screen, but the button combination changes with each hardware generation and each desktop keyboard. Here are the shortcuts that work today, plus where the resulting files are saved.",
+  "body": [
+   {
+    "h2": "Phones and tablets",
+    "html": "<p>On an iPhone with Face ID, press the side button and volume up together and release immediately. Models with a Home button use Home plus the side or top button instead. iPad follows the same logic: top button plus volume up, or top plus Home on older models, and an Apple Pencil swipe in from a bottom corner also captures the screen.</p><p>Android standardised on power plus volume down, held briefly. Manufacturers add their own gestures on top, such as a three-finger swipe down or a palm swipe across the display, all of which live in the gestures section of Settings.</p><p>Both systems also offer accessibility routes worth knowing, including tapping the back of the phone or using an on-screen assistive button. The <a href=\"/guides/take-screenshot.html\">screenshot guide</a> lists them per model.</p>"
+   },
+   {
+    "h2": "Mac, Windows, ChromeOS and Ubuntu",
+    "html": "<p>macOS uses Shift-Command-3 for the whole screen and Shift-Command-4 to drag out a region; press Space after the latter to capture a single window. Shift-Command-5 opens the capture toolbar, where you can also choose the save location and record video.</p><p>Windows 11 has three routes: Print Screen, Windows-Shift-S for the snipping overlay, and Windows-Print Screen to save a file straight away. Recent builds map Print Screen to the snipping tool by default, which you can change in the keyboard section of accessibility settings.</p><p>ChromeOS uses Ctrl plus the show windows key for everything, adding Shift for a selection, and also exposes screen capture in Quick Settings. Modern GNOME desktops on Ubuntu open a capture interface when you press Print Screen, with Alt and Shift variants for a window or an area, as the <a href=\"/os/ubuntu/\">Ubuntu hub</a> and <a href=\"/os/chromeos/\">ChromeOS hub</a> describe.</p>"
+   },
+   {
+    "h2": "Watches, consoles and where files land",
+    "html": "<p>Apple Watch needs screenshots enabled first in its general settings, after which pressing the Digital Crown and side button together captures the face, and the image appears in the paired iPhone's photo library.</p><p>Consoles use a dedicated button: Create on a PlayStation 5 controller, Share on a PlayStation 4, and the share button on Xbox pads, with the Xbox guide offering the same action for older controllers. The <a href=\"/compare/playstation-vs-xbox.html\">PlayStation versus Xbox comparison</a> covers how each stores and uploads captures.</p><table><tr><td>iPhone and iPad</td><td>Photos, Screenshots album</td></tr><tr><td>Android</td><td>Pictures then Screenshots folder</td></tr><tr><td>macOS</td><td>Desktop by default</td></tr><tr><td>Windows</td><td>Clipboard, or Pictures then Screenshots</td></tr><tr><td>ChromeOS</td><td>Downloads folder and Tote</td></tr><tr><td>Ubuntu</td><td>Pictures then Screenshots</td></tr></table>"
+   },
+   {
+    "h2": "Capturing a whole page",
+    "html": "<p>Scrolling screenshots exist, with limits. Android 12 and later show a Capture more button after a normal screenshot, but only in apps that support it, and Samsung has offered a scroll capture arrow for years.</p><p>On iPhone, take a screenshot inside a supporting app such as the browser, tap the preview thumbnail and switch from Screen to Full Page. That version saves as a PDF rather than an image, which surprises people expecting a photo.</p><p>Desktops have no built-in equivalent, so browser tools or a taller window remain the practical answer.</p>"
+   },
+   {
+    "h2": "When nothing happens",
+    "html": "<p>Failed captures usually have simple causes. Banking, streaming and some messaging apps block screenshots outright and leave a black rectangle or an error. Work profiles managed by an employer can impose the same rule, which the <a href=\"/guides/lock-security.html\">security settings guide</a> explains.</p><p>Timing matters too on phones: hold both buttons a fraction too long and you get the power menu or a volume change instead. Press and release together, quickly.</p><p>A missing file is often just a full drive rather than a failure, so check the <a href=\"/guides/free-storage.html\">storage guide</a> if captures stop appearing. To compare these menus across systems, <a href=\"/\">open the simulator and browse the real settings screens</a> for each one.</p>"
+   }
+  ],
+  "faq": [
+   {
+    "q": "Where do screenshots go on Windows?",
+    "a": "Print Screen copies to the clipboard only. Windows and Print Screen together save a PNG in the Screenshots folder inside Pictures, and the snipping overlay saves where you choose."
+   },
+   {
+    "q": "Why is my screenshot black?",
+    "a": "The app blocked it. Streaming services, banking apps and managed work profiles can prevent screen capture, which produces a black image or an error message instead."
+   },
+   {
+    "q": "Can I take a scrolling screenshot?",
+    "a": "Yes on Android 12 and later in supported apps, and on iPhone using the Full Page option, which saves a PDF. Desktop systems have no built-in scrolling capture."
+   }
+  ],
+  "key": [
+   "Phones: side or power button plus a volume key, pressed together",
+   "Mac uses Shift-Command-3, 4 or 5; Windows uses Windows-Shift-S",
+   "Some apps block captures, producing a black image instead"
+  ],
+  "date": "2026-07-28",
+  "order": 5
+ },
+ {
+  "slug": "ios-settings-menu-explained",
+  "title": "iOS Settings Explained: A Tour of Every Section, Top to Bottom",
+  "h1": "The iOS Settings app, explained top to bottom",
+  "desc": "The iOS Settings app explained block by block, from the Apple Account card down to per-app panels, plus how to search when a toggle refuses to turn up.",
+  "keyword": "ios settings explained",
+  "cat": "explainer",
+  "tags": [
+   "ios",
+   "iphone",
+   "settings",
+   "explainer",
+   "apple"
+  ],
+  "lede": "The iOS Settings app looks like one endless list, but it is built from a handful of predictable blocks. Learn the blocks and you stop scrolling blindly for the toggle you need.",
+  "body": [
+   {
+    "h2": "How the list is organised",
+    "html": "<p>The iOS Settings app is a single scrolling list rather than a grid of panels. The order is deliberate: your account sits at the top, radios and connections come next, then system-wide behaviour, and finally the settings that belong to individual apps.</p><p>Apple reshuffles this list every few releases, so a path that worked on iOS 15 may sit one level deeper on iOS 18. Rather than memorising paths, learn the blocks. Once you know which block owns a setting, finding it takes seconds. Each supported release is browsable on the <a href=\"/os/ios/\">iOS hub</a>.</p>"
+   },
+   {
+    "h2": "The Apple Account card and the connectivity block",
+    "html": "<p>The card at the very top carries your name and photo. Tapping it opens everything tied to your Apple Account: iCloud storage and which apps sync to it, Family Sharing, Find My, payment methods, and the list of devices signed in to the same account.</p><p>Directly beneath it sits the connectivity block: Airplane Mode, Wi-Fi, Bluetooth, Mobile Data or Cellular, and Personal Hotspot. A VPN row appears only once a VPN profile exists. This block is where you go to <a href=\"/guides/connect-wifi.html\">join a network</a>, <a href=\"/guides/pair-bluetooth.html\">pair an accessory</a>, or <a href=\"/guides/add-esim.html\">add an eSIM</a>.</p>"
+   },
+   {
+    "h2": "Notifications, Focus and Screen Time",
+    "html": "<p>The next block governs interruptions. Notifications lists every app that has asked permission, with per-app control over banners, sounds, badges and the lock screen. Sounds &amp; Haptics sits beside it, and Focus holds Do Not Disturb along with any custom modes you build.</p><p>Screen Time is in the same block. It reports usage, sets app limits, and holds Content &amp; Privacy Restrictions, which is the real parental controls panel. If alerts have got out of hand, the <a href=\"/guides/manage-notifications.html\">notification guide</a> works through trimming them app by app.</p>"
+   },
+   {
+    "h2": "General is the system drawer",
+    "html": "<p>General is the largest section and carries the least descriptive name in the whole app. It holds About, Software Update, iPhone Storage, Background App Refresh, Date &amp; Time, Keyboard, Language &amp; Region, VPN &amp; Device Management, and Transfer or Reset iPhone.</p><p>Treat General as the drawer for anything that concerns the device as a whole rather than one feature. Updates live here, which is why the <a href=\"/guides/software-update.html\">update guide</a> starts in General, and so does the storage screen you need when the phone <a href=\"/guides/free-storage.html\">runs out of space</a>.</p>"
+   },
+   {
+    "h2": "Per-app settings at the bottom",
+    "html": "<p>Keep scrolling past Display &amp; Brightness, Accessibility, Face ID &amp; Passcode, Battery and Privacy &amp; Security and you reach app settings. Apple apps come first, then third-party apps in alphabetical order.</p><p>What appears here is only what the developer chose to expose, plus the permission switches iOS adds automatically: location, camera, microphone, contacts, notifications and mobile data. Many apps keep their real options inside the app itself, so a thin panel is normal. On iOS 18 Apple gathered these entries under a single Apps row instead of leaving them loose at the end of the list.</p>"
+   },
+   {
+    "h2": "Search beats scrolling",
+    "html": "<p>Pull down on the top of the Settings list and a search field appears. It matches section names and individual toggles, so typing a word such as keyboard or storage jumps straight to the right screen without you guessing the hierarchy.</p><p>Search is also the fastest way to survive a redesign, since a label usually outlives the path it sits on. If you want to see where the same option lands on another platform, the <a href=\"/compare/ios-vs-android.html\">iOS and Android comparison</a> maps the equivalents, and you can <a href=\"/\">open a real iOS Settings menu in the simulator</a> to practise without touching your phone.</p>"
+   }
+  ],
+  "faq": [
+   {
+    "q": "Why does an app show almost nothing in Settings?",
+    "a": "Developers choose how much to expose there. Many apps keep their options in their own in-app settings screen, leaving only the system permission switches in the Settings list."
+   },
+   {
+    "q": "Where did Software Update go?",
+    "a": "It sits inside General, not at the top level. On recent releases the same screen also holds automatic update options and beta update channels."
+   },
+   {
+    "q": "Does the Settings order change between iPhone models?",
+    "a": "Model differences are small, but iOS version differences are real. Rows appear, merge or move between releases, so check the section name rather than a memorised tap sequence."
+   }
+  ],
+  "key": [
+   "Settings is ordered account, connectivity, system behaviour, then apps.",
+   "General is the catch-all drawer for updates, storage, language and reset.",
+   "Pull down to search when a label moved between iOS versions."
+  ],
+  "date": "2026-07-28",
+  "order": 6
+ },
+ {
+  "slug": "android-settings-menu-explained",
+  "title": "Android Settings Explained: Every Section and Where It Lives",
+  "h1": "The Android Settings menu, explained section by section",
+  "desc": "Android settings explained block by block, from Network and internet through to System, plus why manufacturer skins move things and how search saves you.",
+  "keyword": "android settings explained",
+  "cat": "explainer",
+  "tags": [
+   "android",
+   "settings",
+   "explainer",
+   "pixel",
+   "samsung"
+  ],
+  "lede": "Android splits its settings into a short list of blocks, each owning one concern. Once you know which block owns what, the tap sequence stops mattering.",
+  "body": [
+   {
+    "h2": "The blocks Android is built from",
+    "html": "<p>Stock Android groups settings into named blocks rather than one long roll. On a Pixel the order runs Network &amp; internet, Connected devices, Apps, Notifications, Battery, Storage, Sound &amp; vibration, Display, Wallpaper &amp; style, Accessibility, Security &amp; privacy, Location, Safety &amp; emergency, Passwords &amp; accounts, Digital Wellbeing, Google, System and About phone.</p><p>Each block owns one concern, and almost every toggle sits one or two taps inside the block whose name describes it. Learn the labels once and you rarely need to hunt. Every supported release is browsable on the <a href=\"/os/android/\">Android hub</a>.</p>"
+   },
+   {
+    "h2": "Network, connected devices and apps",
+    "html": "<p>Network &amp; internet holds Wi-Fi, the mobile network, SIMs and eSIMs, hotspot and tethering, data saver and airplane mode. That is where you go to <a href=\"/guides/connect-wifi.html\">join a network</a> or <a href=\"/guides/add-esim.html\">activate an eSIM</a>.</p><p>Connected devices is a separate block covering Bluetooth pairing, cast, printing and nearby-device features, so <a href=\"/guides/pair-bluetooth.html\">pairing headphones</a> starts there rather than in Network. Apps is the per-app drawer: default apps, unused-app hibernation, special access such as installing unknown apps, and the permission and storage pages for each installed app.</p>"
+   },
+   {
+    "h2": "Notifications, battery and storage",
+    "html": "<p>Notifications is system-wide, not just a per-app list. It holds notification history, conversation priority, bubbles and the rules for what appears on the lock screen, with the full app list underneath, which is the starting point for <a href=\"/guides/manage-notifications.html\">taming alerts</a>.</p><p>Battery reports drain by app and holds adaptive battery and saver modes, both covered in the <a href=\"/guides/battery-life.html\">battery guide</a>. Storage breaks usage down by category and offers the cleanup tools you want when <a href=\"/guides/free-storage.html\">space runs out</a>.</p>"
+   },
+   {
+    "h2": "Security, privacy and System",
+    "html": "<p>Security &amp; privacy was two separate sections until Android 13 merged them. It now covers screen lock and biometrics, Find My Device, Google Play Protect, app permissions, the permission manager, the privacy dashboard, and the camera and microphone kill switches.</p><p>System is the leftovers drawer: languages and input, gestures, date and time, backup, developer options and reset. On most builds the system update entry lives in System, though several manufacturers move it into About phone or give it a Software update block of its own.</p>"
+   },
+   {
+    "h2": "Why your phone looks different",
+    "html": "<p>Almost no phone ships with the stock list untouched. Samsung One UI opens with Connections instead of Network &amp; internet, merges battery and storage into Device care, and parks language, keyboard, date and reset under General management. Xiaomi, OPPO and others renumber the list again in their own way.</p><p>The underlying settings are usually the same; the labels and grouping are what move. That is why the version and the skin matter so much when you follow a written path, and why <a href=\"/compare/ios-vs-android.html\">comparing Android with iOS</a> works better section by section than tap by tap.</p>"
+   },
+   {
+    "h2": "The search bar saves you",
+    "html": "<p>Every modern Android build puts a search bar at the top of Settings. It indexes individual toggles, not just section names, so typing a word such as hotspot or vibration lands you on the exact screen even when the manufacturer renamed the parent block.</p><p>Search is the reliable route on an unfamiliar phone. If you would rather walk the tree, the Android structure in the simulator is extracted directly from the open-source code, as recorded on the <a href=\"/gercek-veri-durumu.html\">data provenance page</a>, and you can <a href=\"/\">open the Android Settings menu in the simulator</a> to explore any version.</p>"
+   }
+  ],
+  "faq": [
+   {
+    "q": "Why do written Android instructions rarely match my phone?",
+    "a": "Most guides describe stock Android on a Pixel. Manufacturer skins rename and regroup sections, so the setting exists but sits under a different label."
+   },
+   {
+    "q": "Where is the system update on Android?",
+    "a": "On stock builds it sits under System. Samsung and several other makers give it a top-level Software update entry or place it inside About phone."
+   },
+   {
+    "q": "Is Security and privacy one section or two?",
+    "a": "Android 13 merged the old separate Security and Privacy sections into one. Older releases and some skins still list them apart."
+   }
+  ],
+  "key": [
+   "Android groups settings into named blocks, each owning one concern.",
+   "Skins such as One UI rename and regroup, but the settings still exist.",
+   "The Settings search bar indexes individual toggles, not just sections."
+  ],
+  "date": "2026-07-28",
+  "order": 7
+ },
+ {
+  "slug": "windows-11-settings-app-explained",
+  "title": "Windows 11 Settings Explained: Every Sidebar Section Mapped",
+  "h1": "The Windows 11 Settings app, explained section by section",
+  "desc": "Windows 11 settings explained sidebar section by section, what still opens Control Panel, how to find a control fast, and what changed since Windows 10.",
+  "keyword": "windows 11 settings explained",
+  "cat": "explainer",
+  "tags": [
+   "windows",
+   "windows 11",
+   "settings",
+   "explainer",
+   "control panel"
+  ],
+  "lede": "Windows 11 rebuilt Settings around a permanent sidebar and moved several familiar pages in the process. Here is what each section owns and what still lives in Control Panel.",
+  "body": [
+   {
+    "h2": "The sidebar replaced the tile grid",
+    "html": "<p>Windows 10 showed a grid of category tiles and sent you back to that grid every time you changed subject. Windows 11 keeps the categories in a permanent left sidebar and adds a breadcrumb trail across the top, so you always know how deep you are.</p><p>The sidebar order is System, Bluetooth &amp; devices, Network &amp; internet, Personalization, Apps, Accounts, Time &amp; language, Gaming, Accessibility, Privacy &amp; security, and Windows Update. Newer builds add a Home page above them with cards for recent and recommended controls. Both layouts are browsable on the <a href=\"/os/windows/\">Windows hub</a>.</p>"
+   },
+   {
+    "h2": "System, devices and network",
+    "html": "<p>System is the largest category. It holds display, sound, notifications, focus, power and battery, storage, nearby sharing, multitasking, activation, troubleshooting and recovery. Reset this PC now lives under System rather than under Update, which trips up almost everyone arriving from Windows 10.</p><p>Bluetooth &amp; devices covers pairing, printers, mouse, touchpad, pen and AutoPlay, so <a href=\"/guides/pair-bluetooth.html\">pairing a device</a> starts there. Network &amp; internet handles Wi-Fi, ethernet, VPN, mobile hotspot and proxy, and is the modern route to <a href=\"/guides/connect-wifi.html\">joining a network</a>.</p>"
+   },
+   {
+    "h2": "Personalization, Apps and Accounts",
+    "html": "<p>Personalization owns background, colours, themes, lock screen, Start, taskbar and text input. The light and dark switch sits inside Colours, which the <a href=\"/guides/dark-mode.html\">dark mode guide</a> covers.</p><p>Apps replaced the old Apps &amp; features page with Installed apps, and adds default apps, startup apps, optional features and advanced app settings. Accounts holds your Microsoft or local account, sign-in options including Windows Hello and PIN, family, other users, Windows backup, and access to work or school accounts.</p>"
+   },
+   {
+    "h2": "Time, Gaming, Accessibility, Privacy and Update",
+    "html": "<p>Time &amp; language covers date and time, region, language packs, typing and speech, and is where you <a href=\"/guides/change-language.html\">change the display language</a>. Gaming holds Game Bar, captures and Game Mode. Accessibility replaced Ease of Access and groups the vision, hearing and interaction tools.</p><p>Privacy &amp; security combines Windows Security, device encryption or BitLocker, Find my device and the long list of app permissions. Windows Update sits last in the sidebar with update history, pause, advanced options and the Insider channel, as described in the <a href=\"/guides/software-update.html\">update guide</a>.</p>"
+   },
+   {
+    "h2": "What Control Panel still owns",
+    "html": "<p>Control Panel has not gone away. Device Manager, Disk Management, File Explorer Options, Credential Manager, advanced network adapter properties, advanced power plan options, the full sound device panel and advanced regional formats still open the older interface, sometimes launched from a link inside Settings itself.</p><p>Microsoft has been migrating these page by page across releases, so a control that needed Control Panel on the first Windows 11 build may have a modern page today. When a written instruction sends you somewhere that no longer exists, check Settings first.</p>"
+   },
+   {
+    "h2": "Finding a setting fast",
+    "html": "<p>The search box sits at the top of the sidebar and the same index answers from Start. It matches individual control names rather than only category names, so typing a phrase such as startup apps or device encryption goes straight to the page that owns it.</p><p>If you are moving between platforms, the <a href=\"/compare/macos-vs-windows.html\">macOS and Windows comparison</a> lines the sections up, and the much older layout is preserved on the <a href=\"/os/win7/\">Windows 7 hub</a>. To walk the whole tree without a Windows machine in front of you, <a href=\"/\">open Windows 11 Settings in the simulator</a>.</p>"
+   }
+  ],
+  "faq": [
+   {
+    "q": "Where is Reset this PC in Windows 11?",
+    "a": "It sits under System, then Recovery. In Windows 10 the same option lived under Update and Security, which is why older instructions send you to the wrong place."
+   },
+   {
+    "q": "Is Control Panel being removed?",
+    "a": "Microsoft has been moving its pages into Settings gradually rather than deleting it. Several advanced panels, including Device Manager and Disk Management, still open the classic interface."
+   },
+   {
+    "q": "What replaced Ease of Access?",
+    "a": "Accessibility. The section keeps most of the same tools but regroups them under vision, hearing and interaction headings."
+   }
+  ],
+  "key": [
+   "Eleven sidebar categories replaced the Windows 10 tile grid.",
+   "Reset this PC moved from Update and Security to System, then Recovery.",
+   "Advanced panels such as Device Manager still open Control Panel."
+  ],
+  "date": "2026-07-28",
+  "order": 8
+ },
+ {
+  "slug": "macos-system-settings-explained",
+  "title": "macOS System Settings Explained: Where Every Old Pane Went",
+  "h1": "macOS System Settings, explained after the Ventura redesign",
+  "desc": "macOS system settings explained after the Ventura redesign: the sidebar order, which panes moved, where privacy and login items sit, and how to search it.",
+  "keyword": "macos system settings explained",
+  "cat": "explainer",
+  "tags": [
+   "macos",
+   "settings",
+   "explainer",
+   "ventura",
+   "apple"
+  ],
+  "lede": "macOS Ventura swapped the System Preferences grid for a sidebar and rehomed a dozen familiar panes. This is where each of them ended up.",
+  "body": [
+   {
+    "h2": "Why System Preferences became System Settings",
+    "html": "<p>macOS Ventura replaced System Preferences with System Settings. The old window was a grid of icons called panes, each opening its own bespoke layout. The new one is a fixed sidebar beside a scrolling detail view, matching the shape of Settings on iPhone and iPad.</p><p>The change was structural, not cosmetic. Panes were split, merged and renamed, so a path written for Monterey or earlier often points at something that no longer exists. Ventura and later layouts sit on the <a href=\"/os/macos/\">macOS hub</a>, while the original grid is preserved on the <a href=\"/os/macosx/\">Mac OS X hub</a>.</p>"
+   },
+   {
+    "h2": "Reading the sidebar top to bottom",
+    "html": "<p>Your Apple Account card sits at the very top, holding iCloud, Family Sharing, payment details and the list of signed-in devices. Below it come Wi-Fi, Bluetooth, Network and VPN, which is where you <a href=\"/guides/connect-wifi.html\">join a network</a> or <a href=\"/guides/pair-bluetooth.html\">pair an accessory</a>.</p><p>Then comes a group for Notifications, Sound, Focus and Screen Time, followed by General, Appearance, Accessibility, Control Centre, Siri and Spotlight, and Privacy &amp; Security. Further down sit Desktop &amp; Dock, Displays, Screen Saver and Wallpaper, then Lock Screen, Touch ID &amp; Password and Users &amp; Groups, with Keyboard, Mouse, Trackpad and Printers &amp; Scanners at the end. Apple adds and renames rows each release.</p>"
+   },
+   {
+    "h2": "General swallowed a dozen old panes",
+    "html": "<p>General is the drawer that absorbed the most. Software Update, Storage, About, AirDrop &amp; Handoff, Sharing, Time Machine, Startup Disk, Date &amp; Time, Language &amp; Region and Transfer or Reset all live inside it now.</p><p>That single change breaks most older instructions. Updating no longer has its own icon, so the <a href=\"/guides/software-update.html\">update guide</a> routes through General, and the storage screen you need when <a href=\"/guides/free-storage.html\">freeing space</a> is in the same section.</p>"
+   },
+   {
+    "h2": "Where privacy and login items live now",
+    "html": "<p>Privacy &amp; Security replaced the old Security &amp; Privacy pane and carries considerably more. Per-app access to location, camera, microphone, files, screen recording and full disk access sits near the top, while FileVault, Lockdown Mode and the rule for allowing apps from identified developers sit lower down alongside the <a href=\"/guides/lock-security.html\">lock and security basics</a>.</p><p>Login items moved out of Users &amp; Groups and into General. On recent releases that row is called Login Items &amp; Extensions and also gathers the background-item toggles that used to be scattered across several panes.</p>"
+   },
+   {
+    "h2": "What did not move",
+    "html": "<p>Plenty stayed put. Displays, Sound, Keyboard, Trackpad and Printers &amp; Scanners kept their names and most of their contents. Appearance holds the light and dark switch that the <a href=\"/guides/dark-mode.html\">dark mode guide</a> uses, and Desktop &amp; Dock inherited the old Mission Control options.</p><p>What did change is depth. Advanced options that used to sit behind a visible button now hide behind a row at the foot of a page or a small Advanced sheet. Nothing was deleted outright, but a good deal sits one level lower than it used to.</p>"
+   },
+   {
+    "h2": "Searching instead of hunting",
+    "html": "<p>The search field sits directly above the sidebar. It matches individual controls rather than only page names, so typing a phrase such as login items or firewall filters the sidebar down to the pages that contain it.</p><p>If you are weighing platforms rather than chasing one toggle, the <a href=\"/compare/macos-vs-windows.html\">macOS and Windows comparison</a> and the <a href=\"/compare/macos-vs-ubuntu.html\">macOS and Ubuntu comparison</a> line the sections up. You can also <a href=\"/\">open macOS System Settings in the simulator</a> and click through the real tree.</p>"
+   }
+  ],
+  "faq": [
+   {
+    "q": "Where is Software Update in System Settings?",
+    "a": "Inside General. It lost its own top-level pane in Ventura, and the same screen holds the automatic update options."
+   },
+   {
+    "q": "Where did login items go?",
+    "a": "They moved from Users and Groups into General. On recent releases the row is named Login Items and Extensions and also lists background items."
+   },
+   {
+    "q": "Can I get the old System Preferences grid back?",
+    "a": "No. From Ventura onward the sidebar layout is the only interface, though the underlying preferences and command-line tools are unchanged."
+   }
+  ],
+  "key": [
+   "Ventura replaced the pane grid with an iPhone-style sidebar.",
+   "General absorbed Software Update, Sharing, Storage, Date and Time and reset.",
+   "Login items now sit under General, not Users and Groups."
+  ],
+  "date": "2026-07-28",
+  "order": 9
+ },
+ {
+  "slug": "macos-vs-windows-settings-compared",
+  "title": "macOS vs Windows Settings: Where Every Option Actually Lives",
+  "h1": "macOS System Settings vs the Windows Settings app",
+  "desc": "macOS vs Windows settings compared: sidebar layouts, the legacy Control Panel problem, search behaviour, and where display, network and update options live.",
+  "keyword": "macos vs windows settings",
+  "cat": "compare",
+  "tags": [
+   "macos",
+   "windows",
+   "settings",
+   "compare",
+   "desktop"
+  ],
+  "lede": "Apple and Microsoft have converged on the same idea: a sidebar of categories with a search box on top. What separates them now is how much of the old control surface each one still drags along.",
+  "body": [
+   {
+    "h2": "Two sidebars that look alike",
+    "html": "<p>macOS Ventura replaced the old System Preferences grid with <strong>System Settings</strong> in 2022, a scrolling sidebar that borrows heavily from the iPhone. Windows 11 arrived a year earlier with a similar shape: a fixed category list on the left, detail pane on the right.</p><p>The category names are close enough to be confusing. Windows uses System, Bluetooth &amp; devices, Network &amp; internet, Personalisation, Apps, Accounts, Time &amp; language, Gaming, Accessibility, Privacy &amp; security and Windows Update.</p><p>macOS instead leads with the connectivity items, Wi-Fi and Bluetooth and Network, then Notifications, Sound and Focus, then General, Appearance, Accessibility and the hardware panes. A side-by-side view is on the <a href=\"/compare/macos-vs-windows.html\">macOS vs Windows comparison page</a>.</p>"
+   },
+   {
+    "h2": "The Control Panel problem",
+    "html": "<p>This is the single biggest structural difference. Windows 11 still ships the Control Panel from the 1990s alongside the modern Settings app, and a handful of dialogs still open it, including several older device and administrative applets.</p><p>Microsoft has migrated most everyday options into Settings, but the seam is visible: some links quietly hand you off to a window with a different design language. Anyone who remembers <a href=\"/os/win7/\">Windows 7</a> will recognise those panels immediately.</p><p>macOS has no equivalent second system. There are advanced sheets hidden behind Details or Options buttons, and a few things live in Disk Utility or Terminal instead, but there is only one Settings app to search.</p>"
+   },
+   {
+    "h2": "How search behaves on each",
+    "html": "<p>Both put a search field at the top of the sidebar, and on both it is faster than hunting for the right category.</p><p>Windows search is broader in scope: typing into the Settings box, or into the Start menu, returns matches from Settings and from Control Panel applets together, which is genuinely useful given the split.</p><p>macOS search filters the sidebar and highlights the exact row inside a pane once you open it. It matches on feature names rather than plain-English phrasing, so searching for a described symptom works less often than searching for the actual label.</p>"
+   },
+   {
+    "h2": "Where the common settings live",
+    "html": "<p>Four areas cover most of what people actually look for.</p><ul><li><strong>Display:</strong> Windows puts it under System, then Display. macOS gives Displays its own top-level pane.</li><li><strong>Network:</strong> Windows groups everything under Network &amp; internet. macOS separates Wi-Fi from the wider Network pane, as covered in the <a href=\"/guides/connect-wifi.html\">Wi-Fi guide</a>.</li><li><strong>Privacy:</strong> both use a per-app permission list, under Privacy &amp; security on Windows and Privacy &amp; Security on macOS.</li><li><strong>Updates:</strong> Windows Update is a top-level item; macOS files Software Update inside General.</li></ul><p>Appearance is another split, with Windows keeping light and dark themes under Personalisation and macOS placing them in Appearance. The <a href=\"/guides/dark-mode.html\">dark mode guide</a> covers both routes.</p>"
+   },
+   {
+    "h2": "Which is easier to live with",
+    "html": "<p>macOS is more consistent, because there is exactly one place to look and Apple rarely leaves an old interface running beside a new one.</p><p>Windows is more discoverable, largely because its search reaches further and its category names read more like plain descriptions of tasks. The cost is the occasional jump into a legacy dialog with different conventions.</p><p>If you are moving between the two, the quickest way to build a mental map is to browse both trees without switching machines. Open the real menus for <a href=\"/os/macos/\">macOS</a> and <a href=\"/os/windows/\">Windows</a> and click through them in <a href=\"/\">the free simulator</a>.</p>"
+   }
+  ],
+  "faq": [
+   {
+    "q": "Does Windows 11 still need the Control Panel?",
+    "a": "For most everyday tasks, no. A few legacy and administrative dialogs still open Control Panel windows, so it has not been removed, but the modern Settings app now covers the common cases."
+   },
+   {
+    "q": "What replaced System Preferences on a Mac?",
+    "a": "System Settings, introduced in macOS Ventura in 2022. It contains the same controls reorganised into an iPhone-style sidebar, so older tutorials referring to System Preferences panes still broadly apply."
+   },
+   {
+    "q": "Where is software update on each system?",
+    "a": "Windows has a top-level Windows Update entry in Settings. macOS files Software Update inside the General pane in Ventura and later, and at the top level in older versions."
+   }
+  ],
+  "key": [
+   "Both now use a sidebar of categories with search on top.",
+   "Windows still carries the legacy Control Panel; macOS has no equivalent.",
+   "Updates are top-level on Windows but nested under General on macOS."
+  ],
+  "date": "2026-07-28",
+  "order": 10
+ },
+ {
+  "slug": "privacy-settings-checklist",
+  "title": "Privacy Settings Checklist for iOS, Android, Windows and Mac",
+  "h1": "A ten-minute privacy settings checklist for every device you own",
+  "desc": "Run this privacy settings checklist on iOS, Android, Windows and macOS: location precision, ad tracking, microphone and camera access and lock screens.",
+  "keyword": "privacy settings checklist",
+  "cat": "learn",
+  "tags": [
+   "privacy",
+   "permissions",
+   "location",
+   "tracking",
+   "lock screen"
+  ],
+  "lede": "Most of the privacy exposure on a phone or laptop comes from five settings groups, not fifty. Work through them in order and you can close the obvious gaps on any device in about ten minutes.",
+  "body": [
+   {
+    "h2": "Start with location precision",
+    "html": "<p>A privacy pass does not have to be exhaustive to be useful. A handful of sections account for most everyday exposure, and the same categories exist on all four systems even when the wording differs.</p><p>Begin with location. iOS lists every app under Location Services with an always, while using, or never choice, plus a separate <strong>Precise Location</strong> switch that lets an app know the neighbourhood without the exact address. Android 12 and later offers the same coarse option inside each app's location permission, and Windows keeps a per-app location list under app permissions.</p>"
+   },
+   {
+    "h2": "Cut the advertising ID and app tracking",
+    "html": "<p>Every platform hands advertisers a resettable identifier. Android 12 and later lets you delete the advertising ID outright from the ads entry in the privacy section, after which apps receive a string of zeroes instead.</p><p>iOS splits the job in two: <strong>Allow Apps to Request to Track</strong> governs third-party requests, while Apple's own personalised advertising has its own entry. Windows 11 keeps an advertising ID switch on the general page of privacy and security, and macOS puts Apple Advertising in the same pane as the other privacy controls.</p>"
+   },
+   {
+    "h2": "Audit microphone and camera access",
+    "html": "<p>Both mobile systems now show an indicator dot when the microphone or camera is live, and both keep a history. Android's privacy dashboard lists which apps used the microphone, camera and location in the last day, and iOS offers a comparable report once you switch it on.</p><p>Desktops are blunter but still worth checking. Windows lists microphone and camera consumers per app, and macOS does the same, including a screen recording list that fills up quickly after installing meeting software. Revoke anything unfamiliar; apps ask again when they genuinely need access. The <a href=\"/compare/macos-vs-windows.html\">macOS and Windows comparison</a> covers how differently the two handle these prompts.</p>"
+   },
+   {
+    "h2": "Decide what diagnostics you share",
+    "html": "<p>Diagnostics sharing is a single switch on every system, but the default differs. Windows separates required diagnostic data, which cannot be turned off, from optional data, which can.</p><p>Apple keeps analytics and improvements inside the privacy section on both iOS and macOS, with separate switches for sharing with Apple and sharing with app developers. Android's usage and diagnostics option lives with the Google account settings rather than the main privacy list, which is why people often miss it.</p>"
+   },
+   {
+    "h2": "Close the lock-screen gaps",
+    "html": "<p>The lock screen is the part of your privacy that strangers can read without unlocking anything. Notification previews are the main leak: a verification code or a full message body shown on a locked screen defeats the passcode entirely.</p><p>iOS handles this with a show previews option you can set to when unlocked, and also lets you choose which panels stay reachable while locked. Android and Windows both offer a sensitive-content setting for lock-screen notifications. The <a href=\"/guides/manage-notifications.html\">notifications guide</a> and the <a href=\"/guides/lock-security.html\">lock and security guide</a> walk through both sides.</p>"
+   },
+   {
+    "h2": "Repeat after every major update",
+    "html": "<p>Feature updates add permission categories, move sections and occasionally reset a toggle, so run the pass again after any major version jump. The <a href=\"/changes/\">version change log</a> shows whether a privacy section was renamed or split between releases.</p><p>To rehearse the route before touching a real device, open the <a href=\"/\">osimulator settings simulator</a> and follow the same menus, then use the <a href=\"/os/windows/\">Windows settings hub</a> for the desktop half of the checklist.</p>"
+   }
+  ],
+  "faq": [
+   {
+    "q": "Does turning off the advertising ID stop ads?",
+    "a": "No. You still see ads, but they are far less personalised because apps can no longer link your activity through a shared identifier."
+   },
+   {
+    "q": "Is precise location worth turning off?",
+    "a": "For weather, news and shopping apps, coarse location is usually enough. Keep precise location only for maps, navigation and anything that needs turn-by-turn accuracy."
+   },
+   {
+    "q": "How often should I redo this checklist?",
+    "a": "Once a year is enough for most people, plus once after each major OS update, since updates can add new permission types."
+   }
+  ],
+  "key": [
+   "Coarse location covers most apps; save precise location for maps",
+   "Delete or reset the advertising ID on both mobile systems",
+   "Hide notification previews so codes stay off the lock screen"
+  ],
+  "date": "2026-07-28",
+  "order": 11
+ },
+ {
+  "slug": "settings-that-actually-improve-battery-life",
+  "title": "Which Settings Actually Improve Battery Life on Phones and PCs",
+  "h1": "The settings that actually improve battery life (and the myths)",
+  "desc": "Find the settings to improve battery life that measurably work, from brightness and refresh rate to background refresh, and learn to read battery screens.",
+  "keyword": "settings to improve battery life",
+  "cat": "how-to",
+  "tags": [
+   "battery life",
+   "power saving",
+   "screen brightness",
+   "background refresh",
+   "location"
+  ],
+  "lede": "A handful of settings account for most of the battery you lose in a day, and a surprising number of popular tips do nothing at all. Knowing which is which turns guesswork into a ten-minute fix.",
+  "body": [
+   {
+    "h2": "The screen is the largest single cost",
+    "html": "<p>On almost every phone and laptop, the display is the biggest consumer of power, and brightness is the biggest variable within it. Dropping from full to roughly half brightness has more effect than any background tweak, and auto-brightness keeps that low when the room allows.</p><p>Refresh rate is next. A panel running at 120Hz costs noticeably more than the same panel at 60Hz, which is why adaptive modes exist and why forcing a high rate permanently is expensive. Screen timeout matters too: a 30-second timeout adds up over a day of glances. Dark mode only saves power on OLED screens, where black pixels are switched off, and does nothing measurable on an LCD, as the <a href=\"/guides/dark-mode.html\">dark mode guide</a> explains.</p>"
+   },
+   {
+    "h2": "Background work: refresh, location and push",
+    "html": "<p>Background App Refresh on iOS and the battery optimisation controls on Android decide which apps may wake up when you are not using them. Restricting a handful of chatty apps, rather than all of them, gives most of the benefit without breaking notifications you rely on.</p><p>Location is the other big one. Choose While Using instead of Always for anything that is not navigation, and turn off Precise Location for weather and shopping apps that only need a rough area. For mail, push is usually cheaper than a frequent fetch schedule, because the server contacts the device once instead of the device polling every fifteen minutes. Weak cellular signal is an underrated drain, so switching a struggling 5G connection to LTE in a bad-coverage area genuinely helps.</p>"
+   },
+   {
+    "h2": "What barely matters",
+    "html": "<p>Several habits persist despite doing nothing useful, and a few actively cost you.</p><table><tr><th>Popular tip</th><th>Reality</th></tr><tr><td>Force-quitting apps from the switcher</td><td>Counterproductive; relaunching costs more than a suspended app</td></tr><tr><td>Turning Bluetooth off</td><td>Low Energy radios idle at a negligible cost</td></tr><tr><td>Task killers and battery boosters</td><td>No benefit, and they run constantly themselves</td></tr><tr><td>Low Power Mode or Battery Saver</td><td>Genuinely effective; cuts refresh rate and background work</td></tr></table><p>Keeping the system current also helps, since power regressions are fixed in point releases; the <a href=\"/guides/software-update.html\">update guide</a> covers how to check.</p>"
+   },
+   {
+    "h2": "Reading the battery screens",
+    "html": "<p>The Battery pane on iOS shows usage over the last 24 hours and 10 days, splits activity into screen-on and screen-off time, and lists each app's share. An app with heavy screen-off activity is the one to restrict, because it is working while you are not looking.</p><p>Android's Battery usage screen reports since the last full charge and separates foreground from background use, with Adaptive Battery learning which apps to limit. Both platforms expose battery health separately, showing maximum capacity as a percentage and offering optimised or limited charging to slow long-term wear. A capacity below roughly 80 percent explains far more sudden drops than any setting will fix.</p>"
+   },
+   {
+    "h2": "A ten-minute pass",
+    "html": "<p>Work through it in order. Turn on auto-brightness and lower the baseline, set the screen timeout to 30 seconds, switch the refresh rate to adaptive, then open the battery usage list and restrict the two or three apps with the most screen-off activity.</p><p>Next, move location permissions down a level, turn off Precise Location where it is not needed, and thin out the alerts that keep waking the screen using the <a href=\"/guides/manage-notifications.html\">notifications steps</a>. Finish by checking battery health so your expectations match the hardware. Full menu paths for each version are in the <a href=\"/guides/battery-life.html\">battery guide</a> and the <a href=\"/find/battery-life.html\">settings finder</a>, and you can practise the sequence in the <a href=\"/\">settings simulator</a> before changing anything real.</p>"
+   }
+  ],
+  "faq": [
+   {
+    "q": "Does closing apps save battery?",
+    "a": "No. Suspended apps use almost nothing, and force-quitting means the system pays the full launch cost the next time you open them."
+   },
+   {
+    "q": "Is it bad to charge overnight?",
+    "a": "Modern phones pause near full and finish just before you wake, using optimised charging. Enabling that option, or an 80 percent limit if offered, reduces long-term wear."
+   },
+   {
+    "q": "Does dark mode really extend battery life?",
+    "a": "Only on OLED displays, where black pixels are genuinely off. On LCD panels the backlight stays on regardless, so the saving is essentially zero."
+   }
+  ],
+  "key": [
+   "Brightness, refresh rate and screen timeout beat every other setting",
+   "Restrict background refresh and location only for the worst offenders",
+   "Force-quitting apps and killing Bluetooth save nothing measurable"
+  ],
+  "date": "2026-07-28",
+  "order": 12
+ },
+ {
+  "slug": "manage-notifications-without-silencing-everything",
+  "title": "How to Manage Notifications Without Silencing All Your Apps",
+  "h1": "How to manage notifications without silencing everything",
+  "desc": "Learn how to manage notifications properly: Android channels, iOS Focus and Summary, Windows priority rules, and a triage method that actually sticks.",
+  "keyword": "how to manage notifications",
+  "cat": "how-to",
+  "tags": [
+   "notifications",
+   "focus",
+   "do not disturb",
+   "android channels",
+   "productivity"
+  ],
+  "lede": "Turning an app off entirely is the blunt fix, and it is why people miss the one alert that mattered. Modern systems let you keep the important alerts loud and push everything else into a queue you read on your own schedule.",
+  "body": [
+   {
+    "h2": "Why the on-off switch is the wrong tool",
+    "html": "<p>Most apps send several kinds of notification through one identity. A delivery app sends order updates and marketing; a bank sends transaction alerts and product offers; a chat app sends direct messages and group noise. Switching the app off kills all of them, so the useful ones disappear with the junk and the app quietly gets reinstalled a week later.</p><p>Every current system solves this with per-category control plus a scheduling layer. The categories decide what can interrupt at all; the schedule decides when. Learning both takes about ten minutes and removes most of the pressure to declare notification bankruptcy.</p>"
+   },
+   {
+    "h2": "Android channels are the real control",
+    "html": "<p>Since Android 8, every notification an app sends must belong to a channel, and each channel has its own importance level, sound and badge behaviour. Open an app's entry in the Apps section of Settings and its Notifications page lists those channels by name, which is where you turn off promotions while keeping order updates.</p><p>The fast route is a long press on any notification as it arrives: the panel that appears controls the exact channel that alert came from. Android also separates Default from Silent delivery, gives Conversations their own priority tier, and lets Do Not Disturb allow specific people and apps through. Android 13 added a permission prompt, so new apps must ask before they can notify you at all. The <a href=\"/os/android/\">Android settings hub</a> shows how the pages nest.</p>"
+   },
+   {
+    "h2": "iOS: delivery style, Summary and Focus",
+    "html": "<p>On iPhone and iPad, the Notifications pane lists every app and lets you choose where its alerts appear: Lock Screen, Notification Centre, banners, or a combination. Turning off banners but keeping Notification Centre is the quiet middle ground for apps you want to check rather than be interrupted by.</p><p>Scheduled Summary, added in iOS 15, collects low-priority apps and delivers them in one batch at times you pick, while anything marked Time Sensitive still comes straight through. Focus modes go further by defining allowed people and apps per context, and Focus filters can even narrow which account an app shows. Focus syncs across your Apple devices, so setting it once on the phone covers the Mac and iPad too.</p>"
+   },
+   {
+    "h2": "Desktop rules on Windows and macOS",
+    "html": "<p>Windows 11 groups this under System, in Notifications, where you can set do not disturb, choose which apps count as priority, and schedule quiet hours automatically during games, full-screen apps or a chosen time window. Windows 10 called the same feature Focus assist and put it in a slightly different place.</p><p>macOS mirrors the iPhone model with a Notifications pane and shared Focus modes, plus a switch for whether alerts appear while the screen is mirrored or shared. Both desktops treat browser notifications separately, so a site you allowed months ago is disabled in the browser's own site permissions, not the OS. The <a href=\"/compare/macos-vs-windows.html\">macOS versus Windows comparison</a> covers where the two systems diverge.</p>"
+   },
+   {
+    "h2": "A triage method that holds up",
+    "html": "<p>Sort every app into three tiers. <strong>Interrupt</strong> is for people and time-critical systems: calls, messages from named contacts, calendar, two-factor codes, home security. <strong>Review</strong> is silent delivery with no sound or badge, read when you open the shade. <strong>Off</strong> is everything else, including anything that has ever sent you a coupon.</p><p>Do one pass now, then a two-minute cleanup whenever an alert annoys you: act on the notification, then immediately demote its channel. Fewer background wake-ups also helps <a href=\"/guides/battery-life.html\">battery life</a>. For the current menu wording on each platform, use the <a href=\"/guides/manage-notifications.html\">notifications guide</a> and the <a href=\"/find/manage-notifications.html\">settings finder</a>, or open the real menus in the <a href=\"/\">settings simulator</a> and click through them first.</p>"
+   }
+  ],
+  "faq": [
+   {
+    "q": "What is the difference between Do Not Disturb and Focus?",
+    "a": "Do Not Disturb silences everything except your exceptions. Focus is a set of named modes, each with its own allowed people, apps and even home screen, and iOS treats Do Not Disturb as one of them."
+   },
+   {
+    "q": "Why do some notifications still arrive during Do Not Disturb?",
+    "a": "Alarms, repeated calls from the same number and alerts marked time sensitive or critical are allowed through by design. Those exceptions are configurable in the same pane."
+   },
+   {
+    "q": "Do notifications drain the battery?",
+    "a": "The push message itself is tiny, but each one wakes the screen and often the app behind it. Cutting low-value alerts gives a small but real improvement."
+   }
+  ],
+  "key": [
+   "Android channels let you keep order updates and block promotions",
+   "iOS Scheduled Summary batches low-priority apps into set delivery times",
+   "Sort apps into interrupt, review and off, then demote as they annoy you"
+  ],
+  "date": "2026-07-28",
+  "order": 13
+ },
+ {
+  "slug": "set-up-a-passcode-face-id-or-fingerprint",
+  "title": "How to Set Up Face ID, Fingerprint or a Strong Passcode Lock",
+  "h1": "How to set up a passcode, Face ID or fingerprint unlock",
+  "desc": "Learn how to set up Face ID, fingerprint and Windows Hello, choose a strong passcode, tune screen-lock timeouts and control what your lock screen reveals.",
+  "keyword": "how to set up face id fingerprint",
+  "cat": "how-to",
+  "tags": [
+   "face id",
+   "fingerprint",
+   "passcode",
+   "windows hello",
+   "lock screen"
+  ],
+  "lede": "Biometrics are a convenience layer sitting on top of your passcode, not a replacement for it. Set the passcode properly first, then enrol a face or finger to make daily unlocking painless.",
+  "body": [
+   {
+    "h2": "The passcode is still the key",
+    "html": "<p>Every biometric system falls back to the passcode, PIN or password, and on phones that code is also tied to disk encryption. A four-digit PIN has ten thousand combinations; six digits has a million; a short alphanumeric passphrase is stronger again. iOS defaults to six digits and hides the shorter option under Passcode Options during setup, and Android offers PIN, pattern and password, with pattern the weakest of the three because smudges and shoulder-surfing give it away.</p><p>Your device will also demand the code in situations where a face or finger is refused: after a restart, after several failed biometric attempts, after a long period without an unlock, and when you change security settings. That is deliberate, and it is why a memorable but strong code matters more than the sensor.</p>"
+   },
+   {
+    "h2": "Enrolling Face ID and Touch ID",
+    "html": "<p>On iPhone and iPad the whole area lives in one pane named after the sensor your model has, so it reads Face ID and Passcode or Touch ID and Passcode. Enrolment asks for two circular head movements for Face ID, or repeated finger placements including the edges for Touch ID.</p><p>Add an Alternate Appearance if you often wear glasses, a helmet or heavy make-up, and register a second finger so a bandage does not lock you out. Require Attention makes Face ID insist your eyes are open and looking at the screen, which is worth keeping on. The same pane controls which features work without unlocking and whether the device erases itself after ten failed attempts.</p>"
+   },
+   {
+    "h2": "Fingerprint and face unlock on Android",
+    "html": "<p>Android keeps this under Security, called Security and privacy on Android 12 and later, where you set the screen lock first and then add fingerprints or face unlock. Enrolment takes repeated presses, and adding two fingers from different hands is the practical choice.</p><p>Not all Android biometrics are equal. Only sensors that meet the strong classification can authorise payments and unlock app-level keys; the camera-based face unlock on many mid-range phones is convenience-grade and cannot. Ultrasonic and optical in-display readers also behave differently with screen protectors, so re-enrol after fitting one. The <a href=\"/os/android/\">Android hub</a> and the <a href=\"/compare/ios-vs-android.html\">iOS versus Android comparison</a> show how the two arrangements differ.</p>"
+   },
+   {
+    "h2": "Windows Hello on a PC",
+    "html": "<p>Windows puts sign-in options under Accounts, and it insists on a PIN before it will enable face or fingerprint. That PIN is not your Microsoft account password: it is stored locally and bound to the machine's TPM, so it is useless to anyone who steals it remotely.</p><p>Facial recognition needs an infrared camera rather than an ordinary webcam, which is why some laptops offer fingerprint only. Dynamic Lock can lock the PC when a paired phone leaves Bluetooth range, and the same pane governs whether Windows requires sign-in on wake. The <a href=\"/os/windows/\">Windows hub</a> lays the pages out.</p>"
+   },
+   {
+    "h2": "Timeouts and lock screen privacy",
+    "html": "<p>A lock is only as good as the timeout in front of it. iOS sets Auto-Lock under Display and Brightness; Android pairs a screen timeout with a separate delay before locking; Windows splits screen and sleep timers from the sign-in requirement. Anything longer than a couple of minutes leaves a device unlocked on a desk.</p><p>Then decide what the lock screen shows. Notification previews can be hidden until unlocked, which keeps message contents and verification codes off a screen anyone can see. Both phone systems also let you limit what is reachable while locked, such as the wallet, control panel or reply shortcuts, and Android's lockdown option temporarily disables biometrics until the PIN is entered. Full paths per version are in the <a href=\"/guides/lock-security.html\">lock and security guide</a> and the <a href=\"/find/lock-security.html\">settings finder</a>, and you can explore the real panes in the <a href=\"/\">settings simulator</a> first.</p>"
+   }
+  ],
+  "faq": [
+   {
+    "q": "Is Face ID or a fingerprint more secure than a passcode?",
+    "a": "Neither replaces the passcode, which remains the ultimate key and the basis of encryption. Biometrics reduce how often you type it in public, which is its own security benefit."
+   },
+   {
+    "q": "Why does my phone ask for the passcode after a restart?",
+    "a": "Encryption keys are only released once the code is entered, so the first unlock after any reboot must use it. The same applies after several failed biometric attempts."
+   },
+   {
+    "q": "Can I use a fingerprint on a PC without a fingerprint reader?",
+    "a": "No, but you can pair an external Windows Hello reader or a security key. Windows will still require a PIN to be configured first."
+   }
+  ],
+  "key": [
+   "Set a six-digit or alphanumeric code before enrolling any biometric",
+   "Register a second finger and an alternate appearance to avoid lockouts",
+   "Hide notification previews so codes stay off the lock screen"
+  ],
+  "date": "2026-07-28",
+  "order": 14
+ },
+ {
+  "slug": "factory-reset-a-device-safely",
+  "title": "How to Factory Reset a Device Safely on iOS, Android and PC",
+  "h1": "How to factory reset a device safely (and what it does not erase)",
+  "desc": "Learn how to factory reset a phone, tablet or computer safely: what a reset really erases, the sign-outs to do first, and where the option sits on each OS.",
+  "keyword": "how to factory reset",
+  "cat": "how-to",
+  "tags": [
+   "factory reset",
+   "erase",
+   "activation lock",
+   "backup",
+   "selling a device"
+  ],
+  "lede": "A factory reset is the fastest way to hand a device on or start over, but it is also the fastest way to lose data you never backed up. Doing it in the right order protects your files and stops the next owner hitting an account lock.",
+  "body": [
+   {
+    "h2": "What a factory reset actually erases",
+    "html": "<p>A factory reset returns the system to its shipped state and deletes the user data area: accounts, apps, photos, messages, saved networks and every setting you changed. On modern devices that data sits behind full-disk encryption, so the reset mainly destroys the encryption key rather than overwriting each block. That is why it can finish in seconds.</p><p>What it does not touch matters just as much. It does not remove the operating system, and it does not roll back a <a href=\"/guides/software-update.html\">system update</a> you already installed. It does not delete anything synced to iCloud, Google, OneDrive or a Samsung account, and it will not release an activation lock tied to an account you no longer control.</p>"
+   },
+   {
+    "h2": "Back up and sign out before you reset",
+    "html": "<p>Check that your cloud backup finished today rather than three weeks ago, then copy anything that lives only on the device: authenticator seeds, downloaded media, offline notes and files parked in a Downloads folder. Authenticator codes are the single most common casualty.</p><p>Then sign out. On iPhone and iPad, turn off Find My and sign out of your Apple Account so Activation Lock clears. On Android, remove the Google account and delete the screen lock so Factory Reset Protection does not lock out the next owner. On computers, deauthorise apps and sign out of iCloud or your Microsoft account first. If low storage is what pushed you here, the steps for <a href=\"/guides/free-storage.html\">freeing up space</a> are worth trying before you erase everything.</p>"
+   },
+   {
+    "h2": "Where the reset option lives on each system",
+    "html": "<p>The concept is identical everywhere; only the wording moves. On iOS 15 and later the control sits under General, then Transfer or Reset; on older releases it is simply General, then Reset. Android splits it by manufacturer, so look inside System settings on Pixel and General management on Samsung.</p><table><tr><th>System</th><th>Where to look</th></tr><tr><td>iOS and iPadOS</td><td>General, then Transfer or Reset, then Erase All Content and Settings</td></tr><tr><td>Android</td><td>System or General management, then Reset options</td></tr><tr><td>Windows 11</td><td>System, then Recovery, then Reset this PC</td></tr><tr><td>macOS</td><td>General, then Transfer or Reset, on Apple silicon and T2 Macs</td></tr><tr><td>ChromeOS</td><td>Reset settings, then Powerwash</td></tr></table><p>Windows lets you keep your files or remove everything, and offers a cloud download that re-fetches the image instead of rebuilding from the local partition. Only the remove-everything option is right before a sale. The <a href=\"/os/windows/\">Windows hub</a> and the <a href=\"/os/chromeos/\">ChromeOS hub</a> show those panes screen by screen.</p>"
+   },
+   {
+    "h2": "Preparing a device you are selling",
+    "html": "<p>Remove the physical parts first: SIM tray, memory card and any paired accessory. Delete an eSIM only if your carrier allows a re-download, otherwise transfer it to the new phone first, using the <a href=\"/guides/add-esim.html\">eSIM steps</a> in reverse.</p><p>Then confirm the device is genuinely unlinked by checking your account's device list from another phone or a browser. An iPhone still listed under Find My, or an Android still showing a Google account, will meet its new owner with a lock screen nobody else can clear.</p>"
+   },
+   {
+    "h2": "When the reset will not run",
+    "html": "<p>If the device cannot boot far enough to reach Settings, every platform has a recovery route: Recovery Mode through a computer on iPhone, the recovery menu on Android, the Windows Recovery Environment after repeated failed boots, macOS Recovery, and the Powerwash shortcut at the ChromeOS sign-in screen.</p><p>If it boots but demands the previous owner's credentials, no reset will help, because the lock is enforced by the vendor's servers. For everything else, follow the <a href=\"/guides/reset-device.html\">reset walkthrough</a>, or use the <a href=\"/find/reset-device.html\">settings finder</a> when you cannot recall where your version hides the option. You can rehearse the whole sequence in the <a href=\"/\">free settings simulator</a> before touching a real device.</p>"
+   }
+  ],
+  "faq": [
+   {
+    "q": "Does a factory reset remove a virus or malware?",
+    "a": "In almost all cases yes, because the user data area where malware lives is wiped. Firmware-level infections survive a reset, but they are extremely rare on consumer phones."
+   },
+   {
+    "q": "Will a factory reset delete my cloud photos?",
+    "a": "No. Anything already synced to iCloud, Google Photos or OneDrive stays in the account and reappears when you sign in again on any device."
+   },
+   {
+    "q": "Can data be recovered after a factory reset?",
+    "a": "On encrypted devices, which means essentially every phone since 2015, the key is destroyed and the leftover data is unreadable. Older unencrypted drives are a different story."
+   }
+  ],
+  "key": [
+   "Back up and sign out of your account before erasing anything",
+   "Turn off Find My or remove the Google account to clear device locks",
+   "A reset wipes user data, not the OS and not your cloud storage"
+  ],
+  "date": "2026-07-28",
+  "order": 15
+ },
+ {
+  "slug": "change-language-and-region-settings",
+  "title": "How to Change System Language, Keyboard and Region Settings",
+  "h1": "How to change system language, keyboard and region settings",
+  "desc": "See how to change system language, keyboard input and region format on iOS, Android, Windows, macOS and ChromeOS, plus why dates and currency follow region.",
+  "keyword": "how to change system language",
+  "cat": "how-to",
+  "tags": [
+   "language",
+   "region",
+   "keyboard",
+   "localisation",
+   "rtl"
+  ],
+  "lede": "Display language, keyboard layout and region format are three separate settings, and changing one rarely changes the others. Knowing which control does what saves a lot of hunting through menus.",
+  "body": [
+   {
+    "h2": "Three settings that are easy to confuse",
+    "html": "<p>The <strong>display language</strong> decides what the interface text says. The <strong>keyboard or input method</strong> decides which characters you can type. The <strong>region</strong> decides how dates, times, currency, units and number separators are formatted.</p><p>Set the language to French and your menus turn French, but a device still set to the United States region will keep showing 12-hour times and dollar symbols. Set the region to France and the dates flip to day-first even if every menu stays in English. Most complaints about a device \"not changing language properly\" come down to editing only one of the three.</p>"
+   },
+   {
+    "h2": "Changing the display language",
+    "html": "<p>On iPhone and iPad, the controls live together under General, in the Language and Region pane. On Android the equivalent group sits under System, in Languages and input; Android treats the list as an ordered preference, so dragging a language to the top makes it the primary one and apps fall back down the list when they lack a translation.</p><p>On Windows 11 the pane is Time and language, then Language and region. A new display language downloads a language pack first, and the change only completes after you sign out and back in. macOS keeps Language and Region in the General group, and Ubuntu and ChromeOS both use a Region and Language style page that also asks you to sign out to apply. The <a href=\"/guides/change-language.html\">language guide</a> lists the current wording per version.</p>"
+   },
+   {
+    "h2": "Keyboards are added, not switched",
+    "html": "<p>Adding a language does not always add its keyboard. On iOS you add layouts under General, in the Keyboards list, then switch with the globe key. Android installs input methods per keyboard app, so a Gboard user adds languages inside Gboard rather than in system settings alone.</p><p>Windows attaches keyboard layouts to each installed language and exposes them in the taskbar language switcher, which is why a UK layout can appear on a US install and swap the quote and at symbols. Ubuntu and ChromeOS both list input sources separately from display language for the same reason. If you write in two scripts daily, add both layouts once and leave them installed.</p>"
+   },
+   {
+    "h2": "Region controls dates, currency and units",
+    "html": "<p>Region format is a formatting engine, not a translation. It drives the first day of the week, 12 or 24-hour clock, temperature units, paper size, decimal separator and the currency symbol that apps inherit by default.</p><p>Because it is inherited, a spreadsheet opened on a machine with a comma decimal separator can misread numbers exported from a machine using a full stop. Setting region explicitly on both, rather than relying on the language default, prevents that. Windows also separates the regional format from the display language, so you can run an English interface with German formatting. Comparing how the two families organise this is one of the clearer differences in the <a href=\"/compare/ios-vs-android.html\">iOS versus Android comparison</a>.</p>"
+   },
+   {
+    "h2": "Per-app language and right-to-left layouts",
+    "html": "<p>You no longer have to change the whole system for one app. iOS 13 and later expose a Language entry inside each app's own settings page, and Android 13 added App languages under the system Languages screen. macOS offers the same per-app override in its Language and Region pane.</p><p>Switching to Arabic, Hebrew, Farsi or Urdu also mirrors the interface: navigation bars, back arrows and list alignment flip to right-to-left, and some apps need a restart to redraw correctly. Assistants are separate again, with Siri and Google Assistant keeping their own language setting. Use the <a href=\"/find/change-language.html\">settings finder</a> when a menu has moved, browse the <a href=\"/os/ubuntu/\">Ubuntu hub</a> for the desktop layout, and try the changes first in the <a href=\"/\">settings simulator</a> so you can always find your way back.</p>"
+   }
+  ],
+  "faq": [
+   {
+    "q": "Why is my device still showing English after changing the language?",
+    "a": "Apps only translate into languages their developers shipped. If an app has no translation for your choice, it falls back to the next language in your list, usually English."
+   },
+   {
+    "q": "Can I use one language for the interface and another for formatting?",
+    "a": "Yes. Windows, macOS, Ubuntu and ChromeOS all separate display language from regional format, and iOS lets you set region independently of language."
+   },
+   {
+    "q": "How do I get my old language back if the menus are unreadable?",
+    "a": "The language pane sits in the same position regardless of language, so count the rows to reach it. On Windows you can also switch back from the taskbar language button."
+   }
+  ],
+  "key": [
+   "Language sets menu text; region sets dates, units and currency",
+   "Keyboards are added separately from the display language",
+   "iOS 13+ and Android 13+ both support per-app language overrides"
+  ],
+  "date": "2026-07-28",
+  "order": 16
+ },
+ {
+  "slug": "accessibility-settings-on-every-os",
+  "title": "Accessibility Settings on Every OS: iOS, Android, Windows, Mac",
+  "h1": "The accessibility settings worth knowing on every operating system",
+  "desc": "Find the accessibility settings that matter on iOS, Android, macOS, Windows, ChromeOS and Ubuntu: screen readers, text size, reduce motion and captions.",
+  "keyword": "accessibility settings",
+  "cat": "learn",
+  "tags": [
+   "accessibility",
+   "screen reader",
+   "ios",
+   "android",
+   "windows",
+   "ubuntu"
+  ],
+  "lede": "Six major operating systems keep their accessibility tools in a section with almost the same name, but the labels underneath drift apart. Here is what each platform calls the features you are most likely to need, and where the wording changes between versions.",
+  "body": [
+   {
+    "h2": "One section, six different histories",
+    "html": "<p>Every mainstream operating system now gathers its accessibility tools in one place, and the name has converged on <strong>Accessibility</strong>. On iOS and iPadOS the section sits at the top level of Settings from iOS 13 onwards; on older releases it lived inside General, which still catches people following out-of-date instructions.</p><p>Windows 11 renamed the Windows 10 <strong>Ease of Access</strong> section to Accessibility, macOS moved its pane into the redesigned System Settings sidebar in Ventura, and the GNOME desktop that Ubuntu ships replaced the old <strong>Universal Access</strong> label with Accessibility. The features barely changed. The doors moved.</p>"
+   },
+   {
+    "h2": "Screen readers and spoken feedback",
+    "html": "<p>Screen readers are the deepest feature in the list and each platform ships its own. iOS and macOS use <strong>VoiceOver</strong>, Android uses <strong>TalkBack</strong>, Windows uses <strong>Narrator</strong>, ChromeOS uses <strong>ChromeVox</strong> and Ubuntu uses <strong>Orca</strong>.</p><p>All of them can be switched on from the Accessibility section, and all of them have a keyboard or button shortcut that toggles them again. Learn the off switch before you turn one on, because the interface changes immediately. Reading <a href=\"/compare/ios-vs-android.html\">iOS compared with Android</a> makes the naming differences easier to keep straight.</p>"
+   },
+   {
+    "h2": "Text size, bold text and zoom",
+    "html": "<p>Text size is the setting most people actually want. iOS offers <strong>Larger Text</strong> and <strong>Bold Text</strong> under Display and Text Size, Android exposes separate font size and display size controls, and Windows 11 has a system-wide text size slider that scales apps without touching the screen resolution.</p><p>macOS leans on display scaling and per-app text options rather than one global slider, while Ubuntu offers a large text switch alongside a cursor size control. ChromeOS pairs a font size setting with a full-screen magnifier, and the <a href=\"/os/chromeos/\">ChromeOS settings hub</a> shows where those sit next to the display options.</p>"
+   },
+   {
+    "h2": "Reduce motion, contrast and colour filters",
+    "html": "<p><strong>Reduce Motion</strong> removes the zooming and sliding animations that trigger nausea for some people and simply waste time for everyone else. Apple uses that exact name, Windows 11 groups it under visual effects as animation effects, GNOME calls it reduce animation, and recent Android versions offer a remove animations toggle whose label depends on the manufacturer's skin.</p><p>Colour filters exist on all six systems, usually with presets for the common forms of colour vision deficiency. Contrast is a separate control, so if text is still hard to read after a filter, look for high contrast or contrast themes as well.</p>"
+   },
+   {
+    "h2": "Captions, switch control and voice control",
+    "html": "<p>Caption settings do not create captions; they style them. You choose font, size and background for subtitles that apps render through the system, under a name like subtitles and captioning or caption preferences. Android's live caption is the exception, because it generates captions on the device for almost any audio.</p><p><strong>Switch Control</strong> on Apple systems and <strong>Switch Access</strong> on Android let external buttons drive the whole interface, while voice control and voice access do the same with speech. Both are easy to enable by accident, so practise the exit route first.</p>"
+   },
+   {
+    "h2": "Finding the right menu without a spare device",
+    "html": "<p>Because labels move between versions, the fastest way to help someone is to open the same menu they are looking at. The <a href=\"/find/\">settings finder</a> searches paths by name across systems, and the <a href=\"/changes/\">version change log</a> records what was renamed between releases.</p><p>You can walk the real accessibility trees for iOS, Android, Windows, macOS, ChromeOS and Ubuntu in the <a href=\"/\">osimulator settings simulator</a>, then follow the <a href=\"/guides/change-language.html\">language and region guide</a> if a device is showing its menus in a language you cannot read.</p>"
+   }
+  ],
+  "faq": [
+   {
+    "q": "Where is Accessibility on iPhone?",
+    "a": "It is a top-level entry in Settings on iOS 13 and later. On iOS 12 and earlier it sits inside Settings, General, Accessibility."
+   },
+   {
+    "q": "What replaced Ease of Access in Windows?",
+    "a": "Windows 11 renamed the section to Accessibility and reorganised it into vision, hearing and interaction groups. The individual features carried over from Windows 10."
+   },
+   {
+    "q": "Do accessibility settings sync between devices?",
+    "a": "Some do within one ecosystem, such as Apple devices sharing certain preferences over iCloud, but most are per device. Assume you need to set each device separately."
+   }
+  ],
+  "key": [
+   "Accessibility is now the section name on all six major systems",
+   "Screen readers: VoiceOver, TalkBack, Narrator, ChromeVox, Orca",
+   "Learn the off shortcut before enabling a screen reader"
+  ],
+  "date": "2026-07-28",
+  "order": 17
+ },
+ {
+  "slug": "chromeos-vs-ubuntu-for-beginners",
+  "title": "ChromeOS vs Ubuntu: Which Simple Desktop Actually Suits You?",
+  "h1": "ChromeOS vs Ubuntu for beginners",
+  "desc": "ChromeOS vs Ubuntu for beginners: how each handles updates, apps, files, printing and privacy, plus an honest look at who each desktop actually suits.",
+  "keyword": "chromeos vs ubuntu",
+  "cat": "compare",
+  "tags": [
+   "chromeos",
+   "ubuntu",
+   "linux",
+   "beginners",
+   "compare"
+  ],
+  "lede": "Both promise a desktop that stays out of your way, and both are cheap or free to run. They reach that goal from opposite directions, and the right choice depends almost entirely on what you do offline.",
+  "body": [
+   {
+    "h2": "Two ideas of simple",
+    "html": "<p>ChromeOS is simple by subtraction. The browser is the computer, the settings list is short, and anything the system does not support is simply absent rather than hidden. Its Settings app groups options into Network, Bluetooth, Connected devices, Accounts, Device, Personalisation, Apps, Accessibility, Security and Privacy, and system preferences.</p><p>Ubuntu is simple by presentation. Underneath sits a full Linux system, but the GNOME Settings app shows a friendly sidebar of Wi-Fi, Network, Appearance, Notifications, Power, Displays, Printers, Users, Region &amp; Language and Accessibility.</p><p>Ubuntu 24.04 reorganised several of those into a combined System section, so older screenshots do not always match. Both structures are machine-extracted for our simulator, as explained on the <a href=\"/gercek-veri-durumu.html\">data provenance page</a>.</p>"
+   },
+   {
+    "h2": "Updates: automatic versus scheduled",
+    "html": "<p>ChromeOS updates itself in the background and applies the change on the next restart. You get an automatic update expiry date tied to the hardware model, after which that Chromebook stops receiving new versions, so check that date before buying second-hand.</p><p>Ubuntu prompts you instead. The Software Updater offers security and package updates, and long-term support releases arrive every two years with several years of maintenance. You choose when a major version upgrade happens.</p><p>The trade is control against effort, and the <a href=\"/guides/software-update.html\">software update guide</a> covers the mechanics on both.</p>"
+   },
+   {
+    "h2": "Apps, files and printing",
+    "html": "<p>App availability is the decision point. ChromeOS runs web apps natively, many Android apps on supported models, and optionally a Linux container for developer tools. Ubuntu runs native Linux applications installed from its App Center, from Snap or Flatpak packages, or from the command line.</p><p>Neither runs Windows or macOS software directly, so if you depend on a specific desktop application, check it works before switching.</p><ul><li><strong>Files:</strong> ChromeOS leans on Google Drive with a small local Downloads folder. Ubuntu treats local storage as the default and adds cloud accounts optionally.</li><li><strong>Printing:</strong> both use the same driverless standards, so a modern network printer usually appears on its own. Older USB-only printers are more likely to work on Ubuntu, where manufacturer drivers can be installed.</li><li><strong>Networking:</strong> both are straightforward, as shown in the <a href=\"/guides/connect-wifi.html\">Wi-Fi guide</a>.</li></ul>"
+   },
+   {
+    "h2": "Privacy and accounts",
+    "html": "<p>ChromeOS is built around a Google account. Sign-in, sync, backup and most personalisation flow through it, and while guest mode and local browsing exist, the account is the normal path. Verified boot and automatic updates make it hard to compromise, but the trade-off is that your profile lives with Google.</p><p>Ubuntu asks for no online account at all. You create a local user during installation and can decline every optional service, including telemetry. That independence comes with responsibility: you decide what to install and what to trust.</p><p>Language and region handling is broadly similar on both, and the <a href=\"/guides/change-language.html\">change language guide</a> covers the general route.</p>"
+   },
+   {
+    "h2": "Who each one actually suits",
+    "html": "<p>Choose ChromeOS if the computer is mainly for browsing, email, documents, video and school work, if someone else may need to support it remotely, or if you want a machine that essentially maintains itself.</p><p>Choose Ubuntu if you want offline applications, real file management, development tools, or a way to keep older hardware useful for years. It also suits anyone who prefers not to tie a desktop to a single company's account.</p><p>If you are weighing Ubuntu against a Mac instead, the <a href=\"/compare/macos-vs-ubuntu.html\">macOS vs Ubuntu comparison</a> is the closer match. Otherwise, open the real menus for <a href=\"/os/chromeos/\">ChromeOS</a> and <a href=\"/os/ubuntu/\">Ubuntu</a> and click through them in <a href=\"/\">the free browser simulator</a> before you commit.</p>"
+   }
+  ],
+  "faq": [
+   {
+    "q": "Can I install Ubuntu on a Chromebook?",
+    "a": "On many models yes, either alongside ChromeOS in developer mode or as a full replacement, though the process varies by hardware and can void support. The built-in Linux container is a safer middle ground."
+   },
+   {
+    "q": "Which is better for an older laptop?",
+    "a": "Ubuntu, in most cases. It installs on standard PC hardware and lightweight variants run well on modest specifications, whereas ChromeOS is designed to ship with the machine."
+   },
+   {
+    "q": "Does Ubuntu need an internet connection to be useful?",
+    "a": "No. Ubuntu installs applications locally and works fully offline, while ChromeOS depends far more on a connection for its core web-based workflow."
+   }
+  ],
+  "key": [
+   "ChromeOS updates itself; Ubuntu updates when you decide.",
+   "ChromeOS assumes a Google account, Ubuntu needs no account at all.",
+   "Pick ChromeOS for browsing, Ubuntu for offline apps and old hardware."
+  ],
+  "date": "2026-07-28",
+  "order": 18
+ },
+ {
+  "slug": "watchos-vs-wear-os-settings-compared",
+  "title": "watchOS vs Wear OS: Settings on the Watch and on the Phone",
+  "h1": "watchOS vs Wear OS settings, compared",
+  "desc": "watchOS vs Wear OS compared: what you can change on the watch, what needs the phone app, and how faces, notifications, workouts and battery modes differ.",
+  "keyword": "watchos vs wear os",
+  "cat": "compare",
+  "tags": [
+   "watchos",
+   "wear os",
+   "smartwatch",
+   "settings",
+   "compare"
+  ],
+  "lede": "Every smartwatch splits its settings between a tiny screen and a companion phone app. Apple and Google draw that line in noticeably different places.",
+  "body": [
+   {
+    "h2": "The split between watch and phone",
+    "html": "<p>An Apple Watch has a Settings app on the wrist covering General, Display &amp; Brightness, Sounds &amp; Haptics, Focus, Passcode, Wi-Fi, Bluetooth and Battery. The Watch app on a paired iPhone mirrors most of that and adds the parts that are painful on a small screen, such as app installation and face arrangement.</p><p>Wear OS works the same way in outline, with an on-watch Settings app and a companion on the phone. Which companion you get depends on the hardware: a Google Pixel Watch uses the Google Pixel Watch app, while Samsung devices use Galaxy Wearable.</p><p>That is the first real asymmetry. watchOS has one companion app for every model, Wear OS has several. The <a href=\"/compare/watchos-vs-wearos.html\">watchOS vs Wear OS comparison</a> lays out both trees.</p>"
+   },
+   {
+    "h2": "Faces and complications",
+    "html": "<p>On watchOS you can add and edit a face directly on the watch by pressing and holding the current one, then choosing Edit to swap complications. The iPhone Watch app also carries a Face Gallery, which is the easier way to browse a large collection.</p><p>Wear OS uses the same two routes: press and hold the face on the watch to customise it, or use the phone app to browse and install faces. Google's newer Watch Face Format changed how third-party faces are built, so what you can tweak varies by face rather than by watch.</p><p>The vocabulary differs slightly too. Apple calls the small data widgets on a face <strong>complications</strong>; Wear OS uses complications on faces but also has <strong>Tiles</strong>, which are separate swipeable panels alongside the face.</p>"
+   },
+   {
+    "h2": "Notifications and mirroring",
+    "html": "<p>Both platforms default to mirroring the phone. On watchOS, the Watch app's Notifications screen lets you keep Mirror my iPhone for most apps and set custom behaviour for Apple's own apps.</p><p>Wear OS mirrors phone notifications too, and you can block an app from the watch itself or from the companion app. Because Android already has per-channel notification controls, muting a channel on the phone usually mutes it on the watch as well.</p><p>If your wrist is buzzing constantly, the fix is normally upstream on the phone rather than on the watch, which the <a href=\"/guides/manage-notifications.html\">notifications guide</a> covers.</p>"
+   },
+   {
+    "h2": "Workouts, health and battery",
+    "html": "<p>watchOS keeps workout preferences in the Workout app settings on the watch, including auto-pause and end-of-workout reminders, while long-term health data lives in the Health app on the iPhone.</p><p>Wear OS depends on which health platform the watch ships with. Pixel Watch models route activity data through Fitbit, Samsung watches through Samsung Health, and each supplies its own goals and reminders screens.</p><p>Battery modes also diverge. Apple added a system-wide <strong>Low Power Mode</strong> in watchOS 9 that disables background heart rate readings and the always-on display. Wear OS offers Battery Saver plus vendor extras such as Samsung's watch-only mode. Either way, the always-on display is usually the single largest drain, as the <a href=\"/guides/battery-life.html\">battery life guide</a> explains.</p>"
+   },
+   {
+    "h2": "Which is simpler to manage",
+    "html": "<p>watchOS is the tidier system because it targets one phone platform and one manufacturer. Any Apple Watch tutorial applies to any Apple Watch of that version.</p><p>Wear OS is more flexible and more variable. It works across many Android phones and several watch makers, but menu names and companion apps shift between brands, so generic instructions fail more often.</p><p>Both start with the same step, pairing over Bluetooth, which the <a href=\"/guides/pair-bluetooth.html\">pairing guide</a> covers. To see the actual menus before you buy, open <a href=\"/os/watchos/\">watchOS</a> and <a href=\"/os/wearos/\">Wear OS</a> in <a href=\"/\">the free browser simulator</a> and scroll through them.</p>"
+   }
+  ],
+  "faq": [
+   {
+    "q": "Can an Apple Watch pair with an Android phone?",
+    "a": "No. watchOS requires an iPhone for setup and for the companion Watch app, and there is no supported way to pair it with Android."
+   },
+   {
+    "q": "Do I need the phone app to change watch settings?",
+    "a": "Not for most things. Both platforms expose display, sound, passcode and battery options on the watch itself, but app installation, face libraries and detailed notification rules are easier or only available on the phone."
+   },
+   {
+    "q": "What is the difference between complications and Tiles?",
+    "a": "Complications are small data elements placed on the watch face itself, on both platforms. Tiles are Wear OS panels you swipe to beside the face, and they have no direct watchOS equivalent."
+   }
+  ],
+  "key": [
+   "Both split settings between the watch and a companion phone app.",
+   "watchOS has one companion app; Wear OS varies by manufacturer.",
+   "Always-on display is the main battery drain on either platform."
+  ],
+  "date": "2026-07-28",
+  "order": 19
+ },
+ {
+  "slug": "playstation-vs-xbox-settings-compared",
+  "title": "PlayStation vs Xbox Settings: The Two Console Menus Compared",
+  "h1": "PlayStation vs Xbox settings, menu by menu",
+  "desc": "PlayStation vs Xbox settings compared: accounts and family, storage, HDR and video output, accessibility, power modes and network menus on both consoles.",
+  "keyword": "playstation vs xbox settings",
+  "cat": "compare",
+  "tags": [
+   "playstation",
+   "xbox",
+   "consoles",
+   "settings",
+   "compare"
+  ],
+  "lede": "Sony and Microsoft solve the same problems with very different menu trees. Knowing which top-level heading owns a feature saves most of the hunting.",
+  "body": [
+   {
+    "h2": "Getting into settings at all",
+    "html": "<p>On a PlayStation 5 the entry point is the gear icon in the top right of the home screen, which opens a long vertical list: Users and Accounts, Family and Parental Controls, Storage, Screen and Video, Sound, Accessibility, System, Network, and more.</p><p>On an Xbox Series X or S you press the Xbox button, move to Profile &amp; system and choose Settings. The list is shorter because Microsoft groups aggressively: Account, General, Devices &amp; connections, System, and Accessibility.</p><p>That grouping is the core difference. Sony gives many features their own top-level row, while Microsoft buries several inside <strong>General</strong>, including audio, display, power and network. The <a href=\"/compare/playstation-vs-xbox.html\">PlayStation vs Xbox comparison</a> shows both trees together.</p>"
+   },
+   {
+    "h2": "Accounts and family controls",
+    "html": "<p>PlayStation splits this in two. Users and Accounts handles sign-in, linked services and account switching, while Family and Parental Controls is a separate top-level entry for child accounts, spending limits and playtime.</p><p>Xbox keeps sign-in and privacy under Account, and files child settings under General, then Online safety &amp; family. Microsoft also pushes much of this to the web and to the Family Safety mobile app, so some limits are set off-console entirely.</p><p>Both let you require a passcode or password at sign-in, which is the single most useful change on a shared console, along the lines described in the <a href=\"/guides/lock-security.html\">lock and security guide</a>.</p>"
+   },
+   {
+    "h2": "Storage and video output",
+    "html": "<p>Storage is a top-level PS5 item covering internal storage, an installed M.2 SSD and USB extended storage. Xbox files it under System, then Storage, covering internal, the proprietary expansion card and USB drives.</p><p>The rules are similar in spirit: current-generation titles need fast internal or expansion storage to run, while older-generation games can be played from a USB drive. Either way, clearing space is a recurring chore, and the <a href=\"/guides/free-storage.html\">storage guide</a> covers the general approach.</p><p>For picture quality, PS5 uses Screen and Video, which holds resolution, HDR and a guided HDR adjustment. Xbox uses General, then TV &amp; display options, which holds resolution, video modes and separate calibration tools for HDR games.</p>"
+   },
+   {
+    "h2": "Accessibility, power and network",
+    "html": "<p>Accessibility is top-level on both, which is unusual and welcome. Each offers a screen reader, text size and contrast options, subtitle controls and controller button remapping.</p><p>Power differs in naming. PS5 groups rest mode behaviour and standby power under System, controlling whether the console keeps USB ports powered and downloads running. Xbox puts its power modes under General, then Power options, where the choice is essentially between fast resume and lower standby draw.</p><p>Network is top-level on PS5 and sits under General on Xbox. Both offer wired and wireless setup plus a connection test that reports NAT type, and the general steps match the <a href=\"/guides/connect-wifi.html\">Wi-Fi guide</a>.</p>"
+   },
+   {
+    "h2": "Which menu is easier to navigate",
+    "html": "<p>PlayStation is faster to scan. Because Storage, Network, Accessibility and Family each have their own row, you rarely need to guess where something was filed.</p><p>Xbox is tidier but requires more knowledge. Once you learn that General is the catch-all for audio, display, power and network, the tree becomes predictable, and Microsoft's search in the guide helps.</p><p>Neither is obviously better, and both change layout between system updates, so check your own dashboard version before following any tutorial. You can browse the actual menu structures for <a href=\"/os/playstation/\">PlayStation</a> and <a href=\"/os/xbox/\">Xbox</a> in <a href=\"/\">the free browser simulator</a> without a console in front of you.</p>"
+   }
+  ],
+  "faq": [
+   {
+    "q": "Can I play current-generation games from a USB drive?",
+    "a": "Generally no. Both consoles allow current-generation titles to be stored on USB for transfer, but they must be moved back to internal or expansion storage to run. Older-generation titles can usually run from USB."
+   },
+   {
+    "q": "Where are HDR settings on each console?",
+    "a": "PlayStation keeps them under Screen and Video, including a step-by-step HDR adjustment. Xbox keeps them under General, then TV and display options, with separate calibration for HDR games."
+   },
+   {
+    "q": "Which console has better parental controls?",
+    "a": "Both are capable. PlayStation puts Family and Parental Controls at the top level of the console menu, while Xbox splits controls between the console and Microsoft Family Safety on the web and mobile."
+   }
+  ],
+  "key": [
+   "PlayStation gives most features a top-level row; Xbox nests them under General.",
+   "HDR lives in Screen and Video on PS5, TV and display options on Xbox.",
+   "Accessibility is a top-level menu on both consoles."
+  ],
+  "date": "2026-07-28",
+  "order": 20
+ },
+ {
+  "slug": "what-a-settings-menu-actually-is",
+  "title": "What Is a Settings Menu? How Every OS Stores Your Preferences",
+  "h1": "What a settings menu actually is under the hood",
+  "desc": "What is a settings menu really? A front end over preference stores, layered defaults and per-app scopes, and why every operating system grows a similar tree.",
+  "keyword": "what is a settings menu",
+  "cat": "explainer",
+  "tags": [
+   "settings",
+   "explainer",
+   "operating systems",
+   "open source",
+   "preferences"
+  ],
+  "lede": "A settings menu is not a list of switches; it is a view over a preference database. Understanding the store beneath it explains greyed-out toggles, resets and why every platform looks familiar.",
+  "body": [
+   {
+    "h2": "A settings menu is a view over a store",
+    "html": "<p>Your choices do not live in the menu. The menu is a front end over one or more preference stores, and the tree you tap through is a presentation layer that a designer can rearrange without moving a single stored value.</p><p>The stores differ by platform. Apple systems use property lists read and written through the defaults system. Android keeps per-app preference files alongside system tables served by a settings provider. Windows writes to the registry. GNOME desktops such as Ubuntu use a binary dconf database described by GSettings schema files.</p>"
+   },
+   {
+    "h2": "Defaults, your values and policy",
+    "html": "<p>Every store works in layers. A shipped default sits underneath, your change sits on top of it, and in managed environments a policy or MDM profile can sit above both and win. That layering is why a reset can return a device to a known state rather than erasing it.</p><p>It also explains greyed-out toggles. A control that will not move usually has a value written above your layer, either by an administrator or by another setting that makes it meaningless. Clearing your layer so the defaults show through is what a <a href=\"/guides/reset-device.html\">device reset</a> largely does.</p>"
+   },
+   {
+    "h2": "System scope versus user scope",
+    "html": "<p>Preferences split into system scope and user scope. System scope describes the machine: disk encryption, network interfaces, installed updates, which accounts may sign in. User scope describes one account: wallpaper, language, keyboard layout, notification choices.</p><p>The split is why some rows carry a padlock or demand a password, and why <a href=\"/guides/change-language.html\">changing your display language</a> need not change the login screen. Multi-user systems keep the two apart deliberately, and phones blur the line without removing it.</p>"
+   },
+   {
+    "h2": "Per-app scoping",
+    "html": "<p>Per-app scoping gives each application its own namespace, so two apps can both store a key called theme without colliding. The operating system attaches its own per-app records too: granted permissions, notification rules, background activity, storage use and default-handler status.</p><p>That is why an app settings page usually mixes options the developer wrote with switches the system added. Removing the app removes its namespace, which is part of why uninstalling reliably <a href=\"/guides/free-storage.html\">frees storage</a> and revokes permissions in one step.</p>"
+   },
+   {
+    "h2": "Why every OS grows a similar tree",
+    "html": "<p>Different vendors converge on similar trees, and it is not simple copying. Every device has radios, a screen, sound, power, storage, an account, installed software, a language and a lock. Group those concerns sensibly and you land on roughly the same dozen sections whatever the platform.</p><p>The real differences are naming and depth. Android says Network &amp; internet where iOS lists Wi-Fi and Bluetooth as separate rows; Windows says Personalization where macOS says Appearance. Section-by-section reading is why the <a href=\"/compare/\">comparison pages</a> are laid out the way they are.</p>"
+   },
+   {
+    "h2": "Open-source systems let you read the tree",
+    "html": "<p>Closed systems make you infer the hierarchy by tapping. Open ones publish it: Android ships its settings hierarchy as source, GNOME publishes schema files, and projects such as webOS OSE and the old Firefox OS interface expose their menus in the repository.</p><p>That makes the structure verifiable rather than approximate. The <a href=\"/gercek-veri-durumu.html\">data provenance page</a> records which trees were machine-extracted and which were rebuilt by hand, the <a href=\"/changes/\">changes log</a> tracks version-to-version movement, and you can <a href=\"/\">open the settings simulator</a> to compare dozens of systems side by side.</p>"
+   }
+  ],
+  "faq": [
+   {
+    "q": "Why can I not change some settings?",
+    "a": "A policy, MDM profile or administrator account can write a value above yours, and the interface greys the control out rather than letting your change be silently ignored."
+   },
+   {
+    "q": "Does a factory reset delete my settings?",
+    "a": "It clears your layer so the shipped defaults apply again. On most systems it also removes user data, which is a separate step from the preference reset itself."
+   },
+   {
+    "q": "Why do menu paths change between versions?",
+    "a": "The tree is only a presentation layer. Vendors regroup and rename sections between releases while the underlying stored keys often stay the same."
+   }
+  ],
+  "key": [
+   "The menu is a view; your choices live in a preference store.",
+   "Layered defaults, user values and policy explain greyed-out toggles.",
+   "Open-source systems publish their settings tree so it can be verified."
+  ],
+  "date": "2026-07-28",
+  "order": 21
+ },
+ {
+  "slug": "how-os-settings-menus-have-changed",
+  "title": "How OS Settings Menus Changed: From Control Panel to Search",
+  "h1": "How settings menus changed, from icon grids to searchable sidebars",
+  "desc": "See how settings menus changed from Mac OS X System Preferences and Windows Control Panel to searchable sidebars, and how to track renames version by version.",
+  "keyword": "how settings menus changed",
+  "cat": "learn",
+  "tags": [
+   "settings",
+   "control panel",
+   "system preferences",
+   "windows",
+   "macos"
+  ],
+  "lede": "Settings used to be a grid of icons you could learn by muscle memory. Two decades of new features, per-app permissions and touchscreens turned that grid into a searchable sidebar that changes names with almost every release.",
+  "body": [
+   {
+    "h2": "The grid era",
+    "html": "<p>For twenty years, configuring a computer meant a grid of icons. Mac OS X shipped System Preferences in 2001 as rows of labelled squares, and Windows offered Control Panel, which by the Windows XP and Windows 7 era had grown a category view layered over an alphabetical list of applets.</p><p>The grid worked because there were only a few dozen things to configure. You learned where an icon sat and reached for it without reading. The <a href=\"/os/macosx/\">Mac OS X hub</a> and the <a href=\"/os/win7/\">Windows 7 hub</a> preserve both layouts, and revisiting them shows how much smaller the configuration surface used to be.</p>"
+   },
+   {
+    "h2": "Two settings apps at once",
+    "html": "<p>Touchscreens broke the grid. Windows 8 introduced a separate PC settings app for the new interface while leaving Control Panel in place for everything the new app could not do yet, and Windows 10 continued the split with a Settings app that absorbed applets release by release.</p><p>That transition took roughly a decade, and it is not finished. Windows 11 still ships Control Panel, and certain dialogs around printers and regional formats hand you back to the older interface. Apple made a cleaner break: System Preferences kept its grid until macOS Ventura replaced it with System Settings and a scrolling sidebar modelled on the iPhone.</p>"
+   },
+   {
+    "h2": "Sidebars, search and longer labels",
+    "html": "<p>Today the pattern is nearly universal: a sidebar of sections on the left, a search field at the top and a detail pane on the right. Windows 11, macOS, ChromeOS and recent GNOME releases all use it, and iOS runs the phone-sized version of the same idea.</p><p>Search is what makes the pattern survivable. iOS added a search field to Settings in iOS 9, and every desktop system now indexes setting names, so typing <strong>bluetooth</strong> or <strong>caption</strong> skips the hierarchy entirely. It also quietly compensates for the fact that almost nobody remembers where things live any more.</p><p>The trade-off is that search only finds what you can name. If a feature was renamed in the version you are running, the old term returns nothing and the setting looks as though it was removed, which is the single most common cause of a support call about a missing option.</p>"
+   },
+   {
+    "h2": "Why sections keep splitting and getting renamed",
+    "html": "<p>Sections split for three reasons. Features multiply, so one wireless entry becomes a network group with sub-pages. Permissions become per-app, so a single privacy switch becomes a list of dozens of apps. And new disclosure screens need somewhere to sit.</p><p>Renaming usually follows a change of scope. Apple widened Privacy to Privacy and Security in iOS 16, Windows 11 replaced Ease of Access with Accessibility to match industry wording, and GNOME retired Universal Access for the same reason. Android's Oreo restructure folded many top-level entries into a shorter grouped list, and manufacturer skins then reorganise them again.</p>"
+   },
+   {
+    "h2": "Tracking the changes version by version",
+    "html": "<p>None of that helps when a support article describes one path and the screen shows another. The practical fix is to compare versions directly instead of trusting memory. The <a href=\"/changes/\">version change log</a> records what moved between releases, and the <a href=\"/find/\">settings finder</a> resolves a feature name to its path on a specific version.</p><p>To see the two desktop lineages next to each other, <a href=\"/compare/macos-vs-windows.html\">macOS compared with Windows</a> covers the current layouts. The <a href=\"/\">osimulator settings browser</a> opens 87 version combinations, old grids included, in a browser tab with nothing to install.</p>"
+   }
+  ],
+  "faq": [
+   {
+    "q": "Is Control Panel gone in Windows 11?",
+    "a": "No. Control Panel still ships with Windows 11 and some legacy dialogs open it, although Microsoft keeps moving individual applets into the Settings app."
+   },
+   {
+    "q": "Why did System Preferences become System Settings?",
+    "a": "macOS Ventura replaced the icon grid with a sidebar list that mirrors iOS and iPadOS, and the name changed to match Apple's other platforms."
+   },
+   {
+    "q": "Why do menu paths in older tutorials fail?",
+    "a": "Sections get renamed or split when features grow. Compare the version you are running against the one the tutorial was written for before assuming a setting was removed."
+   }
+  ],
+  "key": [
+   "Grids gave way to sidebars once features outgrew a single screen",
+   "Windows ran two settings apps in parallel for over a decade",
+   "Search now compensates for constant renaming and splitting"
+  ],
+  "date": "2026-07-28",
+  "order": 22
+ },
+ {
+  "slug": "teaching-device-skills-with-a-simulator",
+  "title": "Teach Device Skills with an OS Settings Simulator in Class",
+  "h1": "Teaching device skills with a settings simulator",
+  "desc": "Teach device skills with a simulator in classrooms and helpdesk training: safe practice, repeatable walkthroughs and clean screenshots for your support docs.",
+  "keyword": "teach device skills simulator",
+  "cat": "learn",
+  "tags": [
+   "training",
+   "digital literacy",
+   "helpdesk",
+   "documentation",
+   "screenshots"
+  ],
+  "lede": "Teaching someone to find a setting usually means putting the right device in their hands, on the right version, and accepting that they might change something. A browser-based settings simulator removes all three problems at once.",
+  "body": [
+   {
+    "h2": "Why a simulator beats a spare device",
+    "html": "<p>Hardware is the first obstacle in any device training session. A classroom rarely has an iPhone, an Android phone, a Windows laptop and a Chromebook per learner, and borrowing personal devices means real settings get changed by accident.</p><p>A simulator has none of those costs. Nothing is installed, no account is created and no real configuration is touched, so thirty learners can each open a different system at the same time. It also fixes the version problem, because you can show the release a learner actually has instead of the one on your own phone.</p>"
+   },
+   {
+    "h2": "In the classroom",
+    "html": "<p>In teaching, the value is repeatability. Every learner sees the same menu tree, so an instruction such as open the network section and find the saved networks list produces the same screen for everyone, and a wrong turn costs one click.</p><p>That also makes assessment straightforward. Ask learners to describe the path they took in words, rather than to hand over a device, and you can check the answer against the same menu tree they used.</p><p>Digital literacy courses can build tasks around ordinary chores: joining a network, enlarging text, or checking for an update. The <a href=\"/guides/connect-wifi.html\">Wi-Fi guide</a> and the <a href=\"/guides/software-update.html\">software update guide</a> work well as worksheets because they name the section rather than assuming a single layout.</p>"
+   },
+   {
+    "h2": "Helpdesk and onboarding training",
+    "html": "<p>Helpdesk training has a different problem: agents support systems they do not personally use. One agent may take calls about iPhones, Android phones and Chromebooks in a single shift, and reading a knowledge base article is a poor substitute for seeing the menu.</p><p>Simulated menus let new agents rehearse the twenty most common call reasons before they speak to anyone. Pair the practice with the <a href=\"/guides/\">guide library</a> for the written path, and keep the <a href=\"/find/\">settings finder</a> open during live calls, for when a caller describes a feature but cannot say where it lives.</p>"
+   },
+   {
+    "h2": "Screenshots and written walkthroughs",
+    "html": "<p>Documentation is the third use. Screenshots taken from a real device carry personal data: account names, phone numbers, network names and email addresses all have to be blurred before publishing, and blurred screenshots read badly.</p><p>Screens captured from a simulator are already clean, consistent in size and easy to retake when a version changes. If you maintain documentation for several platforms, the <a href=\"/os/\">operating system index</a> shows which systems and versions you can capture. Retaking a set of screenshots after an operating system update becomes a short task rather than a hunt for the right hardware, which is usually what stops documentation from being kept current. And <a href=\"/compare/\">the comparison pages</a> help when one article has to cover two platforms at once.</p>"
+   },
+   {
+    "h2": "Be clear about the limits",
+    "html": "<p>Set expectations honestly with learners. A simulator reproduces menu structure, not device state. Toggles you flip change nothing, and sample values such as device names, build numbers and network details are illustrative rather than live readings. The <a href=\"/gercek-veri-durumu.html\">data provenance page</a> sets out which parts are taken verbatim from open-source code and which are placeholders.</p><p>That limit is acceptable for teaching navigation, which is where most support calls stall anyway. Open the <a href=\"/\">osimulator settings simulator</a> and build your first walkthrough around a task your learners already ask about.</p>"
+   }
+  ],
+  "faq": [
+   {
+    "q": "Can learners break anything in a simulator?",
+    "a": "No. The menus are a reproduction of structure, so nothing they change affects a real device or any account."
+   },
+   {
+    "q": "Does it work on school networks without installs?",
+    "a": "It runs in a browser tab with no download and no sign-in, so it works on managed machines where software installation is blocked."
+   },
+   {
+    "q": "Can I use the screenshots in internal documentation?",
+    "a": "Yes, and they are cleaner than device captures because they contain no personal names, numbers or network details to redact."
+   }
+  ],
+  "key": [
+   "One browser tab replaces a cupboard of training devices",
+   "Simulator screenshots need no blurring before publishing",
+   "Teach navigation with it; device state still needs real hardware"
+  ],
+  "date": "2026-07-28",
+  "order": 23
+ },
+ {
+  "slug": "try-ios-and-android-online-without-a-device",
+  "title": "Try iOS Online: Explore Android and 40+ Systems in a Browser",
+  "h1": "Try iOS and Android online, without owning either device",
+  "desc": "Try iOS online alongside Android and 40 more systems in your browser, with no download, and learn exactly what a settings simulator can and cannot show you.",
+  "keyword": "try ios online",
+  "cat": "learn",
+  "tags": [
+   "ios",
+   "android",
+   "simulator",
+   "browser",
+   "support"
+  ],
+  "lede": "You can open the settings menus of iOS, Android and more than forty other systems in a browser tab, with nothing to install. Knowing precisely where the reproduction stops is what makes it useful rather than misleading.",
+  "body": [
+   {
+    "h2": "What you get in a browser tab",
+    "html": "<p>Wanting to see how the other platform works is a common reason to borrow somebody's phone. A settings simulator answers the same question in a tab: you open iOS, iPadOS, Android, Windows, macOS, Ubuntu, ChromeOS or any of more than forty systems and move through the menus the way you would on the hardware.</p><p>There is no download, no account and no virtual machine waiting to boot. Because it runs in the page rather than streaming a device, it also works on managed or locked-down computers where installing software is not permitted.</p><p>That makes it a practical way to settle an argument about which platform buries a feature deeper, to prepare for a switch, or to follow instructions written for a device you do not have in front of you.</p>"
+   },
+   {
+    "h2": "What is reproduced faithfully",
+    "html": "<p>The simulator reproduces menu structure: the sections, the order they appear in, the sub-pages behind each row and the wording of the labels. For Android, Ubuntu, ChromeOS, webOS OSE and Firefox OS that structure is machine-extracted verbatim from the systems' open-source code rather than retyped from screenshots, so the labels match the source.</p><p>It also spans 87 version combinations, which matters because sections move between releases. Opening two versions of the same system side by side shows what was renamed, and the <a href=\"/changes/\">version change log</a> lists those differences in writing.</p>"
+   },
+   {
+    "h2": "What it cannot show you",
+    "html": "<p>Be equally clear about the other half. A simulator cannot show live device state, and it does not claim to. The sample values on screen, including device names, IP addresses, serial and build numbers, storage figures and the position of individual switches, are illustrative placeholders rather than readings taken from a real machine.</p><p>So never quote a build number or a network address from the simulator as fact, and do not expect a toggle to reflect how any particular phone is configured. The <a href=\"/gercek-veri-durumu.html\">data provenance page</a> states item by item which parts come verbatim from source and which are sample data.</p>"
+   },
+   {
+    "h2": "Answering support questions with it",
+    "html": "<p>Inside that boundary it handles a large share of everyday questions, because most of them are about navigation rather than state. Where does the eSIM section sit on this Android version. Which screen holds the update button. What is this option called now that it has been renamed.</p><p>Walk the path once, then send the person a written version. Pairing the walk with a guide keeps the wording consistent: the <a href=\"/guides/add-esim.html\">eSIM guide</a> and the <a href=\"/guides/take-screenshot.html\">screenshot guide</a> both name sections rather than assuming one layout, and the <a href=\"/find/\">settings finder</a> maps a feature name to its path.</p>"
+   },
+   {
+    "h2": "Where to start",
+    "html": "<p>If you are considering a switch, open the system you do not own and read its first three sections. Those hold the settings you touch weekly, and the differences in naming show up immediately. Battery, storage and notification controls are the usual sticking points, and seeing them once removes most of the friction of moving across.</p><p><a href=\"/compare/ios-vs-android.html\">iOS compared with Android</a> is a useful companion for the mobile pair, and the <a href=\"/os/ios/\">iOS hub</a> lists which releases you can open. Then load the <a href=\"/\">osimulator settings simulator</a> and pick a system you have never used at all.</p>"
+   }
+  ],
+  "faq": [
+   {
+    "q": "Is this a real iPhone running in the browser?",
+    "a": "No. It is a faithful reproduction of the settings menus, not an emulated device, so apps do not run and nothing on screen reflects real hardware."
+   },
+   {
+    "q": "Are the values shown in the menus real?",
+    "a": "No. Device names, IP addresses, build numbers and switch positions are illustrative sample values, as the data provenance page explains in detail."
+   },
+   {
+    "q": "Do I need an account or a download?",
+    "a": "Neither. It opens in a browser tab, runs offline once loaded, and asks for no sign-in."
+   }
+  ],
+  "key": [
+   "Menu structure is faithful; several systems are verbatim from source",
+   "Sample values are illustrative, never live device state",
+   "Best for navigation questions, not for reading a device's settings"
+  ],
+  "date": "2026-07-28",
+  "order": 24
+ }
+]
