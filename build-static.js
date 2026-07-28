@@ -6,6 +6,7 @@ const path = require('path');
 const ROOT = __dirname;
 const SITE = 'https://osimulator.com';
 const blog = require('./build-blog');
+const osart = require('./build-os-articles');
 const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 
 /* ---- extract a JS array literal by name, quote/escape aware ---- */
@@ -242,6 +243,10 @@ w('changes/index.html', changesIndex()); urls.push(`${SITE}/changes/`);
 const blogUrls = blog.build();
 blogUrls.forEach(u => urls.push(u));
 
+/* ---- one long-form article per operating system ---- */
+const osArt = osart.build();
+osArt.urls.forEach(u => urls.push(u));
+
 /* ---- sitemap (preserve any /os/ per-screen URLs added by prerender.js) ---- */
 const today = new Date().toISOString().slice(0, 10);
 let osUrls = [];
@@ -256,7 +261,8 @@ const sm = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.si
 fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sm);
 
 /* ---- inject crawlable internal links into index.html <noscript> ---- */
-const links = `<a href="/find/">Find a setting</a> · <a href="/changes/">Version changes</a> · <a href="/blog/">Blog</a> · ` +
+const links = `<a href="/find/">Find a setting</a> · <a href="/changes/">Version changes</a> · <a href="/blog/">Blog</a> · <a href="/blog/os/">All systems explained</a> · ` +
+  osart.COPY.map(c => `<a href="/blog/os/${c.id}.html">${esc(c.title)}</a>`).join(' · ') + ' · ' +
   blog.POSTS.map(p => `<a href="/blog/${p.slug}.html">${esc(p.title)}</a>`).join(' · ') + ' · ' +
   GUIDES.map(g => `<a href="/guides/${g.slug}.html">${esc(g.title.en)}</a>`).join(' · ') +
   ' · ' + COMPARES.map(c => `<a href="/compare/${c.slug}.html">${esc((OSN[c.a]||c.a))} vs ${esc((OSN[c.b]||c.b))}</a>`).join(' · ');
@@ -266,4 +272,4 @@ idx = idx.replace(/\n\s*<nav aria-label="All guides and comparisons">[\s\S]*?<\/
 idx = idx.replace('  </main>\n</noscript>', `  ${block}\n  </main>\n</noscript>`);
 fs.writeFileSync(path.join(ROOT, 'index.html'), idx);
 
-console.log('Generated', urls.length, 'URLs;', GUIDES.length, 'guides,', COMPARES.length, 'comparisons,', blog.POSTS.length, 'blog posts. sitemap.xml updated; noscript links injected.');
+console.log('Generated', urls.length, 'URLs;', GUIDES.length, 'guides,', COMPARES.length, 'comparisons,', blog.POSTS.length, 'blog posts,', osArt.count, 'system articles. sitemap.xml updated; noscript links injected.');

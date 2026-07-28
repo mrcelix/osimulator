@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roku OS Settings Simulator: TV Menus in Your Browser — osimulator</title>
+<meta name="description" content="Step through the Roku OS settings menu in a free browser simulator: eight sections, 91 rows, three levels deep, on a TV frame with marked sample values.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<link rel="canonical" href="https://osimulator.com/blog/os/roku.html">
+<link rel="alternate" hreflang="x-default" href="https://osimulator.com/blog/os/roku.html">
+<link rel="alternate" type="application/rss+xml" title="osimulator blog" href="https://osimulator.com/blog/feed.xml">
+<link rel="icon" type="image/png" sizes="32x32" href="https://osimulator.com/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://osimulator.com/apple-touch-icon.png">
+<meta name="theme-color" content="#0b0b0f">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="osimulator">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Roku OS Settings Simulator: TV Menus in Your Browser — osimulator">
+<meta property="og:description" content="Step through the Roku OS settings menu in a free browser simulator: eight sections, 91 rows, three levels deep, on a TV frame with marked sample values.">
+<meta property="og:url" content="https://osimulator.com/blog/os/roku.html">
+<meta property="og:image" content="https://osimulator.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="osimulator — explore the real Settings menus of 43 operating systems">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Roku OS Settings Simulator: TV Menus in Your Browser — osimulator">
+<meta name="twitter:description" content="Step through the Roku OS settings menu in a free browser simulator: eight sections, 91 rows, three levels deep, on a TV frame with marked sample values.">
+<meta name="twitter:image" content="https://osimulator.com/og.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","@id":"https://osimulator.com/blog/os/roku.html#article","headline":"Practise the television settings menu before you sit down","name":"Roku OS Settings Simulator: TV Menus in Your Browser","description":"Step through the Roku OS settings menu in a free browser simulator: eight sections, 91 rows, three levels deep, on a TV frame with marked sample values.","inLanguage":"en","datePublished":"2026-07-28","dateModified":"2026-07-28","wordCount":1490,"articleSection":"TV and streaming","keywords":"roku tv settings simulator, roku os, tv, streaming, television","about":{"@type":"SoftwareApplication","name":"Roku OS","applicationCategory":"OperatingSystem","softwareVersion":"Roku OS 14, Roku OS 13"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://osimulator.com/blog/os/roku.html"},"isPartOf":{"@id":"https://osimulator.com/blog/#blog"},"author":{"@type":"Organization","name":"osimulator","url":"https://osimulator.com"},"publisher":{"@type":"Organization","name":"osimulator","url":"https://osimulator.com"},"image":"https://osimulator.com/og.png"},{"@type":"BreadcrumbList","@id":"https://osimulator.com/blog/os/roku.html#crumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://osimulator.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://osimulator.com/blog/"},{"@type":"ListItem","position":3,"name":"Systems","item":"https://osimulator.com/blog/os/"},{"@type":"ListItem","position":4,"name":"Roku OS","item":"https://osimulator.com/blog/os/roku.html"}]},{"@type":"ItemList","@id":"https://osimulator.com/blog/os/roku.html#menu","name":"Roku OS Settings — top-level menu","numberOfItems":8,"itemListOrder":"https://schema.org/ItemListOrderAscending","itemListElement":[{"@type":"ListItem","position":1,"name":"Network"},{"@type":"ListItem","position":2,"name":"Display type"},{"@type":"ListItem","position":3,"name":"Audio"},{"@type":"ListItem","position":4,"name":"Theme"},{"@type":"ListItem","position":5,"name":"TV picture settings"},{"@type":"ListItem","position":6,"name":"Remotes and devices"},{"@type":"ListItem","position":7,"name":"System"},{"@type":"ListItem","position":8,"name":"Account"}]},{"@type":"FAQPage","@id":"https://osimulator.com/blog/os/roku.html#faq","mainEntity":[{"@type":"Question","name":"Is this the same menu as on my television?","acceptedAnswer":{"@type":"Answer","text":"The section names and their arrangement follow the shipping interface, reconstructed screen by screen because the platform is not open source. Televisions from different manufacturers can expose slightly different picture options depending on the panel. Anything specific to a set, such as detected resolution or paired remotes, appears here as a sample value."}},{"@type":"Question","name":"Why are picture and display settings in separate places?","acceptedAnswer":{"@type":"Answer","text":"Display type controls the signal format the software sends out, while TV picture settings controls how the panel processes what it receives. The split reflects how the software grew from a streaming box that had no panel of its own, and it survives on televisions where both roles now sit in one device."}},{"@type":"Question","name":"Can I search for a setting instead of browsing?","acceptedAnswer":{"@type":"Answer","text":"Yes. The simulator has a search that finds which system holds a given setting and where it sits, which helps when you know what you want to change but not what the menu calls it. On a television that saves a genuinely tedious amount of pressing arrow keys."}}]}]}</script>
+<style>:root{--sf:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--ink:#e8e8ee;--dim:#a9a9b6;--faint:#7c7c88;--line:rgba(255,255,255,.10);--card:rgba(255,255,255,.045);--accent:#8b8bff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--sf);background:#0b0b0f;color:var(--ink);line-height:1.62;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;background:radial-gradient(120% 80% at 50% 0%,#1c1c2b 0%,#0b0b0f 62%);z-index:-1}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+header.site{position:sticky;top:0;z-index:30;backdrop-filter:blur(16px);background:rgba(11,11,15,.82);border-bottom:1px solid var(--line)}
+.hin{display:flex;align-items:center;justify-content:space-between;gap:14px;max-width:1080px;margin:0 auto;padding:12px 20px}
+.brand{display:inline-flex;align-items:center;gap:9px;font-weight:800;font-size:17px;color:#f5f5f7}
+.brand:hover{text-decoration:none}
+.mk{width:29px;height:29px;border-radius:9px;background:linear-gradient(135deg,#0a84ff,#5e5ce6);color:#fff;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+.nav{display:flex;flex-wrap:wrap;gap:4px 16px;align-items:center}
+.nav a{color:#b6b6c2;font-weight:600;font-size:14px}
+.nav a.on{color:#fff}
+.nav .open{padding:7px 14px;border-radius:10px;background:linear-gradient(135deg,#0a84ff,#5e5ce6);color:#fff}
+.nav .open:hover{text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:30px 20px 72px}
+.narrow{max-width:734px}
+.crumb{font-size:13px;color:var(--faint);margin:0 0 14px}
+.crumb a{color:var(--faint)}
+h1{font-size:clamp(28px,5vw,42px);font-weight:800;letter-spacing:-.025em;line-height:1.16;margin:6px 0 12px}
+h2{font-size:clamp(20px,3vw,25px);font-weight:750;letter-spacing:-.015em;margin:38px 0 10px;scroll-margin-top:80px}
+.lede{font-size:18.5px;color:#c6c6d2;margin:0 0 22px}
+.meta{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;font-size:13px;color:var(--faint);margin:0 0 26px;padding-bottom:22px;border-bottom:1px solid var(--line)}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.02em;background:rgba(255,255,255,.07);border:1px solid var(--line);color:#dcdce6}
+.chip i{width:7px;height:7px;border-radius:50%;display:block}
+article p{margin:0 0 16px;color:#dcdce6}
+article ul{margin:0 0 18px;padding-left:22px}
+article li{margin:0 0 8px;color:#dcdce6}
+article strong{color:#f4f4f8}
+table{width:100%;border-collapse:collapse;border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:6px 0 22px;font-size:14.5px}
+th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:rgba(255,255,255,.05);font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:#9a9aa6}
+td:first-child{font-weight:700;color:#f2f2f5;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+.toc{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 20px;margin:0 0 28px}
+.toc h2{font-size:11.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--faint);margin:0 0 8px}
+.toc ol{margin:0;padding-left:20px}
+.toc li{margin:4px 0;font-size:14.5px}
+.key{background:linear-gradient(180deg,rgba(10,132,255,.10),rgba(94,92,230,.06));border:1px solid rgba(94,92,230,.28);border-radius:16px;padding:18px 22px;margin:30px 0 6px}
+.key h2{font-size:11.5px;text-transform:uppercase;letter-spacing:.09em;color:#a9a9ff;margin:0 0 8px}
+.key ul{margin:0;padding-left:20px}
+.cta{display:block;margin:34px 0 6px;padding:22px 24px;border-radius:18px;background:linear-gradient(135deg,rgba(10,132,255,.16),rgba(94,92,230,.14));border:1px solid rgba(94,92,230,.34)}
+.cta:hover{text-decoration:none}
+.cta b{display:block;color:#fff;font-size:18px;margin-bottom:4px}
+.cta span{color:#c2c2d4;font-size:14.5px}
+.faq{margin-top:34px}
+.faq details{border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin:0 0 10px;background:var(--card)}
+.faq summary{cursor:pointer;font-weight:700;color:#f2f2f6;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";float:right;color:var(--faint);font-weight:700}
+.faq details[open] summary::after{content:"\2212"}
+.faq p{margin:10px 0 0;color:#c8c8d4;font-size:15px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(272px,1fr));gap:16px;margin:20px 0 0}
+.card{display:flex;flex-direction:column;gap:9px;padding:20px;border-radius:18px;background:var(--card);border:1px solid var(--line);transition:border-color .18s,transform .18s,background .18s}
+.card:hover{border-color:rgba(139,139,255,.5);background:rgba(255,255,255,.065);transform:translateY(-2px);text-decoration:none}
+.card h3{margin:0;font-size:17px;font-weight:750;letter-spacing:-.012em;color:#f4f4f8;line-height:1.3}
+.card p{margin:0;font-size:14px;color:var(--dim);line-height:1.5}
+.card .cmeta{margin-top:auto;padding-top:4px;font-size:12px;color:var(--faint);display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 4px}
+.fbtn{padding:8px 15px;border-radius:999px;font-size:13.5px;font-weight:650;color:#c2c2d0;background:rgba(255,255,255,.06);border:1px solid var(--line);cursor:pointer}
+.fbtn[aria-pressed="true"]{background:#fff;color:#111;border-color:#fff}
+.bsearch{width:100%;margin:16px 0 0;padding:13px 16px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--ink);font-family:inherit;font-size:15px}
+.bsearch::placeholder{color:var(--faint)}
+.bsearch:focus{outline:2px solid rgba(139,139,255,.55);outline-offset:1px}
+.empty{color:var(--faint);padding:26px 2px;display:none}
+.related{margin-top:42px;padding-top:22px;border-top:1px solid var(--line)}
+.related h2{font-size:11.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--faint);margin:0 0 12px}
+.pn{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;margin-top:26px;font-size:14.5px}
+.tagrow{margin:26px 0 0;display:flex;flex-wrap:wrap;gap:7px}
+.tag{font-size:12px;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.055);border:1px solid var(--line);color:#a9a9b6}
+footer{border-top:1px solid var(--line);margin-top:52px}
+.fin{max-width:1080px;margin:0 auto;padding:24px 20px 40px;color:var(--faint);font-size:12.5px}
+.fin nav{margin-bottom:10px;display:flex;flex-wrap:wrap;gap:6px 16px}
+.fin nav a{color:#9a9aa6;font-weight:600}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}.osHead{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin:0 0 4px}
+.osMark{width:54px;height:54px;border-radius:15px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:21px;color:#fff;flex:none;letter-spacing:-.02em}
+.specs{display:grid;grid-template-columns:repeat(auto-fit,minmax(146px,1fr));gap:12px;margin:24px 0 6px;padding:0;list-style:none}
+.specs li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px 15px;margin:0}
+.specs b{display:block;font-size:21px;font-weight:800;letter-spacing:-.02em;color:#f4f4f8;line-height:1.15}
+.specs span{display:block;font-size:12px;color:var(--faint);margin-top:3px;letter-spacing:.02em}
+.menuGrp{margin:0 0 18px}
+.menuGrp h3{font-size:11.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--faint);margin:20px 0 8px;font-weight:800}
+.menuList{display:flex;flex-wrap:wrap;gap:7px;margin:0;padding:0;list-style:none}
+.menuList li{margin:0}
+.menuList span{display:inline-block;font-size:13.5px;padding:5px 12px;border-radius:9px;background:rgba(255,255,255,.055);border:1px solid var(--line);color:#dcdce6}
+.notable{margin:18px 0 0;padding:0;list-style:none}
+.notable li{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:0 14px 14px 0;padding:14px 18px;margin:0 0 12px}
+.notable code{display:block;font-size:13.5px;color:#a9c8ff;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;margin-bottom:5px;word-break:break-word}
+.notable p{margin:0;font-size:14.8px;color:#c8c8d4}
+.vers{display:flex;flex-wrap:wrap;gap:9px;margin:14px 0 0;padding:0;list-style:none}
+.vers a{display:inline-block;padding:8px 15px;border-radius:11px;background:rgba(255,255,255,.055);border:1px solid var(--line);font-size:14px;color:#dcdce6;font-weight:650}
+.vers a:hover{border-color:rgba(139,139,255,.55);text-decoration:none}
+.honest{border:1px solid rgba(255,159,10,.34);background:linear-gradient(180deg,rgba(255,159,10,.09),rgba(255,159,10,.03));border-radius:16px;padding:18px 22px;margin:30px 0 0}
+.honest h2{margin-top:0;font-size:11.5px;text-transform:uppercase;letter-spacing:.09em;color:#ffc46b}
+.honest p{margin:0 0 10px;font-size:15px;color:#d8d2c6}
+.honest p:last-child{margin-bottom:0}
+.famhead{font-size:11.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--faint);margin:34px 0 2px;font-weight:800}
+.osCard .cmeta b{color:#c9c9d6;font-weight:700}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+</style>
+</head>
+<body>
+<header class="site"><div class="hin">
+<a class="brand" href="https://osimulator.com/"><span class="mk">os</span>osimulator</a>
+<nav class="nav">
+<a href="https://osimulator.com/blog/">Blog</a>
+<a href="https://osimulator.com/blog/os/" class="on">Systems</a>
+<a href="https://osimulator.com/guides/">Guides</a>
+<a href="https://osimulator.com/compare/">Compare</a>
+<a href="https://osimulator.com/find/">Find a setting</a>
+<a class="open" href="https://osimulator.com/">Open the simulator</a>
+</nav>
+</div></header>
+
+<main class="wrap narrow">
+<nav class="crumb" aria-label="Breadcrumb"><a href="https://osimulator.com/">Home</a> &rsaquo; <a href="https://osimulator.com/blog/">Blog</a> &rsaquo; <a href="https://osimulator.com/blog/os/">Systems</a> &rsaquo; <span>Roku OS</span></nav>
+
+<article>
+<header>
+  <div class="osHead">
+    <span class="osMark" style="background:#662d9122;border:1px solid #662d9166;color:#662d91" aria-hidden="true">ro</span>
+    <h1>Practise the television settings menu before you sit down</h1>
+  </div>
+  <p class="lede">Television menus are driven with a directional pad from across a room, which changes everything about how they can be built. Eight sections, ninety-one rows and three levels is about as much as anyone can navigate with five buttons and no pointer. Working through that structure with a mouse first makes the remote far less frustrating later.</p>
+  <div class="meta">
+    <span class="chip"><i style="background:#662d91"></i>TV and streaming</span>
+    <span>Roku TV</span>
+    <span>2 versions</span>
+    <span>91 settings rows</span>
+    <time datetime="2026-07-28">28 July 2026</time>
+  </div>
+</header>
+
+<nav class="toc" aria-label="On this page">
+  <h2>On this page</h2>
+  <ol><li><a href="#glance">At a glance</a></li><li><a href="#organises">How Roku OS organises Settings</a></li><li><a href="#menu">The full top-level menu</a></li><li><a href="#notable">Three settings worth finding</a></li><li><a href="#versions">Versions of Roku OS you can open</a></li><li><a href="#history">How this menu got here</a></li><li><a href="#audience">Who this is useful for</a></li><li><a href="#honest">What is real and what is sample data</a></li><li><a href="#try">Try it yourself</a></li></ol>
+</nav>
+
+<section id="glance">
+<h2>At a glance</h2>
+<p>In the simulator, Roku OS opens inside a television frame and behaves the way the real Settings app does: rows sit in the same order, sub-screens open in the same place, and back takes you where you expect. The counts below come from the tree itself, so they move only when the tree does.</p>
+<ul class="specs">
+  <li><b>8</b><span>top-level entries</span></li>
+  <li><b>91</b><span>rows in total</span></li>
+  <li><b>3</b><span>levels deep</span></li>
+  <li><b>2</b><span>versions</span></li>
+</ul>
+<table>
+  <caption class="visually-hidden">Roku OS in the osimulator settings simulator</caption>
+  <tbody>
+    <tr><th scope="row">Device family</th><td>TV and streaming</td></tr>
+    <tr><th scope="row">Frame shown</th><td>Television</td></tr>
+    <tr><th scope="row">Versions</th><td>Roku OS 14, Roku OS 13</td></tr>
+    <tr><th scope="row">Deepest path</th><td>3 levels below the main list</td></tr>
+    <tr><th scope="row">Interface languages</th><td>12, switchable while you browse</td></tr>
+    <tr><th scope="row">Account needed</th><td>No — it runs entirely in your browser</td></tr>
+  </tbody>
+</table>
+</section>
+
+<section id="organises">
+<h2>How Roku OS organises Settings</h2>
+<p>Constraint shapes this layout more than philosophy does. Network, Display type, Audio, Theme, TV picture settings, Remotes and devices, System and Account is the entire top level, and each one maps to a physical concern you might have while sitting in front of the set. Display type deals with resolution and refresh rate. Audio covers output formats including Dolby and passthrough options plus volume levelling. Theme holds screensavers and visual styles. TV picture settings carries the picture presets. Nothing abstract appears at the top level, because a name you have to think about costs several button presses to recover from.</p>
+<p>The unusual part is that picture and display are deliberately separated. Display type is about the signal the box sends, while TV picture settings is about how the panel renders it, and the two live in different sections despite feeling like one topic to most viewers. Audio splits the same way, with output format in one place and loudness behaviour in another. Compared with a smart television built by a panel manufacturer, where everything hides behind a single picture menu, this separation is more honest but harder to guess. That is where remote-in-hand confusion usually starts.</p>
+</section>
+
+<section id="menu">
+<h2>The full top-level menu</h2>
+<p>The first screen holds 8 entries. Here they are in their real order, grouped the way Roku OS groups them. Every name below comes from the menu tree itself, so it matches what you see on the television.</p>
+<div class="menuGrp"><h3>R1</h3>
+<ul class="menuList"><li><span>Network</span></li><li><span>Display type</span></li><li><span>Audio</span></li></ul></div>
+<div class="menuGrp"><h3>R2</h3>
+<ul class="menuList"><li><span>Theme</span></li><li><span>TV picture settings</span></li><li><span>Remotes and devices</span></li></ul></div>
+<div class="menuGrp"><h3>R3</h3>
+<ul class="menuList"><li><span>System</span></li><li><span>Account</span></li></ul></div>
+</section>
+
+<section id="notable">
+<h2>Three settings worth finding</h2>
+<ul class="notable">
+<li><code>Settings &gt; Audio &gt; Volume leveling</code><p>This evens out the jump between quiet dialogue and loud advertising. It is the single change most likely to stop late-night viewers reaching for the remote every few minutes, and it sits below the format options that people usually stop reading at.</p></li>
+<li><code>Settings &gt; Network &gt; Bandwidth saver</code><p>It stops playback after a period without input, which saves data on a metered connection and prevents a stream running all night. Useful in shared houses and holiday rentals where nobody notices the television has been playing for hours.</p></li>
+<li><code>Settings &gt; Theme &gt; Custom screensaver</code><p>Idle screens run for a long time on a television, so what fills them matters more than it sounds. Choosing your own instead of the default is a small change that makes a shared living room feel less like a shop display.</p></li>
+</ul>
+</section>
+
+<section id="versions">
+<h2>Versions of Roku OS you can open</h2>
+<p>The simulator carries 2 builds of Roku OS. Switching between them is the quickest way to see what actually moved: a row that changed name, a section split in two, a screen that quietly disappeared.</p>
+<ul class="vers"><li><a href="https://osimulator.com/#/roku/Roku%20OS%2014">Roku OS Roku OS 14</a></li><li><a href="https://osimulator.com/#/roku/Roku%20OS%2013">Roku OS Roku OS 13</a></li></ul>
+</section>
+
+<section id="history">
+<h2>How this menu got here</h2>
+<p>The menu began on a small streaming box with no tuner and no picture controls, so early versions needed little more than network, display output and account. As the software moved onto televisions themselves, sections for picture presets and remote pairing were added alongside the originals rather than folded into them, which explains the split between signal and panel settings. The two versions offered here, Roku OS 14 and Roku OS 13, are close together and mostly show sections gaining rows as audio and screensaver options expanded.</p>
+</section>
+
+<section id="audience">
+<h2>Who this is useful for</h2>
+<p>Hotel and rental hosts configuring many identical sets benefit most, because they can write the button sequence once and hand it to staff. Support agents talking a caller through picture problems can confirm whether an option lives under Display type or TV picture settings before they guess. Anyone setting up a television for a relative who struggles with remotes can prepare the whole path, then read it out step by step over the phone.</p>
+</section>
+
+<section id="honest" class="honest">
+<h2>What is real and what is sample data</h2>
+<p>The <strong>structure</strong> is the real thing: menu names, their order, how they are grouped and what sits inside each one. That is why this article can quote a path such as Settings &gt; Audio &gt; Volume leveling and expect it to match your television.</p>
+<p>The <strong>state</strong> cannot be. A device name, an address, a build number, a network name, a storage figure, whether a particular switch is on or off &mdash; those belong to a physical television, not to a menu tree. Everywhere the simulator shows a value like that it is clearly-marked sample data: a placeholder that tells you where the number appears, not what any real device would say.</p>
+</section>
+
+<section id="try">
+<h2>Try it yourself</h2>
+<p>The useful thing is to go looking for something specific. Pick a setting you would normally hunt for on a real television, find it here, and record the path while you do it so you never have to find it twice. Comparison mode will hold Roku OS next to another system if you want to see the two layouts against each other. And if you know the setting but not the section, search for it by name across all 43 systems at once.</p>
+<a class="cta" href="https://osimulator.com/#/roku/Roku%20OS%2014"><b>Open Roku OS in the simulator</b><span>Free, no account, works offline &mdash; 91 settings rows across 2 versions.</span></a>
+</section>
+
+<div class="key">
+<h2>Key points</h2>
+<ul>
+<li>Roku OS shows <strong>8 top-level entries</strong> and 91 rows in total, nested up to 3 levels.</li>
+<li>Menu names and their order come from the settings tree itself, so the paths quoted here match the real television.</li>
+<li>Device-specific figures on screen are placeholders; the structure around them is not.</li>
+</ul>
+</div>
+
+<section class="faq" id="faq">
+<h2>Questions about Roku OS settings</h2>
+<details><summary>Is this the same menu as on my television?</summary><p>The section names and their arrangement follow the shipping interface, reconstructed screen by screen because the platform is not open source. Televisions from different manufacturers can expose slightly different picture options depending on the panel. Anything specific to a set, such as detected resolution or paired remotes, appears here as a sample value.</p></details>
+<details><summary>Why are picture and display settings in separate places?</summary><p>Display type controls the signal format the software sends out, while TV picture settings controls how the panel processes what it receives. The split reflects how the software grew from a streaming box that had no panel of its own, and it survives on televisions where both roles now sit in one device.</p></details>
+<details><summary>Can I search for a setting instead of browsing?</summary><p>Yes. The simulator has a search that finds which system holds a given setting and where it sits, which helps when you know what you want to change but not what the menu calls it. On a television that saves a genuinely tedious amount of pressing arrow keys.</p></details>
+</section>
+
+<div class="tagrow"><span class="tag">roku os</span><span class="tag">tv</span><span class="tag">streaming</span><span class="tag">television</span></div>
+
+<nav class="pn" aria-label="More systems">
+<a href="https://osimulator.com/blog/os/zepp.html">&larr; Zepp OS</a>
+<a href="https://osimulator.com/blog/os/firefoxos.html">Firefox OS &rarr;</a>
+</nav>
+
+<section class="related">
+<h2>Related systems</h2>
+<div class="grid">
+<a class="card osCard" href="https://osimulator.com/blog/os/tvos.html"><h3>tvOS</h3><p>Explore the tvOS 17.5 and 16.6 Settings menus from a browser, with the layout reconstructed from the shippin&hellip;</p><div class="cmeta"><b>11</b> entries <span>&middot;</span> <b>2</b> versions</div></a>
+<a class="card osCard" href="https://osimulator.com/blog/os/androidtv.html"><h3>Google TV</h3><p>Tap through Google TV Settings in your browser: Network &amp; Internet, Accounts, Apps, Device Preferences and m&hellip;</p><div class="cmeta"><b>11</b> entries <span>&middot;</span> <b>2</b> versions</div></a>
+<a class="card osCard" href="https://osimulator.com/blog/os/tizentv.html"><h3>Samsung Tizen TV</h3><p>Browse the Samsung Tizen TV Settings menu in a free online simulator. Open Picture, Sound, Broadcasting and &hellip;</p><div class="cmeta"><b>8</b> entries <span>&middot;</span> <b>2</b> versions</div></a>
+<a class="card osCard" href="https://osimulator.com/blog/os/webos.html"><h3>LG webOS</h3><p>Step through LG webOS TV Settings in a browser: seven top-level menus, real titles and order, clearly marked&hellip;</p><div class="cmeta"><b>7</b> entries <span>&middot;</span> <b>2</b> versions</div></a>
+<a class="card osCard" href="https://osimulator.com/blog/os/ipados.html"><h3>iPadOS</h3><p>Explore the iPadOS Settings layout in a free browser simulator: 35 top-level panels, ten levels deep, with s&hellip;</p><div class="cmeta"><b>35</b> entries <span>&middot;</span> <b>3</b> versions</div></a>
+</div>
+<p style="margin-top:20px"><a href="https://osimulator.com/blog/os/">All 43 systems</a> &middot; <a href="https://osimulator.com/blog/">Blog home</a> &middot; <a href="https://osimulator.com/find/">Find a setting across every system</a> &middot; <a href="https://osimulator.com/compare/">Compare two systems</a></p>
+</section>
+
+</article>
+</main>
+<footer><div class="fin">
+<nav aria-label="Site sections">
+<a href="https://osimulator.com/">Simulator</a><a href="https://osimulator.com/blog/">Blog</a><a href="https://osimulator.com/blog/os/">System guides</a><a href="https://osimulator.com/guides/">Guides</a><a href="https://osimulator.com/compare/">Compare</a><a href="https://osimulator.com/find/">Find a setting</a><a href="https://osimulator.com/changes/">Version changes</a><a href="https://osimulator.com/os/">All systems</a><a href="https://osimulator.com/blog/feed.xml">RSS</a>
+</nav>
+osimulator — explore the real Settings menus of 43 operating systems across 87 versions, free and fully offline.
+Independent educational project; not affiliated with Apple, Google, Microsoft or any other OS vendor. All trademarks belong to their owners.
+</div></footer>
+</body>
+</html>

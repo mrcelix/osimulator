@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fire TV Settings Simulator: Browse the Fire OS 8 Menu Tree — osimulator</title>
+<meta name="description" content="Walk the Fire TV settings menu in your browser, from Network and Applications through to Alexa and My Fire TV, arranged as Fire OS presents them on screen.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<link rel="canonical" href="https://osimulator.com/blog/os/fireos.html">
+<link rel="alternate" hreflang="x-default" href="https://osimulator.com/blog/os/fireos.html">
+<link rel="alternate" type="application/rss+xml" title="osimulator blog" href="https://osimulator.com/blog/feed.xml">
+<link rel="icon" type="image/png" sizes="32x32" href="https://osimulator.com/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://osimulator.com/apple-touch-icon.png">
+<meta name="theme-color" content="#0b0b0f">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="osimulator">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Fire TV Settings Simulator: Browse the Fire OS 8 Menu Tree — osimulator">
+<meta property="og:description" content="Walk the Fire TV settings menu in your browser, from Network and Applications through to Alexa and My Fire TV, arranged as Fire OS presents them on screen.">
+<meta property="og:url" content="https://osimulator.com/blog/os/fireos.html">
+<meta property="og:image" content="https://osimulator.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="osimulator — explore the real Settings menus of 43 operating systems">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fire TV Settings Simulator: Browse the Fire OS 8 Menu Tree — osimulator">
+<meta name="twitter:description" content="Walk the Fire TV settings menu in your browser, from Network and Applications through to Alexa and My Fire TV, arranged as Fire OS presents them on screen.">
+<meta name="twitter:image" content="https://osimulator.com/og.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","@id":"https://osimulator.com/blog/os/fireos.html#article","headline":"Where Fire TV keeps each of its settings pages","name":"Fire TV Settings Simulator: Browse the Fire OS 8 Menu Tree","description":"Walk the Fire TV settings menu in your browser, from Network and Applications through to Alexa and My Fire TV, arranged as Fire OS presents them on screen.","inLanguage":"en","datePublished":"2026-07-28","dateModified":"2026-07-28","wordCount":1467,"articleSection":"TV and streaming","keywords":"fire tv settings simulator, fire tv, fire os, amazon, streaming, settings menu","about":{"@type":"SoftwareApplication","name":"Fire TV","applicationCategory":"OperatingSystem","softwareVersion":"Fire OS 8, Fire OS 7"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://osimulator.com/blog/os/fireos.html"},"isPartOf":{"@id":"https://osimulator.com/blog/#blog"},"author":{"@type":"Organization","name":"osimulator","url":"https://osimulator.com"},"publisher":{"@type":"Organization","name":"osimulator","url":"https://osimulator.com"},"image":"https://osimulator.com/og.png"},{"@type":"BreadcrumbList","@id":"https://osimulator.com/blog/os/fireos.html#crumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://osimulator.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://osimulator.com/blog/"},{"@type":"ListItem","position":3,"name":"Systems","item":"https://osimulator.com/blog/os/"},{"@type":"ListItem","position":4,"name":"Fire TV","item":"https://osimulator.com/blog/os/fireos.html"}]},{"@type":"ItemList","@id":"https://osimulator.com/blog/os/fireos.html#menu","name":"Fire TV Settings — top-level menu","numberOfItems":8,"itemListOrder":"https://schema.org/ItemListOrderAscending","itemListElement":[{"@type":"ListItem","position":1,"name":"Network"},{"@type":"ListItem","position":2,"name":"Display and Sounds"},{"@type":"ListItem","position":3,"name":"Applications"},{"@type":"ListItem","position":4,"name":"Controllers and Bluetooth"},{"@type":"ListItem","position":5,"name":"Alexa"},{"@type":"ListItem","position":6,"name":"Preferences"},{"@type":"ListItem","position":7,"name":"Account and Profile"},{"@type":"ListItem","position":8,"name":"My Fire TV"}]},{"@type":"FAQPage","@id":"https://osimulator.com/blog/os/fireos.html#faq","mainEntity":[{"@type":"Question","name":"Does this simulator work without a Fire TV?","acceptedAnswer":{"@type":"Answer","text":"Yes. It runs entirely in the browser with no account and no device involved, so you can explore the menu before buying hardware or after giving it away. Everything shown inside a page, including network names and app lists, is a sample value chosen to make the layout readable."}},{"@type":"Question","name":"Where are the privacy settings on Fire TV?","acceptedAnswer":{"@type":"Answer","text":"They are split. Preferences holds Privacy Settings, Data Monitoring and Location, while Applications holds Collect App Usage Data and Alexa holds Alexa Privacy. Walking all three in the simulator is the fastest way to see the full picture, because no single page gathers everything a person would call privacy."}},{"@type":"Question","name":"Can I compare Fire OS 8 and Fire OS 7?","acceptedAnswer":{"@type":"Answer","text":"Both versions are available and you can switch between them directly. That makes it straightforward to check whether a page moved between releases, which matters when following older instructions. The comparison mode also lets you set Fire TV beside another television system to see how differently the two organise the same choices."}}]}]}</script>
+<style>:root{--sf:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--ink:#e8e8ee;--dim:#a9a9b6;--faint:#7c7c88;--line:rgba(255,255,255,.10);--card:rgba(255,255,255,.045);--accent:#8b8bff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--sf);background:#0b0b0f;color:var(--ink);line-height:1.62;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;background:radial-gradient(120% 80% at 50% 0%,#1c1c2b 0%,#0b0b0f 62%);z-index:-1}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+header.site{position:sticky;top:0;z-index:30;backdrop-filter:blur(16px);background:rgba(11,11,15,.82);border-bottom:1px solid var(--line)}
+.hin{display:flex;align-items:center;justify-content:space-between;gap:14px;max-width:1080px;margin:0 auto;padding:12px 20px}
+.brand{display:inline-flex;align-items:center;gap:9px;font-weight:800;font-size:17px;color:#f5f5f7}
+.brand:hover{text-decoration:none}
+.mk{width:29px;height:29px;border-radius:9px;background:linear-gradient(135deg,#0a84ff,#5e5ce6);color:#fff;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+.nav{display:flex;flex-wrap:wrap;gap:4px 16px;align-items:center}
+.nav a{color:#b6b6c2;font-weight:600;font-size:14px}
+.nav a.on{color:#fff}
+.nav .open{padding:7px 14px;border-radius:10px;background:linear-gradient(135deg,#0a84ff,#5e5ce6);color:#fff}
+.nav .open:hover{text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:30px 20px 72px}
+.narrow{max-width:734px}
+.crumb{font-size:13px;color:var(--faint);margin:0 0 14px}
+.crumb a{color:var(--faint)}
+h1{font-size:clamp(28px,5vw,42px);font-weight:800;letter-spacing:-.025em;line-height:1.16;margin:6px 0 12px}
+h2{font-size:clamp(20px,3vw,25px);font-weight:750;letter-spacing:-.015em;margin:38px 0 10px;scroll-margin-top:80px}
+.lede{font-size:18.5px;color:#c6c6d2;margin:0 0 22px}
+.meta{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;font-size:13px;color:var(--faint);margin:0 0 26px;padding-bottom:22px;border-bottom:1px solid var(--line)}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.02em;background:rgba(255,255,255,.07);border:1px solid var(--line);color:#dcdce6}
+.chip i{width:7px;height:7px;border-radius:50%;display:block}
+article p{margin:0 0 16px;color:#dcdce6}
+article ul{margin:0 0 18px;padding-left:22px}
+article li{margin:0 0 8px;color:#dcdce6}
+article strong{color:#f4f4f8}
+table{width:100%;border-collapse:collapse;border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:6px 0 22px;font-size:14.5px}
+th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:rgba(255,255,255,.05);font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:#9a9aa6}
+td:first-child{font-weight:700;color:#f2f2f5;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+.toc{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 20px;margin:0 0 28px}
+.toc h2{font-size:11.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--faint);margin:0 0 8px}
+.toc ol{margin:0;padding-left:20px}
+.toc li{margin:4px 0;font-size:14.5px}
+.key{background:linear-gradient(180deg,rgba(10,132,255,.10),rgba(94,92,230,.06));border:1px solid rgba(94,92,230,.28);border-radius:16px;padding:18px 22px;margin:30px 0 6px}
+.key h2{font-size:11.5px;text-transform:uppercase;letter-spacing:.09em;color:#a9a9ff;margin:0 0 8px}
+.key ul{margin:0;padding-left:20px}
+.cta{display:block;margin:34px 0 6px;padding:22px 24px;border-radius:18px;background:linear-gradient(135deg,rgba(10,132,255,.16),rgba(94,92,230,.14));border:1px solid rgba(94,92,230,.34)}
+.cta:hover{text-decoration:none}
+.cta b{display:block;color:#fff;font-size:18px;margin-bottom:4px}
+.cta span{color:#c2c2d4;font-size:14.5px}
+.faq{margin-top:34px}
+.faq details{border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin:0 0 10px;background:var(--card)}
+.faq summary{cursor:pointer;font-weight:700;color:#f2f2f6;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";float:right;color:var(--faint);font-weight:700}
+.faq details[open] summary::after{content:"\2212"}
+.faq p{margin:10px 0 0;color:#c8c8d4;font-size:15px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(272px,1fr));gap:16px;margin:20px 0 0}
+.card{display:flex;flex-direction:column;gap:9px;padding:20px;border-radius:18px;background:var(--card);border:1px solid var(--line);transition:border-color .18s,transform .18s,background .18s}
+.card:hover{border-color:rgba(139,139,255,.5);background:rgba(255,255,255,.065);transform:translateY(-2px);text-decoration:none}
+.card h3{margin:0;font-size:17px;font-weight:750;letter-spacing:-.012em;color:#f4f4f8;line-height:1.3}
+.card p{margin:0;font-size:14px;color:var(--dim);line-height:1.5}
+.card .cmeta{margin-top:auto;padding-top:4px;font-size:12px;color:var(--faint);display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 4px}
+.fbtn{padding:8px 15px;border-radius:999px;font-size:13.5px;font-weight:650;color:#c2c2d0;background:rgba(255,255,255,.06);border:1px solid var(--line);cursor:pointer}
+.fbtn[aria-pressed="true"]{background:#fff;color:#111;border-color:#fff}
+.bsearch{width:100%;margin:16px 0 0;padding:13px 16px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--ink);font-family:inherit;font-size:15px}
+.bsearch::placeholder{color:var(--faint)}
+.bsearch:focus{outline:2px solid rgba(139,139,255,.55);outline-offset:1px}
+.empty{color:var(--faint);padding:26px 2px;display:none}
+.related{margin-top:42px;padding-top:22px;border-top:1px solid var(--line)}
+.related h2{font-size:11.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--faint);margin:0 0 12px}
+.pn{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;margin-top:26px;font-size:14.5px}
+.tagrow{margin:26px 0 0;display:flex;flex-wrap:wrap;gap:7px}
+.tag{font-size:12px;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.055);border:1px solid var(--line);color:#a9a9b6}
+footer{border-top:1px solid var(--line);margin-top:52px}
+.fin{max-width:1080px;margin:0 auto;padding:24px 20px 40px;color:var(--faint);font-size:12.5px}
+.fin nav{margin-bottom:10px;display:flex;flex-wrap:wrap;gap:6px 16px}
+.fin nav a{color:#9a9aa6;font-weight:600}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}.osHead{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin:0 0 4px}
+.osMark{width:54px;height:54px;border-radius:15px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:21px;color:#fff;flex:none;letter-spacing:-.02em}
+.specs{display:grid;grid-template-columns:repeat(auto-fit,minmax(146px,1fr));gap:12px;margin:24px 0 6px;padding:0;list-style:none}
+.specs li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px 15px;margin:0}
+.specs b{display:block;font-size:21px;font-weight:800;letter-spacing:-.02em;color:#f4f4f8;line-height:1.15}
+.specs span{display:block;font-size:12px;color:var(--faint);margin-top:3px;letter-spacing:.02em}
+.menuGrp{margin:0 0 18px}
+.menuGrp h3{font-size:11.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--faint);margin:20px 0 8px;font-weight:800}
+.menuList{display:flex;flex-wrap:wrap;gap:7px;margin:0;padding:0;list-style:none}
+.menuList li{margin:0}
+.menuList span{display:inline-block;font-size:13.5px;padding:5px 12px;border-radius:9px;background:rgba(255,255,255,.055);border:1px solid var(--line);color:#dcdce6}
+.notable{margin:18px 0 0;padding:0;list-style:none}
+.notable li{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:0 14px 14px 0;padding:14px 18px;margin:0 0 12px}
+.notable code{display:block;font-size:13.5px;color:#a9c8ff;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;margin-bottom:5px;word-break:break-word}
+.notable p{margin:0;font-size:14.8px;color:#c8c8d4}
+.vers{display:flex;flex-wrap:wrap;gap:9px;margin:14px 0 0;padding:0;list-style:none}
+.vers a{display:inline-block;padding:8px 15px;border-radius:11px;background:rgba(255,255,255,.055);border:1px solid var(--line);font-size:14px;color:#dcdce6;font-weight:650}
+.vers a:hover{border-color:rgba(139,139,255,.55);text-decoration:none}
+.honest{border:1px solid rgba(255,159,10,.34);background:linear-gradient(180deg,rgba(255,159,10,.09),rgba(255,159,10,.03));border-radius:16px;padding:18px 22px;margin:30px 0 0}
+.honest h2{margin-top:0;font-size:11.5px;text-transform:uppercase;letter-spacing:.09em;color:#ffc46b}
+.honest p{margin:0 0 10px;font-size:15px;color:#d8d2c6}
+.honest p:last-child{margin-bottom:0}
+.famhead{font-size:11.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--faint);margin:34px 0 2px;font-weight:800}
+.osCard .cmeta b{color:#c9c9d6;font-weight:700}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+</style>
+</head>
+<body>
+<header class="site"><div class="hin">
+<a class="brand" href="https://osimulator.com/"><span class="mk">os</span>osimulator</a>
+<nav class="nav">
+<a href="https://osimulator.com/blog/">Blog</a>
+<a href="https://osimulator.com/blog/os/" class="on">Systems</a>
+<a href="https://osimulator.com/guides/">Guides</a>
+<a href="https://osimulator.com/compare/">Compare</a>
+<a href="https://osimulator.com/find/">Find a setting</a>
+<a class="open" href="https://osimulator.com/">Open the simulator</a>
+</nav>
+</div></header>
+
+<main class="wrap narrow">
+<nav class="crumb" aria-label="Breadcrumb"><a href="https://osimulator.com/">Home</a> &rsaquo; <a href="https://osimulator.com/blog/">Blog</a> &rsaquo; <a href="https://osimulator.com/blog/os/">Systems</a> &rsaquo; <span>Fire TV</span></nav>
+
+<article>
+<header>
+  <div class="osHead">
+    <span class="osMark" style="background:#00a8e122;border:1px solid #00a8e166;color:#00a8e1" aria-hidden="true">ft</span>
+    <h1>Where Fire TV keeps each of its settings pages</h1>
+  </div>
+  <p class="lede">Eight headings is a short list for a device that streams, plays games, listens for a wake word and runs an app store. The compression shows: several pages carry more than their name suggests. Looking at the tree away from a remote makes it easier to see where Amazon put the things you actually want to change, and where it did not.</p>
+  <div class="meta">
+    <span class="chip"><i style="background:#00a8e1"></i>TV and streaming</span>
+    <span>Amazon Fire OS</span>
+    <span>2 versions</span>
+    <span>87 settings rows</span>
+    <time datetime="2026-07-28">28 July 2026</time>
+  </div>
+</header>
+
+<nav class="toc" aria-label="On this page">
+  <h2>On this page</h2>
+  <ol><li><a href="#glance">At a glance</a></li><li><a href="#organises">How Fire TV organises Settings</a></li><li><a href="#menu">The full top-level menu</a></li><li><a href="#notable">Three settings worth finding</a></li><li><a href="#versions">Versions of Fire TV you can open</a></li><li><a href="#history">How this menu got here</a></li><li><a href="#audience">Who this is useful for</a></li><li><a href="#honest">What is real and what is sample data</a></li><li><a href="#try">Try it yourself</a></li></ol>
+</nav>
+
+<section id="glance">
+<h2>At a glance</h2>
+<p>Loading Fire TV gives you a television with the Settings app in front of you. The ordering, the grouping and the nesting are the system's own, not a simplified summary of it. Every number below was counted directly from that tree.</p>
+<ul class="specs">
+  <li><b>8</b><span>top-level entries</span></li>
+  <li><b>87</b><span>rows in total</span></li>
+  <li><b>3</b><span>levels deep</span></li>
+  <li><b>2</b><span>versions</span></li>
+</ul>
+<table>
+  <caption class="visually-hidden">Fire TV in the osimulator settings simulator</caption>
+  <tbody>
+    <tr><th scope="row">Device family</th><td>TV and streaming</td></tr>
+    <tr><th scope="row">Frame shown</th><td>Television</td></tr>
+    <tr><th scope="row">Versions</th><td>Fire OS 8, Fire OS 7</td></tr>
+    <tr><th scope="row">Deepest path</th><td>3 levels below the main list</td></tr>
+    <tr><th scope="row">Interface languages</th><td>12, switchable while you browse</td></tr>
+    <tr><th scope="row">Account needed</th><td>No — it runs entirely in your browser</td></tr>
+  </tbody>
+</table>
+</section>
+
+<section id="organises">
+<h2>How Fire TV organises Settings</h2>
+<p>Network, Display and Sounds, Applications, Controllers and Bluetooth, Alexa, Preferences, Account and Profile and My Fire TV: that is the whole top level. Two things stand out. Alexa gets a heading of its own, which no other television system does, and it holds Alexa Privacy, Hands-Free and Wake Word rather than being folded into a general voice page. My Fire TV, meanwhile, is the engineering drawer, sitting last and unlabelled as such. The naming is plain rather than clever, and each heading is a noun you could say out loud to someone across the room.</p>
+<p>Preferences is the page that does the most work and advertises it least. Parental Controls, Privacy Settings, Data Monitoring, Notification Settings, Location and Time Zone all live there, which means privacy, data use and clock settings share a single heading. Display and Sounds goes the other way, offering resolution choices of Auto, 4K (2160p), 1080p and 720p right alongside Match Original Frame Rate, Audio, Display and Screen Saver. Someone hunting for advertising or data controls will usually look under Account and Profile first and find them under Preferences instead.</p>
+</section>
+
+<section id="menu">
+<h2>The full top-level menu</h2>
+<p>Open Settings and you land on 8 entries. This is that list, unreordered, grouped the way Fire TV groups them. Every name below comes from the menu tree itself, so it matches what you see on the television.</p>
+<div class="menuGrp"><h3>A1</h3>
+<ul class="menuList"><li><span>Network</span></li><li><span>Display and Sounds</span></li></ul></div>
+<div class="menuGrp"><h3>A2</h3>
+<ul class="menuList"><li><span>Applications</span></li><li><span>Controllers and Bluetooth</span></li><li><span>Alexa</span></li></ul></div>
+<div class="menuGrp"><h3>A3</h3>
+<ul class="menuList"><li><span>Preferences</span></li><li><span>Account and Profile</span></li><li><span>My Fire TV</span></li></ul></div>
+</section>
+
+<section id="notable">
+<h2>Three settings worth finding</h2>
+<ul class="notable">
+<li><code>Settings &gt; Display and Sounds &gt; Match Original Frame Rate</code><p>Films shot at twenty-four frames a second look wrong when a television forces them to sixty, and this is the switch that stops it. It sits beside the resolution choices rather than under a picture quality heading, which is why so many people never find it.</p></li>
+<li><code>Settings &gt; Preferences &gt; Data Monitoring</code><p>Streaming quality caps and a running record of how much data each app has used are kept here rather than under Network. If a household is on a metered connection, this page is the one that matters, and it sits two levels from the top.</p></li>
+<li><code>Settings &gt; Applications &gt; Collect App Usage Data</code><p>Whether the device reports what you watch and for how long is decided under Applications, not under Privacy Settings. Anyone auditing a shared or guest device should check both, because the two pages cover different kinds of collection and neither one mentions the other.</p></li>
+</ul>
+</section>
+
+<section id="versions">
+<h2>Versions of Fire TV you can open</h2>
+<p>There are 2 builds of Fire TV to choose from, which is enough to watch the menu drift over time rather than guess at it.</p>
+<ul class="vers"><li><a href="https://osimulator.com/#/fireos/Fire%20OS%208">Fire TV Fire OS 8</a></li><li><a href="https://osimulator.com/#/fireos/Fire%20OS%207">Fire TV Fire OS 7</a></li></ul>
+</section>
+
+<section id="history">
+<h2>How this menu got here</h2>
+<p>Fire OS is built on Android but replaces the interface above it, and its settings menu has always been organised around the living room rather than the phone. Over successive releases the voice assistant grew from one row into its own top-level heading, and the developer and diagnostic pages were gathered under My Fire TV. The two builds available, Fire OS 8 and Fire OS 7, sit either side of that consolidation. Because the interface layer is not open, the structure here is reconstructed from what the system displays.</p>
+</section>
+
+<section id="audience">
+<h2>Who this is useful for</h2>
+<p>People setting up a television in a rental or a guest room need to know what a previous user could have left switched on, and the tour answers that. Support staff can talk a caller through Preferences without guessing. Anyone comparing streaming boxes before buying can judge how much control each one offers. Parents deciding whether a device suits a child can find the restriction pages before the box arrives.</p>
+</section>
+
+<section id="honest" class="honest">
+<h2>What is real and what is sample data</h2>
+<p>The <strong>structure</strong> is the real thing: menu names, their order, how they are grouped and what sits inside each one. That is why this article can quote a path such as Settings &gt; Display and Sounds &gt; Match Original Frame Rate and expect it to match your television.</p>
+<p>The <strong>state</strong> cannot be. A device name, an address, a build number, a network name, a storage figure, whether a particular switch is on or off &mdash; those belong to a physical television, not to a menu tree. The simulator fills those in with obvious sample values. Use them to learn where a figure lives; look at your own television to learn what it says.</p>
+</section>
+
+<section id="try">
+<h2>Try it yourself</h2>
+<p>Start at the top of Fire TV and open every row once. It takes a few minutes and it is the fastest way to stop guessing which section a given option lives under. Comparison mode will hold Fire TV next to another system if you want to see the two layouts against each other. The search will also work backwards: give it a setting name and it reports where every system files it.</p>
+<a class="cta" href="https://osimulator.com/#/fireos/Fire%20OS%208"><b>Open Fire TV in the simulator</b><span>Free, no account, works offline &mdash; 87 settings rows across 2 versions.</span></a>
+</section>
+
+<div class="key">
+<h2>Key points</h2>
+<ul>
+<li>Fire TV shows <strong>8 top-level entries</strong> and 87 rows in total, nested up to 3 levels.</li>
+<li>The labels and their ordering are the system's own, not a tidied-up approximation.</li>
+<li>Values such as device names, addresses and switch positions are sample data and are marked as such.</li>
+</ul>
+</div>
+
+<section class="faq" id="faq">
+<h2>Questions about Fire TV settings</h2>
+<details><summary>Does this simulator work without a Fire TV?</summary><p>Yes. It runs entirely in the browser with no account and no device involved, so you can explore the menu before buying hardware or after giving it away. Everything shown inside a page, including network names and app lists, is a sample value chosen to make the layout readable.</p></details>
+<details><summary>Where are the privacy settings on Fire TV?</summary><p>They are split. Preferences holds Privacy Settings, Data Monitoring and Location, while Applications holds Collect App Usage Data and Alexa holds Alexa Privacy. Walking all three in the simulator is the fastest way to see the full picture, because no single page gathers everything a person would call privacy.</p></details>
+<details><summary>Can I compare Fire OS 8 and Fire OS 7?</summary><p>Both versions are available and you can switch between them directly. That makes it straightforward to check whether a page moved between releases, which matters when following older instructions. The comparison mode also lets you set Fire TV beside another television system to see how differently the two organise the same choices.</p></details>
+</section>
+
+<div class="tagrow"><span class="tag">fire tv</span><span class="tag">fire os</span><span class="tag">amazon</span><span class="tag">streaming</span><span class="tag">settings menu</span></div>
+
+<nav class="pn" aria-label="More systems">
+<a href="https://osimulator.com/blog/os/fitbit.html">&larr; Fitbit OS</a>
+<a href="https://osimulator.com/blog/os/kaios.html">KaiOS &rarr;</a>
+</nav>
+
+<section class="related">
+<h2>Related systems</h2>
+<div class="grid">
+<a class="card osCard" href="https://osimulator.com/blog/os/tvos.html"><h3>tvOS</h3><p>Explore the tvOS 17.5 and 16.6 Settings menus from a browser, with the layout reconstructed from the shippin&hellip;</p><div class="cmeta"><b>11</b> entries <span>&middot;</span> <b>2</b> versions</div></a>
+<a class="card osCard" href="https://osimulator.com/blog/os/androidtv.html"><h3>Google TV</h3><p>Tap through Google TV Settings in your browser: Network &amp; Internet, Accounts, Apps, Device Preferences and m&hellip;</p><div class="cmeta"><b>11</b> entries <span>&middot;</span> <b>2</b> versions</div></a>
+<a class="card osCard" href="https://osimulator.com/blog/os/tizentv.html"><h3>Samsung Tizen TV</h3><p>Browse the Samsung Tizen TV Settings menu in a free online simulator. Open Picture, Sound, Broadcasting and &hellip;</p><div class="cmeta"><b>8</b> entries <span>&middot;</span> <b>2</b> versions</div></a>
+<a class="card osCard" href="https://osimulator.com/blog/os/webos.html"><h3>LG webOS</h3><p>Step through LG webOS TV Settings in a browser: seven top-level menus, real titles and order, clearly marked&hellip;</p><div class="cmeta"><b>7</b> entries <span>&middot;</span> <b>2</b> versions</div></a>
+<a class="card osCard" href="https://osimulator.com/blog/os/ipados.html"><h3>iPadOS</h3><p>Explore the iPadOS Settings layout in a free browser simulator: 35 top-level panels, ten levels deep, with s&hellip;</p><div class="cmeta"><b>35</b> entries <span>&middot;</span> <b>3</b> versions</div></a>
+</div>
+<p style="margin-top:20px"><a href="https://osimulator.com/blog/os/">All 43 systems</a> &middot; <a href="https://osimulator.com/blog/">Blog home</a> &middot; <a href="https://osimulator.com/find/">Find a setting across every system</a> &middot; <a href="https://osimulator.com/compare/">Compare two systems</a></p>
+</section>
+
+</article>
+</main>
+<footer><div class="fin">
+<nav aria-label="Site sections">
+<a href="https://osimulator.com/">Simulator</a><a href="https://osimulator.com/blog/">Blog</a><a href="https://osimulator.com/blog/os/">System guides</a><a href="https://osimulator.com/guides/">Guides</a><a href="https://osimulator.com/compare/">Compare</a><a href="https://osimulator.com/find/">Find a setting</a><a href="https://osimulator.com/changes/">Version changes</a><a href="https://osimulator.com/os/">All systems</a><a href="https://osimulator.com/blog/feed.xml">RSS</a>
+</nav>
+osimulator — explore the real Settings menus of 43 operating systems across 87 versions, free and fully offline.
+Independent educational project; not affiliated with Apple, Google, Microsoft or any other OS vendor. All trademarks belong to their owners.
+</div></footer>
+</body>
+</html>

@@ -147,6 +147,7 @@ ${jsonld ? '<script type="application/ld+json">' + jsonld + '</script>' : ''}
 <a class="brand" href="${SITE}/"><span class="mk">os</span>osimulator</a>
 <nav class="nav">
 <a href="${SITE}/blog/"${on('blog')}>Blog</a>
+<a href="${SITE}/blog/os/"${on('os')}>Systems</a>
 <a href="${SITE}/guides/">Guides</a>
 <a href="${SITE}/compare/">Compare</a>
 <a href="${SITE}/find/">Find a setting</a>
@@ -156,7 +157,7 @@ ${jsonld ? '<script type="application/ld+json">' + jsonld + '</script>' : ''}
 ${body}
 <footer><div class="fin">
 <nav aria-label="Site sections">
-<a href="${SITE}/">Simulator</a><a href="${SITE}/blog/">Blog</a><a href="${SITE}/guides/">Guides</a><a href="${SITE}/compare/">Compare</a><a href="${SITE}/find/">Find a setting</a><a href="${SITE}/changes/">Version changes</a><a href="${SITE}/os/">All systems</a><a href="${SITE}/blog/feed.xml">RSS</a>
+<a href="${SITE}/">Simulator</a><a href="${SITE}/blog/">Blog</a><a href="${SITE}/blog/os/">System guides</a><a href="${SITE}/guides/">Guides</a><a href="${SITE}/compare/">Compare</a><a href="${SITE}/find/">Find a setting</a><a href="${SITE}/changes/">Version changes</a><a href="${SITE}/os/">All systems</a><a href="${SITE}/blog/feed.xml">RSS</a>
 </nav>
 osimulator — explore the real Settings menus of 43 operating systems across 87 versions, free and fully offline.
 Independent educational project; not affiliated with Apple, Google, Microsoft or any other OS vendor. All trademarks belong to their owners.
@@ -292,6 +293,11 @@ function blogIndex() {
 <div class="grid" id="bgrid">${cards}</div>
 <p class="empty" id="bempty">No article matches that. Try a shorter word, or <a href="${SITE}/find/">look the setting up directly</a>.</p>
 <noscript><p style="color:#7c7c88;font-size:13px">Search and filtering need JavaScript; every article is linked above regardless.</p></noscript>
+<section class="related">
+<h2>One article per operating system</h2>
+<p>Beyond the articles above there is a dedicated write-up for every single system in the simulator &mdash; how its Settings menu is organised, what the top level actually contains, which versions you can open and what is worth finding once you are inside.</p>
+<a class="cta" href="${SITE}/blog/os/"><b>Browse all 43 systems, explained one by one</b><span>iOS, Android, Windows, macOS, Ubuntu, watchOS, webOS, Symbian, KaiOS and 34 more.</span></a>
+</section>
 </main>
 <script>
 (function(){
@@ -353,7 +359,7 @@ function build() {
   return [`${SITE}/blog/`].concat(POSTS.map(url));
 }
 
-module.exports = { build, POSTS, url };
+module.exports = { build, POSTS, url, shell, CSS, esc, attr, strip, niceDate, rfc822, anchorId, SITE, CATS };
 
 if (require.main === module) {
   const u = build();
