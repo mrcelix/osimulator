@@ -2166,6 +2166,52 @@ body.light :focus-visible{outline-color:#0060df}
  .a11y-skip{background:#000;color:#fff;border:2px solid #fff}
  :focus-visible{outline-width:3px}
 }
+/* --- deep-link URI database: the tap-free way into a settings screen --- */
+.uri-facts{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:center;margin:0 0 20px;font-size:13px;color:#9a9aa6}
+.uri-facts b{color:#f5f5f7;font-size:15px}
+.uri-tools{display:flex;flex-direction:column;gap:11px;margin-bottom:20px}
+.uri-inp{width:100%;padding:12px 16px;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);color:#f5f5f7;font-size:14px;font-family:inherit}
+.uri-inp::placeholder{color:#75758a}
+.uri-inp:focus{outline:none;border-color:rgba(10,132,255,.6);background:rgba(10,132,255,.07)}
+.uri-chips{display:flex;flex-wrap:wrap;gap:6px}
+.uri-chip{padding:6px 13px;border-radius:100px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);color:#a6a6b4;font-size:12px;font-weight:600;transition:.15s}
+.uri-chip:hover{color:#f5f5f7;border-color:rgba(255,255,255,.22)}
+.uri-chip.on{background:rgba(10,132,255,.18);border-color:rgba(10,132,255,.55);color:#7cc0ff}
+.uri-g{border:1px solid rgba(255,255,255,.09);border-radius:16px;background:rgba(255,255,255,.03);padding:15px 16px;margin-bottom:14px}
+.uri-gh{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:9px}
+.uri-gn{font-size:15px;font-weight:800;color:#f5f5f7}
+.uri-gs{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;color:#7cc0ff;background:rgba(10,132,255,.12);border-radius:7px;padding:3px 8px}
+.uri-tag{font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:100px;white-space:nowrap}
+.uri-tag.doc{background:rgba(48,209,88,.16);color:#5ee183}
+.uri-tag.com{background:rgba(255,159,10,.16);color:#ffb340}
+.uri-warn{border:1px solid rgba(255,159,10,.32);border-radius:12px;background:rgba(255,159,10,.07);padding:10px 13px;font-size:12px;line-height:1.65;color:#e8c893;margin-bottom:10px}
+.uri-run,.uri-src{font-size:12px;line-height:1.65;color:#9a9aa6;margin-bottom:5px}
+.uri-run b,.uri-src b{color:#d2d2dc;font-weight:700}
+.uri-run code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11.5px;color:#d2d2dc;background:rgba(255,255,255,.06);border-radius:6px;padding:2px 6px;word-break:break-word}
+.uri-rows{display:flex;flex-direction:column;gap:6px;margin-top:11px}
+.uri-r{display:flex;align-items:center;gap:11px;flex-wrap:wrap;border:1px solid rgba(255,255,255,.07);border-radius:12px;background:rgba(255,255,255,.04);padding:9px 12px}
+.uri-l{font-size:13px;font-weight:700;color:#f5f5f7;flex:0 0 auto;min-width:140px}
+.uri-u{flex:1;min-width:180px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11.5px;color:#a6a6b4;word-break:break-all;-webkit-user-select:all;user-select:all}
+.uri-act{flex:0 0 auto;display:flex;gap:6px}
+.uri-cp,.uri-go{padding:5px 12px;border-radius:100px;font-size:11.5px;font-weight:700;transition:.15s;white-space:nowrap}
+.uri-cp{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:#d2d2dc}
+.uri-cp:hover{background:rgba(255,255,255,.13);color:#fff}
+.uri-cp.on{background:rgba(48,209,88,.2);border-color:rgba(48,209,88,.5);color:#5ee183}
+.uri-go{background:rgba(10,132,255,.16);border:1px solid rgba(10,132,255,.45);color:#7cc0ff}
+.uri-go:hover{background:#0a84ff;border-color:#0a84ff;color:#fff}
+.uri-n{flex:1 0 100%;font-size:11.5px;line-height:1.6;color:#8b8b98}
+.uri-no{margin-top:34px;border-top:1px solid rgba(255,255,255,.09);padding-top:24px}
+.uri-nn{font-size:12.5px;line-height:1.7;color:#9a9aa6;margin-bottom:15px;max-width:760px}
+.uri-nl{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:8px}
+.uri-ni{display:flex;gap:10px;align-items:flex-start;border:1px solid rgba(255,255,255,.07);border-radius:12px;background:rgba(255,255,255,.03);padding:10px 12px}
+.uri-ni .hm-logo{flex:0 0 auto;width:22px;height:22px;border-radius:6px}
+.uri-ni .hm-logo svg{width:13px;height:13px}
+.uri-nt{font-size:11.5px;line-height:1.6;color:#8b8b98}
+.uri-nt b{display:block;font-size:12.5px;color:#f5f5f7;margin-bottom:3px}
+.uri-badge{display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:6px 11px;border-radius:100px;background:rgba(10,132,255,.14);border:1px solid rgba(10,132,255,.34);font-size:11px;color:#7cc0ff;max-width:100%}
+.uri-badge code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11px;color:#cfe6ff;word-break:break-all}
+.uri-badge .uri-cp{padding:3px 9px;font-size:10.5px}
+@media (max-width:620px){.uri-l{min-width:0;flex:1 0 100%}.uri-act{flex:1 0 100%}}
 </style>
 </head>
 <body>
@@ -2404,8 +2450,8 @@ const LANGS=[
 ];
 const FLAG={en:'🇬🇧',zh:'🇨🇳',hi:'🇮🇳',es:'🇪🇸',ar:'🇸🇦',fr:'🇫🇷',pt:'🇧🇷',ru:'🇷🇺',de:'🇩🇪',ja:'🇯🇵',it:'🇮🇹',tr:'🇹🇷'};
 const LANG={
- en:{a11ySkip:"Skip to content",menu:"Menu",a11yCalcDone:"Results ready",tkNav:"Tasks",tkEyebrow:"Task-oriented",tkTitle:"What do you want to do?",tkSub:"Say the job in plain words. We look it up in every settings tree we ship and point at the exact screen — and say so where a system simply has no such setting.",tkBack:"All tasks",tkCalc:"Looking for it in every system…",tkFound:"systems have it",tkShow:"Show me",tkShallow:"Fewest taps:",tkApprox:"closest match",tkMissing:"Not found in",tkMissingNote:"Nothing in these systems matches that name. That is the honest answer, not a gap we papered over — some of them genuinely have no such setting.",tkNone:"No system in the library has a setting for this yet.",tkMore:"Other things people look for",tkHomeTitle:"Start from what you want to do",tkHomeSub:"Skip the menu names. Pick the job — we will find the screen.",tkHomeAll:"See all tasks",fmtTap:"Tap {x}",fmtToggle:"Toggle {x}",fmtOpen:"Open {x}",locCovT:"{p}% of the {n} labels on this device are translated into {l}. The rest stay in English — exactly the way an untranslated device shows them.",stOS:"operating systems",stVer:"versions",stScreens:"settings screens",stLang:"languages",stOffline:"Offline",continueLast:"Continue where you left off",searchOS:"Search operating systems…",filAll:"All",filPhone:"Phone",filTablet:"Tablet",filDesktop:"Desktop",typ_phone:"Phone",typ_tablet:"Tablet",typ_desktop:"Desktop",typ_watch:"Watch",filWatch:"Watch",typ_tv:"TV",filTV:"TV",typ_car:"Car",filCar:"Car",typ_xr:"XR",filXR:"XR",typ_console:"Console",filConsole:"Console",latest:"latest",open:"Open",noResults:"No operating systems match your search.",featMenus:"Real menus you can navigate",featVersions:"Version-accurate differences",featTools:"Zoom · rotate · auto-fit",featAI:"Built-in OS AI assistant",featLang:"12 languages · RTL",featOffline:"100% offline single file",title:"OS Simulator",intro:"Pick an operating system, choose a version, and explore its menus as if you were on a real device. Apps don't run — the goal is to discover the interface and its settings.",footer:"For simulation only — not the real iOS, macOS, Windows or Android.",soon:"Coming soon",back:"Choose device",ttHome:"Home screen",ttRotate:"Rotate",ttZoomOut:"Zoom out",ttZoomIn:"Zoom in",fit:"Fit",auto:"Auto",autoFit:"Auto‑fit to screen size",reset:"Reset",toast:"Only Settings can be explored in this simulation.",langLabel:"Language",navSystems:"Systems",navHow:"How it works",navFeatures:"Features",navExplore:"Explore",tryRandom:"Surprise me",systemsTitle:"Choose an operating system",howTitle:"How it works",how1t:"Pick a device",how1d:"Phone, tablet, desktop, watch, TV, car, console or XR — 41 systems in all.",how2t:"Choose a version",how2d:"Each release renders its own menus, layout and wallpaper.",how3t:"Explore the menus",how3d:"Navigate the Settings app exactly like the real device.",featTitle:"What's inside",footRights:"Independent educational project. Not affiliated with Apple, Google, Microsoft or any OS vendor. All trademarks belong to their owners.",pickOS:"Open an OS",shareTitle:"Share osimulator",trending:"Trending",linkCopied:"Link copied to clipboard",browseAll:"Browse all systems",signIn:"Sign in",signUp:"Sign up",createAccount:"Create account",account:"Account",signOut:"Sign out",welcome:"Welcome",authSubtitle:"Sync your preferences across devices.",emailLabel:"Email",passwordLabel:"Password",nameLabel:"Full name",forgotPass:"Forgot password?",resetSent:"If that email exists, a reset link is on its way.",rememberMe:"Keep me signed in",orContinue:"or continue with email",googleContinue:"Continue with Google",appleContinue:"Continue with Apple",authTerms:"By continuing you agree to our Terms of Use and Privacy Policy.",noAccount:"Don’t have an account?",haveAccount:"Already have an account?",toolTheme:"Theme",toolShare:"Share",toolRandom:"Random OS",toolFullscreen:"Fullscreen",toolTop:"Back to top",toolShortcuts:"Shortcuts",toolsTitle:"Site tools",tools:"Tools",themeToggle:"Toggle light / dark",nlTitle:"Stay in the loop",nlDesc:"Get notified about new operating systems, versions and features. No spam, unsubscribe anytime.",nlPlaceholder:"Your email address",nlButton:"Subscribe",nlSuccess:"You’re subscribed! Thanks for joining.",nlInvalid:"Please enter a valid email address.",footProduct:"Product",footSystems:"Systems",footResources:"Resources",footFollow:"Follow",saveChanges:"Save changes",cookieText:"We only use local storage to remember your preferences — no tracking cookies.",cookieAccept:"Got it",shortcutsTitle:"Keyboard shortcuts",prefsSaved:"Preferences saved",defaultOsLabel:"Open this OS on start",askEach:"Ask each time",recTool:"Record & Play",recStart:"Record a guide",recRequiresLogin:"Sign in to record guides.",recBar:"Recording",recStepWord:"step",recSteps:"steps",recFinish:"Finish",recCancel:"Cancel",recEmpty:"Tap the settings rows to add steps.",guideSaveTitle:"Save your guide",guideTitleLabel:"Guide title",guideTitlePh:"e.g. How to add an eSIM",stepNotePh:"Describe this step (optional)",saveShare:"Save & share",guidePrev:"Back",guideNext:"Next",guideExit:"Exit",guideStartBtn:"Start guide",guideDoneTitle:"Guide complete!",guideDoneSub:"That is the whole walkthrough.",guideReplay:"Replay",myGuides:"My guides",noGuides:"You have no saved guides yet. Open any OS, tap Record and describe a task.",guideDelete:"Delete",guidePlayBtn:"Play",shareGuideTitle:"Share this guide",copyLink:"Copy link",embedCode:"Embed on a site",downloadGuide:"Download",tapHere:"Tap here",toggleHere:"Toggle this",openHere:"Open this",recTitleDefault:"My guide",guideSaved:"Guide saved",guideNavFail:"This step is not available in this version.",stepLabel:"Step",ofLabel:"of",guideIntro:"Follow along step by step. No account needed.",recStartedHint:"Now tap through the settings — each tap becomes a step.",guidesNav:"Guides",guidesEyebrow:"Guides",guidesTitle:"How-to guides",guidesSub:"Clear, step-by-step help for every operating system — then try it live.",guidesAll:"See all guides",guidesBack:"All guides",homeNav:"Home",tryIn:"Try in",guideRelated:"Related guides",guideCta:"Open this OS and try it yourself",guideStepsFor:"Steps for",guidesCount:"guides",compareNav:"Compare",compareEyebrow:"Compare",compareTitle:"Compare operating systems",compareSub:"See how two systems handle the same settings, side by side.",compareAll:"All comparisons",openOs:"Open",cmpTopic:"Setting",compareRelated:"More comparisons",vsNav:"Side by side",vsTitle:"Side-by-side compare",vsSub:"Explore two operating systems live, at the same time.",vsSwap:"Swap",vsOpenBoth:"Open side by side",vsFull:"Open full",searchSettings:"Search all settings",searchPh:"Search settings across every OS…",searchHint:"Type to search every setting in 43 operating systems.",searchNoRes:"No settings match your search.",shareCard:"Share card",cardTitle:"Share this screen",cardDownload:"Download",cardShare:"Share",cardCopy:"Copy image",cardCopied:"Image copied to clipboard",quizNav:"Quiz",quizEyebrow:"Mini game",quizTitle:"Which OS is this?",quizSub:"Guess the operating system from its Settings screen — the layout and wording are your clues.",quizScore:"Score",quizStreak:"Streak",quizBest:"Best",quizNext:"Next question",quizCorrect:"Correct!",quizWrong:"Nope — it was",quizPlay:"Play",quizStartOver:"Start over",embedNav:"Embed",embedTitle:"Embed osimulator",embedSub:"Drop a live, interactive OS screen into any blog or docs page.",embedOS:"System",embedVer:"Version",embedCat:"Screen",embedCatNone:"Home / Settings",embedTheme:"Theme",embedThemeAuto:"Auto",embedThemeLight:"Light",embedThemeDark:"Dark",embedSize:"Size",embedBare:"Hide toolbar",embedPreview:"Live preview",embedCopyCode:"Copy code",embedOpen:"Embed",footLove:"Enjoying osimulator?",starGh:"Star on GitHub",quizShare:"Challenge a friend",quizShareText:"I’m playing “Which OS is this?” on osimulator",verLabel:"Version",deployLabel:"Last updated",heroFeatured:"Featured system",findNav:"Find a setting",findEyebrow:"Cross-OS finder",findTitle:"Where is this setting?",findSub:"Type a setting — see exactly where it lives on all 43 operating systems.",findPh:"e.g. Dark Mode, VPN, eSIM, Reduce Motion…",findEmpty:"No system in the library has a setting matching that. Try another term.",findFound:"systems have it",changesNav:"Version changes",chEyebrow:"Version diff",chTitle:"What changed between versions",chSub:"Pick an OS and two versions to see which Settings sections were added, removed or renamed.",chVs:"vs",chNone:"No structural Settings changes between these versions in the library.",guideAutoPlay:"Auto-play",guideStepByStep:"Step by step",guideTaps:"Taps in this guide",guideAuto:"Auto",guidePause:"Pause",guideMin:"Minimize",guideExpand:"Expand",dailyNav:"Daily",dailyEyebrow:"Daily challenge",dailyTitle:"Today’s challenge",dailySub:"Find the setting as fast as you can. Come back daily to keep your streak.",dailyStreak:"Streak",dailyBest:"Best",dailyHint:"Navigate the Settings to reach the target — the timer and taps are counting.",dailyStart:"Start challenge",dailyDone:"Done today — come back tomorrow!",dailyPractice:"Practice again",dailyTaps:"taps",dailyGiveUp:"Give up",dailyWin:"Found it! 🎉",deepLinkCopy:"Copy link to this screen",deepLinkCopied:"Screen link copied — it opens right here.",tmTitle:"Time machine",tmAdded:"added",tmRemoved:"removed",tmSame:"identical screen",gifExport:"GIF",gifTitle:"Export as GIF",gifBuilding:"Drawing your animation…",gifReady:"Your GIF is ready",gifFailed:"Could not build the GIF.",gifTrimmed:"first {n} steps",close:"Close",printExport:"Print",printTitle:"Printable handout",printNow:"Print / Save as PDF",printScan:"Scan to open the interactive guide",printScanScreen:"Scan to open this screen in the simulator",printFoot:"Made with osimulator — the offline OS settings simulator",linNav:"Genealogy",linEyebrow:"Settings genealogy",linTitle:"The family history of one setting",linSub:"Pick a setting and see where it lives in every system — and how it moved between versions.",linSearch:"Search a setting — Wi‑Fi, Bluetooth, Dark Mode…",linNone:"No system in the library has a setting with that name.",linSystems:"Where it lives today",linAcross:"How it moved between versions",linInOs:"systems have it",linShallow:"Shallowest:",linDeepest:"Deepest:",linTap1:"tap",linTapN:"taps",linTaps:"Taps from Settings",linIntro:"first appears",linMoved:"moved",linRenamed:"renamed",linGone:"removed",linAbsent:"not in this version",linWas:"was",linChanged:"changed",linStable:"unchanged",linStableNote:"Never moved in any shipped version of:",linMovedN:"systems changed it",hmNav:"Depth",hmEyebrow:"Burial depth",hmTitle:"How deep is it buried?",hmSub:"Every setting you can tap, toggle or open — picker options excluded — counted by how many taps it takes to reach from the home screen of Settings.",hmSystems:"systems",hmSettings:"settings",hmTap1:"tap",hmTapN:"taps",hmAvgAll:"average",hmShallowest:"Flattest:",hmDeepestOs:"Deepest:",hmAvgTip:"Average taps from Settings",hmSortShallow:"Flattest first",hmSortDeep:"Deepest first",hmSortMost:"Most settings",hmSortName:"By name",hmCalc:"Walking every settings tree to the leaves…",hmShowing:"Showing",hmDeepestOne:"The single deepest setting in the whole library is",hmIn:"in"},
- tr:{title:"OS Simülatörü",intro:"Bir işletim sistemi seç, sürümünü belirle ve sanki gerçek bir cihazdaymış gibi menülerde gez. Uygulamalar çalışmaz — amaç arayüzü ve ayarları keşfetmek.",footer:"Yalnızca simülasyon amaçlıdır — gerçek iOS, macOS, Windows veya Android değildir.",soon:"Yakında",back:"Cihaz seç",ttHome:"Ana ekran",ttRotate:"Döndür",ttZoomOut:"Uzaklaştır",ttZoomIn:"Yakınlaştır",fit:"Sığdır",reset:"Sıfırla",toast:"Bu simülasyonda yalnızca Ayarlar gezilebilir.",langLabel:"Dil"},
+ en:{uriNav:"Deep links",uriEyebrow:"Deep-link URIs",uriTitle:"Jump straight to a settings screen",uriSub:"Every URI on this page opens a settings screen directly, skipping the taps. Where the vendor documents the scheme we say so; where the list comes from community reverse-engineering we say that too. Systems with no public scheme are named at the bottom rather than left out.",uriSearch:"Search a screen or a URI",uriAll:"All systems",uriCopy:"Copy",uriCopied:"URI copied",uriHow:"How to run it",uriSource:"Where this comes from",uriDoc:"Vendor-documented",uriCom:"Community-documented",uriDocT:"The vendor publishes this scheme in its own developer documentation.",uriComT:"The vendor never published this. The list comes from people reading the system's own binaries and configuration — it works, but it can break in any update without notice.",uriLinks:"deep links",uriSchemes:"URI schemes",uriNoneCount:"systems with no scheme",uriNoHit:"Nothing matches that. Try a screen name like Wi-Fi, or part of a URI like ms-settings.",uriNoneTitle:"Systems with no public deep-link scheme",uriNoneNote:"These are not omissions. Each one either exposes no URI handler for settings at all, or keeps it entirely private to the vendor's own apps. If you came here looking for one of them, you can stop looking.",uriBadge:"Deep link",uriOpen:"Open this screen in the simulator",a11ySkip:"Skip to content",menu:"Menu",a11yCalcDone:"Results ready",tkNav:"Tasks",tkEyebrow:"Task-oriented",tkTitle:"What do you want to do?",tkSub:"Say the job in plain words. We look it up in every settings tree we ship and point at the exact screen — and say so where a system simply has no such setting.",tkBack:"All tasks",tkCalc:"Looking for it in every system…",tkFound:"systems have it",tkShow:"Show me",tkShallow:"Fewest taps:",tkApprox:"closest match",tkMissing:"Not found in",tkMissingNote:"Nothing in these systems matches that name. That is the honest answer, not a gap we papered over — some of them genuinely have no such setting.",tkNone:"No system in the library has a setting for this yet.",tkMore:"Other things people look for",tkHomeTitle:"Start from what you want to do",tkHomeSub:"Skip the menu names. Pick the job — we will find the screen.",tkHomeAll:"See all tasks",fmtTap:"Tap {x}",fmtToggle:"Toggle {x}",fmtOpen:"Open {x}",locCovT:"{p}% of the {n} labels on this device are translated into {l}. The rest stay in English — exactly the way an untranslated device shows them.",stOS:"operating systems",stVer:"versions",stScreens:"settings screens",stLang:"languages",stOffline:"Offline",continueLast:"Continue where you left off",searchOS:"Search operating systems…",filAll:"All",filPhone:"Phone",filTablet:"Tablet",filDesktop:"Desktop",typ_phone:"Phone",typ_tablet:"Tablet",typ_desktop:"Desktop",typ_watch:"Watch",filWatch:"Watch",typ_tv:"TV",filTV:"TV",typ_car:"Car",filCar:"Car",typ_xr:"XR",filXR:"XR",typ_console:"Console",filConsole:"Console",latest:"latest",open:"Open",noResults:"No operating systems match your search.",featMenus:"Real menus you can navigate",featVersions:"Version-accurate differences",featTools:"Zoom · rotate · auto-fit",featAI:"Built-in OS AI assistant",featLang:"12 languages · RTL",featOffline:"100% offline single file",title:"OS Simulator",intro:"Pick an operating system, choose a version, and explore its menus as if you were on a real device. Apps don't run — the goal is to discover the interface and its settings.",footer:"For simulation only — not the real iOS, macOS, Windows or Android.",soon:"Coming soon",back:"Choose device",ttHome:"Home screen",ttRotate:"Rotate",ttZoomOut:"Zoom out",ttZoomIn:"Zoom in",fit:"Fit",auto:"Auto",autoFit:"Auto‑fit to screen size",reset:"Reset",toast:"Only Settings can be explored in this simulation.",langLabel:"Language",navSystems:"Systems",navHow:"How it works",navFeatures:"Features",navExplore:"Explore",tryRandom:"Surprise me",systemsTitle:"Choose an operating system",howTitle:"How it works",how1t:"Pick a device",how1d:"Phone, tablet, desktop, watch, TV, car, console or XR — 41 systems in all.",how2t:"Choose a version",how2d:"Each release renders its own menus, layout and wallpaper.",how3t:"Explore the menus",how3d:"Navigate the Settings app exactly like the real device.",featTitle:"What's inside",footRights:"Independent educational project. Not affiliated with Apple, Google, Microsoft or any OS vendor. All trademarks belong to their owners.",pickOS:"Open an OS",shareTitle:"Share osimulator",trending:"Trending",linkCopied:"Link copied to clipboard",browseAll:"Browse all systems",signIn:"Sign in",signUp:"Sign up",createAccount:"Create account",account:"Account",signOut:"Sign out",welcome:"Welcome",authSubtitle:"Sync your preferences across devices.",emailLabel:"Email",passwordLabel:"Password",nameLabel:"Full name",forgotPass:"Forgot password?",resetSent:"If that email exists, a reset link is on its way.",rememberMe:"Keep me signed in",orContinue:"or continue with email",googleContinue:"Continue with Google",appleContinue:"Continue with Apple",authTerms:"By continuing you agree to our Terms of Use and Privacy Policy.",noAccount:"Don’t have an account?",haveAccount:"Already have an account?",toolTheme:"Theme",toolShare:"Share",toolRandom:"Random OS",toolFullscreen:"Fullscreen",toolTop:"Back to top",toolShortcuts:"Shortcuts",toolsTitle:"Site tools",tools:"Tools",themeToggle:"Toggle light / dark",nlTitle:"Stay in the loop",nlDesc:"Get notified about new operating systems, versions and features. No spam, unsubscribe anytime.",nlPlaceholder:"Your email address",nlButton:"Subscribe",nlSuccess:"You’re subscribed! Thanks for joining.",nlInvalid:"Please enter a valid email address.",footProduct:"Product",footSystems:"Systems",footResources:"Resources",footFollow:"Follow",saveChanges:"Save changes",cookieText:"We only use local storage to remember your preferences — no tracking cookies.",cookieAccept:"Got it",shortcutsTitle:"Keyboard shortcuts",prefsSaved:"Preferences saved",defaultOsLabel:"Open this OS on start",askEach:"Ask each time",recTool:"Record & Play",recStart:"Record a guide",recRequiresLogin:"Sign in to record guides.",recBar:"Recording",recStepWord:"step",recSteps:"steps",recFinish:"Finish",recCancel:"Cancel",recEmpty:"Tap the settings rows to add steps.",guideSaveTitle:"Save your guide",guideTitleLabel:"Guide title",guideTitlePh:"e.g. How to add an eSIM",stepNotePh:"Describe this step (optional)",saveShare:"Save & share",guidePrev:"Back",guideNext:"Next",guideExit:"Exit",guideStartBtn:"Start guide",guideDoneTitle:"Guide complete!",guideDoneSub:"That is the whole walkthrough.",guideReplay:"Replay",myGuides:"My guides",noGuides:"You have no saved guides yet. Open any OS, tap Record and describe a task.",guideDelete:"Delete",guidePlayBtn:"Play",shareGuideTitle:"Share this guide",copyLink:"Copy link",embedCode:"Embed on a site",downloadGuide:"Download",tapHere:"Tap here",toggleHere:"Toggle this",openHere:"Open this",recTitleDefault:"My guide",guideSaved:"Guide saved",guideNavFail:"This step is not available in this version.",stepLabel:"Step",ofLabel:"of",guideIntro:"Follow along step by step. No account needed.",recStartedHint:"Now tap through the settings — each tap becomes a step.",guidesNav:"Guides",guidesEyebrow:"Guides",guidesTitle:"How-to guides",guidesSub:"Clear, step-by-step help for every operating system — then try it live.",guidesAll:"See all guides",guidesBack:"All guides",homeNav:"Home",tryIn:"Try in",guideRelated:"Related guides",guideCta:"Open this OS and try it yourself",guideStepsFor:"Steps for",guidesCount:"guides",compareNav:"Compare",compareEyebrow:"Compare",compareTitle:"Compare operating systems",compareSub:"See how two systems handle the same settings, side by side.",compareAll:"All comparisons",openOs:"Open",cmpTopic:"Setting",compareRelated:"More comparisons",vsNav:"Side by side",vsTitle:"Side-by-side compare",vsSub:"Explore two operating systems live, at the same time.",vsSwap:"Swap",vsOpenBoth:"Open side by side",vsFull:"Open full",searchSettings:"Search all settings",searchPh:"Search settings across every OS…",searchHint:"Type to search every setting in 43 operating systems.",searchNoRes:"No settings match your search.",shareCard:"Share card",cardTitle:"Share this screen",cardDownload:"Download",cardShare:"Share",cardCopy:"Copy image",cardCopied:"Image copied to clipboard",quizNav:"Quiz",quizEyebrow:"Mini game",quizTitle:"Which OS is this?",quizSub:"Guess the operating system from its Settings screen — the layout and wording are your clues.",quizScore:"Score",quizStreak:"Streak",quizBest:"Best",quizNext:"Next question",quizCorrect:"Correct!",quizWrong:"Nope — it was",quizPlay:"Play",quizStartOver:"Start over",embedNav:"Embed",embedTitle:"Embed osimulator",embedSub:"Drop a live, interactive OS screen into any blog or docs page.",embedOS:"System",embedVer:"Version",embedCat:"Screen",embedCatNone:"Home / Settings",embedTheme:"Theme",embedThemeAuto:"Auto",embedThemeLight:"Light",embedThemeDark:"Dark",embedSize:"Size",embedBare:"Hide toolbar",embedPreview:"Live preview",embedCopyCode:"Copy code",embedOpen:"Embed",footLove:"Enjoying osimulator?",starGh:"Star on GitHub",quizShare:"Challenge a friend",quizShareText:"I’m playing “Which OS is this?” on osimulator",verLabel:"Version",deployLabel:"Last updated",heroFeatured:"Featured system",findNav:"Find a setting",findEyebrow:"Cross-OS finder",findTitle:"Where is this setting?",findSub:"Type a setting — see exactly where it lives on all 43 operating systems.",findPh:"e.g. Dark Mode, VPN, eSIM, Reduce Motion…",findEmpty:"No system in the library has a setting matching that. Try another term.",findFound:"systems have it",changesNav:"Version changes",chEyebrow:"Version diff",chTitle:"What changed between versions",chSub:"Pick an OS and two versions to see which Settings sections were added, removed or renamed.",chVs:"vs",chNone:"No structural Settings changes between these versions in the library.",guideAutoPlay:"Auto-play",guideStepByStep:"Step by step",guideTaps:"Taps in this guide",guideAuto:"Auto",guidePause:"Pause",guideMin:"Minimize",guideExpand:"Expand",dailyNav:"Daily",dailyEyebrow:"Daily challenge",dailyTitle:"Today’s challenge",dailySub:"Find the setting as fast as you can. Come back daily to keep your streak.",dailyStreak:"Streak",dailyBest:"Best",dailyHint:"Navigate the Settings to reach the target — the timer and taps are counting.",dailyStart:"Start challenge",dailyDone:"Done today — come back tomorrow!",dailyPractice:"Practice again",dailyTaps:"taps",dailyGiveUp:"Give up",dailyWin:"Found it! 🎉",deepLinkCopy:"Copy link to this screen",deepLinkCopied:"Screen link copied — it opens right here.",tmTitle:"Time machine",tmAdded:"added",tmRemoved:"removed",tmSame:"identical screen",gifExport:"GIF",gifTitle:"Export as GIF",gifBuilding:"Drawing your animation…",gifReady:"Your GIF is ready",gifFailed:"Could not build the GIF.",gifTrimmed:"first {n} steps",close:"Close",printExport:"Print",printTitle:"Printable handout",printNow:"Print / Save as PDF",printScan:"Scan to open the interactive guide",printScanScreen:"Scan to open this screen in the simulator",printFoot:"Made with osimulator — the offline OS settings simulator",linNav:"Genealogy",linEyebrow:"Settings genealogy",linTitle:"The family history of one setting",linSub:"Pick a setting and see where it lives in every system — and how it moved between versions.",linSearch:"Search a setting — Wi‑Fi, Bluetooth, Dark Mode…",linNone:"No system in the library has a setting with that name.",linSystems:"Where it lives today",linAcross:"How it moved between versions",linInOs:"systems have it",linShallow:"Shallowest:",linDeepest:"Deepest:",linTap1:"tap",linTapN:"taps",linTaps:"Taps from Settings",linIntro:"first appears",linMoved:"moved",linRenamed:"renamed",linGone:"removed",linAbsent:"not in this version",linWas:"was",linChanged:"changed",linStable:"unchanged",linStableNote:"Never moved in any shipped version of:",linMovedN:"systems changed it",hmNav:"Depth",hmEyebrow:"Burial depth",hmTitle:"How deep is it buried?",hmSub:"Every setting you can tap, toggle or open — picker options excluded — counted by how many taps it takes to reach from the home screen of Settings.",hmSystems:"systems",hmSettings:"settings",hmTap1:"tap",hmTapN:"taps",hmAvgAll:"average",hmShallowest:"Flattest:",hmDeepestOs:"Deepest:",hmAvgTip:"Average taps from Settings",hmSortShallow:"Flattest first",hmSortDeep:"Deepest first",hmSortMost:"Most settings",hmSortName:"By name",hmCalc:"Walking every settings tree to the leaves…",hmShowing:"Showing",hmDeepestOne:"The single deepest setting in the whole library is",hmIn:"in"},
+ tr:{uriNav:'Derin bağlantılar',uriEyebrow:'Derin bağlantı URI\'leri',uriTitle:'Doğrudan bir ayar ekranına atla',uriSub:'Bu sayfadaki her URI, dokunuşları atlayarak bir ayar ekranını doğrudan açar. Şemayı üreticinin kendisi belgelemişse bunu söylüyoruz; liste topluluğun tersine mühendisliğinden geliyorsa onu da söylüyoruz. Herkese açık şeması olmayan sistemler dışarıda bırakılmıyor, en altta adıyla listeleniyor.',uriSearch:'Bir ekran ya da URI ara',uriAll:'Tüm sistemler',uriCopy:'Kopyala',uriCopied:'URI kopyalandı',uriHow:'Nasıl çalıştırılır',uriSource:'Bu bilgi nereden geliyor',uriDoc:'Üretici belgeli',uriCom:'Topluluk belgeli',uriDocT:'Üretici bu şemayı kendi geliştirici belgelerinde yayımlıyor.',uriComT:'Üretici bunu hiç yayımlamadı. Liste, sistemin kendi ikili dosyalarını ve yapılandırmasını okuyan insanlardan geliyor — çalışıyor, ama herhangi bir güncellemede haber verilmeden bozulabilir.',uriLinks:'derin bağlantı',uriSchemes:'URI şeması',uriNoneCount:'şemasız sistem',uriNoHit:'Bununla eşleşen bir şey yok. Wi-Fi gibi bir ekran adı ya da ms-settings gibi bir URI parçası deneyin.',uriNoneTitle:'Herkese açık derin bağlantı şeması olmayan sistemler',uriNoneNote:'Bunlar eksiklik değil. Her biri ya ayarlar için hiçbir URI işleyicisi sunmuyor ya da bunu tamamen üreticinin kendi uygulamalarına saklıyor. Buraya bunlardan birini aramaya geldiyseniz, aramayı bırakabilirsiniz.',uriBadge:'Derin bağlantı',uriOpen:'Bu ekranı simülatörde aç',title:"OS Simülatörü",intro:"Bir işletim sistemi seç, sürümünü belirle ve sanki gerçek bir cihazdaymış gibi menülerde gez. Uygulamalar çalışmaz — amaç arayüzü ve ayarları keşfetmek.",footer:"Yalnızca simülasyon amaçlıdır — gerçek iOS, macOS, Windows veya Android değildir.",soon:"Yakında",back:"Cihaz seç",ttHome:"Ana ekran",ttRotate:"Döndür",ttZoomOut:"Uzaklaştır",ttZoomIn:"Yakınlaştır",fit:"Sığdır",reset:"Sıfırla",toast:"Bu simülasyonda yalnızca Ayarlar gezilebilir.",langLabel:"Dil"},
  es:{title:"Simulador de SO",intro:"Elige un sistema operativo, selecciona una versión y explora sus menús como si estuvieras en un dispositivo real. Las apps no funcionan: el objetivo es descubrir la interfaz y sus ajustes.",footer:"Solo para simulación: no es el iOS, macOS, Windows o Android real.",soon:"Próximamente",back:"Elegir dispositivo",ttHome:"Pantalla de inicio",ttRotate:"Girar",ttZoomOut:"Alejar",ttZoomIn:"Acercar",fit:"Ajustar",reset:"Restablecer",toast:"En esta simulación solo se pueden explorar los Ajustes.",langLabel:"Idioma"},
  fr:{title:"Simulateur d'OS",intro:"Choisissez un système d'exploitation, une version et explorez ses menus comme sur un vrai appareil. Les apps ne fonctionnent pas : le but est de découvrir l'interface et ses réglages.",footer:"Simulation uniquement — ce n'est pas le vrai iOS, macOS, Windows ou Android.",soon:"Bientôt disponible",back:"Choisir l'appareil",ttHome:"Écran d'accueil",ttRotate:"Pivoter",ttZoomOut:"Dézoomer",ttZoomIn:"Zoomer",fit:"Ajuster",reset:"Réinitialiser",toast:"Dans cette simulation, seuls les Réglages sont navigables.",langLabel:"Langue"},
  de:{title:"BS-Simulator",intro:"Wähle ein Betriebssystem und eine Version und erkunde die Menüs wie auf einem echten Gerät. Apps laufen nicht — es geht darum, die Oberfläche und Einstellungen zu entdecken.",footer:"Nur zur Simulation – nicht das echte iOS, macOS, Windows oder Android.",soon:"Demnächst",back:"Gerät wählen",ttHome:"Startbildschirm",ttRotate:"Drehen",ttZoomOut:"Verkleinern",ttZoomIn:"Vergrößern",fit:"Anpassen",reset:"Zurücksetzen",toast:"In dieser Simulation sind nur die Einstellungen navigierbar.",langLabel:"Sprache"},
@@ -5341,7 +5387,7 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
   if(!nav)return;
   const MAP={select:'[data-ghome]',guides:'[data-gall]',guide:'[data-gall]',compare:'[data-call]',
    compareDetail:'[data-call]',vs:'[data-vsl]',find:'[data-findl]',changes:'[data-chl]',
-   tasks:'[data-tkl]',lineage:'[data-linl]',depth:'[data-dpl]',daily:'[data-dailyl]',quiz:'[data-quizl]'};
+   tasks:'[data-tkl]',lineage:'[data-linl]',depth:'[data-dpl]',uri:'[data-uril]',daily:'[data-dailyl]',quiz:'[data-quizl]'};
   nav.querySelectorAll('.nav-link[aria-current]').forEach(b=>b.removeAttribute('aria-current'));
   const sel=MAP[view];
   if(!sel)return;
@@ -5855,6 +5901,7 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
     <div class="phone-topbar"><button class="ph-back ${atRoot?'hidden':''}">${chev}<span>${esc(atRoot?'':prev)}</span></button><div class="ph-title">${esc(atRoot?'':title)}</div><span class="ph-right"></span></div>
     <div class="phone-scroll"><h1 class="big-title">${esc(title)}</h1></div></div>`;
   const scroll=screen.querySelector('.phone-scroll');
+  if(!atRoot)uriBadgeMount(scroll,detail.title);
   if(atRoot){
    if(state.platform.frame==='android')scroll.appendChild(el(`<div class="and-search"><svg viewBox="0 0 24 24" style="color:#5f6368">${I.search}</svg><span>Search settings</span></div>`));
    const SB=osSidebar(s);const acc=SB.find(i=>i.kind==='account');
@@ -6303,6 +6350,7 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
   const canBack=state.stack.length>1;const prev=canBack?(state.stack[state.stack.length-2].title||'Back'):'';
   pane.innerHTML=`<div class="nav"><button class="nav-back ${canBack?'':'hidden'}">${chev}<span>${esc(dt(prev))}</span></button><div class="nav-title">${esc(dt(detail.title))}</div><div></div></div><div class="detail-scroll"><h1 class="big-title">${esc(dt(detail.title))}</h1></div>`;
   const scroll=pane.querySelector('.detail-scroll');
+  uriBadgeMount(scroll,detail.title);
   (detail.sections||[]).forEach(sec=>scroll.appendChild(renderSection(sec,detail.title)));
   if(canBack)pane.querySelector('.nav-back').addEventListener('click',()=>{state.stack.pop();renderDetailPane(pane);});
  }
@@ -6434,7 +6482,7 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
  let USER=store.get('user',null);
  /* build/version stamp. version is bumped per release; deploy time is detected
     automatically from the served file (falls back to this baked time). */
- const BUILD={version:'1.34.0',time:'2026-07-31T15:40:00Z'};
+ const BUILD={version:'1.35.0',time:'2026-07-31T18:20:00Z'};
  function buildTimeStr(){try{return new Date(BUILD.time).toLocaleString(state.lang||'en',{dateStyle:'medium',timeStyle:'short'});}catch(e){return (BUILD.time||'').replace('T',' ').replace('Z',' UTC');}}
  function updateFooterVer(){document.querySelectorAll('.foot-ver').forEach(fv=>{fv.innerHTML=`<span class="fv-badge">v${esc(BUILD.version)}</span><span>${esc(t('deployLabel'))}: ${esc(buildTimeStr())}</span>`;});}
  /* auto deploy time: use the served file's Last-Modified (document.lastModified).
@@ -7321,6 +7369,8 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
   if(h==='#/depth'||h==='#/depth/'){if(!featOn('depth')){renderSelect();return true;}renderDepthPage();return true;}
   if(h.indexOf('#/do/')===0){if(!featOn('tasks')){renderSelect();return true;}renderTasksPage(decodeURIComponent(h.slice(5)));return true;}
   if(h==='#/do'||h==='#/do/'){if(!featOn('tasks')){renderSelect();return true;}renderTasksPage();return true;}
+  if(h.indexOf('#/uri/')===0){if(!featOn('uri')){renderSelect();return true;}renderUriPage(decodeURIComponent(h.slice(6)));return true;}
+  if(h==='#/uri'||h==='#/uri/'){if(!featOn('uri')){renderSelect();return true;}renderUriPage();return true;}
    if(h.indexOf('#/lineage/')===0){if(!featOn('lineage')){renderSelect();return true;}renderLineagePage(decodeURIComponent(h.slice(10)));return true;}
   if(h==='#/lineage'||h==='#/lineage/'){if(!featOn('lineage')){renderSelect();return true;}renderLineagePage();return true;}
   if(h==='#/daily'||h==='#/daily/'){if(!featOn('daily')){renderSelect();return true;}renderDailyPage();return true;}
@@ -7406,15 +7456,15 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
  ];
  function guideNav(){
   const nav=el(`<header class="site-nav"><div class="nav-inner"><button class="nav-brand" data-ghome><span class="nav-mark">o<i>s</i></span><span class="nav-word">osimulator</span></button><nav class="nav-links"><button class="nav-link" data-ghome>${esc(t('homeNav'))}</button><button class="nav-link" data-findl>${esc(t('findNav'))}</button><button class="nav-link" data-gall>${esc(t('guidesNav'))}</button><button class="nav-link" data-call>${esc(t('compareNav'))}</button><button class="nav-link" data-vsl>${esc(t('vsNav'))}</button><button class="nav-link" data-chl>${esc(t('changesNav'))}</button>${featOn('tasks')?`<button class="nav-link" data-tkl>${esc(t('tkNav'))}</button>`:''}${featOn('lineage')?`<button class="nav-link" data-linl>${esc(t('linNav'))}</button>`:''}
-  ${featOn('depth')?`<button class="nav-link" data-dpl>${esc(t('hmNav'))}</button>`:''}<button class="nav-link" data-dailyl>${esc(t('dailyNav'))}</button><button class="nav-link" data-quizl>${esc(t('quizNav'))}</button></nav><div class="nav-right"></div></div></header>`);
+  ${featOn('depth')?`<button class="nav-link" data-dpl>${esc(t('hmNav'))}</button>`:''}${featOn('uri')?`<button class="nav-link" data-uril>${esc(t('uriNav'))}</button>`:''}<button class="nav-link" data-dailyl>${esc(t('dailyNav'))}</button><button class="nav-link" data-quizl>${esc(t('quizNav'))}</button></nav><div class="nav-right"></div></div></header>`);
   const nr=nav.querySelector('.nav-right');
   const gsr=el(`<button class="nav-search" title="${esc(t('searchSettings'))}"><svg viewBox="0 0 24 24">${I.search}</svg></button>`);gsr.addEventListener('click',openSettingsSearch);nr.appendChild(gsr);
   const tb=el('<button class="nav-theme"></button>');tb.addEventListener('click',toggleTheme);nr.appendChild(tb);
-  const greRender=()=>{if(state.view==='guide')renderGuideArticle(state.guideSlug);else if(state.view==='comparison')renderComparison(state.cmpSlug);else if(state.view==='compare')renderComparePage();else if(state.view==='vs')renderVsPage('ios','android');else if(state.view==='quiz')renderQuizPage();else if(state.view==='lineage')renderLineagePage(state.linName);else if(state.view==='tasks')renderTasksPage(state.taskId);else if(state.view==='depth')renderDepthPage();else if(state.view==='embed')renderEmbedPage();else renderGuidesPage();};
+  const greRender=()=>{if(state.view==='guide')renderGuideArticle(state.guideSlug);else if(state.view==='comparison')renderComparison(state.cmpSlug);else if(state.view==='compare')renderComparePage();else if(state.view==='vs')renderVsPage('ios','android');else if(state.view==='quiz')renderQuizPage();else if(state.view==='lineage')renderLineagePage(state.linName);else if(state.view==='tasks')renderTasksPage(state.taskId);else if(state.view==='depth')renderDepthPage();else if(state.view==='uri')renderUriPage();else if(state.view==='embed')renderEmbedPage();else renderGuidesPage();};
   nr.appendChild(flagLangSelect(greRender));
   nr.appendChild(buildAuthNav());
   nr.appendChild(navBurger(()=>{const gl=[{label:t('homeNav'),run:()=>{try{history.replaceState(null,'',guideBaseUrl());}catch(e){}renderSelect();}}];if(featOn('find'))gl.push({label:t('findNav'),run:()=>renderFindPage()});if(featOn('guides'))gl.push({label:t('guidesNav'),run:renderGuidesPage});if(featOn('compare'))gl.push({label:t('compareNav'),run:renderComparePage});if(featOn('vs'))gl.push({label:t('vsNav'),run:()=>renderVsPage('ios','android')});if(featOn('changes'))gl.push({label:t('changesNav'),run:()=>renderChangesPage()});if(featOn('tasks'))gl.push({label:t('tkNav'),run:()=>renderTasksPage()});if(featOn('lineage'))gl.push({label:t('linNav'),run:()=>renderLineagePage()});
-  if(featOn('depth'))gl.push({label:t('hmNav'),run:()=>renderDepthPage()});if(featOn('daily'))gl.push({label:t('dailyNav'),run:()=>renderDailyPage()});if(featOn('quiz'))gl.push({label:t('quizNav'),run:renderQuizPage});return gl;},greRender));
+  if(featOn('depth'))gl.push({label:t('hmNav'),run:()=>renderDepthPage()});if(featOn('uri'))gl.push({label:t('uriNav'),run:()=>renderUriPage()});if(featOn('daily'))gl.push({label:t('dailyNav'),run:()=>renderDailyPage()});if(featOn('quiz'))gl.push({label:t('quizNav'),run:renderQuizPage});return gl;},greRender));
   nav.querySelectorAll('[data-ghome]').forEach(b=>b.addEventListener('click',()=>{try{history.replaceState(null,'',guideBaseUrl());}catch(e){}renderSelect();}));
   nav.querySelectorAll('[data-findl]').forEach(b=>b.addEventListener('click',()=>renderFindPage()));
   nav.querySelectorAll('[data-gall]').forEach(b=>b.addEventListener('click',renderGuidesPage));
@@ -7424,6 +7474,7 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
   nav.querySelectorAll('[data-tkl]').forEach(b=>b.addEventListener('click',()=>renderTasksPage()));
   nav.querySelectorAll('[data-linl]').forEach(b=>b.addEventListener('click',()=>renderLineagePage()));
   nav.querySelectorAll('[data-dpl]').forEach(b=>b.addEventListener('click',()=>renderDepthPage()));
+  nav.querySelectorAll('[data-uril]').forEach(b=>b.addEventListener('click',()=>renderUriPage()));
   nav.querySelectorAll('[data-dailyl]').forEach(b=>b.addEventListener('click',()=>renderDailyPage()));
   nav.querySelectorAll('[data-quizl]').forEach(b=>b.addEventListener('click',renderQuizPage));
   setTimeout(updateThemeIcons,0);
@@ -9065,6 +9116,537 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
    }
   });
  }
+ /* ===================== DEEP-LINK URI DATABASE =====================
+    Everything else in this project answers "where is this setting?" by walking
+    a menu. This section answers the other half of the question: once you know
+    where it is, how do you get a machine to open it directly?
+
+    Two rules govern the table below, and they are the same rules the rest of
+    the project runs on.
+
+    First, a URI is either published by the vendor or it is not, and the two
+    are not the same thing. Microsoft ships a page listing every ms-settings:
+    target. Google declares its Settings actions as public constants in the
+    android.provider.Settings javadoc. Those are documented, and they are
+    marked as such. Apple publishes no list of System Settings pane
+    identifiers; the ones people use were read out of the bundles. Those are
+    community knowledge, and they carry a different badge. Nobody is served by
+    a table that presents both with the same confidence.
+
+    Second, the systems that have no scheme at all are listed too, by name,
+    with the reason. A gap that is written down is information; a gap that is
+    quietly omitted looks like an oversight. */
+
+ const URIG=[
+  {id:'windows',apply:['windows'],name:'Windows 11 · 10',scheme:'ms-settings:',conf:'doc',
+   run:{en:'Press Win+R, paste the URI, Enter. From a script: start ms-settings:display',
+        tr:'Win+R yap, URI’yi yapıştır, Enter. Betikten: start ms-settings:display'},
+   src:{en:'Microsoft Learn — “Launch the Windows Settings app”, which lists every supported target.',
+        tr:'Microsoft Learn — “Launch the Windows Settings app”; desteklenen tüm hedefleri listeler.'}},
+  {id:'winlegacy',apply:['win7','winxp','win9x'],name:'Windows 7 · XP · 98',scheme:'control.exe',conf:'doc',
+   run:{en:'Win+R, paste, Enter — or type it in a command prompt. These applet names have been stable since Windows 95 and still work on Windows 11.',
+        tr:'Win+R, yapıştır, Enter — ya da komut isteminde yaz. Bu applet adları Windows 95’ten beri değişmedi ve Windows 11’de hâlâ çalışıyor.'},
+   src:{en:'Documented Control Panel canonical names (.cpl applets).',
+        tr:'Belgelenmiş Denetim Masası kanonik adları (.cpl appletleri).'}},
+  {id:'android',apply:['android','oneui','hyperos','oxygenos','harmony','androidtv','fireos','wearos','androidauto'],
+   name:'Android · One UI · HyperOS · OxygenOS',scheme:'android.settings.*',conf:'doc',
+   run:{en:'From a shell: adb shell am start -a android.settings.WIFI_SETTINGS · from an app: startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS))',
+        tr:'Kabuktan: adb shell am start -a android.settings.WIFI_SETTINGS · uygulamadan: startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS))'},
+   src:{en:'android.provider.Settings — every action below is a public constant in the Android SDK.',
+        tr:'android.provider.Settings — aşağıdaki her eylem Android SDK’sında herkese açık bir sabittir.'}},
+  {id:'macos',apply:['macos'],name:'macOS (System Settings)',scheme:'x-apple.systempreferences:',conf:'com',
+   run:{en:'open "x-apple.systempreferences:com.apple.preference.sound" — from Terminal, a script, or any app that can open a URL.',
+        tr:'open "x-apple.systempreferences:com.apple.preference.sound" — Terminal’den, bir betikten ya da URL açabilen herhangi bir uygulamadan.'},
+   src:{en:'Apple publishes no list. These identifiers are read from the pane bundles in /System/Library/PreferencePanes and from the Settings extensions; several changed names in Ventura, so check yours before shipping a script.',
+        tr:'Apple bir liste yayımlamıyor. Bu kimlikler /System/Library/PreferencePanes altındaki paket adlarından ve Ayarlar uzantılarından okundu; birkaçının adı Ventura’da değişti, bir betiğe koymadan önce kendi sürümünde dene.'}},
+  {id:'macosx',apply:['macosx','macos9'],name:'Mac OS X (System Preferences)',scheme:'open …prefPane',conf:'com',
+   run:{en:'open "/System/Library/PreferencePanes/Network.prefPane" — the pane files are ordinary bundles, so opening one opens System Preferences on that page.',
+        tr:'open "/System/Library/PreferencePanes/Network.prefPane" — panel dosyaları sıradan paketlerdir; birini açmak Sistem Tercihleri’ni o sayfada açar.'},
+   src:{en:'The file names are on disk and can be listed; Apple never documented them as an interface. Mac OS 9 predates all of this and has no equivalent.',
+        tr:'Dosya adları diskte duruyor ve listelenebilir; Apple bunları bir arayüz olarak hiç belgelemedi. Mac OS 9 bunların hepsinden eski ve karşılığı yok.'}},
+  {id:'ios',apply:['ios','ipados','ios6'],name:'iOS · iPadOS',scheme:'prefs:root=',conf:'com',
+   warn:{en:'Read this before using any of them. Apple has never documented this scheme, and third-party apps have not been able to call it since iOS 10 — an App Store submission that uses it is rejected. The only sanctioned deep link is UIApplication.openSettingsURLString, which opens your own app’s settings page and nothing else. What is below still works from Shortcuts and from a Safari address bar on many versions, and it is listed here because that is the honest state of it, not because it is supported.',
+        tr:'Kullanmadan önce bunu oku. Apple bu şemayı hiç belgelemedi ve iOS 10’dan beri üçüncü taraf uygulamalar bunu çağıramıyor — kullanan bir App Store başvurusu reddediliyor. Onaylı tek derin bağlantı, yalnızca kendi uygulamanın ayar sayfasını açan UIApplication.openSettingsURLString. Aşağıdakiler birçok sürümde Kısayollar’dan ve Safari adres çubuğundan hâlâ çalışıyor; burada oldukları için değil, durum bu olduğu için listeleniyorlar.'},
+   run:{en:'Paste into Safari’s address bar, or use “Open URL” in a Shortcut.',
+        tr:'Safari adres çubuğuna yapıştır ya da bir Kısayol’da “URL Aç” kullan.'},
+   src:{en:'Undocumented. Collected by the community from the Preferences app bundle; behaviour varies by iOS version.',
+        tr:'Belgelenmemiş. Topluluk tarafından Ayarlar uygulamasının paketinden derlendi; davranış iOS sürümüne göre değişiyor.'}},
+  {id:'gnome',apply:['ubuntu'],name:'GNOME (Ubuntu)',scheme:'gnome-control-center',conf:'doc',
+   run:{en:'gnome-control-center wifi — panel names come from gnome-control-center --list. Values themselves are set with gsettings, which is a different tool for a different job.',
+        tr:'gnome-control-center wifi — panel adları gnome-control-center --list çıktısından gelir. Değerlerin kendisi gsettings ile ayarlanır; o başka bir iş için başka bir araç.'},
+   src:{en:'gnome-control-center(1) man page and --list output.',
+        tr:'gnome-control-center(1) man sayfası ve --list çıktısı.'}},
+  {id:'chromeos',apply:['chromeos'],name:'ChromeOS',scheme:'chrome://os-settings/',conf:'com',
+   run:{en:'Paste into the address bar. Extensions can open the same paths through chrome.tabs.create.',
+        tr:'Adres çubuğuna yapıştır. Uzantılar aynı yolları chrome.tabs.create ile açabilir.'},
+   src:{en:'Not documented as a stable interface; the paths are readable in the ChromeOS Settings source and have been renamed between milestones before.',
+        tr:'Kararlı bir arayüz olarak belgelenmiş değil; yollar ChromeOS Ayarlar kaynağında okunabiliyor ve sürümler arasında daha önce yeniden adlandırıldılar.'}},
+  {id:'steamdeck',apply:['steamdeck'],name:'Steam Deck (SteamOS)',scheme:'steam://',conf:'com',
+   run:{en:'steam://open/settings — from a browser, a desktop launcher or the Deck’s own shell.',
+        tr:'steam://open/settings — tarayıcıdan, masaüstü kısayolundan ya da Deck’in kendi kabuğundan.'},
+   src:{en:'Valve documents a handful of steam:// commands for developers; the settings targets themselves are community-collected.',
+        tr:'Valve geliştiriciler için birkaç steam:// komutunu belgeliyor; ayar hedeflerinin kendisi topluluk derlemesi.'}}
+ ];
+
+ const URIS={
+  windows:[
+   {l:'Settings home',u:'ms-settings:',w:['Settings']},
+   {l:'Wi‑Fi',u:'ms-settings:network-wifi',tk:'wifi',w:['Wi‑Fi','Wi-Fi']},
+   {l:'Network status',u:'ms-settings:network-status',w:['Network & internet','Network and internet']},
+   {l:'Ethernet',u:'ms-settings:network-ethernet',w:['Ethernet']},
+   {l:'VPN',u:'ms-settings:network-vpn',tk:'vpn',w:['VPN']},
+   {l:'Mobile hotspot',u:'ms-settings:network-mobilehotspot',tk:'hotspot',w:['Mobile hotspot']},
+   {l:'Airplane mode',u:'ms-settings:network-airplanemode',tk:'airplane',w:['Airplane mode']},
+   {l:'Proxy',u:'ms-settings:network-proxy',w:['Proxy']},
+   {l:'Cellular',u:'ms-settings:network-cellular',tk:'cellular',w:['Cellular']},
+   {l:'Bluetooth & devices',u:'ms-settings:bluetooth',tk:'bluetooth',w:['Bluetooth & devices','Bluetooth']},
+   {l:'Printers & scanners',u:'ms-settings:printers',w:['Printers & scanners']},
+   {l:'Display',u:'ms-settings:display',tk:'brightness',w:['Display']},
+   {l:'Night light',u:'ms-settings:nightlight',w:['Night light']},
+   {l:'Graphics',u:'ms-settings:display-advancedgraphics',w:['Graphics']},
+   {l:'Sound',u:'ms-settings:sound',tk:'sound',w:['Sound']},
+   {l:'Volume mixer',u:'ms-settings:apps-volume',w:['Volume mixer']},
+   {l:'Notifications',u:'ms-settings:notifications',tk:'notif',w:['Notifications']},
+   {l:'Focus assist',u:'ms-settings:quiethours',tk:'focus',w:['Focus assist','Focus']},
+   {l:'Power & battery',u:'ms-settings:powersleep',tk:'battery',w:['Power & battery','Power']},
+   {l:'Battery saver',u:'ms-settings:batterysaver',w:['Battery saver']},
+   {l:'Storage',u:'ms-settings:storagesense',tk:'storage',w:['Storage']},
+   {l:'Background',u:'ms-settings:personalization-background',tk:'wallpaper',w:['Background']},
+   {l:'Colours',u:'ms-settings:personalization-colors',tk:'dark',w:['Colors','Colours']},
+   {l:'Themes',u:'ms-settings:themes',w:['Themes']},
+   {l:'Lock screen',u:'ms-settings:lockscreen',w:['Lock screen']},
+   {l:'Start',u:'ms-settings:personalization-start',w:['Start']},
+   {l:'Taskbar',u:'ms-settings:taskbar',w:['Taskbar']},
+   {l:'Installed apps',u:'ms-settings:appsfeatures',w:['Installed apps','Apps & features']},
+   {l:'Default apps',u:'ms-settings:defaultapps',tk:'defaults',w:['Default apps']},
+   {l:'Optional features',u:'ms-settings:optionalfeatures',w:['Optional features']},
+   {l:'Startup apps',u:'ms-settings:startupapps',w:['Startup']},
+   {l:'Date & time',u:'ms-settings:dateandtime',tk:'datetime',w:['Date & time','Date and time']},
+   {l:'Language & region',u:'ms-settings:regionlanguage',tk:'language',w:['Language & region','Region']},
+   {l:'Typing',u:'ms-settings:typing',tk:'keyboard',w:['Typing']},
+   {l:'Sign‑in options',u:'ms-settings:signinoptions',tk:'passcode',w:['Sign-in options']},
+   {l:'Windows Update',u:'ms-settings:windowsupdate',tk:'update',w:['Windows Update']},
+   {l:'Windows Security',u:'ms-settings:windowsdefender',w:['Windows Security','Privacy & security']},
+   {l:'Privacy',u:'ms-settings:privacy',tk:'permissions',w:['Privacy & security']},
+   {l:'Location',u:'ms-settings:privacy-location',tk:'location',w:['Location']},
+   {l:'Camera permissions',u:'ms-settings:privacy-webcam',w:['Camera']},
+   {l:'Microphone permissions',u:'ms-settings:privacy-microphone',w:['Microphone']},
+   {l:'Accessibility — Text size',u:'ms-settings:easeofaccess-display',tk:'bigtext',w:['Text size']},
+   {l:'Magnifier',u:'ms-settings:easeofaccess-magnifier',w:['Magnifier']},
+   {l:'Narrator',u:'ms-settings:easeofaccess-narrator',w:['Narrator']},
+   {l:'Visual effects',u:'ms-settings:easeofaccess-visualeffects',tk:'motion',w:['Visual effects']},
+   {l:'About',u:'ms-settings:about',tk:'about',w:['About']},
+   {l:'Recovery / Reset',u:'ms-settings:recovery',tk:'reset',w:['Recovery','Reset']},
+   {l:'Accounts',u:'ms-settings:emailandaccounts',w:['Accounts']},
+   {l:'Backup',u:'ms-settings:backup',w:['Backup','Windows backup']},
+   {l:'Gaming — Game Bar',u:'ms-settings:gaming-gamebar',w:['Gaming','Game Bar']},
+   {l:'For developers',u:'ms-settings:developers',w:['For developers']},
+   {l:'Troubleshoot',u:'ms-settings:troubleshoot',w:['Troubleshoot']}
+  ],
+  winlegacy:[
+   {l:'Display properties',u:'control desk.cpl',tk:'brightness',w:['Display','Display Properties']},
+   {l:'Network connections',u:'control ncpa.cpl',tk:'wifi',w:['Network','Network Connections','Network and Sharing Center']},
+   {l:'Sounds and audio',u:'control mmsys.cpl',tk:'sound',w:['Sounds','Sounds and Audio Devices','Sound']},
+   {l:'Date and time',u:'control timedate.cpl',tk:'datetime',w:['Date and Time','Date/Time']},
+   {l:'Regional settings',u:'control intl.cpl',tk:'language',w:['Regional Settings','Region and Language']},
+   {l:'Mouse',u:'control main.cpl',w:['Mouse']},
+   {l:'Keyboard',u:'control main.cpl,,1',tk:'keyboard',w:['Keyboard']},
+   {l:'System properties',u:'control sysdm.cpl',tk:'about',w:['System','System Properties']},
+   {l:'Add or remove programs',u:'control appwiz.cpl',w:['Add/Remove Programs','Programs and Features']},
+   {l:'Power options',u:'control powercfg.cpl',tk:'battery',w:['Power Options','Power Management']},
+   {l:'Accessibility options',u:'control access.cpl',tk:'accessibility',w:['Accessibility Options','Ease of Access']},
+   {l:'Internet options',u:'control inetcpl.cpl',w:['Internet Options']},
+   {l:'Game controllers',u:'control joy.cpl',w:['Game Controllers','Gaming Options']},
+   {l:'Printers',u:'control printers',w:['Printers','Printers and Faxes']},
+   {l:'User accounts',u:'control userpasswords',w:['User Accounts','Users']},
+   {l:'Device Manager',u:'devmgmt.msc',w:['Device Manager']},
+   {l:'Control Panel itself',u:'control',w:['Control Panel']}
+  ],
+  android:[
+   {l:'Settings home',u:'android.settings.SETTINGS',w:['Settings']},
+   {l:'Wi‑Fi',u:'android.settings.WIFI_SETTINGS',tk:'wifi',w:['Wi‑Fi','Wi-Fi','Internet']},
+   {l:'Wireless & networks',u:'android.settings.WIRELESS_SETTINGS',w:['Network & internet','Connections']},
+   {l:'Bluetooth',u:'android.settings.BLUETOOTH_SETTINGS',tk:'bluetooth',w:['Bluetooth','Connected devices']},
+   {l:'Airplane mode',u:'android.settings.AIRPLANE_MODE_SETTINGS',tk:'airplane',w:['Airplane mode','Aeroplane mode']},
+   {l:'Data usage',u:'android.settings.DATA_USAGE_SETTINGS',tk:'cellular',w:['Data usage','Mobile network']},
+   {l:'Data roaming',u:'android.settings.DATA_ROAMING_SETTINGS',w:['Roaming','Mobile network']},
+   {l:'APN',u:'android.settings.APN_SETTINGS',w:['Access Point Names','APN']},
+   {l:'VPN',u:'android.settings.VPN_SETTINGS',tk:'vpn',w:['VPN']},
+   {l:'NFC',u:'android.settings.NFC_SETTINGS',w:['NFC']},
+   {l:'Cast',u:'android.settings.CAST_SETTINGS',w:['Cast']},
+   {l:'Display',u:'android.settings.DISPLAY_SETTINGS',tk:'brightness',w:['Display','Display & brightness']},
+   {l:'Night Light',u:'android.settings.NIGHT_DISPLAY_SETTINGS',w:['Night Light','Night light']},
+   {l:'Screen saver',u:'android.settings.DREAM_SETTINGS',w:['Screen saver']},
+   {l:'Wallpaper picker',u:'android.intent.action.SET_WALLPAPER',tk:'wallpaper',w:['Wallpaper','Wallpaper & style']},
+   {l:'Sound',u:'android.settings.SOUND_SETTINGS',tk:'sound',w:['Sound','Sound & vibration']},
+   {l:'Notifications',u:'android.settings.NOTIFICATION_SETTINGS',tk:'notif',w:['Notifications']},
+   {l:'Do Not Disturb access',u:'android.settings.NOTIFICATION_POLICY_ACCESS_SETTINGS',tk:'focus',w:['Do Not Disturb','Modes']},
+   {l:'All apps',u:'android.settings.MANAGE_ALL_APPLICATIONS_SETTINGS',w:['Apps','See all apps']},
+   {l:'Default apps',u:'android.settings.MANAGE_DEFAULT_APPS_SETTINGS',tk:'defaults',w:['Default apps']},
+   {l:'One app’s details',u:'android.settings.APPLICATION_DETAILS_SETTINGS',w:['App info']},
+   {l:'Unknown app sources',u:'android.settings.MANAGE_UNKNOWN_APP_SOURCES',w:['Install unknown apps']},
+   {l:'Usage access',u:'android.settings.USAGE_ACCESS_SETTINGS',tk:'screentime',w:['Usage access','Digital Wellbeing']},
+   {l:'Battery optimisation',u:'android.settings.IGNORE_BATTERY_OPTIMIZATION_SETTINGS',w:['Battery optimization']},
+   {l:'Battery saver',u:'android.settings.BATTERY_SAVER_SETTINGS',tk:'battery',w:['Battery','Battery Saver']},
+   {l:'Internal storage',u:'android.settings.INTERNAL_STORAGE_SETTINGS',tk:'storage',w:['Storage']},
+   {l:'Keyboards & input',u:'android.settings.INPUT_METHOD_SETTINGS',tk:'keyboard',w:['Keyboard','Languages & input','On-screen keyboard']},
+   {l:'Hardware keyboard',u:'android.settings.HARD_KEYBOARD_SETTINGS',w:['Physical keyboard']},
+   {l:'Languages',u:'android.settings.LOCALE_SETTINGS',tk:'language',w:['Languages','Languages & input','Language & region']},
+   {l:'Personal dictionary',u:'android.settings.USER_DICTIONARY_SETTINGS',w:['Personal dictionary']},
+   {l:'Date & time',u:'android.settings.DATE_SETTINGS',tk:'datetime',w:['Date & time']},
+   {l:'Security',u:'android.settings.SECURITY_SETTINGS',tk:'passcode',w:['Security','Security & privacy','Screen lock']},
+   {l:'Biometric enrolment',u:'android.settings.BIOMETRIC_ENROLL',w:['Fingerprint','Face & Fingerprint Unlock']},
+   {l:'Privacy',u:'android.settings.PRIVACY_SETTINGS',tk:'permissions',w:['Privacy','Permission manager']},
+   {l:'Location',u:'android.settings.LOCATION_SOURCE_SETTINGS',tk:'location',w:['Location']},
+   {l:'Accessibility',u:'android.settings.ACCESSIBILITY_SETTINGS',tk:'accessibility',w:['Accessibility']},
+   {l:'Captions',u:'android.settings.CAPTIONING_SETTINGS',w:['Captions','Caption preferences']},
+   {l:'Accounts & sync',u:'android.settings.SYNC_SETTINGS',w:['Accounts','Passwords & accounts']},
+   {l:'About phone',u:'android.settings.DEVICE_INFO_SETTINGS',tk:'about',w:['About phone','About']},
+   {l:'Voice input',u:'android.settings.VOICE_INPUT_SETTINGS',w:['Voice input']},
+   {l:'Developer options',u:'android.settings.APPLICATION_DEVELOPMENT_SETTINGS',w:['Developer options']},
+   {l:'Home app',u:'android.settings.HOME_SETTINGS',w:['Home app','Home screen']},
+   {l:'Tethering & hotspot',u:'am start -n com.android.settings/.TetherSettings',tk:'hotspot',conf:'com',
+    n:{en:'No public action exists for this screen; the component name is what people use, and a vendor is free to move it.',
+       tr:'Bu ekran için herkese açık bir eylem yok; kullanılan şey bileşen adı ve bir üretici onu istediği zaman taşıyabilir.'},
+    w:['Hotspot & tethering','Mobile Hotspot and Tethering']},
+   {l:'System update',u:'am start -a android.settings.SYSTEM_UPDATE_SETTINGS',tk:'update',conf:'com',
+    n:{en:'Present on most builds but not a public SDK constant — several vendors replace this screen entirely.',
+       tr:'Çoğu derlemede var ama herkese açık bir SDK sabiti değil — bazı üreticiler bu ekranı tümüyle değiştiriyor.'},
+    w:['System update','Software update']},
+   {l:'Reset options',u:'am start -n com.android.settings/.Settings\\$ResetDashboardActivity',tk:'reset',conf:'com',
+    n:{en:'Component name, not an action. Escape the $ in a shell.',
+       tr:'Eylem değil, bileşen adı. Kabukta $ karakterini kaçırmayı unutma.'},
+    w:['Reset options','Reset']}
+  ],
+  macos:[
+   {l:'Network',u:'x-apple.systempreferences:com.apple.preference.network',tk:'wifi',w:['Network','Wi‑Fi','Wi-Fi']},
+   {l:'Wi‑Fi (Ventura and later)',u:'x-apple.systempreferences:com.apple.wifi-settings-extension',tk:'wifi',w:['Wi‑Fi','Wi-Fi']},
+   {l:'Bluetooth',u:'x-apple.systempreferences:com.apple.BluetoothSettings',tk:'bluetooth',w:['Bluetooth']},
+   {l:'Displays',u:'x-apple.systempreferences:com.apple.preference.displays',tk:'brightness',w:['Displays','Display']},
+   {l:'Sound',u:'x-apple.systempreferences:com.apple.preference.sound',tk:'sound',w:['Sound']},
+   {l:'Notifications',u:'x-apple.systempreferences:com.apple.preference.notifications',tk:'notif',w:['Notifications']},
+   {l:'Focus',u:'x-apple.systempreferences:com.apple.Focus-Settings.extension',tk:'focus',w:['Focus']},
+   {l:'Wallpaper',u:'x-apple.systempreferences:com.apple.Wallpaper-Settings.extension',tk:'wallpaper',w:['Wallpaper','Desktop & Screen Saver']},
+   {l:'Appearance',u:'x-apple.systempreferences:com.apple.Appearance-Settings.extension',tk:'dark',w:['Appearance','General']},
+   {l:'Energy / Battery',u:'x-apple.systempreferences:com.apple.preference.battery',tk:'battery',w:['Battery','Energy Saver']},
+   {l:'Storage',u:'x-apple.systempreferences:com.apple.settings.Storage',tk:'storage',w:['Storage']},
+   {l:'Keyboard',u:'x-apple.systempreferences:com.apple.preference.keyboard',tk:'keyboard',w:['Keyboard']},
+   {l:'Trackpad',u:'x-apple.systempreferences:com.apple.preference.trackpad',w:['Trackpad']},
+   {l:'Date & Time',u:'x-apple.systempreferences:com.apple.preference.datetime',tk:'datetime',w:['Date & Time']},
+   {l:'Language & Region',u:'x-apple.systempreferences:com.apple.Localization-Settings.extension',tk:'language',w:['Language & Region']},
+   {l:'Privacy & Security',u:'x-apple.systempreferences:com.apple.preference.security',tk:'permissions',w:['Privacy & Security','Security & Privacy']},
+   {l:'Location Services',u:'x-apple.systempreferences:com.apple.preference.security?Privacy_LocationServices',tk:'location',w:['Location Services']},
+   {l:'Camera permissions',u:'x-apple.systempreferences:com.apple.preference.security?Privacy_Camera',w:['Camera']},
+   {l:'Microphone permissions',u:'x-apple.systempreferences:com.apple.preference.security?Privacy_Microphone',w:['Microphone']},
+   {l:'Screen Recording',u:'x-apple.systempreferences:com.apple.preference.security?Privacy_ScreenCapture',w:['Screen Recording']},
+   {l:'Full Disk Access',u:'x-apple.systempreferences:com.apple.preference.security?Privacy_AllFiles',w:['Full Disk Access']},
+   {l:'Accessibility permissions',u:'x-apple.systempreferences:com.apple.preference.security?Privacy_Accessibility',w:['Accessibility']},
+   {l:'Accessibility',u:'x-apple.systempreferences:com.apple.preference.universalaccess',tk:'accessibility',w:['Accessibility']},
+   {l:'Reduce Motion',u:'x-apple.systempreferences:com.apple.preference.universalaccess?Seeing_Display',tk:'motion',w:['Display','Reduce motion']},
+   {l:'Software Update',u:'x-apple.systempreferences:com.apple.preferences.softwareupdate',tk:'update',w:['Software Update']},
+   {l:'Users & Groups',u:'x-apple.systempreferences:com.apple.preferences.users',w:['Users & Groups']},
+   {l:'Apple ID',u:'x-apple.systempreferences:com.apple.preferences.AppleIDPrefPane',w:['Apple ID']},
+   {l:'Sharing',u:'x-apple.systempreferences:com.apple.preferences.sharing',w:['Sharing','General']},
+   {l:'Printers & Scanners',u:'x-apple.systempreferences:com.apple.preference.printfax',w:['Printers & Scanners']},
+   {l:'Screen Time',u:'x-apple.systempreferences:com.apple.Screen-Time-Settings.extension',tk:'screentime',w:['Screen Time']},
+   {l:'General → About',u:'x-apple.systempreferences:com.apple.SystemProfiler.AboutExtension',tk:'about',w:['About']}
+  ],
+  macosx:[
+   {l:'Network',u:'open "/System/Library/PreferencePanes/Network.prefPane"',tk:'wifi',w:['Network']},
+   {l:'Bluetooth',u:'open "/System/Library/PreferencePanes/Bluetooth.prefPane"',tk:'bluetooth',w:['Bluetooth']},
+   {l:'Displays',u:'open "/System/Library/PreferencePanes/Displays.prefPane"',tk:'brightness',w:['Displays']},
+   {l:'Sound',u:'open "/System/Library/PreferencePanes/Sound.prefPane"',tk:'sound',w:['Sound']},
+   {l:'Desktop & Screen Saver',u:'open "/System/Library/PreferencePanes/DesktopScreenEffectsPref.prefPane"',tk:'wallpaper',w:['Desktop & Screen Saver']},
+   {l:'Energy Saver',u:'open "/System/Library/PreferencePanes/EnergySaver.prefPane"',tk:'battery',w:['Energy Saver']},
+   {l:'Date & Time',u:'open "/System/Library/PreferencePanes/DateAndTime.prefPane"',tk:'datetime',w:['Date & Time']},
+   {l:'Keyboard',u:'open "/System/Library/PreferencePanes/Keyboard.prefPane"',tk:'keyboard',w:['Keyboard','Keyboard & Mouse']},
+   {l:'Security',u:'open "/System/Library/PreferencePanes/Security.prefPane"',tk:'passcode',w:['Security']},
+   {l:'Software Update',u:'open "/System/Library/PreferencePanes/SoftwareUpdate.prefPane"',tk:'update',w:['Software Update']},
+   {l:'Universal Access',u:'open "/System/Library/PreferencePanes/UniversalAccessPref.prefPane"',tk:'accessibility',w:['Universal Access','Accessibility']},
+   {l:'Sharing',u:'open "/System/Library/PreferencePanes/SharingPref.prefPane"',w:['Sharing']},
+   {l:'Accounts',u:'open "/System/Library/PreferencePanes/Accounts.prefPane"',w:['Accounts']}
+  ],
+  ios:[
+   {l:'Settings home',u:'prefs:root=',w:['Settings']},
+   {l:'Wi‑Fi',u:'prefs:root=WIFI',tk:'wifi',w:['Wi‑Fi','Wi-Fi']},
+   {l:'Bluetooth',u:'prefs:root=Bluetooth',tk:'bluetooth',w:['Bluetooth']},
+   {l:'Cellular',u:'prefs:root=MOBILE_DATA_SETTINGS_ID',tk:'cellular',w:['Cellular','Cellular Data','Mobile Data','Mobile Service']},
+   {l:'Personal Hotspot',u:'prefs:root=INTERNET_TETHERING',tk:'hotspot',w:['Personal Hotspot']},
+   {l:'Notifications',u:'prefs:root=NOTIFICATIONS_ID',tk:'notif',w:['Notifications']},
+   {l:'Sounds & Haptics',u:'prefs:root=Sounds',tk:'sound',w:['Sounds & Haptics','Sounds']},
+   {l:'Focus',u:'prefs:root=DO_NOT_DISTURB',tk:'focus',w:['Focus','Do Not Disturb']},
+   {l:'Screen Time',u:'prefs:root=SCREEN_TIME',tk:'screentime',w:['Screen Time']},
+   {l:'Display & Brightness',u:'prefs:root=DISPLAY',tk:'brightness',w:['Display & Brightness']},
+   {l:'Wallpaper',u:'prefs:root=Wallpaper',tk:'wallpaper',w:['Wallpaper']},
+   {l:'General',u:'prefs:root=General',w:['General']},
+   {l:'About',u:'prefs:root=General&path=About',tk:'about',w:['About']},
+   {l:'Software Update',u:'prefs:root=General&path=SOFTWARE_UPDATE_LINK',tk:'update',w:['Software Update']},
+   {l:'Accessibility',u:'prefs:root=ACCESSIBILITY',tk:'accessibility',w:['Accessibility']},
+   {l:'Keyboard',u:'prefs:root=General&path=Keyboard',tk:'keyboard',w:['Keyboard']},
+   {l:'Language & Region',u:'prefs:root=General&path=INTERNATIONAL',tk:'language',w:['Language & Region']},
+   {l:'Date & Time',u:'prefs:root=General&path=DATE_AND_TIME',tk:'datetime',w:['Date & Time']},
+   {l:'Reset',u:'prefs:root=General&path=Reset',tk:'reset',w:['Reset','Transfer or Reset iPhone']},
+   {l:'Storage',u:'prefs:root=General&path=STORAGE_ICLOUD_USAGE',tk:'storage',w:['iPhone Storage','Storage']},
+   {l:'Battery',u:'prefs:root=BATTERY_USAGE',tk:'battery',w:['Battery']},
+   {l:'Privacy & Security',u:'prefs:root=Privacy',tk:'permissions',w:['Privacy & Security','Privacy']},
+   {l:'Location Services',u:'prefs:root=Privacy&path=LOCATION',tk:'location',w:['Location Services']},
+   {l:'Face ID & Passcode',u:'prefs:root=PASSCODE',tk:'passcode',w:['Face ID & Passcode','Touch ID & Passcode']},
+   {l:'VPN',u:'prefs:root=General&path=VPN',tk:'vpn',w:['VPN','VPN & Device Management']},
+   {l:'Your own app’s settings',u:'UIApplication.openSettingsURLString',conf:'doc',
+    n:{en:'The one deep link Apple actually supports. It opens the settings page for the app that calls it — nothing else, ever.',
+       tr:'Apple’ın gerçekten desteklediği tek derin bağlantı. Yalnızca kendisini çağıran uygulamanın ayar sayfasını açar — başka hiçbir şeyi.'},
+    w:[]}
+  ],
+  gnome:[
+   {l:'Wi‑Fi',u:'gnome-control-center wifi',tk:'wifi',w:['Wi‑Fi','Wi-Fi']},
+   {l:'Network',u:'gnome-control-center network',w:['Network']},
+   {l:'Bluetooth',u:'gnome-control-center bluetooth',tk:'bluetooth',w:['Bluetooth']},
+   {l:'Displays',u:'gnome-control-center display',tk:'brightness',w:['Displays','Display']},
+   {l:'Sound',u:'gnome-control-center sound',tk:'sound',w:['Sound']},
+   {l:'Power',u:'gnome-control-center power',tk:'battery',w:['Power']},
+   {l:'Notifications',u:'gnome-control-center notifications',tk:'notif',w:['Notifications']},
+   {l:'Appearance',u:'gnome-control-center background',tk:'wallpaper',w:['Appearance','Background']},
+   {l:'Dark style',u:"gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'",tk:'dark',
+    n:{en:'gsettings changes the value directly instead of opening a window — useful in a script, invisible to the user.',
+       tr:'gsettings pencere açmak yerine değeri doğrudan değiştirir — betikte işe yarar, kullanıcıya görünmez.'},
+    w:['Appearance','Style']},
+   {l:'Default applications',u:'gnome-control-center default-apps',tk:'defaults',w:['Default Applications','Default Apps']},
+   {l:'Region & language',u:'gnome-control-center region',tk:'language',w:['Region & Language']},
+   {l:'Keyboard',u:'gnome-control-center keyboard',tk:'keyboard',w:['Keyboard']},
+   {l:'Mouse & touchpad',u:'gnome-control-center mouse',w:['Mouse & Touchpad']},
+   {l:'Date & time',u:'gnome-control-center datetime',tk:'datetime',w:['Date & Time']},
+   {l:'Users',u:'gnome-control-center user-accounts',w:['Users']},
+   {l:'Online accounts',u:'gnome-control-center online-accounts',w:['Online Accounts']},
+   {l:'Privacy',u:'gnome-control-center privacy',tk:'permissions',w:['Privacy']},
+   {l:'Location',u:'gnome-control-center location',tk:'location',w:['Location Services','Location']},
+   {l:'Accessibility',u:'gnome-control-center universal-access',tk:'accessibility',w:['Accessibility','Universal Access']},
+   {l:'Large text',u:'gsettings set org.gnome.desktop.interface text-scaling-factor 1.25',tk:'bigtext',w:['Large Text']},
+   {l:'Reduce animations',u:'gsettings set org.gnome.desktop.interface enable-animations false',tk:'motion',w:['Reduce Animation','Animations']},
+   {l:'Printers',u:'gnome-control-center printers',w:['Printers']},
+   {l:'Sharing',u:'gnome-control-center sharing',w:['Sharing']},
+   {l:'About',u:'gnome-control-center info-overview',tk:'about',w:['About']}
+  ],
+  chromeos:[
+   {l:'Settings home',u:'chrome://os-settings/',w:['Settings']},
+   {l:'Network',u:'chrome://os-settings/networks',tk:'wifi',w:['Network','Wi‑Fi','Wi-Fi','Internet']},
+   {l:'Bluetooth',u:'chrome://os-settings/bluetooth',tk:'bluetooth',w:['Bluetooth']},
+   {l:'Device',u:'chrome://os-settings/device',w:['Device']},
+   {l:'Displays',u:'chrome://os-settings/display',tk:'brightness',w:['Displays','Display']},
+   {l:'Audio',u:'chrome://os-settings/audio',tk:'sound',w:['Audio','Sound']},
+   {l:'Power',u:'chrome://os-settings/power',tk:'battery',w:['Power','Battery']},
+   {l:'Personalisation',u:'chrome://os-settings/personalization',tk:'wallpaper',w:['Personalization','Wallpaper']},
+   {l:'Apps',u:'chrome://os-settings/apps',tk:'defaults',w:['Apps']},
+   {l:'Accounts',u:'chrome://os-settings/osPeople',w:['Accounts','People']},
+   {l:'Privacy & security',u:'chrome://os-settings/osPrivacy',tk:'permissions',w:['Privacy and security','Security and Privacy']},
+   {l:'Languages & input',u:'chrome://os-settings/osLanguages',tk:'language',w:['Languages and inputs','Languages']},
+   {l:'Date & time',u:'chrome://os-settings/dateTime',tk:'datetime',w:['Date and time']},
+   {l:'Accessibility',u:'chrome://os-settings/osAccessibility',tk:'accessibility',w:['Accessibility']},
+   {l:'About ChromeOS',u:'chrome://os-settings/help',tk:'about',w:['About ChromeOS','About']},
+   {l:'Powerwash / Reset',u:'chrome://os-settings/osReset',tk:'reset',w:['Reset settings','Powerwash']}
+  ],
+  steamdeck:[
+   {l:'Settings',u:'steam://open/settings',w:['Settings']},
+   {l:'Downloads',u:'steam://open/downloads',w:['Downloads','Storage']},
+   {l:'Friends',u:'steam://open/friends',w:['Friends & Chat']},
+   {l:'Big Picture mode',u:'steam://open/bigpicture',w:['Display']},
+   {l:'Restart Steam',u:'steam://restart',w:['System']},
+   {l:'Switch to desktop',u:'steam://switchtodesktop',w:['Desktop Mode','System']}
+  ]
+ };
+
+ /* Systems with no public way in. This list is the point, not an apology for a
+    short table: an integrator who does not find their platform here has to go
+    looking, and an integrator who finds it here can stop looking. */
+ const URINO=[
+  {os:'watchos',en:'No URL scheme of its own. Everything is reached from the Watch app on the paired iPhone, or by tapping the Digital Crown.',
+   tr:'Kendine ait bir URL şeması yok. Her şeye eşleşmiş iPhone’daki Watch uygulamasından ya da Digital Crown’a basarak ulaşılır.'},
+  {os:'tvos',en:'Apple ships no settings URL scheme for the TV. Third-party apps can only open their own preferences bundle.',
+   tr:'Apple, TV için bir ayar URL şeması yayımlamıyor. Üçüncü taraf uygulamalar yalnızca kendi tercih paketlerini açabilir.'},
+  {os:'visionos',en:'Same position as tvOS — no documented scheme, and the sanctioned link only opens the calling app’s own page.',
+   tr:'tvOS ile aynı durum — belgelenmiş bir şema yok; onaylı bağlantı yalnızca çağıran uygulamanın kendi sayfasını açıyor.'},
+  {os:'carplay',en:'CarPlay draws the phone’s screen on the car’s display. There is nothing to deep-link into; the iOS URIs above address the phone itself.',
+   tr:'CarPlay, telefonun ekranını aracın ekranında çizer. Derin bağlantı verilecek ayrı bir şey yok; yukarıdaki iOS URI’leri zaten telefonun kendisini hedefler.'},
+  {os:'playstation',en:'No public scheme. The console accepts remote commands over the network only through Sony’s own Remote Play and mobile apps.',
+   tr:'Herkese açık şema yok. Konsol, ağ üzerinden uzak komutları yalnızca Sony’nin kendi Remote Play ve mobil uygulamaları aracılığıyla kabul ediyor.'},
+  {os:'xbox',en:'No public scheme for the console dashboard. ms-settings: is a Windows client scheme and does not cross over.',
+   tr:'Konsol panosu için herkese açık şema yok. ms-settings: bir Windows istemci şeması ve buraya geçmiyor.'},
+  {os:'nswitch',en:'No scheme, no remote entry point of any kind. Nintendo has never exposed one.',
+   tr:'Şema yok, herhangi bir uzak giriş noktası da yok. Nintendo hiç böyle bir şey açmadı.'},
+  {os:'webos',en:'LG’s consumer TVs use luna:// service URIs internally, but they are not public and change between firmware generations. webOS OSE exposes the Luna bus to developers on its own devices.',
+   tr:'LG’nin tüketici televizyonları içeride luna:// servis URI’leri kullanıyor ama bunlar herkese açık değil ve donanım yazılımı kuşakları arasında değişiyor. webOS OSE, Luna veri yolunu kendi cihazlarında geliştiricilere açıyor.'},
+  {os:'tizentv',en:'Samsung exposes no settings deep links to third parties; the TV’s own remote protocol covers key presses, not screens.',
+   tr:'Samsung, üçüncü taraflara ayar derin bağlantısı açmıyor; televizyonun kendi uzaktan kumanda protokolü ekranları değil tuş basışlarını kapsıyor.'},
+  {os:'roku',en:'Roku’s ECP is documented and can send remote key presses over HTTP, but it addresses buttons, not settings pages.',
+   tr:'Roku’nun ECP’si belgelenmiş ve HTTP üzerinden uzaktan tuş basışı gönderebiliyor; ancak ayar sayfalarını değil düğmeleri hedefliyor.'},
+  {os:'garmin',en:'Connect IQ apps cannot open the watch’s settings. Configuration happens in the Garmin Connect phone app.',
+   tr:'Connect IQ uygulamaları saatin ayarlarını açamıyor. Yapılandırma, telefondaki Garmin Connect uygulamasında yapılıyor.'},
+  {os:'fitbit',en:'No scheme on the watch itself; the Fitbit phone app is the only configuration surface.',
+   tr:'Saatin kendisinde şema yok; yapılandırmanın tek yüzeyi Fitbit telefon uygulaması.'},
+  {os:'zepp',en:'Zepp OS mini-apps stay inside their own sandbox and cannot address system settings screens.',
+   tr:'Zepp OS mini uygulamaları kendi kum havuzlarında kalıyor ve sistem ayar ekranlarını hedefleyemiyor.'},
+  {os:'huaweiwatch',en:'HarmonyOS on the watch has no public settings intent; the phone’s Huawei Health app configures it.',
+   tr:'Saattaki HarmonyOS’ta herkese açık bir ayar intent’i yok; yapılandırmayı telefondaki Huawei Health uygulaması yapıyor.'},
+  {os:'quest',en:'Meta Quest runs an Android fork, but the settings activities are not exported and the standard android.settings actions do not resolve.',
+   tr:'Meta Quest bir Android çatallaması çalıştırıyor ama ayar etkinlikleri dışa aktarılmamış ve standart android.settings eylemleri karşılık bulmuyor.'},
+  {os:'kaios',en:'KaiOS inherits Gaia’s internal activity system from Firefox OS. It was never opened to third-party apps as a settings entry point.',
+   tr:'KaiOS, Gaia’nın iç etkinlik sistemini Firefox OS’tan devraldı. Bu sistem bir ayar giriş noktası olarak üçüncü taraf uygulamalara hiç açılmadı.'},
+  {os:'firefoxos',en:'Gaia used Web Activities internally; the settings app was reachable that way only from certified apps, and the platform is discontinued.',
+   tr:'Gaia içeride Web Activities kullanıyordu; ayar uygulamasına bu yolla yalnızca sertifikalı uygulamalar erişebiliyordu ve platform artık geliştirilmiyor.'},
+  {os:'symbian',en:'Predates URL-scheme deep linking entirely. Nothing to list.',
+   tr:'URL şemasıyla derin bağlantı fikrinden tümüyle daha eski. Listelenecek bir şey yok.'},
+  {os:'winphone',en:'Windows Phone 8.1 did have ms-settings: targets, but the platform is dead and its handful of URIs no longer resolve anywhere.',
+   tr:'Windows Phone 8.1’de ms-settings: hedefleri vardı ama platform kapandı ve elimizdeki birkaç URI artık hiçbir yerde karşılık bulmuyor.'},
+  {os:'blackberry',en:'BlackBerry 10 had an invoke framework, but the settings cards were reserved for system apps.',
+   tr:'BlackBerry 10’da bir invoke çerçevesi vardı ama ayar kartları sistem uygulamalarına ayrılmıştı.'},
+  {os:'macos9',en:'Control panels are files in the System Folder; you open them, but there is no scheme and no command line to open them from.',
+   tr:'Kontrol panelleri Sistem Klasörü’ndeki dosyalardır; açarsınız ama ne bir şema ne de onları açacak bir komut satırı vardır.'},
+  {os:'webosose',en:'webOS OSE does expose the Luna bus, but the settings surface differs from a shipping LG TV, so a URI verified on one is not evidence about the other.',
+   tr:'webOS OSE Luna veri yolunu açıyor ama ayar yüzeyi satıştaki bir LG televizyonundan farklı; birinde doğrulanmış bir URI diğeri hakkında kanıt sayılmaz.'}
+ ];
+
+ function uriGroupFor(osid){return URIG.find(g=>g.apply.indexOf(osid)>=0)||null;}
+ function uriRows(gid){return URIS[gid]||[];}
+ function uriConf(g,e){return e.conf||g.conf;}
+ function uriNorm(s){return String(s||'').toLowerCase().replace(/[‐-―−]/g,'-').replace(/\s+/g,' ').trim();}
+ /* Match a settings screen the visitor is standing on to a row in the table.
+    Only the English source labels are compared — a Turkish device shows Turkish
+    text, but the URI belongs to the setting, not to the translation. */
+ function uriFind(osid,enLabel){
+  const g=uriGroupFor(osid);if(!g)return null;
+  const k=uriNorm(enLabel);if(!k)return null;
+  const rows=uriRows(g.id);
+  for(let i=0;i<rows.length;i++){
+   const e=rows[i];
+   if(uriNorm(e.l)===k)return {g:g,e:e};
+   const w=e.w||[];
+   for(let j=0;j<w.length;j++)if(uriNorm(w[j])===k)return {g:g,e:e};
+  }
+  return null;
+ }
+ function uriCount(){return Object.keys(URIS).reduce((n,k)=>n+URIS[k].length,0);}
+ function uriCopy(text,btn){
+  const done=()=>{const o=btn.textContent;btn.textContent=t('uriCopied');btn.classList.add('on');
+   setTimeout(()=>{btn.textContent=o;btn.classList.remove('on');},1400);announce(t('uriCopied'));};
+  try{
+   if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done,()=>fallback());return;}
+  }catch(e){}
+  fallback();
+  function fallback(){
+   try{const ta=document.createElement('textarea');ta.value=text;ta.setAttribute('readonly','');
+    ta.style.position='fixed';ta.style.left='-9999px';document.body.appendChild(ta);ta.select();
+    document.execCommand('copy');document.body.removeChild(ta);done();}catch(e){}
+  }
+ }
+ /* "Show me" walks the same index the task pages walk, so the jump lands on the
+    real row rather than on a guessed path. If the label is not in that system's
+    tree we say nothing and leave the button out — a dead jump is worse than no
+    jump. */
+ function uriTarget(g,e){
+  const wants=(e.w&&e.w.length?e.w:[e.l]).slice();
+  for(let i=0;i<g.apply.length;i++){
+   const pf=PLATFORMS.find(p=>p.id===g.apply[i]&&p.available&&SETTINGS[p.id]);
+   if(!pf)continue;
+   const ver=pf.versions[0];
+   let m=null;try{m=tkMatch(linEnIndex(pf.id,ver),wants);}catch(x){m=null;}
+   if(m&&m.exact)return {os:pf.id,ver:ver,hit:m.hit};
+  }
+  return null;
+ }
+ function uriRowNode(g,e){
+  const conf=uriConf(g,e);
+  const n=el(`<div class="uri-r">
+    <span class="uri-l">${esc(e.l)}</span>
+    <code class="uri-u">${esc(e.u)}</code>
+    <span class="uri-act"></span></div>`);
+  if(conf!==g.conf)n.appendChild(el(`<span class="uri-tag ${conf==='doc'?'doc':'com'}">${esc(conf==='doc'?t('uriDoc'):t('uriCom'))}</span>`));
+  if(e.n)n.appendChild(el(`<div class="uri-n">${esc(t2(e.n))}</div>`));
+  const act=n.querySelector('.uri-act');
+  const cp=el(`<button class="uri-cp">${esc(t('uriCopy'))}</button>`);
+  cp.addEventListener('click',()=>{uriCopy(e.u,cp);track('click','uri:'+g.id+':'+e.l);});
+  act.appendChild(cp);
+  const tg=uriTarget(g,e);
+  if(tg){const go=el(`<button class="uri-go">${esc(t('tkShow'))}</button>`);
+   go.addEventListener('click',()=>linJump(tg.os,tg.ver,tg.hit.path,tg.hit.label));
+   act.appendChild(go);}
+  return n;
+ }
+
+ /* On a device screen, if the screen you are standing on happens to have a
+    documented URI, say so right there. Matching is done on the English source
+    label, because the URI belongs to the setting and not to the translation.
+    Screens with no known URI show nothing at all — an empty badge would imply
+    we looked and found nothing, when often nobody has ever published one. */
+ function uriBadgeNode(enTitle){
+  if(!featOn('uri'))return null;
+  let f=null;try{f=uriFind(state.platform&&state.platform.id,enTitle);}catch(e){f=null;}
+  if(!f)return null;
+  const n=el(`<div class="uri-badge" title="${esc(t('uriEyebrow'))}"><span>${esc(t('uriBadge'))}</span><code>${esc(f.e.u)}</code></div>`);
+  const cp=el(`<button class="uri-cp">${esc(t('uriCopy'))}</button>`);
+  cp.addEventListener('click',ev=>{ev.stopPropagation();uriCopy(f.e.u,cp);track('click','uriBadge:'+f.g.id);});
+  n.appendChild(cp);
+  return n;
+ }
+ function uriBadgeMount(host,enTitle){
+  try{const n=uriBadgeNode(enTitle);if(!n)return;
+   const h=host.querySelector('.big-title');
+   if(h&&h.parentNode)h.parentNode.insertBefore(n,h.nextSibling);}catch(e){}
+ }
+ function renderUriPage(gid){
+  state.view='uri';root.innerHTML='';track('view','uri'+(gid?':'+gid:''));
+  try{history.replaceState(null,'','#/uri'+(gid?'/'+encodeURIComponent(gid):''));document.documentElement.lang=state.lang;}catch(e){}
+  const w=el(`<div class="guides-screen" dir="${isRTL()?'rtl':'ltr'}"></div>`);w.appendChild(guideNav());
+  const wrap=el(`<div class="guides-wrap"><div class="guides-hero"><div class="sec-eyebrow">${esc(t('uriEyebrow'))}</div><h1>${esc(t('uriTitle'))}</h1><p>${esc(t('uriSub'))}</p></div>
+    <div class="uri-facts"><span><b>${hmNum(uriCount())}</b> ${esc(t('uriLinks'))}</span><span><b>${hmNum(URIG.length)}</b> ${esc(t('uriSchemes'))}</span><span><b>${hmNum(URINO.length)}</b> ${esc(t('uriNoneCount'))}</span></div>
+    <div class="uri-tools"><input type="search" class="uri-inp" placeholder="${esc(t('uriSearch'))}" autocomplete="off" aria-label="${esc(t('uriSearch'))}"><div class="uri-chips"></div></div>
+    <div class="uri-out"></div>
+    <div class="uri-no"></div></div>`);
+  w.appendChild(wrap);root.appendChild(w);window.scrollTo(0,0);
+  const chips=wrap.querySelector('.uri-chips'),out=wrap.querySelector('.uri-out'),
+        inp=wrap.querySelector('.uri-inp'),nob=wrap.querySelector('.uri-no');
+  let only=URIG.some(g=>g.id===gid)?gid:'';
+  const mkChip=(id,label)=>{
+   const b=el(`<button class="uri-chip ${only===id?'on':''}" data-uc="${esc(id)}">${esc(label)}</button>`);
+   b.addEventListener('click',()=>{only=id;draw();
+    chips.querySelectorAll('.uri-chip').forEach(o=>o.classList.toggle('on',o===b));
+    a11yPressed(chips,'.uri-chip',o=>o.classList.contains('on'));
+    try{history.replaceState(null,'','#/uri'+(id?'/'+encodeURIComponent(id):''));}catch(e){}});
+   return b;
+  };
+  chips.appendChild(mkChip('',t('uriAll')));
+  URIG.forEach(g=>chips.appendChild(mkChip(g.id,g.name)));
+  a11yPressed(chips,'.uri-chip',o=>o.classList.contains('on'));
+  const draw=()=>{
+   const q=uriNorm(inp.value);
+   out.innerHTML='';let shown=0;
+   URIG.forEach(g=>{
+    if(only&&g.id!==only)return;
+    const rows=uriRows(g.id).filter(e=>!q||uriNorm(e.l).indexOf(q)>=0||uriNorm(e.u).indexOf(q)>=0||(e.w||[]).some(x=>uriNorm(x).indexOf(q)>=0));
+    if(!rows.length)return;
+    shown+=rows.length;
+    const sec=el(`<div class="uri-g">
+      <div class="uri-gh"><span class="uri-gn">${esc(g.name)}</span><code class="uri-gs">${esc(g.scheme)}</code>
+        <span class="uri-tag ${g.conf==='doc'?'doc':'com'}" title="${esc(g.conf==='doc'?t('uriDocT'):t('uriComT'))}">${esc(g.conf==='doc'?t('uriDoc'):t('uriCom'))}</span></div>
+      <div class="uri-run"><b>${esc(t('uriHow'))}</b> <code>${esc(t2(g.run))}</code></div>
+      <div class="uri-src"><b>${esc(t('uriSource'))}</b> ${esc(t2(g.src))}</div>
+      <div class="uri-rows"></div></div>`);
+    if(g.warn)sec.querySelector('.uri-gh').insertAdjacentElement('afterend',el(`<div class="uri-warn">${esc(t2(g.warn))}</div>`));
+    const rw=sec.querySelector('.uri-rows');
+    rows.forEach(e=>rw.appendChild(uriRowNode(g,e)));
+    out.appendChild(sec);
+   });
+   if(!shown)out.appendChild(el(`<div class="hm-deep">${esc(t('uriNoHit'))}</div>`));
+   nob.hidden=!!q;
+   announce(shown?(hmNum(shown)+' '+t('uriLinks')):t('uriNoHit'));
+  };
+  inp.addEventListener('input',()=>draw());
+  draw();
+  const list=URINO.map(x=>{const pf=PLATFORMS.find(p=>p.id===x.os);return pf?{pf:pf,txt:t2(x)}:null;}).filter(Boolean);
+  nob.appendChild(el(`<div class="gcat-h">${esc(t('uriNoneTitle'))}</div>`));
+  nob.appendChild(el(`<div class="uri-nn">${esc(t('uriNoneNote'))}</div>`));
+  const nl=el(`<div class="uri-nl"></div>`);
+  list.forEach(x=>nl.appendChild(el(`<div class="uri-ni"><span class="hm-logo" style="background:${x.pf.logoBg}"><svg viewBox="0 0 24 24" fill="#fff">${LOGOS[x.pf.logo]||''}</svg></span><span class="uri-nt"><b>${esc(x.pf.name)}</b>${esc(x.txt)}</span></div>`)));
+  nob.appendChild(nl);
+ }
  /* ===================== "Which OS?" QUIZ ===================== */
  const QUIZ={score:0,streak:0,done:false,answer:null,options:[]};
  function quizType(f){return f==='tablet'?'tablet':(f==='phone'||f==='android'||f==='harmony')?'phone':f==='watch'?'watch':f==='tv'?'tv':f==='car'?'car':f==='vision'?'xr':f==='console'?'console':'desktop';}
@@ -9303,7 +9885,7 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
   else if(kind==='url'){try{window.open(val,'_blank','noopener');}catch(e){}}
  }
  /* features */
- const FEATS=[{k:'tasks',en:'Task-oriented entry',tr:'Görev odaklı giriş'},{k:'guides',en:'Guides',tr:'Rehberler'},{k:'compare',en:'Comparisons',tr:'Karşılaştırmalar'},{k:'vs',en:'Side-by-side',tr:'Yan yana'},{k:'find',en:'Setting finder',tr:'Ayar bulucu'},{k:'changes',en:'Version changes',tr:'Sürüm farkları'},{k:'lineage',en:'Settings genealogy',tr:'Ayar soyağacı'},{k:'depth',en:'Burial-depth heatmap',tr:'Gömülme derinliği ısı haritası'},{k:'sensory',en:'Sensory polish (boot, shadow, system fonts)',tr:'Duyusal cila (açılış, gölge, sistem yazı tipleri)'},{k:'daily',en:'Daily challenge',tr:'Günlük görev'},{k:'quiz',en:'Which OS? quiz',tr:'Hangi OS? quiz'},{k:'embed',en:'Embed builder',tr:'Gömme aracı'},{k:'search',en:'Global search',tr:'Global arama'},{k:'ai',en:'OS AI assistant',tr:'OS AI asistanı'},{k:'magic',en:'Magic teleport',tr:'Sihir ışınlama'},{k:'newsletter',en:'Newsletter',tr:'E-Bülten'},{k:'cookie',en:'Cookie banner',tr:'Çerez bildirimi'}];
+ const FEATS=[{k:'tasks',en:'Task-oriented entry',tr:'Görev odaklı giriş'},{k:'guides',en:'Guides',tr:'Rehberler'},{k:'compare',en:'Comparisons',tr:'Karşılaştırmalar'},{k:'vs',en:'Side-by-side',tr:'Yan yana'},{k:'find',en:'Setting finder',tr:'Ayar bulucu'},{k:'changes',en:'Version changes',tr:'Sürüm farkları'},{k:'lineage',en:'Settings genealogy',tr:'Ayar soyağacı'},{k:'depth',en:'Burial-depth heatmap',tr:'Gömülme derinliği ısı haritası'},{k:'uri',en:'Deep-link URI database',tr:'Derin bağlantı URI veri tabanı'},{k:'sensory',en:'Sensory polish (boot, shadow, system fonts)',tr:'Duyusal cila (açılış, gölge, sistem yazı tipleri)'},{k:'daily',en:'Daily challenge',tr:'Günlük görev'},{k:'quiz',en:'Which OS? quiz',tr:'Hangi OS? quiz'},{k:'embed',en:'Embed builder',tr:'Gömme aracı'},{k:'search',en:'Global search',tr:'Global arama'},{k:'ai',en:'OS AI assistant',tr:'OS AI asistanı'},{k:'magic',en:'Magic teleport',tr:'Sihir ışınlama'},{k:'newsletter',en:'Newsletter',tr:'E-Bülten'},{k:'cookie',en:'Cookie banner',tr:'Çerez bildirimi'}];
  function featOn(k){const f=store.get('features',{});return f[k]!==false;}
  function setFeat(k,v){const f=store.get('features',{});f[k]=v;store.set('features',f);queueConfigPush();}
  /* OS overrides */
