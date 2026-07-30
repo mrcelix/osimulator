@@ -2148,6 +2148,24 @@ body.light .watch-nav .wn-crown{border-left-color:rgba(0,0,0,.1)}
 .macx-tb{height:36px;flex:none;display:flex;align-items:center;gap:8px;padding:0 12px;background:linear-gradient(180deg,#e4e4e6,#cfcfd4);border-bottom:1px solid rgba(0,0,0,.12);position:relative}
 .macx-title{position:absolute;left:0;right:0;text-align:center;font-size:12px;font-weight:600;color:#3a3a3c}
 .macx-win .win-body{flex:1;position:relative;overflow:hidden;background:#ececec}
+/* ---- accessibility ----
+   The visually-hidden rule is the classic clip-rect one on purpose: it keeps
+   the node in the accessibility tree, which display:none and visibility:hidden
+   both destroy. The skip button is parked off-screen rather than hidden for
+   the same reason — it has to be focusable to be useful. */
+.a11y-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+.a11y-skip{position:fixed;left:-9999px;top:8px;z-index:100000;padding:10px 18px;border-radius:10px;background:#0a84ff;color:#fff;font-size:14px;font-weight:600;border:0;box-shadow:0 8px 28px rgba(0,0,0,.45)}
+.a11y-skip:focus{left:8px}
+[dir="rtl"] .a11y-skip:focus{left:auto;right:8px}
+:focus-visible{outline:2px solid #0a84ff;outline-offset:2px;border-radius:4px}
+body.light :focus-visible{outline-color:#0060df}
+.tgl:focus-visible{outline-offset:3px}
+#app>[tabindex="-1"]:focus{outline:none}
+@media (prefers-contrast:more){
+ .nav-link,.hm-sb,.lin-chip,.guide-tile{border-color:currentColor}
+ .a11y-skip{background:#000;color:#fff;border:2px solid #fff}
+ :focus-visible{outline-width:3px}
+}
 </style>
 </head>
 <body>
@@ -2386,7 +2404,7 @@ const LANGS=[
 ];
 const FLAG={en:'🇬🇧',zh:'🇨🇳',hi:'🇮🇳',es:'🇪🇸',ar:'🇸🇦',fr:'🇫🇷',pt:'🇧🇷',ru:'🇷🇺',de:'🇩🇪',ja:'🇯🇵',it:'🇮🇹',tr:'🇹🇷'};
 const LANG={
- en:{tkNav:"Tasks",tkEyebrow:"Task-oriented",tkTitle:"What do you want to do?",tkSub:"Say the job in plain words. We look it up in every settings tree we ship and point at the exact screen — and say so where a system simply has no such setting.",tkBack:"All tasks",tkCalc:"Looking for it in every system…",tkFound:"systems have it",tkShow:"Show me",tkShallow:"Fewest taps:",tkApprox:"closest match",tkMissing:"Not found in",tkMissingNote:"Nothing in these systems matches that name. That is the honest answer, not a gap we papered over — some of them genuinely have no such setting.",tkNone:"No system in the library has a setting for this yet.",tkMore:"Other things people look for",tkHomeTitle:"Start from what you want to do",tkHomeSub:"Skip the menu names. Pick the job — we will find the screen.",tkHomeAll:"See all tasks",fmtTap:"Tap {x}",fmtToggle:"Toggle {x}",fmtOpen:"Open {x}",locCovT:"{p}% of the {n} labels on this device are translated into {l}. The rest stay in English — exactly the way an untranslated device shows them.",stOS:"operating systems",stVer:"versions",stScreens:"settings screens",stLang:"languages",stOffline:"Offline",continueLast:"Continue where you left off",searchOS:"Search operating systems…",filAll:"All",filPhone:"Phone",filTablet:"Tablet",filDesktop:"Desktop",typ_phone:"Phone",typ_tablet:"Tablet",typ_desktop:"Desktop",typ_watch:"Watch",filWatch:"Watch",typ_tv:"TV",filTV:"TV",typ_car:"Car",filCar:"Car",typ_xr:"XR",filXR:"XR",typ_console:"Console",filConsole:"Console",latest:"latest",open:"Open",noResults:"No operating systems match your search.",featMenus:"Real menus you can navigate",featVersions:"Version-accurate differences",featTools:"Zoom · rotate · auto-fit",featAI:"Built-in OS AI assistant",featLang:"12 languages · RTL",featOffline:"100% offline single file",title:"OS Simulator",intro:"Pick an operating system, choose a version, and explore its menus as if you were on a real device. Apps don't run — the goal is to discover the interface and its settings.",footer:"For simulation only — not the real iOS, macOS, Windows or Android.",soon:"Coming soon",back:"Choose device",ttHome:"Home screen",ttRotate:"Rotate",ttZoomOut:"Zoom out",ttZoomIn:"Zoom in",fit:"Fit",auto:"Auto",autoFit:"Auto‑fit to screen size",reset:"Reset",toast:"Only Settings can be explored in this simulation.",langLabel:"Language",navSystems:"Systems",navHow:"How it works",navFeatures:"Features",navExplore:"Explore",tryRandom:"Surprise me",systemsTitle:"Choose an operating system",howTitle:"How it works",how1t:"Pick a device",how1d:"Phone, tablet, desktop, watch, TV, car, console or XR — 41 systems in all.",how2t:"Choose a version",how2d:"Each release renders its own menus, layout and wallpaper.",how3t:"Explore the menus",how3d:"Navigate the Settings app exactly like the real device.",featTitle:"What's inside",footRights:"Independent educational project. Not affiliated with Apple, Google, Microsoft or any OS vendor. All trademarks belong to their owners.",pickOS:"Open an OS",shareTitle:"Share osimulator",trending:"Trending",linkCopied:"Link copied to clipboard",browseAll:"Browse all systems",signIn:"Sign in",signUp:"Sign up",createAccount:"Create account",account:"Account",signOut:"Sign out",welcome:"Welcome",authSubtitle:"Sync your preferences across devices.",emailLabel:"Email",passwordLabel:"Password",nameLabel:"Full name",forgotPass:"Forgot password?",resetSent:"If that email exists, a reset link is on its way.",rememberMe:"Keep me signed in",orContinue:"or continue with email",googleContinue:"Continue with Google",appleContinue:"Continue with Apple",authTerms:"By continuing you agree to our Terms of Use and Privacy Policy.",noAccount:"Don’t have an account?",haveAccount:"Already have an account?",toolTheme:"Theme",toolShare:"Share",toolRandom:"Random OS",toolFullscreen:"Fullscreen",toolTop:"Back to top",toolShortcuts:"Shortcuts",toolsTitle:"Site tools",tools:"Tools",themeToggle:"Toggle light / dark",nlTitle:"Stay in the loop",nlDesc:"Get notified about new operating systems, versions and features. No spam, unsubscribe anytime.",nlPlaceholder:"Your email address",nlButton:"Subscribe",nlSuccess:"You’re subscribed! Thanks for joining.",nlInvalid:"Please enter a valid email address.",footProduct:"Product",footSystems:"Systems",footResources:"Resources",footFollow:"Follow",saveChanges:"Save changes",cookieText:"We only use local storage to remember your preferences — no tracking cookies.",cookieAccept:"Got it",shortcutsTitle:"Keyboard shortcuts",prefsSaved:"Preferences saved",defaultOsLabel:"Open this OS on start",askEach:"Ask each time",recTool:"Record & Play",recStart:"Record a guide",recRequiresLogin:"Sign in to record guides.",recBar:"Recording",recStepWord:"step",recSteps:"steps",recFinish:"Finish",recCancel:"Cancel",recEmpty:"Tap the settings rows to add steps.",guideSaveTitle:"Save your guide",guideTitleLabel:"Guide title",guideTitlePh:"e.g. How to add an eSIM",stepNotePh:"Describe this step (optional)",saveShare:"Save & share",guidePrev:"Back",guideNext:"Next",guideExit:"Exit",guideStartBtn:"Start guide",guideDoneTitle:"Guide complete!",guideDoneSub:"That is the whole walkthrough.",guideReplay:"Replay",myGuides:"My guides",noGuides:"You have no saved guides yet. Open any OS, tap Record and describe a task.",guideDelete:"Delete",guidePlayBtn:"Play",shareGuideTitle:"Share this guide",copyLink:"Copy link",embedCode:"Embed on a site",downloadGuide:"Download",tapHere:"Tap here",toggleHere:"Toggle this",openHere:"Open this",recTitleDefault:"My guide",guideSaved:"Guide saved",guideNavFail:"This step is not available in this version.",stepLabel:"Step",ofLabel:"of",guideIntro:"Follow along step by step. No account needed.",recStartedHint:"Now tap through the settings — each tap becomes a step.",guidesNav:"Guides",guidesEyebrow:"Guides",guidesTitle:"How-to guides",guidesSub:"Clear, step-by-step help for every operating system — then try it live.",guidesAll:"See all guides",guidesBack:"All guides",homeNav:"Home",tryIn:"Try in",guideRelated:"Related guides",guideCta:"Open this OS and try it yourself",guideStepsFor:"Steps for",guidesCount:"guides",compareNav:"Compare",compareEyebrow:"Compare",compareTitle:"Compare operating systems",compareSub:"See how two systems handle the same settings, side by side.",compareAll:"All comparisons",openOs:"Open",cmpTopic:"Setting",compareRelated:"More comparisons",vsNav:"Side by side",vsTitle:"Side-by-side compare",vsSub:"Explore two operating systems live, at the same time.",vsSwap:"Swap",vsOpenBoth:"Open side by side",vsFull:"Open full",searchSettings:"Search all settings",searchPh:"Search settings across every OS…",searchHint:"Type to search every setting in 43 operating systems.",searchNoRes:"No settings match your search.",shareCard:"Share card",cardTitle:"Share this screen",cardDownload:"Download",cardShare:"Share",cardCopy:"Copy image",cardCopied:"Image copied to clipboard",quizNav:"Quiz",quizEyebrow:"Mini game",quizTitle:"Which OS is this?",quizSub:"Guess the operating system from its Settings screen — the layout and wording are your clues.",quizScore:"Score",quizStreak:"Streak",quizBest:"Best",quizNext:"Next question",quizCorrect:"Correct!",quizWrong:"Nope — it was",quizPlay:"Play",quizStartOver:"Start over",embedNav:"Embed",embedTitle:"Embed osimulator",embedSub:"Drop a live, interactive OS screen into any blog or docs page.",embedOS:"System",embedVer:"Version",embedCat:"Screen",embedCatNone:"Home / Settings",embedTheme:"Theme",embedThemeAuto:"Auto",embedThemeLight:"Light",embedThemeDark:"Dark",embedSize:"Size",embedBare:"Hide toolbar",embedPreview:"Live preview",embedCopyCode:"Copy code",embedOpen:"Embed",footLove:"Enjoying osimulator?",starGh:"Star on GitHub",quizShare:"Challenge a friend",quizShareText:"I’m playing “Which OS is this?” on osimulator",verLabel:"Version",deployLabel:"Last updated",heroFeatured:"Featured system",findNav:"Find a setting",findEyebrow:"Cross-OS finder",findTitle:"Where is this setting?",findSub:"Type a setting — see exactly where it lives on all 43 operating systems.",findPh:"e.g. Dark Mode, VPN, eSIM, Reduce Motion…",findEmpty:"No system in the library has a setting matching that. Try another term.",findFound:"systems have it",changesNav:"Version changes",chEyebrow:"Version diff",chTitle:"What changed between versions",chSub:"Pick an OS and two versions to see which Settings sections were added, removed or renamed.",chVs:"vs",chNone:"No structural Settings changes between these versions in the library.",guideAutoPlay:"Auto-play",guideStepByStep:"Step by step",guideTaps:"Taps in this guide",guideAuto:"Auto",guidePause:"Pause",guideMin:"Minimize",guideExpand:"Expand",dailyNav:"Daily",dailyEyebrow:"Daily challenge",dailyTitle:"Today’s challenge",dailySub:"Find the setting as fast as you can. Come back daily to keep your streak.",dailyStreak:"Streak",dailyBest:"Best",dailyHint:"Navigate the Settings to reach the target — the timer and taps are counting.",dailyStart:"Start challenge",dailyDone:"Done today — come back tomorrow!",dailyPractice:"Practice again",dailyTaps:"taps",dailyGiveUp:"Give up",dailyWin:"Found it! 🎉",deepLinkCopy:"Copy link to this screen",deepLinkCopied:"Screen link copied — it opens right here.",tmTitle:"Time machine",tmAdded:"added",tmRemoved:"removed",tmSame:"identical screen",gifExport:"GIF",gifTitle:"Export as GIF",gifBuilding:"Drawing your animation…",gifReady:"Your GIF is ready",gifFailed:"Could not build the GIF.",gifTrimmed:"first {n} steps",close:"Close",printExport:"Print",printTitle:"Printable handout",printNow:"Print / Save as PDF",printScan:"Scan to open the interactive guide",printScanScreen:"Scan to open this screen in the simulator",printFoot:"Made with osimulator — the offline OS settings simulator",linNav:"Genealogy",linEyebrow:"Settings genealogy",linTitle:"The family history of one setting",linSub:"Pick a setting and see where it lives in every system — and how it moved between versions.",linSearch:"Search a setting — Wi‑Fi, Bluetooth, Dark Mode…",linNone:"No system in the library has a setting with that name.",linSystems:"Where it lives today",linAcross:"How it moved between versions",linInOs:"systems have it",linShallow:"Shallowest:",linDeepest:"Deepest:",linTap1:"tap",linTapN:"taps",linTaps:"Taps from Settings",linIntro:"first appears",linMoved:"moved",linRenamed:"renamed",linGone:"removed",linAbsent:"not in this version",linWas:"was",linChanged:"changed",linStable:"unchanged",linStableNote:"Never moved in any shipped version of:",linMovedN:"systems changed it",hmNav:"Depth",hmEyebrow:"Burial depth",hmTitle:"How deep is it buried?",hmSub:"Every setting you can tap, toggle or open — picker options excluded — counted by how many taps it takes to reach from the home screen of Settings.",hmSystems:"systems",hmSettings:"settings",hmTap1:"tap",hmTapN:"taps",hmAvgAll:"average",hmShallowest:"Flattest:",hmDeepestOs:"Deepest:",hmAvgTip:"Average taps from Settings",hmSortShallow:"Flattest first",hmSortDeep:"Deepest first",hmSortMost:"Most settings",hmSortName:"By name",hmCalc:"Walking every settings tree to the leaves…",hmShowing:"Showing",hmDeepestOne:"The single deepest setting in the whole library is",hmIn:"in"},
+ en:{a11ySkip:"Skip to content",menu:"Menu",a11yCalcDone:"Results ready",tkNav:"Tasks",tkEyebrow:"Task-oriented",tkTitle:"What do you want to do?",tkSub:"Say the job in plain words. We look it up in every settings tree we ship and point at the exact screen — and say so where a system simply has no such setting.",tkBack:"All tasks",tkCalc:"Looking for it in every system…",tkFound:"systems have it",tkShow:"Show me",tkShallow:"Fewest taps:",tkApprox:"closest match",tkMissing:"Not found in",tkMissingNote:"Nothing in these systems matches that name. That is the honest answer, not a gap we papered over — some of them genuinely have no such setting.",tkNone:"No system in the library has a setting for this yet.",tkMore:"Other things people look for",tkHomeTitle:"Start from what you want to do",tkHomeSub:"Skip the menu names. Pick the job — we will find the screen.",tkHomeAll:"See all tasks",fmtTap:"Tap {x}",fmtToggle:"Toggle {x}",fmtOpen:"Open {x}",locCovT:"{p}% of the {n} labels on this device are translated into {l}. The rest stay in English — exactly the way an untranslated device shows them.",stOS:"operating systems",stVer:"versions",stScreens:"settings screens",stLang:"languages",stOffline:"Offline",continueLast:"Continue where you left off",searchOS:"Search operating systems…",filAll:"All",filPhone:"Phone",filTablet:"Tablet",filDesktop:"Desktop",typ_phone:"Phone",typ_tablet:"Tablet",typ_desktop:"Desktop",typ_watch:"Watch",filWatch:"Watch",typ_tv:"TV",filTV:"TV",typ_car:"Car",filCar:"Car",typ_xr:"XR",filXR:"XR",typ_console:"Console",filConsole:"Console",latest:"latest",open:"Open",noResults:"No operating systems match your search.",featMenus:"Real menus you can navigate",featVersions:"Version-accurate differences",featTools:"Zoom · rotate · auto-fit",featAI:"Built-in OS AI assistant",featLang:"12 languages · RTL",featOffline:"100% offline single file",title:"OS Simulator",intro:"Pick an operating system, choose a version, and explore its menus as if you were on a real device. Apps don't run — the goal is to discover the interface and its settings.",footer:"For simulation only — not the real iOS, macOS, Windows or Android.",soon:"Coming soon",back:"Choose device",ttHome:"Home screen",ttRotate:"Rotate",ttZoomOut:"Zoom out",ttZoomIn:"Zoom in",fit:"Fit",auto:"Auto",autoFit:"Auto‑fit to screen size",reset:"Reset",toast:"Only Settings can be explored in this simulation.",langLabel:"Language",navSystems:"Systems",navHow:"How it works",navFeatures:"Features",navExplore:"Explore",tryRandom:"Surprise me",systemsTitle:"Choose an operating system",howTitle:"How it works",how1t:"Pick a device",how1d:"Phone, tablet, desktop, watch, TV, car, console or XR — 41 systems in all.",how2t:"Choose a version",how2d:"Each release renders its own menus, layout and wallpaper.",how3t:"Explore the menus",how3d:"Navigate the Settings app exactly like the real device.",featTitle:"What's inside",footRights:"Independent educational project. Not affiliated with Apple, Google, Microsoft or any OS vendor. All trademarks belong to their owners.",pickOS:"Open an OS",shareTitle:"Share osimulator",trending:"Trending",linkCopied:"Link copied to clipboard",browseAll:"Browse all systems",signIn:"Sign in",signUp:"Sign up",createAccount:"Create account",account:"Account",signOut:"Sign out",welcome:"Welcome",authSubtitle:"Sync your preferences across devices.",emailLabel:"Email",passwordLabel:"Password",nameLabel:"Full name",forgotPass:"Forgot password?",resetSent:"If that email exists, a reset link is on its way.",rememberMe:"Keep me signed in",orContinue:"or continue with email",googleContinue:"Continue with Google",appleContinue:"Continue with Apple",authTerms:"By continuing you agree to our Terms of Use and Privacy Policy.",noAccount:"Don’t have an account?",haveAccount:"Already have an account?",toolTheme:"Theme",toolShare:"Share",toolRandom:"Random OS",toolFullscreen:"Fullscreen",toolTop:"Back to top",toolShortcuts:"Shortcuts",toolsTitle:"Site tools",tools:"Tools",themeToggle:"Toggle light / dark",nlTitle:"Stay in the loop",nlDesc:"Get notified about new operating systems, versions and features. No spam, unsubscribe anytime.",nlPlaceholder:"Your email address",nlButton:"Subscribe",nlSuccess:"You’re subscribed! Thanks for joining.",nlInvalid:"Please enter a valid email address.",footProduct:"Product",footSystems:"Systems",footResources:"Resources",footFollow:"Follow",saveChanges:"Save changes",cookieText:"We only use local storage to remember your preferences — no tracking cookies.",cookieAccept:"Got it",shortcutsTitle:"Keyboard shortcuts",prefsSaved:"Preferences saved",defaultOsLabel:"Open this OS on start",askEach:"Ask each time",recTool:"Record & Play",recStart:"Record a guide",recRequiresLogin:"Sign in to record guides.",recBar:"Recording",recStepWord:"step",recSteps:"steps",recFinish:"Finish",recCancel:"Cancel",recEmpty:"Tap the settings rows to add steps.",guideSaveTitle:"Save your guide",guideTitleLabel:"Guide title",guideTitlePh:"e.g. How to add an eSIM",stepNotePh:"Describe this step (optional)",saveShare:"Save & share",guidePrev:"Back",guideNext:"Next",guideExit:"Exit",guideStartBtn:"Start guide",guideDoneTitle:"Guide complete!",guideDoneSub:"That is the whole walkthrough.",guideReplay:"Replay",myGuides:"My guides",noGuides:"You have no saved guides yet. Open any OS, tap Record and describe a task.",guideDelete:"Delete",guidePlayBtn:"Play",shareGuideTitle:"Share this guide",copyLink:"Copy link",embedCode:"Embed on a site",downloadGuide:"Download",tapHere:"Tap here",toggleHere:"Toggle this",openHere:"Open this",recTitleDefault:"My guide",guideSaved:"Guide saved",guideNavFail:"This step is not available in this version.",stepLabel:"Step",ofLabel:"of",guideIntro:"Follow along step by step. No account needed.",recStartedHint:"Now tap through the settings — each tap becomes a step.",guidesNav:"Guides",guidesEyebrow:"Guides",guidesTitle:"How-to guides",guidesSub:"Clear, step-by-step help for every operating system — then try it live.",guidesAll:"See all guides",guidesBack:"All guides",homeNav:"Home",tryIn:"Try in",guideRelated:"Related guides",guideCta:"Open this OS and try it yourself",guideStepsFor:"Steps for",guidesCount:"guides",compareNav:"Compare",compareEyebrow:"Compare",compareTitle:"Compare operating systems",compareSub:"See how two systems handle the same settings, side by side.",compareAll:"All comparisons",openOs:"Open",cmpTopic:"Setting",compareRelated:"More comparisons",vsNav:"Side by side",vsTitle:"Side-by-side compare",vsSub:"Explore two operating systems live, at the same time.",vsSwap:"Swap",vsOpenBoth:"Open side by side",vsFull:"Open full",searchSettings:"Search all settings",searchPh:"Search settings across every OS…",searchHint:"Type to search every setting in 43 operating systems.",searchNoRes:"No settings match your search.",shareCard:"Share card",cardTitle:"Share this screen",cardDownload:"Download",cardShare:"Share",cardCopy:"Copy image",cardCopied:"Image copied to clipboard",quizNav:"Quiz",quizEyebrow:"Mini game",quizTitle:"Which OS is this?",quizSub:"Guess the operating system from its Settings screen — the layout and wording are your clues.",quizScore:"Score",quizStreak:"Streak",quizBest:"Best",quizNext:"Next question",quizCorrect:"Correct!",quizWrong:"Nope — it was",quizPlay:"Play",quizStartOver:"Start over",embedNav:"Embed",embedTitle:"Embed osimulator",embedSub:"Drop a live, interactive OS screen into any blog or docs page.",embedOS:"System",embedVer:"Version",embedCat:"Screen",embedCatNone:"Home / Settings",embedTheme:"Theme",embedThemeAuto:"Auto",embedThemeLight:"Light",embedThemeDark:"Dark",embedSize:"Size",embedBare:"Hide toolbar",embedPreview:"Live preview",embedCopyCode:"Copy code",embedOpen:"Embed",footLove:"Enjoying osimulator?",starGh:"Star on GitHub",quizShare:"Challenge a friend",quizShareText:"I’m playing “Which OS is this?” on osimulator",verLabel:"Version",deployLabel:"Last updated",heroFeatured:"Featured system",findNav:"Find a setting",findEyebrow:"Cross-OS finder",findTitle:"Where is this setting?",findSub:"Type a setting — see exactly where it lives on all 43 operating systems.",findPh:"e.g. Dark Mode, VPN, eSIM, Reduce Motion…",findEmpty:"No system in the library has a setting matching that. Try another term.",findFound:"systems have it",changesNav:"Version changes",chEyebrow:"Version diff",chTitle:"What changed between versions",chSub:"Pick an OS and two versions to see which Settings sections were added, removed or renamed.",chVs:"vs",chNone:"No structural Settings changes between these versions in the library.",guideAutoPlay:"Auto-play",guideStepByStep:"Step by step",guideTaps:"Taps in this guide",guideAuto:"Auto",guidePause:"Pause",guideMin:"Minimize",guideExpand:"Expand",dailyNav:"Daily",dailyEyebrow:"Daily challenge",dailyTitle:"Today’s challenge",dailySub:"Find the setting as fast as you can. Come back daily to keep your streak.",dailyStreak:"Streak",dailyBest:"Best",dailyHint:"Navigate the Settings to reach the target — the timer and taps are counting.",dailyStart:"Start challenge",dailyDone:"Done today — come back tomorrow!",dailyPractice:"Practice again",dailyTaps:"taps",dailyGiveUp:"Give up",dailyWin:"Found it! 🎉",deepLinkCopy:"Copy link to this screen",deepLinkCopied:"Screen link copied — it opens right here.",tmTitle:"Time machine",tmAdded:"added",tmRemoved:"removed",tmSame:"identical screen",gifExport:"GIF",gifTitle:"Export as GIF",gifBuilding:"Drawing your animation…",gifReady:"Your GIF is ready",gifFailed:"Could not build the GIF.",gifTrimmed:"first {n} steps",close:"Close",printExport:"Print",printTitle:"Printable handout",printNow:"Print / Save as PDF",printScan:"Scan to open the interactive guide",printScanScreen:"Scan to open this screen in the simulator",printFoot:"Made with osimulator — the offline OS settings simulator",linNav:"Genealogy",linEyebrow:"Settings genealogy",linTitle:"The family history of one setting",linSub:"Pick a setting and see where it lives in every system — and how it moved between versions.",linSearch:"Search a setting — Wi‑Fi, Bluetooth, Dark Mode…",linNone:"No system in the library has a setting with that name.",linSystems:"Where it lives today",linAcross:"How it moved between versions",linInOs:"systems have it",linShallow:"Shallowest:",linDeepest:"Deepest:",linTap1:"tap",linTapN:"taps",linTaps:"Taps from Settings",linIntro:"first appears",linMoved:"moved",linRenamed:"renamed",linGone:"removed",linAbsent:"not in this version",linWas:"was",linChanged:"changed",linStable:"unchanged",linStableNote:"Never moved in any shipped version of:",linMovedN:"systems changed it",hmNav:"Depth",hmEyebrow:"Burial depth",hmTitle:"How deep is it buried?",hmSub:"Every setting you can tap, toggle or open — picker options excluded — counted by how many taps it takes to reach from the home screen of Settings.",hmSystems:"systems",hmSettings:"settings",hmTap1:"tap",hmTapN:"taps",hmAvgAll:"average",hmShallowest:"Flattest:",hmDeepestOs:"Deepest:",hmAvgTip:"Average taps from Settings",hmSortShallow:"Flattest first",hmSortDeep:"Deepest first",hmSortMost:"Most settings",hmSortName:"By name",hmCalc:"Walking every settings tree to the leaves…",hmShowing:"Showing",hmDeepestOne:"The single deepest setting in the whole library is",hmIn:"in"},
  tr:{title:"OS Simülatörü",intro:"Bir işletim sistemi seç, sürümünü belirle ve sanki gerçek bir cihazdaymış gibi menülerde gez. Uygulamalar çalışmaz — amaç arayüzü ve ayarları keşfetmek.",footer:"Yalnızca simülasyon amaçlıdır — gerçek iOS, macOS, Windows veya Android değildir.",soon:"Yakında",back:"Cihaz seç",ttHome:"Ana ekran",ttRotate:"Döndür",ttZoomOut:"Uzaklaştır",ttZoomIn:"Yakınlaştır",fit:"Sığdır",reset:"Sıfırla",toast:"Bu simülasyonda yalnızca Ayarlar gezilebilir.",langLabel:"Dil"},
  es:{title:"Simulador de SO",intro:"Elige un sistema operativo, selecciona una versión y explora sus menús como si estuvieras en un dispositivo real. Las apps no funcionan: el objetivo es descubrir la interfaz y sus ajustes.",footer:"Solo para simulación: no es el iOS, macOS, Windows o Android real.",soon:"Próximamente",back:"Elegir dispositivo",ttHome:"Pantalla de inicio",ttRotate:"Girar",ttZoomOut:"Alejar",ttZoomIn:"Acercar",fit:"Ajustar",reset:"Restablecer",toast:"En esta simulación solo se pueden explorar los Ajustes.",langLabel:"Idioma"},
  fr:{title:"Simulateur d'OS",intro:"Choisissez un système d'exploitation, une version et explorez ses menus comme sur un vrai appareil. Les apps ne fonctionnent pas : le but est de découvrir l'interface et ses réglages.",footer:"Simulation uniquement — ce n'est pas le vrai iOS, macOS, Windows ou Android.",soon:"Bientôt disponible",back:"Choisir l'appareil",ttHome:"Écran d'accueil",ttRotate:"Pivoter",ttZoomOut:"Dézoomer",ttZoomIn:"Zoomer",fit:"Ajuster",reset:"Réinitialiser",toast:"Dans cette simulation, seuls les Réglages sont navigables.",langLabel:"Langue"},
@@ -2403,7 +2421,7 @@ const LANG={
 const DEVLBL={en:'Device language',tr:'Cihaz dili',es:'Idioma del dispositivo',fr:"Langue de l'appareil",de:'Gerätesprache',pt:'Idioma do dispositivo',it:'Lingua del dispositivo',ru:'Язык устройства',ar:'لغة الجهاز',zh:'设备语言',ja:'デバイスの言語',hi:'डिवाइस भाषा'};
 /* DEVICE UI dictionary — translates common OS strings; unknown strings fall back to English (the device's default). */
 const DSTR={
- tr:{tkNav:'Görevler',tkEyebrow:'Görev odaklı',tkTitle:'Ne yapmak istiyorsun?',tkSub:'İşi kendi sözlerinle söyle. Yayınladığımız her ayar ağacında arayıp tam olarak hangi ekranda olduğunu gösterelim — bir sistemde böyle bir ayar yoksa onu da açıkça söyleyelim.',tkBack:'Tüm görevler',tkCalc:'Her sistemde aranıyor…',tkFound:'sistemde var',tkShow:'Göster',tkShallow:'En az dokunuş:',tkApprox:'en yakın eşleşme',tkMissing:'Bulunamadığı sistem sayısı:',tkMissingNote:'Bu sistemlerde bu adla eşleşen bir şey yok. Üstünü örtmedik — bazılarında gerçekten böyle bir ayar bulunmuyor.',tkNone:'Kütüphanedeki hiçbir sistemde henüz bunun için bir ayar yok.',tkMore:'İnsanların aradığı diğer şeyler',tkHomeTitle:'Ne yapmak istediğinden başla',tkHomeSub:'Menü adlarını atla. İşi seç — ekranı biz bulalım.',tkHomeAll:'Tüm görevleri gör',fmtTap:'{x} öğesine dokun',fmtToggle:'{x} anahtarını değiştir',fmtOpen:'{x} bölümünü aç',locCovT:'Bu cihazdaki {n} etiketin %{p} kadarı {l} diline çevrildi. Kalanı İngilizce kalıyor — çevrilmemiş bir cihaz da tam olarak böyle görünür.',stOS:'işletim sistemi',stVer:'sürüm',stScreens:'ayar ekranı',stLang:'dil',stOffline:'Çevrimdışı',continueLast:'Kaldığın yerden devam et',searchOS:'İşletim sistemi ara…',filAll:'Tümü',filPhone:'Telefon',filTablet:'Tablet',filDesktop:'Masaüstü',typ_phone:'Telefon',typ_tablet:'Tablet',typ_desktop:'Masaüstü',typ_watch:'Saat',filWatch:'Saat',typ_tv:'TV',filTV:'TV',typ_car:'Araç',filCar:'Araç',typ_xr:'XR',filXR:'XR',typ_console:'Konsol',filConsole:'Konsol',latest:'en yeni',open:'Aç',noResults:'Aramanla eşleşen işletim sistemi yok.',featMenus:'Gezilebilir gerçek menüler',featVersions:'Sürüme özgü farklar',featTools:'Yakınlaştır · döndür · otomatik sığdır',featAI:'Dahili OS AI asistanı',featLang:'12 dil · RTL',featOffline:'%100 çevrimdışı tek dosya',Settings:'Ayarlar',Search:'Ara','Find a setting':'Ayar ara',On:'Açık',Off:'Kapalı',Connected:'Bağlı','Not Connected':'Bağlı değil',Photos:'Fotoğraflar',Messages:'Mesajlar',Calendar:'Takvim',Notes:'Notlar',Maps:'Harita',Music:'Müzik',Files:'Dosyalar',Health:'Sağlık',Mail:'Mail',Clock:'Saat','Airplane Mode':'Uçak Modu',Notifications:'Bildirimler',Sounds:'Sesler',Focus:'Odak','Screen Time':'Ekran Süresi',General:'Genel','Control Center':'Denetim Merkezi','Display & Brightness':'Ekran ve Parlaklık',Accessibility:'Erişilebilirlik',Wallpaper:'Duvar Kâğıdı','Privacy & Security':'Gizlilik ve Güvenlik',Contacts:'Kişiler',Reminders:'Anımsatıcılar',About:'Hakkında','Software Update':'Yazılım Güncelleme',Storage:'Depolama',Network:'Ağ',Battery:'Pil',Appearance:'Görünüm',Displays:'Ekranlar',Keyboard:'Klavye',System:'Sistem',Apps:'Uygulamalar',Accounts:'Hesaplar',Gaming:'Oyun',Personalization:'Kişiselleştirme',Display:'Ekran',navSystems:'Sistemler',navHow:'Nasıl çalışır',navFeatures:'Özellikler',navExplore:'Keşfet',tryRandom:'Rastgele dene',systemsTitle:'Bir işletim sistemi seç',howTitle:'Nasıl çalışır',how1t:'Cihazını seç',how1d:'Telefon, tablet, masaüstü, saat, TV, araç, konsol veya XR — toplam 43 sistem.',how2t:'Sürümü belirle',how2d:'Her sürüm kendi menülerini, düzenini ve duvar kâğıdını gösterir.',how3t:'Menülerde gez',how3d:'Ayarlar uygulamasında tıpkı gerçek cihazdaki gibi dolaş.',featTitle:'Neler var',footRights:'Bağımsız bir eğitim projesidir. Apple, Google, Microsoft veya herhangi bir OS üreticisiyle bağlantılı değildir. Tüm ticari markalar sahiplerine aittir.',pickOS:'Bir OS aç',shareTitle:'osimulator’ı paylaş',trending:'Popüler',linkCopied:'Bağlantı panoya kopyalandı',browseAll:'Tüm sistemlere göz at',signIn:'Giriş Yap',signUp:'Üye Ol',createAccount:'Hesap oluştur',account:'Hesap',signOut:'Çıkış yap',welcome:'Hoş geldin',authSubtitle:'Tercihlerini tüm cihazlarında eşitle.',emailLabel:'E-posta',passwordLabel:'Parola',nameLabel:'Ad Soyad',forgotPass:'Parolanı mı unuttun?',resetSent:'E-posta kayıtlıysa sıfırlama bağlantısı yolda.',rememberMe:'Oturumumu açık tut',orContinue:'veya e-posta ile devam et',googleContinue:'Google ile devam et',appleContinue:'Apple ile devam et',authTerms:'Devam ederek Kullanım Şartları ve Gizlilik Politikası’nı kabul edersin.',noAccount:'Hesabın yok mu?',haveAccount:'Zaten hesabın var mı?',toolTheme:'Tema',toolShare:'Paylaş',toolRandom:'Rastgele OS',toolFullscreen:'Tam ekran',toolTop:'Başa dön',toolShortcuts:'Kısayollar',toolsTitle:'Site araçları',tools:'Araçlar',themeToggle:'Açık / Koyu tema',nlTitle:'Gelişmelerden haberdar ol',nlDesc:'Yeni işletim sistemleri, sürümler ve özelliklerden ilk sen haberdar ol. Spam yok, istediğin an çıkabilirsin.',nlPlaceholder:'E-posta adresin',nlButton:'Kayıt ol',nlSuccess:'Kaydın alındı! Katıldığın için teşekkürler.',nlInvalid:'Lütfen geçerli bir e-posta adresi gir.',footProduct:'Ürün',footSystems:'Sistemler',footResources:'Kaynaklar',footFollow:'Takip et',saveChanges:'Değişiklikleri kaydet',cookieText:'Yalnızca tercihlerini hatırlamak için yerel depolama kullanıyoruz — takip çerezi yok.',cookieAccept:'Anladım',shortcutsTitle:'Klavye kısayolları',prefsSaved:'Tercihler kaydedildi',defaultOsLabel:'Açılışta bu OS açılsın',askEach:'Her seferinde sor',recTool:'Kaydet & Oynat',recStart:'Rehber kaydet',recRequiresLogin:'Rehber kaydetmek için giriş yapmalısın.',recBar:'Kaydediliyor',recStepWord:'adım',recSteps:'adım',recFinish:'Bitir',recCancel:'İptal',recEmpty:'Adım eklemek için ayar satırlarına dokun.',guideSaveTitle:'Rehberini kaydet',guideTitleLabel:'Rehber başlığı',guideTitlePh:'örn. eSIM nasıl eklenir',stepNotePh:'Bu adımı açıkla (isteğe bağlı)',saveShare:'Kaydet ve paylaş',guidePrev:'Geri',guideNext:'İleri',guideExit:'Çık',guideStartBtn:'Rehberi başlat',guideDoneTitle:'Rehber tamamlandı!',guideDoneSub:'Anlatımın tamamı bu kadar.',guideReplay:'Tekrar oynat',myGuides:'Rehberlerim',noGuides:'Henüz kayıtlı rehberin yok. Bir OS aç, Kaydet’e dokun ve bir işi anlat.',guideDelete:'Sil',guidePlayBtn:'Oynat',shareGuideTitle:'Bu rehberi paylaş',copyLink:'Bağlantıyı kopyala',embedCode:'Siteye göm',downloadGuide:'İndir',tapHere:'Buraya dokun',toggleHere:'Bunu aç/kapat',openHere:'Bunu aç',recTitleDefault:'Rehberim',guideSaved:'Rehber kaydedildi',guideNavFail:'Bu adım bu sürümde bulunmuyor.',stepLabel:'Adım',ofLabel:'/',guideIntro:'Adım adım takip et. Hesap gerekmez.',recStartedHint:'Şimdi ayarlarda gez — her dokunuş bir adım olur.',guidesNav:'Rehberler',guidesEyebrow:'Rehberler',guidesTitle:'Nasıl yapılır rehberleri',guidesSub:'Her işletim sistemi için net, adım adım yardım — sonra canlı dene.',guidesAll:'Tüm rehberleri gör',guidesBack:'Tüm rehberler',homeNav:'Ana sayfa',tryIn:'Şunda dene:',guideRelated:'İlgili rehberler',guideCta:'Bu OS’u aç ve kendin dene',guideStepsFor:'Adımlar:',guidesCount:'rehber',compareNav:'Karşılaştır',compareEyebrow:'Karşılaştırma',compareTitle:'İşletim sistemlerini karşılaştır',compareSub:'İki sistemin aynı ayarları nasıl ele aldığını yan yana gör.',compareAll:'Tüm karşılaştırmalar',openOs:'Aç',cmpTopic:'Ayar',compareRelated:'Diğer karşılaştırmalar',vsNav:'Yan yana',vsTitle:'Yan yana karşılaştır',vsSub:'İki işletim sistemini aynı anda, canlı olarak keşfet.',vsSwap:'Yerini değiştir',vsOpenBoth:'Yan yana aç',vsFull:'Tam aç',searchSettings:'Tüm ayarlarda ara',searchPh:'Tüm işletim sistemlerinde ayar ara…',searchHint:'43 işletim sistemindeki her ayarda aramak için yaz.',searchNoRes:'Aramanla eşleşen ayar yok.',shareCard:'Paylaşım kartı',cardTitle:'Bu ekranı paylaş',cardDownload:'İndir',cardShare:'Paylaş',cardCopy:'Görseli kopyala',cardCopied:'Görsel panoya kopyalandı',quizNav:'Quiz',quizEyebrow:'Mini oyun',quizTitle:'Bu hangi OS?',quizSub:'Ayarlar ekranından işletim sistemini tahmin et — düzen ve terimler ipucun.',quizScore:'Skor',quizStreak:'Seri',quizBest:'En iyi',quizNext:'Sıradaki soru',quizCorrect:'Doğru!',quizWrong:'Yanlış — cevap',quizPlay:'Oyna',quizStartOver:'Baştan başla',embedNav:'Göm',embedTitle:'osimulator’ı göm',embedSub:'Herhangi bir blog ya da doküman sayfasına canlı, etkileşimli bir OS ekranı ekle.',embedOS:'Sistem',embedVer:'Sürüm',embedCat:'Ekran',embedCatNone:'Ana / Ayarlar',embedTheme:'Tema',embedThemeAuto:'Otomatik',embedThemeLight:'Açık',embedThemeDark:'Koyu',embedSize:'Boyut',embedBare:'Araç çubuğunu gizle',embedPreview:'Canlı önizleme',embedCopyCode:'Kodu kopyala',embedOpen:'Göm',footLove:'osimulator’ı beğendin mi?',starGh:'GitHub’da yıldızla',quizShare:'Bir arkadaşına meydan oku',quizShareText:'osimulator’da “Bu hangi OS?” oynuyorum',verLabel:'Sürüm',deployLabel:'Son güncelleme',heroFeatured:'Öne çıkan sistem',findNav:'Ayar bul',findEyebrow:'Çapraz-OS bulucu',findTitle:'Bu ayar nerede?',findSub:'Bir ayar yaz — 43 işletim sisteminin her birinde tam olarak nerede olduğunu gör.',findPh:'örn. Karanlık Mod, VPN, eSIM, Hareketi Azalt…',findEmpty:'Kütüphanedeki hiçbir sistemde bununla eşleşen ayar yok. Başka bir terim dene.',findFound:'sistemde var',changesNav:'Sürüm farkları',chEyebrow:'Sürüm karşılaştırma',chTitle:'Sürümler arasında ne değişti',chSub:'Bir OS ve iki sürüm seç; hangi Ayarlar bölümlerinin eklendiğini, kaldırıldığını veya yeniden adlandırıldığını gör.',chVs:'—',chNone:'Bu sürümler arasında kütüphanede yapısal Ayar farkı yok.',guideAutoPlay:'Otomatik oynat',guideStepByStep:'Adım adım',guideTaps:'Bu rehberdeki dokunuşlar',guideAuto:'Otomatik',guidePause:'Duraklat',guideMin:'Küçült',guideExpand:'Genişlet',dailyNav:'Günlük',dailyEyebrow:'Günlük görev',dailyTitle:'Bugünün görevi',dailySub:'Ayarı olabildiğince hızlı bul. Serini korumak için her gün gel.',dailyStreak:'Seri',dailyBest:'En iyi',dailyHint:'Hedefe ulaşmak için Ayarlar’da gez — süre ve dokunuşlar sayılıyor.',dailyStart:'Göreve başla',dailyDone:'Bugün tamamlandı — yarın tekrar gel!',dailyPractice:'Tekrar dene',dailyTaps:'dokunuş',dailyGiveUp:'Vazgeç',dailyWin:'Buldun! 🎉',deepLinkCopy:'Bu ekranın bağlantısını kopyala',deepLinkCopied:'Ekran bağlantısı kopyalandı — tam buraya açılır.',tmTitle:'Zaman makinesi',tmAdded:'eklendi',tmRemoved:'kaldırıldı',tmSame:'ekran aynı',gifExport:'GIF',gifTitle:'GIF olarak dışa aktar',gifBuilding:'Animasyonun çiziliyor…',gifReady:'GIF hazır',gifFailed:'GIF oluşturulamadı.',gifTrimmed:'ilk {n} adım',close:'Kapat',printExport:'Yazdır',printTitle:'Yazdırılabilir föy',printNow:'Yazdır / PDF olarak kaydet',printScan:'Etkileşimli rehberi açmak için tarat',printScanScreen:'Bu ekranı simülatörde açmak için tarat',printFoot:'osimulator ile hazırlandı — çevrimdışı işletim sistemi ayar simülatörü',linNav:'Soyağacı',linEyebrow:'Ayar soyağacı',linTitle:'Bir ayarın soyağacı',linSub:'Bir ayar seç; her sistemde nerede olduğunu ve sürümler arasında nasıl yer değiştirdiğini gör.',linSearch:'Ayar ara — Wi‑Fi, Bluetooth, Karanlık Mod…',linNone:'Kütüphanedeki hiçbir sistemde bu adda bir ayar yok.',linSystems:'Bugün nerede duruyor',linAcross:'Sürümler arasında nasıl yer değiştirdi',linInOs:'sistemde var',linShallow:'En yüzeyde:',linDeepest:'En derinde:',linTap1:'dokunuş',linTapN:'dokunuş',linTaps:'Ayarlar’dan itibaren dokunuş',linIntro:'ilk kez',linMoved:'taşındı',linRenamed:'adı değişti',linGone:'kaldırıldı',linAbsent:'bu sürümde yok',linWas:'önceki:',linChanged:'değişti',linStable:'sabit',linStableNote:'Şu sistemlerin yayınlanmış tüm sürümlerinde hiç yer değiştirmedi:',linMovedN:'sistemde değişti',hmNav:'Derinlik',hmEyebrow:'Gömülme derinliği',hmTitle:'Bu ayar ne kadar derinde?',hmSub:'Dokunabildiğiniz, açıp kapatabildiğiniz ya da içine girebildiğiniz her ayar — seçenek satırları hariç — Ayarlar ana ekranından kaç dokunuş uzakta olduğuna göre sayıldı.',hmSystems:'sistem',hmSettings:'ayar',hmTap1:'dokunuş',hmTapN:'dokunuş',hmAvgAll:'ortalama',hmShallowest:'En sığ:',hmDeepestOs:'En derin:',hmAvgTip:'Ayarlar’dan itibaren ortalama dokunuş',hmSortShallow:'Önce en sığ',hmSortDeep:'Önce en derin',hmSortMost:'En çok ayar',hmSortName:'Ada göre',hmCalc:'Bütün ayar ağaçları en uca kadar geziliyor…',hmShowing:'Gösterilen:',hmDeepestOne:'Kütüphanedeki en derindeki tek ayar:',hmIn:'—'},
+ tr:{a11ySkip:'İçeriğe geç',menu:'Menü',a11yCalcDone:'Sonuçlar hazır',tkNav:'Görevler',tkEyebrow:'Görev odaklı',tkTitle:'Ne yapmak istiyorsun?',tkSub:'İşi kendi sözlerinle söyle. Yayınladığımız her ayar ağacında arayıp tam olarak hangi ekranda olduğunu gösterelim — bir sistemde böyle bir ayar yoksa onu da açıkça söyleyelim.',tkBack:'Tüm görevler',tkCalc:'Her sistemde aranıyor…',tkFound:'sistemde var',tkShow:'Göster',tkShallow:'En az dokunuş:',tkApprox:'en yakın eşleşme',tkMissing:'Bulunamadığı sistem sayısı:',tkMissingNote:'Bu sistemlerde bu adla eşleşen bir şey yok. Üstünü örtmedik — bazılarında gerçekten böyle bir ayar bulunmuyor.',tkNone:'Kütüphanedeki hiçbir sistemde henüz bunun için bir ayar yok.',tkMore:'İnsanların aradığı diğer şeyler',tkHomeTitle:'Ne yapmak istediğinden başla',tkHomeSub:'Menü adlarını atla. İşi seç — ekranı biz bulalım.',tkHomeAll:'Tüm görevleri gör',fmtTap:'{x} öğesine dokun',fmtToggle:'{x} anahtarını değiştir',fmtOpen:'{x} bölümünü aç',locCovT:'Bu cihazdaki {n} etiketin %{p} kadarı {l} diline çevrildi. Kalanı İngilizce kalıyor — çevrilmemiş bir cihaz da tam olarak böyle görünür.',stOS:'işletim sistemi',stVer:'sürüm',stScreens:'ayar ekranı',stLang:'dil',stOffline:'Çevrimdışı',continueLast:'Kaldığın yerden devam et',searchOS:'İşletim sistemi ara…',filAll:'Tümü',filPhone:'Telefon',filTablet:'Tablet',filDesktop:'Masaüstü',typ_phone:'Telefon',typ_tablet:'Tablet',typ_desktop:'Masaüstü',typ_watch:'Saat',filWatch:'Saat',typ_tv:'TV',filTV:'TV',typ_car:'Araç',filCar:'Araç',typ_xr:'XR',filXR:'XR',typ_console:'Konsol',filConsole:'Konsol',latest:'en yeni',open:'Aç',noResults:'Aramanla eşleşen işletim sistemi yok.',featMenus:'Gezilebilir gerçek menüler',featVersions:'Sürüme özgü farklar',featTools:'Yakınlaştır · döndür · otomatik sığdır',featAI:'Dahili OS AI asistanı',featLang:'12 dil · RTL',featOffline:'%100 çevrimdışı tek dosya',Settings:'Ayarlar',Search:'Ara','Find a setting':'Ayar ara',On:'Açık',Off:'Kapalı',Connected:'Bağlı','Not Connected':'Bağlı değil',Photos:'Fotoğraflar',Messages:'Mesajlar',Calendar:'Takvim',Notes:'Notlar',Maps:'Harita',Music:'Müzik',Files:'Dosyalar',Health:'Sağlık',Mail:'Mail',Clock:'Saat','Airplane Mode':'Uçak Modu',Notifications:'Bildirimler',Sounds:'Sesler',Focus:'Odak','Screen Time':'Ekran Süresi',General:'Genel','Control Center':'Denetim Merkezi','Display & Brightness':'Ekran ve Parlaklık',Accessibility:'Erişilebilirlik',Wallpaper:'Duvar Kâğıdı','Privacy & Security':'Gizlilik ve Güvenlik',Contacts:'Kişiler',Reminders:'Anımsatıcılar',About:'Hakkında','Software Update':'Yazılım Güncelleme',Storage:'Depolama',Network:'Ağ',Battery:'Pil',Appearance:'Görünüm',Displays:'Ekranlar',Keyboard:'Klavye',System:'Sistem',Apps:'Uygulamalar',Accounts:'Hesaplar',Gaming:'Oyun',Personalization:'Kişiselleştirme',Display:'Ekran',navSystems:'Sistemler',navHow:'Nasıl çalışır',navFeatures:'Özellikler',navExplore:'Keşfet',tryRandom:'Rastgele dene',systemsTitle:'Bir işletim sistemi seç',howTitle:'Nasıl çalışır',how1t:'Cihazını seç',how1d:'Telefon, tablet, masaüstü, saat, TV, araç, konsol veya XR — toplam 43 sistem.',how2t:'Sürümü belirle',how2d:'Her sürüm kendi menülerini, düzenini ve duvar kâğıdını gösterir.',how3t:'Menülerde gez',how3d:'Ayarlar uygulamasında tıpkı gerçek cihazdaki gibi dolaş.',featTitle:'Neler var',footRights:'Bağımsız bir eğitim projesidir. Apple, Google, Microsoft veya herhangi bir OS üreticisiyle bağlantılı değildir. Tüm ticari markalar sahiplerine aittir.',pickOS:'Bir OS aç',shareTitle:'osimulator’ı paylaş',trending:'Popüler',linkCopied:'Bağlantı panoya kopyalandı',browseAll:'Tüm sistemlere göz at',signIn:'Giriş Yap',signUp:'Üye Ol',createAccount:'Hesap oluştur',account:'Hesap',signOut:'Çıkış yap',welcome:'Hoş geldin',authSubtitle:'Tercihlerini tüm cihazlarında eşitle.',emailLabel:'E-posta',passwordLabel:'Parola',nameLabel:'Ad Soyad',forgotPass:'Parolanı mı unuttun?',resetSent:'E-posta kayıtlıysa sıfırlama bağlantısı yolda.',rememberMe:'Oturumumu açık tut',orContinue:'veya e-posta ile devam et',googleContinue:'Google ile devam et',appleContinue:'Apple ile devam et',authTerms:'Devam ederek Kullanım Şartları ve Gizlilik Politikası’nı kabul edersin.',noAccount:'Hesabın yok mu?',haveAccount:'Zaten hesabın var mı?',toolTheme:'Tema',toolShare:'Paylaş',toolRandom:'Rastgele OS',toolFullscreen:'Tam ekran',toolTop:'Başa dön',toolShortcuts:'Kısayollar',toolsTitle:'Site araçları',tools:'Araçlar',themeToggle:'Açık / Koyu tema',nlTitle:'Gelişmelerden haberdar ol',nlDesc:'Yeni işletim sistemleri, sürümler ve özelliklerden ilk sen haberdar ol. Spam yok, istediğin an çıkabilirsin.',nlPlaceholder:'E-posta adresin',nlButton:'Kayıt ol',nlSuccess:'Kaydın alındı! Katıldığın için teşekkürler.',nlInvalid:'Lütfen geçerli bir e-posta adresi gir.',footProduct:'Ürün',footSystems:'Sistemler',footResources:'Kaynaklar',footFollow:'Takip et',saveChanges:'Değişiklikleri kaydet',cookieText:'Yalnızca tercihlerini hatırlamak için yerel depolama kullanıyoruz — takip çerezi yok.',cookieAccept:'Anladım',shortcutsTitle:'Klavye kısayolları',prefsSaved:'Tercihler kaydedildi',defaultOsLabel:'Açılışta bu OS açılsın',askEach:'Her seferinde sor',recTool:'Kaydet & Oynat',recStart:'Rehber kaydet',recRequiresLogin:'Rehber kaydetmek için giriş yapmalısın.',recBar:'Kaydediliyor',recStepWord:'adım',recSteps:'adım',recFinish:'Bitir',recCancel:'İptal',recEmpty:'Adım eklemek için ayar satırlarına dokun.',guideSaveTitle:'Rehberini kaydet',guideTitleLabel:'Rehber başlığı',guideTitlePh:'örn. eSIM nasıl eklenir',stepNotePh:'Bu adımı açıkla (isteğe bağlı)',saveShare:'Kaydet ve paylaş',guidePrev:'Geri',guideNext:'İleri',guideExit:'Çık',guideStartBtn:'Rehberi başlat',guideDoneTitle:'Rehber tamamlandı!',guideDoneSub:'Anlatımın tamamı bu kadar.',guideReplay:'Tekrar oynat',myGuides:'Rehberlerim',noGuides:'Henüz kayıtlı rehberin yok. Bir OS aç, Kaydet’e dokun ve bir işi anlat.',guideDelete:'Sil',guidePlayBtn:'Oynat',shareGuideTitle:'Bu rehberi paylaş',copyLink:'Bağlantıyı kopyala',embedCode:'Siteye göm',downloadGuide:'İndir',tapHere:'Buraya dokun',toggleHere:'Bunu aç/kapat',openHere:'Bunu aç',recTitleDefault:'Rehberim',guideSaved:'Rehber kaydedildi',guideNavFail:'Bu adım bu sürümde bulunmuyor.',stepLabel:'Adım',ofLabel:'/',guideIntro:'Adım adım takip et. Hesap gerekmez.',recStartedHint:'Şimdi ayarlarda gez — her dokunuş bir adım olur.',guidesNav:'Rehberler',guidesEyebrow:'Rehberler',guidesTitle:'Nasıl yapılır rehberleri',guidesSub:'Her işletim sistemi için net, adım adım yardım — sonra canlı dene.',guidesAll:'Tüm rehberleri gör',guidesBack:'Tüm rehberler',homeNav:'Ana sayfa',tryIn:'Şunda dene:',guideRelated:'İlgili rehberler',guideCta:'Bu OS’u aç ve kendin dene',guideStepsFor:'Adımlar:',guidesCount:'rehber',compareNav:'Karşılaştır',compareEyebrow:'Karşılaştırma',compareTitle:'İşletim sistemlerini karşılaştır',compareSub:'İki sistemin aynı ayarları nasıl ele aldığını yan yana gör.',compareAll:'Tüm karşılaştırmalar',openOs:'Aç',cmpTopic:'Ayar',compareRelated:'Diğer karşılaştırmalar',vsNav:'Yan yana',vsTitle:'Yan yana karşılaştır',vsSub:'İki işletim sistemini aynı anda, canlı olarak keşfet.',vsSwap:'Yerini değiştir',vsOpenBoth:'Yan yana aç',vsFull:'Tam aç',searchSettings:'Tüm ayarlarda ara',searchPh:'Tüm işletim sistemlerinde ayar ara…',searchHint:'43 işletim sistemindeki her ayarda aramak için yaz.',searchNoRes:'Aramanla eşleşen ayar yok.',shareCard:'Paylaşım kartı',cardTitle:'Bu ekranı paylaş',cardDownload:'İndir',cardShare:'Paylaş',cardCopy:'Görseli kopyala',cardCopied:'Görsel panoya kopyalandı',quizNav:'Quiz',quizEyebrow:'Mini oyun',quizTitle:'Bu hangi OS?',quizSub:'Ayarlar ekranından işletim sistemini tahmin et — düzen ve terimler ipucun.',quizScore:'Skor',quizStreak:'Seri',quizBest:'En iyi',quizNext:'Sıradaki soru',quizCorrect:'Doğru!',quizWrong:'Yanlış — cevap',quizPlay:'Oyna',quizStartOver:'Baştan başla',embedNav:'Göm',embedTitle:'osimulator’ı göm',embedSub:'Herhangi bir blog ya da doküman sayfasına canlı, etkileşimli bir OS ekranı ekle.',embedOS:'Sistem',embedVer:'Sürüm',embedCat:'Ekran',embedCatNone:'Ana / Ayarlar',embedTheme:'Tema',embedThemeAuto:'Otomatik',embedThemeLight:'Açık',embedThemeDark:'Koyu',embedSize:'Boyut',embedBare:'Araç çubuğunu gizle',embedPreview:'Canlı önizleme',embedCopyCode:'Kodu kopyala',embedOpen:'Göm',footLove:'osimulator’ı beğendin mi?',starGh:'GitHub’da yıldızla',quizShare:'Bir arkadaşına meydan oku',quizShareText:'osimulator’da “Bu hangi OS?” oynuyorum',verLabel:'Sürüm',deployLabel:'Son güncelleme',heroFeatured:'Öne çıkan sistem',findNav:'Ayar bul',findEyebrow:'Çapraz-OS bulucu',findTitle:'Bu ayar nerede?',findSub:'Bir ayar yaz — 43 işletim sisteminin her birinde tam olarak nerede olduğunu gör.',findPh:'örn. Karanlık Mod, VPN, eSIM, Hareketi Azalt…',findEmpty:'Kütüphanedeki hiçbir sistemde bununla eşleşen ayar yok. Başka bir terim dene.',findFound:'sistemde var',changesNav:'Sürüm farkları',chEyebrow:'Sürüm karşılaştırma',chTitle:'Sürümler arasında ne değişti',chSub:'Bir OS ve iki sürüm seç; hangi Ayarlar bölümlerinin eklendiğini, kaldırıldığını veya yeniden adlandırıldığını gör.',chVs:'—',chNone:'Bu sürümler arasında kütüphanede yapısal Ayar farkı yok.',guideAutoPlay:'Otomatik oynat',guideStepByStep:'Adım adım',guideTaps:'Bu rehberdeki dokunuşlar',guideAuto:'Otomatik',guidePause:'Duraklat',guideMin:'Küçült',guideExpand:'Genişlet',dailyNav:'Günlük',dailyEyebrow:'Günlük görev',dailyTitle:'Bugünün görevi',dailySub:'Ayarı olabildiğince hızlı bul. Serini korumak için her gün gel.',dailyStreak:'Seri',dailyBest:'En iyi',dailyHint:'Hedefe ulaşmak için Ayarlar’da gez — süre ve dokunuşlar sayılıyor.',dailyStart:'Göreve başla',dailyDone:'Bugün tamamlandı — yarın tekrar gel!',dailyPractice:'Tekrar dene',dailyTaps:'dokunuş',dailyGiveUp:'Vazgeç',dailyWin:'Buldun! 🎉',deepLinkCopy:'Bu ekranın bağlantısını kopyala',deepLinkCopied:'Ekran bağlantısı kopyalandı — tam buraya açılır.',tmTitle:'Zaman makinesi',tmAdded:'eklendi',tmRemoved:'kaldırıldı',tmSame:'ekran aynı',gifExport:'GIF',gifTitle:'GIF olarak dışa aktar',gifBuilding:'Animasyonun çiziliyor…',gifReady:'GIF hazır',gifFailed:'GIF oluşturulamadı.',gifTrimmed:'ilk {n} adım',close:'Kapat',printExport:'Yazdır',printTitle:'Yazdırılabilir föy',printNow:'Yazdır / PDF olarak kaydet',printScan:'Etkileşimli rehberi açmak için tarat',printScanScreen:'Bu ekranı simülatörde açmak için tarat',printFoot:'osimulator ile hazırlandı — çevrimdışı işletim sistemi ayar simülatörü',linNav:'Soyağacı',linEyebrow:'Ayar soyağacı',linTitle:'Bir ayarın soyağacı',linSub:'Bir ayar seç; her sistemde nerede olduğunu ve sürümler arasında nasıl yer değiştirdiğini gör.',linSearch:'Ayar ara — Wi‑Fi, Bluetooth, Karanlık Mod…',linNone:'Kütüphanedeki hiçbir sistemde bu adda bir ayar yok.',linSystems:'Bugün nerede duruyor',linAcross:'Sürümler arasında nasıl yer değiştirdi',linInOs:'sistemde var',linShallow:'En yüzeyde:',linDeepest:'En derinde:',linTap1:'dokunuş',linTapN:'dokunuş',linTaps:'Ayarlar’dan itibaren dokunuş',linIntro:'ilk kez',linMoved:'taşındı',linRenamed:'adı değişti',linGone:'kaldırıldı',linAbsent:'bu sürümde yok',linWas:'önceki:',linChanged:'değişti',linStable:'sabit',linStableNote:'Şu sistemlerin yayınlanmış tüm sürümlerinde hiç yer değiştirmedi:',linMovedN:'sistemde değişti',hmNav:'Derinlik',hmEyebrow:'Gömülme derinliği',hmTitle:'Bu ayar ne kadar derinde?',hmSub:'Dokunabildiğiniz, açıp kapatabildiğiniz ya da içine girebildiğiniz her ayar — seçenek satırları hariç — Ayarlar ana ekranından kaç dokunuş uzakta olduğuna göre sayıldı.',hmSystems:'sistem',hmSettings:'ayar',hmTap1:'dokunuş',hmTapN:'dokunuş',hmAvgAll:'ortalama',hmShallowest:'En sığ:',hmDeepestOs:'En derin:',hmAvgTip:'Ayarlar’dan itibaren ortalama dokunuş',hmSortShallow:'Önce en sığ',hmSortDeep:'Önce en derin',hmSortMost:'En çok ayar',hmSortName:'Ada göre',hmCalc:'Bütün ayar ağaçları en uca kadar geziliyor…',hmShowing:'Gösterilen:',hmDeepestOne:'Kütüphanedeki en derindeki tek ayar:',hmIn:'—'},
  es:{fmtTap:'Toca {x}',fmtToggle:'Activa o desactiva {x}',fmtOpen:'Abre {x}',locCovT:'El {p}% de las {n} etiquetas de este dispositivo está traducido al {l}. El resto se queda en inglés, igual que en un dispositivo sin traducir.',Settings:'Ajustes',Search:'Buscar','Find a setting':'Buscar un ajuste',On:'Activado',Off:'Desactivado',Connected:'Conectado','Not Connected':'No conectado',Photos:'Fotos',Messages:'Mensajes',Calendar:'Calendario',Notes:'Notas',Maps:'Mapas',Music:'Música',Files:'Archivos',Health:'Salud',Mail:'Mail',Clock:'Reloj','Airplane Mode':'Modo Avión',Notifications:'Notificaciones',Sounds:'Sonidos',Focus:'Concentración','Screen Time':'Tiempo de uso',General:'General','Control Center':'Centro de control','Display & Brightness':'Pantalla y brillo',Accessibility:'Accesibilidad',Wallpaper:'Fondo de pantalla','Privacy & Security':'Privacidad y seguridad',Contacts:'Contactos',Reminders:'Recordatorios',About:'Información','Software Update':'Actualización de software',Storage:'Almacenamiento',Network:'Red',Battery:'Batería',Appearance:'Apariencia',Displays:'Pantallas',Keyboard:'Teclado',System:'Sistema',Apps:'Aplicaciones',Accounts:'Cuentas',Gaming:'Juegos',Personalization:'Personalización',Display:'Pantalla'},
  fr:{fmtTap:'Touchez {x}',fmtToggle:'Activez ou désactivez {x}',fmtOpen:'Ouvrez {x}',locCovT:'{p} % des {n} libellés de cet appareil sont traduits en {l}. Le reste demeure en anglais, exactement comme sur un appareil non traduit.',Settings:'Réglages',Search:'Rechercher','Find a setting':'Rechercher un réglage',On:'Activé',Off:'Désactivé',Connected:'Connecté','Not Connected':'Non connecté',Photos:'Photos',Messages:'Messages',Calendar:'Calendrier',Notes:'Notes',Maps:'Plans',Music:'Musique',Files:'Fichiers',Health:'Santé',Mail:'Mail',Clock:'Horloge','Airplane Mode':'Mode Avion',Notifications:'Notifications',Sounds:'Sons',Focus:'Concentration','Screen Time':"Temps d'écran",General:'Général','Control Center':'Centre de contrôle','Display & Brightness':'Luminosité et affichage',Accessibility:'Accessibilité',Wallpaper:"Fond d'écran",'Privacy & Security':'Confidentialité et sécurité',Contacts:'Contacts',Reminders:'Rappels',About:'Informations','Software Update':'Mise à jour logicielle',Storage:'Stockage',Network:'Réseau',Battery:'Batterie',Appearance:'Apparence',Displays:'Moniteurs',Keyboard:'Clavier',System:'Système',Apps:'Applications',Accounts:'Comptes',Gaming:'Jeux',Personalization:'Personnalisation',Display:'Affichage'},
  de:{fmtTap:'Auf {x} tippen',fmtToggle:'{x} ein- oder ausschalten',fmtOpen:'{x} öffnen',locCovT:'{p} % der {n} Beschriftungen auf diesem Gerät sind auf {l} übersetzt. Der Rest bleibt englisch — genau so, wie es ein nicht übersetztes Gerät zeigt.',Settings:'Einstellungen',Search:'Suchen','Find a setting':'Einstellung suchen',On:'Ein',Off:'Aus',Connected:'Verbunden','Not Connected':'Nicht verbunden',Photos:'Fotos',Messages:'Nachrichten',Calendar:'Kalender',Notes:'Notizen',Maps:'Karten',Music:'Musik',Files:'Dateien',Health:'Health',Mail:'Mail',Clock:'Uhr','Airplane Mode':'Flugmodus',Notifications:'Mitteilungen',Sounds:'Töne',Focus:'Fokus','Screen Time':'Bildschirmzeit',General:'Allgemein','Control Center':'Kontrollzentrum','Display & Brightness':'Anzeige & Helligkeit',Accessibility:'Bedienungshilfen',Wallpaper:'Hintergrundbild','Privacy & Security':'Datenschutz & Sicherheit',Contacts:'Kontakte',Reminders:'Erinnerungen',About:'Info','Software Update':'Softwareupdate',Storage:'Speicher',Network:'Netzwerk',Battery:'Batterie',Appearance:'Darstellung',Displays:'Displays',Keyboard:'Tastatur',System:'System',Apps:'Apps',Accounts:'Konten',Gaming:'Spiele',Personalization:'Personalisierung',Display:'Anzeige'},
@@ -5181,12 +5199,218 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
   return box;
  }
 
- const el=h=>{const t=document.createElement('template');t.innerHTML=h.trim();return t.content.firstElementChild;};
+ /* Every node in the app is born here, which makes this the one place worth
+    paying for the sweep: an icon with no role is decoration, and decoration
+    that announces itself is just noise between the words that matter. */
+ const el=h=>{const t=document.createElement('template');t.innerHTML=h.trim();
+  const n=t.content.firstElementChild;
+  if(n){const svgs=n.querySelectorAll?n.querySelectorAll('svg:not([role]):not([aria-hidden]):not([aria-label])'):[];
+   for(let i=0;i<svgs.length;i++){svgs[i].setAttribute('aria-hidden','true');svgs[i].setAttribute('focusable','false');}
+   if(n.tagName==='svg'&&!n.getAttribute('role')&&!n.getAttribute('aria-hidden')){n.setAttribute('aria-hidden','true');n.setAttribute('focusable','false');}}
+  return n;};
  const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
  const icon=(n,bg)=>`<span class="ic" style="background:${bg||'#8e8e93'}">${n&&/^(data:|https?:|blob:)/.test(n)?`<img src="${esc(n)}" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:inherit">`:`<svg viewBox="0 0 24 24" fill="#fff">${I[n]||''}</svg>`}</span>`;
  const lblHTML=r=>r&&r.sub?`<span class="row-txt"><span class="row-label">${esc(dt(r.label))}</span><span class="row-sub">${esc(dt(r.sub))}</span></span>`:`<span class="row-label">${esc(dt(r.label))}</span>`;
- const chev=`<svg class="chev" viewBox="0 0 24 24">${I.chevron}</svg>`;
+ const chev=`<svg class="chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false">${I.chevron}</svg>`;
  const clock=()=>{const d=new Date();const h=d.getHours(),m=d.getMinutes();return (h<10?'0'+h:h)+':'+(m<10?'0'+m:m);};
+
+ /* ===================== ACCESSIBILITY =====================
+    Everything below exists because the simulator is, structurally, a pile of
+    styled <div>s pretending to be a phone. That works fine for a mouse and it
+    works badly for everything else. The rules here are deliberately not behind
+    a feature flag: an admin can turn off the heat map, but nobody gets to turn
+    off the keyboard.
+
+    Four things are being repaid:
+      1. focus you can see, and a way past the navigation
+      2. a live region, so work that happens in the background is announced
+         instead of silently finishing
+      3. real roles and state on the controls that only looked like controls
+      4. dialogs that keep focus inside them and hand it back when they close */
+
+ const A11Y_FOCUS='a,button,input,select,textarea,summary,[tabindex]:not([tabindex="-1"]),[role="switch"]';
+ /* One region for the whole app. Screen readers only pick up text that changes
+    *after* the region is in the document, so it is created once, early, and
+    never re-created. Two alternating nodes because repeating the same string
+    into the same node is a no-op in several readers. */
+ let A11Y_LIVE=null,A11Y_SLOT=0,A11Y_ID=0,A11Y_SEQ=0;
+ function a11yLiveNode(){
+  if(A11Y_LIVE&&A11Y_LIVE.parentNode)return A11Y_LIVE;
+  A11Y_LIVE=el('<div class="a11y-sr" aria-live="polite" aria-atomic="true"><span></span><span></span></div>');
+  document.body.appendChild(A11Y_LIVE);
+  return A11Y_LIVE;
+ }
+ /* Say something once. Politely — never interrupt, the visitor is reading. */
+ function announce(msg){
+  if(!msg)return;
+  try{
+   const spans=a11yLiveNode().querySelectorAll('span');
+   spans[A11Y_SLOT^1].textContent='';
+   spans[A11Y_SLOT].textContent=String(msg);
+   A11Y_SLOT^=1;A11Y_SEQ++;
+  }catch(e){}
+ }
+ /* The content region changes with the route, so the skip target is found at
+    the moment it is used rather than pinned to an id that may not exist. */
+ function a11yMain(){
+  const app=document.getElementById('app');
+  if(!app)return null;
+  const kids=[...app.children].filter(n=>!/site-nav|nav|header/i.test(n.className||''));
+  return kids[0]||app;
+ }
+ function a11ySkipTo(){
+  const m=a11yMain();
+  if(!m)return;
+  m.setAttribute('tabindex','-1');
+  try{m.focus({preventScroll:false});}catch(e){m.focus();}
+  try{m.scrollIntoView({block:'start',behavior:'auto'});}catch(e){}
+ }
+
+ function a11yFocusables(root){
+  return [...root.querySelectorAll(A11Y_FOCUS)].filter(n=>{
+   if(n.disabled||n.getAttribute('aria-hidden')==='true')return false;
+   const r=n.getBoundingClientRect();
+   return !!(r.width||r.height||n===document.activeElement);
+  });
+ }
+ /* A dialog that lets Tab wander off behind it is not a dialog. Tab and
+    Shift+Tab wrap inside; Escape is already handled globally by closePanels. */
+ function a11yTrap(node){
+  node.addEventListener('keydown',e=>{
+   if(e.key!=='Tab')return;
+   const f=a11yFocusables(node);
+   if(!f.length){e.preventDefault();return;}
+   const first=f[0],last=f[f.length-1],a=document.activeElement;
+   if(e.shiftKey&&(a===first||!node.contains(a))){e.preventDefault();last.focus();}
+   else if(!e.shiftKey&&(a===last||!node.contains(a))){e.preventDefault();first.focus();}
+  });
+ }
+ /* Whatever had focus when a panel opened gets it back when the panel closes,
+    so a keyboard visitor is not dumped at the top of the document. */
+ let A11Y_RETURN=null;
+ function a11yOvl(o){
+  if(!o||o.__a11y)return;o.__a11y=1;
+  /* The dialog box itself, not the dimmed backdrop it floats on — the
+     backdrop covers the page and would make aria-modal a lie. */
+  const sheet=o.querySelector('.auth-modal,.sheet,.psheet,.gs-modal,.ps-card,.adm-modal,.modal')||o;
+  if(sheet!==o||o.querySelector('.sheet-hd')){
+   if(!sheet.getAttribute('role'))sheet.setAttribute('role','dialog');
+   sheet.setAttribute('aria-modal','true');
+   const h=sheet.querySelector('h1,h2,h3,h4,.auth-h,.sheet-hd');
+   if(h&&!sheet.getAttribute('aria-label')&&!sheet.getAttribute('aria-labelledby')){
+    if(!h.id)h.id='a11y-dlg-'+(++A11Y_ID);
+    sheet.setAttribute('aria-labelledby',h.id);
+   }
+  }
+  A11Y_RETURN=document.activeElement;
+  a11yTrap(sheet);
+  a11yFields(o);
+  setTimeout(()=>{
+   if(!o.parentNode)return;
+   const f=a11yFocusables(sheet);
+   const target=sheet.querySelector('.sheet-x,.auth-x,.ps-x,.gs-x,[data-close]')||f[0];
+   if(target)try{target.focus();}catch(e){}
+  },30);
+ }
+ function a11yRestore(){
+  const r=A11Y_RETURN;A11Y_RETURN=null;
+  if(r&&r.isConnected&&typeof r.focus==='function')try{r.focus();}catch(e){}
+ }
+ /* A <label> that is not tied to its control is just text sitting nearby. The
+    markup in the panels puts the label immediately before the field, so the
+    pairing is unambiguous — we only ever attach a name where none exists. */
+ function a11yFields(root){
+  if(!root||!root.querySelectorAll)return;
+  root.querySelectorAll('label').forEach(lb=>{
+   if(lb.getAttribute('for')||lb.querySelector('input,select,textarea'))return;
+   let ctl=lb.nextElementSibling;
+   if(ctl&&!/^(INPUT|SELECT|TEXTAREA)$/.test(ctl.tagName))ctl=ctl.querySelector?ctl.querySelector('input,select,textarea'):null;
+   if(!ctl)return;
+   if(ctl.getAttribute('aria-label')||ctl.getAttribute('aria-labelledby'))return;
+   if(!ctl.id)ctl.id='a11y-f-'+(++A11Y_ID);
+   lb.setAttribute('for',ctl.id);
+  });
+  root.querySelectorAll('input,select,textarea').forEach(ctl=>{
+   if(ctl.id||ctl.getAttribute('aria-label')||ctl.getAttribute('aria-labelledby'))return;
+   const ph=ctl.getAttribute('placeholder');
+   if(ph)ctl.setAttribute('aria-label',ph);
+  });
+ }
+ /* Marks the nav button for the page you are actually on. */
+ function a11yCurrent(nav,view){
+  if(!nav)return;
+  const MAP={select:'[data-ghome]',guides:'[data-gall]',guide:'[data-gall]',compare:'[data-call]',
+   compareDetail:'[data-call]',vs:'[data-vsl]',find:'[data-findl]',changes:'[data-chl]',
+   tasks:'[data-tkl]',lineage:'[data-linl]',depth:'[data-dpl]',daily:'[data-dailyl]',quiz:'[data-quizl]'};
+  nav.querySelectorAll('.nav-link[aria-current]').forEach(b=>b.removeAttribute('aria-current'));
+  const sel=MAP[view];
+  if(!sel)return;
+  const b=nav.querySelector('.nav-link'+sel);
+  if(b)b.setAttribute('aria-current','page');
+ }
+ /* Turns a group of buttons into a set whose pressed state is readable. */
+ function a11yPressed(scope,sel,isOn){
+  if(!scope)return;
+  scope.querySelectorAll(sel).forEach(b=>b.setAttribute('aria-pressed',isOn(b)?'true':'false'));
+ }
+ /* el() hides decorative SVGs as it builds them, but the desktop shells — the
+    Mac menu bar, the Windows taskbar, the tvOS shelf — are written as one big
+    innerHTML string and never pass through it. Rather than chase twenty
+    template literals, sweep the finished screen once: an <svg> that carries no
+    role and no label of its own is decoration by definition, and every one of
+    these sits inside a button that already has a title or a visible caption. */
+ function a11ySvg(root){
+  if(!root||!root.querySelectorAll)return;
+  root.querySelectorAll('svg').forEach(s=>{
+   if(s.getAttribute('aria-hidden')||s.getAttribute('role')||s.getAttribute('aria-label'))return;
+   s.setAttribute('aria-hidden','true');s.setAttribute('focusable','false');
+  });
+ }
+
+ function a11yInit(){
+  if(a11yInit.done)return;a11yInit.done=1;
+  a11yLiveNode();
+  /* Skip link: invisible until it is focused, which is the first thing that
+     happens when a keyboard visitor lands on the page. */
+  const skip=el('<button class="a11y-skip" type="button"></button>');
+  skip.textContent=t('a11ySkip');
+  /* Re-read the label at the moment it is announced: the UI language can have
+     changed since the button was built, and this is cheaper than listening. */
+  skip.addEventListener('focus',()=>{skip.textContent=t('a11ySkip');});
+  skip.addEventListener('click',a11ySkipTo);
+  document.body.insertBefore(skip,document.body.firstChild);
+  /* Anything wearing role="switch" answers to Space and Enter, the way a real
+     checkbox does. One listener, so every switch we ever add is covered. */
+  document.addEventListener('keydown',e=>{
+   if(e.key!==' '&&e.key!=='Enter'&&e.key!=='Spacebar')return;
+   const s=e.target&&e.target.closest&&e.target.closest('[role="switch"]');
+   if(!s)return;
+   e.preventDefault();
+   s.click();
+  });
+  /* Overlays are appended straight to <body>, so watching one level deep is
+     enough — and cheap enough not to notice on a device render. */
+  try{
+   new MutationObserver(muts=>{
+    for(const m of muts){
+     for(const n of m.addedNodes)
+      if(n.nodeType===1&&n.classList&&(n.classList.contains('ovl')||n.classList.contains('psheet')))a11yOvl(n);
+     for(const n of m.removedNodes)
+      if(n.nodeType===1&&n.classList&&(n.classList.contains('ovl')||n.classList.contains('psheet')))a11yRestore();
+    }
+   }).observe(document.body,{childList:true});
+  }catch(e){}
+  /* Late-written panel bodies (innerHTML after the sheet is already open) are
+     caught here rather than by a subtree observer we would pay for on every
+     single row the simulator draws. */
+  document.addEventListener('focusin',e=>{
+   const n=e.target;
+   if(!n||!/^(INPUT|SELECT|TEXTAREA)$/.test(n.tagName||''))return;
+   if(n.id||n.getAttribute('aria-label')||n.getAttribute('aria-labelledby'))return;
+   const fld=n.closest('.fld,.fld2,.adm-fld,.nl-form');
+   if(fld)a11yFields(fld);
+  },true);
+ }
 
  /* ---- header OS picker (quick-launch any OS from the nav) ---- */
  function buildOsPicker(list){
@@ -5231,11 +5455,11 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
   const dots=[...dotsEl.querySelectorAll('.hs-dot')];
   function render(){
    const p=feats[i];card.style.setProperty('--accent',p.accent||'#0a84ff');
-   card.innerHTML=`<div class="hs-top"><span class="hs-logo" style="background:${p.logoBg}" role="button" tabindex="0"><svg viewBox="0 0 24 24" fill="#fff">${LOGOS[p.logo]||''}</svg></span><span class="hs-type">${esc(typeOf(p.frame))}</span></div>
+   card.innerHTML=`<div class="hs-top"><span class="hs-logo" style="background:${p.logoBg}" role="button" tabindex="0" aria-label="${esc(t('open')+' '+p.name)}"><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true" focusable="false">${LOGOS[p.logo]||''}</svg></span><span class="hs-type">${esc(typeOf(p.frame))}</span></div>
      <div class="hs-name">${esc(p.name)}</div>
      <div class="hs-tag">${esc(p.tagline||'')}</div>
      <div class="hs-vers">${p.versions.slice(0,4).map(v=>`<button class="hs-ver" data-ver="${esc(v)}">${esc(v)}</button>`).join('')}</div>
-     <button class="hs-launch" data-launch><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:currentColor"><path d="M8 5v14l11-7z"/></svg>${esc(t('open'))} ${esc(p.name)}</button>`;
+     <button class="hs-launch" data-launch><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:currentColor" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"/></svg>${esc(t('open'))} ${esc(p.name)}</button>`;
    card.classList.remove('in');void card.offsetWidth;card.classList.add('in');
    dots.forEach((d,k)=>d.classList.toggle('on',k===i));
    const launch=()=>boot(p.id,p.versions[0]);
@@ -5414,7 +5638,7 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
   w.addEventListener('click',()=>{document.querySelectorAll('.os-picker.open').forEach(o=>o.classList.remove('open'));document.querySelectorAll('.user-wrap.open').forEach(o=>o.classList.remove('open'));});
  }
 
- function boot(pid,v){try{store.set('lastOpened',{pid,ver:v});track('launch',pid);}catch(e){}state.platform=PLATFORMS.find(p=>p.id===pid);state.version=v;state.view=(['mac','win','linux','chromeos','winclassic','macclassic'].includes(state.platform.frame))?'desktop':'home';state.selectedId=null;state.stack=[];state.zoom=1;state.rotated=false;state.prefs={};state.rx={};state.filter='';state.winOpen=false;state.startOpen=false;state.deviceLang=state.lang;try{snsrBootNext();}catch(e){}renderDevice();syncHash();}
+ function boot(pid,v){try{store.set('lastOpened',{pid,ver:v});track('launch',pid);}catch(e){}state.platform=PLATFORMS.find(p=>p.id===pid);state.version=v;state.view=(['mac','win','linux','chromeos','winclassic','macclassic'].includes(state.platform.frame))?'desktop':'home';state.selectedId=null;state.stack=[];state.zoom=1;state.rotated=false;state.prefs={};state.rx={};state.filter='';state.winOpen=false;state.startOpen=false;state.deviceLang=state.lang;try{snsrBootNext();}catch(e){}renderDevice();syncHash();try{announce(state.platform.name+' '+v);}catch(e){}}
  /* ---------- version-aware layer ---------- */
  function verMajor(){const m=(state.version||'').match(/\d+/);return m?+m[0]:0;}
  const WALLS={
@@ -5588,7 +5812,7 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
   else if(state.view==='home')renderHome(screen);else renderSettings(screen);
   finalizeZoom();
  }
- function finalizeZoom(){if(state.autoFit)requestAnimationFrame(fit);else applyZoom();applyReactive();try{tmMount();}catch(e){}try{const st=document.querySelector('.stage');if(st){snsrFont(st);snsrShadow(st);}snsrBoot();}catch(e){}}
+ function finalizeZoom(){if(state.autoFit)requestAnimationFrame(fit);else applyZoom();applyReactive();try{tmMount();}catch(e){}try{const st=document.querySelector('.stage');if(st){snsrFont(st);snsrShadow(st);}snsrBoot();}catch(e){}try{a11ySvg(document.querySelector('.stage'));}catch(e){}}
 
  /* ---- phone (iOS / Android) ---- */
  function renderPhone(screen){
@@ -5926,7 +6150,7 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
   const dock=[['Finder','files','#3aa0ff'],['Safari','safari','#0a84ff'],['Mail','mail','#0a84ff'],['iTunes','music','#fb5c74'],['iPhoto','wallpaper','linear-gradient(135deg,#f6d365,#fda085)'],['System Preferences','gear','#8e8e93']];
   screen.innerHTML=`<div class="macx-desktop" style="background:${wallpaperFor(state.platform.id)}">
     <div class="macx-menubar"><span class="macx-apple"><svg viewBox="0 0 24 24">${LOGOS.apple}</svg></span><span class="macx-app">${state.winOpen?'System Preferences':'Finder'}</span><span class="macx-menus"><span>File</span><span>Edit</span><span>View</span><span>Go</span><span>Window</span><span>Help</span></span><span class="macx-right"><svg viewBox="0 0 24 24">${I.battery}</svg><svg viewBox="0 0 24 24">${I.wifi}</svg><span>${new Date().toLocaleDateString(dLocale(),{weekday:'short'})} ${clock()}</span></span></div>
-    <div class="macx-dock">${dock.map(a=>{const set=a[0]==='System Preferences';return `<button class="macx-dapp ${set&&state.winOpen?'run':''}" data-macx="${esc(a[0])}" style="background:${set?'linear-gradient(160deg,#e6e6ea,#b8b8c0)':a[2]}">${set?appleSettingsSVG():`<svg viewBox="0 0 24 24" fill="#fff">${I[a[1]]||''}</svg>`}</button>`;}).join('')}</div>
+    <div class="macx-dock">${dock.map(a=>{const set=a[0]==='System Preferences';return `<button class="macx-dapp ${set&&state.winOpen?'run':''}" data-macx="${esc(a[0])}" title="${esc(a[0])}" style="background:${set?'linear-gradient(160deg,#e6e6ea,#b8b8c0)':a[2]}">${set?appleSettingsSVG():`<svg viewBox="0 0 24 24" fill="#fff">${I[a[1]]||''}</svg>`}</button>`;}).join('')}</div>
   </div>`;
   const desk=screen.querySelector('.macx-desktop');
   desk.querySelectorAll('[data-macx]').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.macx==='System Preferences'){state.winOpen=true;state.selectedId=null;state.stack=[];renderDevice();}else bounce(b);}));
@@ -5939,7 +6163,10 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
   }
  }
 
- function statusBar(){return `<div class="statusbar"><div class="sb-left">${clock()}</div><div class="sb-right"><svg viewBox="0 0 24 24" class="sb-ic">${I.cellular}</svg><svg viewBox="0 0 24 24" class="sb-ic">${I.wifi}</svg><span class="sb-batt">78%</span><svg viewBox="0 0 26 24" class="sb-ic batt">${I.battery}</svg></div></div>`;}
+ /* The status bar is stage dressing: the clock, the bars and the 78% are the
+    same sample state every visitor sees, not this device's. Reading it out
+    would be inventing facts, so the whole strip stays out of the tree. */
+ function statusBar(){return `<div class="statusbar" aria-hidden="true"><div class="sb-left">${clock()}</div><div class="sb-right"><svg viewBox="0 0 24 24" class="sb-ic" aria-hidden="true" focusable="false">${I.cellular}</svg><svg viewBox="0 0 24 24" class="sb-ic" aria-hidden="true" focusable="false">${I.wifi}</svg><span class="sb-batt">78%</span><svg viewBox="0 0 26 24" class="sb-ic batt" aria-hidden="true" focusable="false">${I.battery}</svg></div></div>`;}
 
  /* ---- home ---- */
  function renderHome(screen){
@@ -6041,7 +6268,7 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
   SB.filter(i=>i.kind!=='account').forEach(item=>{
    if(item.group!==last){list.appendChild(el(`<div class="side-gap"></div>`));last=item.group;}
    let right='';
-   if(item.toggle!==undefined)right=tglHTML(prefGet('sidebar::'+item.id,item.toggle));
+   if(item.toggle!==undefined)right=tglHTML(prefGet('sidebar::'+item.id,item.toggle),dt(item.title||item.label||''));
    else right=`${item.value?`<span class="row-val">${esc(dt(item.value))}</span>`:''}${item.detail?chev:''}`;
    const lbl=item.sub?`<span class="row-txt"><span class="row-label">${esc(dt(item.title))}</span><span class="row-sub">${esc(dt(item.sub))}</span></span>`:`<span class="row-label">${esc(dt(item.title))}</span>`;
    const row=el(`<button class="side-row" data-id="${item.id}" data-label="${esc(dt(item.title))}"${item.search?` data-search="${esc(dt(item.search))}"`:''}>${icon(item.icon,item.iconBg)}${lbl}<span class="row-right">${right}</span></button>`);
@@ -6164,14 +6391,16 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
   if(sec.footer)w.appendChild(el(`<div class="sec-footer">${esc(sec.footer)}</div>`));
   return w;
  }
- const tglHTML=on=>`<span class="tgl ${on?'on':''}"><span class="knob"></span></span>`;
+ /* A switch the keyboard can reach and the reader can name. The label has to
+    be handed in because the text that names it is a sibling, not a parent. */
+ const tglHTML=(on,label)=>`<span class="tgl ${on?'on':''}" role="switch" tabindex="0" aria-checked="${on?'true':'false'}"${label?` aria-label="${esc(label)}"`:''}><span class="knob"></span></span>`;
  function renderRow(r,dTitle,secHeader){
   let node;const pk=dTitle+'::'+(r.label||r.text||'');
   switch(r.type){
    case 'toggle':{const on=prefGet(pk,r.value);
-    node=el(`<div class="row"><div class="row-l">${r.icon?icon(r.icon,r.iconBg):''}${lblHTML(r)}</div><div class="row-r">${tglHTML(on)}</div></div>`);
+    node=el(`<div class="row"><div class="row-l">${r.icon?icon(r.icon,r.iconBg):''}${lblHTML(r)}</div><div class="row-r">${tglHTML(on,dt(r.label))}</div></div>`);
     reactiveToggle(dt(r.label),on);
-    node.querySelector('.tgl').addEventListener('click',function(){this.classList.toggle('on');const v=this.classList.contains('on');prefSet(pk,v);reactiveToggle(dt(r.label),v);});break;}
+    node.querySelector('.tgl').addEventListener('click',function(){this.classList.toggle('on');const v=this.classList.contains('on');this.setAttribute('aria-checked',v?'true':'false');prefSet(pk,v);reactiveToggle(dt(r.label),v);});break;}
    case 'link':{const badge=r.badge==='connected'?`<span class="tick">✓ ${esc(dt('Connected'))}</span>`:(r.badge==='dot'?'<span class="reddot">1</span>':'');
     if(r.detail){
      node=el(`<button class="row tappable"><div class="row-l">${r.icon?icon(r.icon,r.iconBg):''}${lblHTML(r)}</div><div class="row-r">${badge}${r.value?`<span class="row-val">${esc(dt(r.value))}</span>`:''}${chev}</div></button>`);
@@ -6183,9 +6412,9 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
     }break;}
    case 'value':node=el(`<div class="row"><div class="row-l">${r.icon?icon(r.icon,r.iconBg):''}${lblHTML(r)}</div><div class="row-r"><span class="row-val">${esc(dt(r.value))}</span></div></div>`);break;
    case 'check':{const sel=prefGet(pk,r.selected);
-    node=el(`<button class="row tappable check-row ${sel?'sel':''}">${r.swatch?`<span class="swatch ${r.swatch}"></span>`:''}<span class="row-label">${esc(dt(r.label))}</span><span class="row-r"><svg class="tickmark" viewBox="0 0 24 24"><path d="M5 12l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>`);
-    node.addEventListener('click',function(){const p=this.parentElement;p.querySelectorAll('.check-row').forEach(c=>{c.classList.remove('sel');prefSet(dTitle+'::'+c.querySelector('.row-label').textContent,false);});this.classList.add('sel');prefSet(pk,true);});break;}
-   case 'slider':{node=el(`<div class="row slider-row"><svg class="sl-ic" viewBox="0 0 24 24">${I[r.minGlyph]||''}</svg><input type="range" min="0" max="100" value="${r.value}" class="slider"><svg class="sl-ic big" viewBox="0 0 24 24">${I[r.maxGlyph]||''}</svg></div>`);
+    node=el(`<button class="row tappable check-row ${sel?'sel':''}" aria-pressed="${sel?'true':'false'}">${r.swatch?`<span class="swatch ${r.swatch}"></span>`:''}<span class="row-label">${esc(dt(r.label))}</span><span class="row-r"><svg class="tickmark" viewBox="0 0 24 24"><path d="M5 12l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>`);
+    node.addEventListener('click',function(){const p=this.parentElement;p.querySelectorAll('.check-row').forEach(c=>{c.classList.remove('sel');c.setAttribute('aria-pressed','false');prefSet(dTitle+'::'+c.querySelector('.row-label').textContent,false);});this.classList.add('sel');this.setAttribute('aria-pressed','true');prefSet(pk,true);});break;}
+   case 'slider':{node=el(`<div class="row slider-row"><svg class="sl-ic" viewBox="0 0 24 24">${I[r.minGlyph]||''}</svg><input type="range" min="0" max="100" value="${r.value}" class="slider" aria-label="${esc(dt(secHeader||'')||dTitle||'')}"><svg class="sl-ic big" viewBox="0 0 24 24">${I[r.maxGlyph]||''}</svg></div>`);
     const _sh=(dt(secHeader||'')||'').toLowerCase();
     const _isBri=r.minGlyph==='display'||r.maxGlyph==='display'||_sh.indexOf('brightness')>=0;
     if(_isBri){const _in=node.querySelector('input');_in.addEventListener('input',()=>{state.rx=state.rx||{};state.rx.brightness=+(0.4+(_in.value/100)*0.6).toFixed(2);applyReactive();});}
@@ -6205,7 +6434,7 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
  let USER=store.get('user',null);
  /* build/version stamp. version is bumped per release; deploy time is detected
     automatically from the served file (falls back to this baked time). */
- const BUILD={version:'1.33.0',time:'2026-07-31T12:20:00Z'};
+ const BUILD={version:'1.34.0',time:'2026-07-31T15:40:00Z'};
  function buildTimeStr(){try{return new Date(BUILD.time).toLocaleString(state.lang||'en',{dateStyle:'medium',timeStyle:'short'});}catch(e){return (BUILD.time||'').replace('T',' ').replace('Z',' UTC');}}
  function updateFooterVer(){document.querySelectorAll('.foot-ver').forEach(fv=>{fv.innerHTML=`<span class="fv-badge">v${esc(BUILD.version)}</span><span>${esc(t('deployLabel'))}: ${esc(buildTimeStr())}</span>`;});}
  /* auto deploy time: use the served file's Last-Modified (document.lastModified).
@@ -6300,7 +6529,7 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
  const UISTR={en:{feedback:'Feedback',signin:'Sign in',account:'Account',tools:'Tools',ask:'Ask about any OS…',send:'Send',magic:'Magic',magicTo:'Teleported to'},tr:{feedback:'Geri Bildirim',signin:'Giriş yap',account:'Hesap',tools:'Araçlar',ask:'Herhangi bir OS hakkında sor…',send:'Gönder',magic:'Sihir',magicTo:'Işınlandın:'},es:{feedback:'Comentarios',signin:'Iniciar sesión',account:'Cuenta',ask:'Pregunta sobre cualquier SO…',send:'Enviar',magic:'Magia',magicTo:'Teletransportado a'},de:{feedback:'Feedback',signin:'Anmelden',account:'Konto',ask:'Frag zu jedem OS…',send:'Senden',magic:'Magie',magicTo:'Teleportiert zu'},fr:{feedback:'Commentaires',signin:'Se connecter',account:'Compte',ask:'Posez une question sur un OS…',send:'Envoyer',magic:'Magie',magicTo:'Téléporté vers'}};
  function txt(k){const m=UISTR[state.lang]||UISTR.en;return m[k]||UISTR.en[k]||k;}
 
- function closePanels(){document.querySelectorAll('.ovl').forEach(o=>o.remove());}
+ function closePanels(){const had=document.querySelectorAll('.ovl');had.forEach(o=>o.remove());if(had.length)a11yRestore();}
  function openMobileMenu(links,reRender){
   closePanels();
   const o=el('<div class="ovl show"><div class="ovl-bg"></div></div>');document.body.appendChild(o);
@@ -6316,7 +6545,11 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
   const sh=el(`<button class="mnav-item alt"><svg viewBox="0 0 24 24">${SHARE_SVG}</svg><span>${esc(t('shareTitle'))}</span></button>`);sh.addEventListener('click',()=>{closePanels();shareSite();});foot.appendChild(sh);
   const lg=langSelect(()=>{closePanels();if(reRender)reRender();});foot.appendChild(lg);
  }
- function navBurger(getLinks,reRender){const b=el(`<button class="nav-burger" aria-label="Menu"><svg viewBox="0 0 24 24"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg></button>`);b.addEventListener('click',e=>{e.stopPropagation();openMobileMenu(getLinks(),reRender);});return b;}
+ function navBurger(getLinks,reRender){const b=el(`<button class="nav-burger" aria-label="${esc(t('menu'))}" aria-expanded="false" aria-haspopup="dialog"><svg viewBox="0 0 24 24"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg></button>`);
+  b.addEventListener('click',e=>{e.stopPropagation();b.setAttribute('aria-expanded','true');openMobileMenu(getLinks(),reRender);
+   /* the sheet is removed by closePanels, whoever called it */
+   const w=setInterval(()=>{if(!document.querySelector('.ovl .mnav')){b.setAttribute('aria-expanded','false');clearInterval(w);}},250);});
+  return b;}
  function openPanel(kind){closePanels();const o=el(`<div class="ovl show"><div class="ovl-bg"></div></div>`);document.body.appendChild(o);o.querySelector('.ovl-bg').addEventListener('click',closePanels);
   let sheet;
   if(kind==='ai')sheet=aiSheet();else if(kind==='feedback')sheet=feedbackSheet();else if(kind==='tools')sheet=toolsSheet();else sheet=accountSheet();
@@ -6459,7 +6692,7 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
  };
  /* theme */
  function currentTheme(){return document.body.classList.contains('light')?'light':'dark';}
- function updateThemeIcons(){const light=currentTheme()==='light';const ico='<svg viewBox="0 0 24 24">'+(light?ICN2.moon:ICN2.sun)+'</svg>';document.querySelectorAll('.nav-theme').forEach(b=>b.innerHTML=ico);}
+ function updateThemeIcons(){const light=currentTheme()==='light';const ico='<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">'+(light?ICN2.moon:ICN2.sun)+'</svg>';document.querySelectorAll('.nav-theme').forEach(b=>b.innerHTML=ico);}
  function applyTheme(mode,save){document.body.classList.toggle('light',mode==='light');if(save!==false)store.set('theme',mode);const m=document.querySelector('meta[name=theme-color]');if(m)m.setAttribute('content',mode==='light'?'#e7eaf2':'#0a84ff');updateThemeIcons();}
  function toggleTheme(){applyTheme(currentTheme()==='light'?'dark':'light');}
  function initTheme(){let mode=store.get('theme',null);if(mode!=='light'&&mode!=='dark')mode='dark';applyTheme(mode,false);}
@@ -7194,6 +7427,13 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
   nav.querySelectorAll('[data-dailyl]').forEach(b=>b.addEventListener('click',()=>renderDailyPage()));
   nav.querySelectorAll('[data-quizl]').forEach(b=>b.addEventListener('click',renderQuizPage));
   setTimeout(updateThemeIcons,0);
+  /* The heading does not exist yet — the nav is built before the page body —
+     so both the current-page mark and the announcement wait one frame. */
+  /* The page title is the fallback announcement. If the page has already said
+     something more specific in the meantime — a long calculation finishing,
+     say — do not talk over it with a heading the visitor can read anyway. */
+  const seq=A11Y_SEQ;
+  setTimeout(()=>{try{a11yCurrent(nav,state.view);if(A11Y_SEQ!==seq)return;const h=document.querySelector('.guides-wrap h1');if(h)announce(h.textContent.trim());}catch(e){}},60);
   return nav;
  }
  function renderGuidesPage(){
@@ -8555,12 +8795,14 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
                  total:(a,b)=>b.total-a.total||a.name.localeCompare(b.name),
                  name:(a,b)=>a.name.localeCompare(b.name)};
   const resort=()=>{DATA.slice().sort(sorters[sortBy]||sorters.avg).forEach(r=>{if(nodes[r.os])rows.appendChild(nodes[r.os]);});};
+  const sortOn=()=>a11yPressed(wrap,'[data-sort]',o=>o.classList.contains('on'));
   wrap.querySelectorAll('[data-sort]').forEach(b=>b.addEventListener('click',()=>{
    sortBy=b.dataset.sort;
    wrap.querySelectorAll('[data-sort]').forEach(o=>o.classList.toggle('on',o===b));
-   resort();}));
+   sortOn();resort();}));
+  sortOn();
   hmCompute(r=>{done++;paint(r);bar.style.width=Math.round(done/total*100)+'%';},all=>{
-   DATA=all;prog.hidden=true;resort();
+   DATA=all;prog.hidden=true;resort();announce(t('a11yCalcDone'));
    const rows2=all.slice().sort((a,b)=>a.avg-b.avg);
    const tot=all.reduce((s,r)=>s+r.total,0);
    const avg=all.reduce((s,r)=>s+r.avg*r.total,0)/(tot||1);
@@ -8804,7 +9046,7 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
    return n;
   };
   tkCompute(task,()=>{done++;bar.style.width=Math.round(done/total*100)+'%';},all=>{
-   prog.hidden=true;
+   prog.hidden=true;announce(t('a11yCalcDone'));
    const found=all.filter(r=>r.hit).sort((a,b)=>tkTaps(a.hit)-tkTaps(b.hit)||a.name.localeCompare(b.name));
    const gone=all.filter(r=>!r.hit).sort((a,b)=>a.name.localeCompare(b.name));
    if(!found.length){rows.appendChild(el(`<div class="hm-deep">${esc(t('tkNone'))}</div>`));}
@@ -9700,6 +9942,7 @@ const EMBED=/[?&]embed=1/.test(location.search);
  const EMBTHEME=(location.search.match(/[?&]theme=(light|dark)/)||[])[1];
  const BARE=/[?&]bare=1/.test(location.search);
  initTheme();
+ try{a11yInit();}catch(e){}
  autoStamp();
  try{applyOsOverrides();}catch(e){}
  try{applySiteCfg();}catch(e){}
