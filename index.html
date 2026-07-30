@@ -466,7 +466,7 @@ body.light .lang-row.on{background:rgba(10,132,255,.12);color:#0a6bd6}
 .ios-widget svg,.at-glance svg,.pixel-search svg,.pixel-search .px-mic svg{fill:currentColor}
 
 /* Android (Material) theme */
-.os-android{font-family:'Roboto','Segoe UI',var(--sf);--group-bg:#f8f9fd}
+.os-android{font-family:var(--osf,'Roboto','Segoe UI',var(--sf));--group-bg:#f8f9fd}
 .os-android .phone-topbar{background:#f8f9fd;border-bottom:none}
 .os-android .ph-title{font-weight:500}
 .os-android .ph-back{color:#1f1f1f}.os-android .ph-back .chev path{stroke:#444746}
@@ -1607,6 +1607,45 @@ body.printing{overflow:hidden}
 .hm-deep{margin-top:22px;border:1px solid rgba(255,255,255,.09);border-radius:14px;background:rgba(255,255,255,.04);padding:13px 15px;font-size:12.5px;line-height:1.7;color:#a6a6b4}
 .hm-deep b{color:#f5f5f7}
 @media (max-width:620px){.hm-tot{display:none}}
+/* --- sensory polish: per-OS system fonts, pointer-tracked shadow, boot sequence --- */
+.stage{--px:0;--py:0}
+.stage .screen{font-family:var(--osf,var(--sf))}
+.snsr .device{box-shadow:calc(var(--px)*-32px) calc(40px - var(--py)*16px) 80px rgba(0,0,0,.55),0 0 0 2px #2a2a2e inset,0 0 0 6px #050505}
+.snsr .monitor{box-shadow:calc(var(--px)*-32px) calc(40px - var(--py)*16px) 80px rgba(0,0,0,.55),0 0 0 2px #2a2a2e inset,0 0 0 6px #050505}
+.snsr .device.device-watch{box-shadow:calc(var(--px)*-24px) calc(40px - var(--py)*12px) 80px rgba(0,0,0,.55),0 0 0 3px #232327,0 0 0 8px #050505}
+.snsr .device.device-tv{box-shadow:calc(var(--px)*-38px) calc(50px - var(--py)*18px) 90px rgba(0,0,0,.6),0 0 0 2px #26262a,0 0 0 7px #050505}
+.snsr .device.device-vision{box-shadow:calc(var(--px)*-32px) calc(40px - var(--py)*16px) 90px rgba(0,0,0,.6),0 0 0 3px #1c1c22,0 0 0 8px #050505}
+.glare{position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:8;opacity:0;transition:opacity .35s;background:radial-gradient(58% 42% at calc(50% + var(--px,0)*46%) calc(34% + var(--py,0)*30%),rgba(255,255,255,.115),rgba(255,255,255,.03) 42%,transparent 72%)}
+.snsr .glare{opacity:1}
+body.recording .glare{display:none}
+/* boot sequence — one black curtain over the screen, logo, then it lifts */
+.bootv{position:absolute;inset:0;z-index:60;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;background:#000;border-radius:inherit;overflow:hidden;animation:bootIn .18s ease}
+.bootv.pale{background:#dcdce1}
+.bootv.lift{animation:bootOut .42s ease forwards}
+@keyframes bootIn{from{opacity:0}to{opacity:1}}
+@keyframes bootOut{to{opacity:0;transform:scale(1.03)}}
+.boot-mark{width:70px;height:70px;display:flex;align-items:center;justify-content:center;animation:bootMark .9s cubic-bezier(.2,.8,.3,1)}
+.boot-mark svg{width:100%;height:100%;fill:#fff;filter:drop-shadow(0 0 22px rgba(255,255,255,.22))}
+.bootv.pale .boot-mark svg{fill:#1c1c1e;filter:none}
+@keyframes bootMark{from{opacity:0;transform:scale(.86)}60%{opacity:1}to{opacity:1;transform:scale(1)}}
+.boot-bar{width:132px;height:4px;border-radius:100px;background:rgba(255,255,255,.17);overflow:hidden}
+.bootv.pale .boot-bar{background:rgba(0,0,0,.14)}
+.boot-bar i{display:block;height:100%;width:0;border-radius:100px;background:#fff;animation:bootFill var(--bd,1150ms) cubic-bezier(.4,0,.3,1) forwards}
+.bootv.pale .boot-bar i{background:#1c1c1e}
+@keyframes bootFill{from{width:0}70%{width:76%}to{width:100%}}
+.boot-dots{display:flex;gap:8px}
+.boot-dots i{width:8px;height:8px;border-radius:50%;background:#fff;opacity:.3;animation:bootDot 1s infinite}
+.bootv.pale .boot-dots i{background:#1c1c1e}
+.boot-dots i:nth-child(2){animation-delay:.14s}.boot-dots i:nth-child(3){animation-delay:.28s}
+.boot-dots i:nth-child(4){animation-delay:.42s}.boot-dots i:nth-child(5){animation-delay:.56s}
+@keyframes bootDot{0%,80%,100%{opacity:.28;transform:scale(.8)}40%{opacity:1;transform:scale(1)}}
+.boot-nm{position:absolute;bottom:24px;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.4);font-family:var(--sf)}
+.bootv.pale .boot-nm{color:rgba(0,0,0,.4)}
+@media (prefers-reduced-motion:reduce){
+ .bootv,.bootv.lift,.boot-mark,.boot-bar i,.boot-dots i{animation:none}
+ .boot-bar i{width:100%}
+ .snsr .glare{opacity:0}
+}
 .gif-spin{width:44px;height:44px;margin:18px auto 22px;border-radius:50%;border:3px solid rgba(255,255,255,.16);border-top-color:#0a84ff;animation:gifSpin .85s linear infinite}
 body.light .gif-spin{border-color:rgba(0,0,0,.12);border-top-color:#0a84ff}
 @keyframes gifSpin{to{transform:rotate(360deg)}}
@@ -5240,7 +5279,7 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
   w.addEventListener('click',()=>{document.querySelectorAll('.os-picker.open').forEach(o=>o.classList.remove('open'));document.querySelectorAll('.user-wrap.open').forEach(o=>o.classList.remove('open'));});
  }
 
- function boot(pid,v){try{store.set('lastOpened',{pid,ver:v});track('launch',pid);}catch(e){}state.platform=PLATFORMS.find(p=>p.id===pid);state.version=v;state.view=(['mac','win','linux','chromeos','winclassic','macclassic'].includes(state.platform.frame))?'desktop':'home';state.selectedId=null;state.stack=[];state.zoom=1;state.rotated=false;state.prefs={};state.rx={};state.filter='';state.winOpen=false;state.startOpen=false;state.deviceLang=state.lang;renderDevice();syncHash();}
+ function boot(pid,v){try{store.set('lastOpened',{pid,ver:v});track('launch',pid);}catch(e){}state.platform=PLATFORMS.find(p=>p.id===pid);state.version=v;state.view=(['mac','win','linux','chromeos','winclassic','macclassic'].includes(state.platform.frame))?'desktop':'home';state.selectedId=null;state.stack=[];state.zoom=1;state.rotated=false;state.prefs={};state.rx={};state.filter='';state.winOpen=false;state.startOpen=false;state.deviceLang=state.lang;try{snsrBootNext();}catch(e){}renderDevice();syncHash();}
  /* ---------- version-aware layer ---------- */
  function verMajor(){const m=(state.version||'').match(/\d+/);return m?+m[0]:0;}
  const WALLS={
@@ -5414,7 +5453,7 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
   else if(state.view==='home')renderHome(screen);else renderSettings(screen);
   finalizeZoom();
  }
- function finalizeZoom(){if(state.autoFit)requestAnimationFrame(fit);else applyZoom();applyReactive();try{tmMount();}catch(e){}}
+ function finalizeZoom(){if(state.autoFit)requestAnimationFrame(fit);else applyZoom();applyReactive();try{tmMount();}catch(e){}try{const st=document.querySelector('.stage');if(st){snsrFont(st);snsrShadow(st);}snsrBoot();}catch(e){}}
 
  /* ---- phone (iOS / Android) ---- */
  function renderPhone(screen){
@@ -6031,7 +6070,7 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
  let USER=store.get('user',null);
  /* build/version stamp. version is bumped per release; deploy time is detected
     automatically from the served file (falls back to this baked time). */
- const BUILD={version:'1.30.0',time:'2026-07-31T04:20:00Z'};
+ const BUILD={version:'1.31.0',time:'2026-07-31T06:05:00Z'};
  function buildTimeStr(){try{return new Date(BUILD.time).toLocaleString(state.lang||'en',{dateStyle:'medium',timeStyle:'short'});}catch(e){return (BUILD.time||'').replace('T',' ').replace('Z',' UTC');}}
  function updateFooterVer(){document.querySelectorAll('.foot-ver').forEach(fv=>{fv.innerHTML=`<span class="fv-badge">v${esc(BUILD.version)}</span><span>${esc(t('deployLabel'))}: ${esc(buildTimeStr())}</span>`;});}
  /* auto deploy time: use the served file's Last-Modified (document.lastModified).
@@ -8168,6 +8207,97 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
   wrap.addEventListener('click',e=>{if(!e.target.closest('.lin-search'))closeAc();});
   if(name){inp.value=name;show(name);}else setTimeout(()=>{try{inp.focus();}catch(e){}},60);
  }
+ /* ===================== SENSORY POLISH =====================
+    Three small lies that make the simulator feel like hardware: the type is the
+    type the real system ships with, the shadow knows where the light is, and a
+    machine you have just switched on takes a breath before it is ready. */
+ const OSFONT={
+  ios:'-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Helvetica Neue","Segoe UI",Roboto,sans-serif',
+  windows:'"Segoe UI Variable Text","Segoe UI Variable","Segoe UI","Segoe UI Web (West European)",system-ui,sans-serif',
+  winclassic:'Tahoma,"MS Sans Serif","Segoe UI",Verdana,Geneva,sans-serif',
+  macclassic:'Charcoal,Geneva,"Lucida Grande","Helvetica Neue",Helvetica,sans-serif',
+  android:'Roboto,"Noto Sans","Droid Sans","Helvetica Neue",Arial,sans-serif',
+  oneui:'"SamsungOne","Samsung Sans",Roboto,"Noto Sans",Arial,sans-serif',
+  gnome:'Cantarell,"Adwaita Sans","Source Sans Pro","Noto Sans","Segoe UI",sans-serif',
+  ubuntu:'Ubuntu,"Ubuntu Sans",Cantarell,"Noto Sans","Segoe UI",sans-serif',
+  chromeos:'"Google Sans","Google Sans Text",Roboto,"Noto Sans",Arial,sans-serif',
+  fira:'"Fira Sans","Fira Sans OT","Noto Sans",Roboto,"Segoe UI",sans-serif',
+  nokia:'"Nokia Pure Text","Nokia Sans",Tahoma,"Segoe UI",Arial,sans-serif',
+  steam:'"Motiva Sans","Arial Narrow",Arial,Helvetica,sans-serif',
+  ps:'"SST","SST Light","Segoe UI",Roboto,Helvetica,Arial,sans-serif',
+  nintendo:'"Nintendo Standard","Noto Sans",Roboto,"Segoe UI",Arial,sans-serif',
+  huawei:'"HarmonyOS Sans","Huawei Sans",Roboto,"Noto Sans",Arial,sans-serif',
+  lg:'"LG Smart",Roboto,"Noto Sans",Arial,Helvetica,sans-serif'
+ };
+ /* Which type foundry each system belongs to. Everything here is the stack the
+    system itself asks for — on a visitor's own machine the first name usually
+    resolves for real, and elsewhere the fallback keeps the metrics close. */
+ const OSFONT_MAP={
+  ios:'ios',ipados:'ios',macos:'ios',watchos:'ios',tvos:'ios',visionos:'ios',carplay:'ios',ios6:'ios',
+  macosx:'ios',macos9:'macclassic',
+  windows:'windows',winphone:'windows',win7:'windows',winxp:'winclassic',win9x:'winclassic',
+  android:'android',hyperos:'android',oxygenos:'android',wearos:'android',androidtv:'android',
+  androidauto:'android',fireos:'android',quest:'android',oneui:'oneui',tizentv:'oneui',
+  harmony:'huawei',huaweiwatch:'huawei',
+  ubuntu:'ubuntu',chromeos:'chromeos',
+  kaios:'fira',firefoxos:'fira',symbian:'nokia',blackberry:'nokia',
+  steamdeck:'steam',playstation:'ps',nswitch:'nintendo',xbox:'windows',
+  webos:'lg',webosose:'lg',roku:'android',garmin:'android',fitbit:'android',zepp:'android'
+ };
+ function snsrOn(){try{return featOn('sensory');}catch(e){return true;}}
+ function snsrReduced(){try{return matchMedia('(prefers-reduced-motion:reduce)').matches;}catch(e){return false;}}
+ /* The device gets the system's own type; the page chrome keeps its own. */
+ function snsrFont(stage){
+  if(!stage)return;
+  const key=OSFONT_MAP[(state.platform||{}).id];
+  const stack=snsrOn()&&key?OSFONT[key]:'';
+  if(stack)stage.style.setProperty('--osf',stack);else stage.style.removeProperty('--osf');
+ }
+ /* The light source sits where the pointer is, so the drop shadow leans away
+    from it and a faint sheen slides across the glass. Pointer only — a finger
+    is already touching the thing it would be lighting. */
+ let SN_MOVE=null;
+ function snsrShadow(stage){
+  const wrap=stage.querySelector('.device-wrap'),inner=wrap&&wrap.firstElementChild;
+  if(SN_MOVE){window.removeEventListener('pointermove',SN_MOVE);SN_MOVE=null;}
+  stage.classList.remove('snsr');stage.style.removeProperty('--px');stage.style.removeProperty('--py');
+  if(!inner||!snsrOn()||snsrReduced())return;
+  if(!inner.querySelector(':scope > .glare'))inner.appendChild(el('<div class="glare"></div>'));
+  stage.classList.add('snsr');
+  let raf=0,nx=0,ny=0;
+  const apply=()=>{raf=0;stage.style.setProperty('--px',nx.toFixed(3));stage.style.setProperty('--py',ny.toFixed(3));};
+  SN_MOVE=e=>{
+   if(e.pointerType==='touch')return;
+   const r=inner.getBoundingClientRect();if(!r.width)return;
+   nx=Math.max(-1.4,Math.min(1.4,(e.clientX-(r.left+r.width/2))/(r.width/2)));
+   ny=Math.max(-1.4,Math.min(1.4,(e.clientY-(r.top+r.height/2))/(r.height/2)));
+   if(!raf)raf=requestAnimationFrame(apply);
+  };
+  window.addEventListener('pointermove',SN_MOVE,{passive:true});
+ }
+ /* A cold start. Apple machines get the mark and a filling bar; the rest get the
+    mark and the row of dots every other platform settled on. Click to skip. */
+ const BOOT_BAR=['ios','ipados','macos','watchos','tvos','visionos','carplay','ios6','macosx','macos9','win7','winxp','win9x'];
+ const BOOT_PALE={macos9:1,macosx:1,win7:1};
+ let SN_BOOT=null;
+ function snsrBootNext(){if(snsrOn()&&!snsrReduced()&&!document.body.classList.contains('recording'))SN_BOOT=1;}
+ function snsrBoot(){
+  if(!SN_BOOT)return;SN_BOOT=null;
+  const pf=state.platform,screen=document.querySelector('.stage .screen');
+  if(!pf||!screen)return;
+  const bar=BOOT_BAR.indexOf(pf.id)>=0;
+  const v=el(`<div class="bootv ${BOOT_PALE[pf.id]?'pale':''}" style="--bd:900ms">
+    <div class="boot-mark"><svg viewBox="0 0 24 24">${LOGOS[pf.logo]||''}</svg></div>
+    ${bar?'<div class="boot-bar"><i></i></div>':'<div class="boot-dots"><i></i><i></i><i></i><i></i><i></i></div>'}
+    <div class="boot-nm">${esc(pf.name)} ${esc(state.version||'')}</div></div>`);
+  screen.appendChild(v);
+  let done=false;
+  const end=()=>{if(done)return;done=true;v.classList.add('lift');setTimeout(()=>{if(v.parentNode)v.parentNode.removeChild(v);},430);};
+  v.addEventListener('click',end);
+  const key=e=>{document.removeEventListener('keydown',key);end();};
+  document.addEventListener('keydown',key,{once:true});
+  setTimeout(end,900);
+ }
  /* ===================== BURIAL-DEPTH HEATMAP =====================
     The trees answer a question nobody has bothered to ask them: how far from
     the home screen does each system park the thing you were looking for?
@@ -8542,7 +8672,7 @@ function nDateTime(){return D('Date & time',[S([T('Set time automatically',true)
   else if(kind==='url'){try{window.open(val,'_blank','noopener');}catch(e){}}
  }
  /* features */
- const FEATS=[{k:'guides',en:'Guides',tr:'Rehberler'},{k:'compare',en:'Comparisons',tr:'Karşılaştırmalar'},{k:'vs',en:'Side-by-side',tr:'Yan yana'},{k:'find',en:'Setting finder',tr:'Ayar bulucu'},{k:'changes',en:'Version changes',tr:'Sürüm farkları'},{k:'lineage',en:'Settings genealogy',tr:'Ayar soyağacı'},{k:'depth',en:'Burial-depth heatmap',tr:'Gömülme derinliği ısı haritası'},{k:'daily',en:'Daily challenge',tr:'Günlük görev'},{k:'quiz',en:'Which OS? quiz',tr:'Hangi OS? quiz'},{k:'embed',en:'Embed builder',tr:'Gömme aracı'},{k:'search',en:'Global search',tr:'Global arama'},{k:'ai',en:'OS AI assistant',tr:'OS AI asistanı'},{k:'magic',en:'Magic teleport',tr:'Sihir ışınlama'},{k:'newsletter',en:'Newsletter',tr:'E-Bülten'},{k:'cookie',en:'Cookie banner',tr:'Çerez bildirimi'}];
+ const FEATS=[{k:'guides',en:'Guides',tr:'Rehberler'},{k:'compare',en:'Comparisons',tr:'Karşılaştırmalar'},{k:'vs',en:'Side-by-side',tr:'Yan yana'},{k:'find',en:'Setting finder',tr:'Ayar bulucu'},{k:'changes',en:'Version changes',tr:'Sürüm farkları'},{k:'lineage',en:'Settings genealogy',tr:'Ayar soyağacı'},{k:'depth',en:'Burial-depth heatmap',tr:'Gömülme derinliği ısı haritası'},{k:'sensory',en:'Sensory polish (boot, shadow, system fonts)',tr:'Duyusal cila (açılış, gölge, sistem yazı tipleri)'},{k:'daily',en:'Daily challenge',tr:'Günlük görev'},{k:'quiz',en:'Which OS? quiz',tr:'Hangi OS? quiz'},{k:'embed',en:'Embed builder',tr:'Gömme aracı'},{k:'search',en:'Global search',tr:'Global arama'},{k:'ai',en:'OS AI assistant',tr:'OS AI asistanı'},{k:'magic',en:'Magic teleport',tr:'Sihir ışınlama'},{k:'newsletter',en:'Newsletter',tr:'E-Bülten'},{k:'cookie',en:'Cookie banner',tr:'Çerez bildirimi'}];
  function featOn(k){const f=store.get('features',{});return f[k]!==false;}
  function setFeat(k,v){const f=store.get('features',{});f[k]=v;store.set('features',f);queueConfigPush();}
  /* OS overrides */
